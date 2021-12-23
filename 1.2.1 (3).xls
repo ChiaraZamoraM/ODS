@@ -1,0 +1,1416 @@
+<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:x='urn:schemas-microsoft-com:office:excel' xmlns='http://www.w3.org/TR/REC-html40'><head><meta http-equiv="Content-type" content="text/html;charset=utf-8" /><!--[if gte mso 9]><xml><x:ExcelWorkbook><x:ExcelWorksheets><x:ExcelWorksheet><x:Name>1.2.1: Incidencia de la pobreza monetaria total</x:Name><x:WorksheetOptions><x:DisplayGridlines/></x:WorksheetOptions></x:ExcelWorksheet></x:ExcelWorksheets></x:ExcelWorkbook></xml><![endif]--></head><body><div><p style='font-size:18px;font-weight:900'>OBJETIVO 1: PONER FIN A LA POBREZA EN TODAS SUS FORMAS Y EN TODO EL MUNDO</p><p style='font-size:15px;font-weight:900'>META 1.2: DE AQUÍ A 2030, REDUCIR AL MENOS A LA MITAD LA PROPORCIÓN DE HOMBRES, MUJERES Y NIÑOS DE TODAS LAS EDADES QUE VIVEN EN LA POBREZA EN TODAS SUS DIMENSIONES CON ARREGLO A LAS DEFINICIONES NACIONALES</p><p style='font-size:13px;font-weight:900'>INDICADOR 1.2.1: INCIDENCIA DE LA POBREZA MONETARIA TOTAL</p><p style='font-size:13px;font-weight:900'>PORCENTAJE</p>
+										<table id='tb_cuadro_indicador' class='table table-bordered table-responsive  no-footer'>
+											<thead>
+						<tr class='th_cabecera' style='color: rgb(255, 255, 255);'><th style='text-align: center; background-color: rgb(229, 35, 61); color: rgb(255, 255, 255);'></th><th style='text-align: center; background-color: rgb(229, 35, 61); color: rgb(255, 255, 255);'>2004</th><th style='text-align: center; background-color: rgb(229, 35, 61); color: rgb(255, 255, 255);'>2005</th><th style='text-align: center; background-color: rgb(229, 35, 61); color: rgb(255, 255, 255);'>2006</th><th style='text-align: center; background-color: rgb(229, 35, 61); color: rgb(255, 255, 255);'>2007</th><th style='text-align: center; background-color: rgb(229, 35, 61); color: rgb(255, 255, 255);'>2008</th><th style='text-align: center; background-color: rgb(229, 35, 61); color: rgb(255, 255, 255);'>2009</th><th style='text-align: center; background-color: rgb(229, 35, 61); color: rgb(255, 255, 255);'>2010</th><th style='text-align: center; background-color: rgb(229, 35, 61); color: rgb(255, 255, 255);'>2011</th><th style='text-align: center; background-color: rgb(229, 35, 61); color: rgb(255, 255, 255);'>2012</th><th style='text-align: center; background-color: rgb(229, 35, 61); color: rgb(255, 255, 255);'>2013</th><th style='text-align: center; background-color: rgb(229, 35, 61); color: rgb(255, 255, 255);'>2014</th><th style='text-align: center; background-color: rgb(229, 35, 61); color: rgb(255, 255, 255);'>2015</th><th style='text-align: center; background-color: rgb(229, 35, 61); color: rgb(255, 255, 255);'>2016</th><th style='text-align: center; background-color: rgb(229, 35, 61); color: rgb(255, 255, 255);'>2017</th><th style='text-align: center; background-color: rgb(229, 35, 61); color: rgb(255, 255, 255);'>2018</th><th style='text-align: center; background-color: rgb(229, 35, 61); color: rgb(255, 255, 255);'>2019</th><th style='text-align: center; background-color: rgb(229, 35, 61); color: rgb(255, 255, 255);'>2020</th></tr>
+					</thead>
+											<tbody>
+						<tr><td class='td_ambito ambito1' colspan='18' style='background-color: rgb(250, 255, 232); text-align: left; font-weight: bold; padding: 5px 20px; display: table-cell;'>NACIONAL</td></tr><tr><td id='sub_ambito_1' class='td_sub_ambito ambito1' style='text-align: left; padding: 5px 20px; display: table-cell;'>Nacional</td><td class='td_body_data ambito1' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>58.7</td><td class='td_body_data ambito1' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>55.6</td><td class='td_body_data ambito1' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>49.1</td><td class='td_body_data ambito1' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>42.4</td><td class='td_body_data ambito1' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>37.3</td><td class='td_body_data ambito1' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>33.5</td><td class='td_body_data ambito1' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>30.8</td><td class='td_body_data ambito1' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>27.8</td><td class='td_body_data ambito1' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>25.8</td><td class='td_body_data ambito1' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>23.9</td><td class='td_body_data ambito1' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>22.7</td><td class='td_body_data ambito1' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>21.8</td><td class='td_body_data ambito1' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>20.7</td><td class='td_body_data ambito1' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>21.7</td><td class='td_body_data ambito1' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>20.5</td><td class='td_body_data ambito1' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>20.2</td><td class='td_body_data ambito1' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>30.1</td></tr>
+					
+						<tr><td class='td_ambito ambito2' colspan='18' style='background-color: rgb(250, 255, 232); text-align: left; font-weight: bold; padding: 5px 20px; display: table-cell;'>ÁREA DE RESIDENCIA</td></tr><tr><td id='sub_ambito_2' class='td_sub_ambito ambito2' style='text-align: left; padding: 5px 20px; display: table-cell;'>Urbana</td><td class='td_body_data ambito2' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>48.2</td><td class='td_body_data ambito2' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>44.5</td><td class='td_body_data ambito2' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>37.0</td><td class='td_body_data ambito2' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>30.1</td><td class='td_body_data ambito2' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>25.4</td><td class='td_body_data ambito2' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>21.3</td><td class='td_body_data ambito2' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>20.0</td><td class='td_body_data ambito2' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>18.0</td><td class='td_body_data ambito2' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>16.6</td><td class='td_body_data ambito2' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>16.1</td><td class='td_body_data ambito2' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>15.3</td><td class='td_body_data ambito2' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>14.5</td><td class='td_body_data ambito2' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>13.9</td><td class='td_body_data ambito2' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>15.1</td><td class='td_body_data ambito2' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>14.4</td><td class='td_body_data ambito2' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>14.6</td><td class='td_body_data ambito2' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>26.0</td></tr>
+					
+						<tr><td id='sub_ambito_3' class='td_sub_ambito ambito2' style='text-align: left; padding: 5px 20px; display: table-cell;'>Rural</td><td class='td_body_data ambito2' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>83.4</td><td class='td_body_data ambito2' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>82.5</td><td class='td_body_data ambito2' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>79.3</td><td class='td_body_data ambito2' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>74.0</td><td class='td_body_data ambito2' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>68.8</td><td class='td_body_data ambito2' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>66.7</td><td class='td_body_data ambito2' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>61.0</td><td class='td_body_data ambito2' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>56.1</td><td class='td_body_data ambito2' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>53.0</td><td class='td_body_data ambito2' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>48.0</td><td class='td_body_data ambito2' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>46.0</td><td class='td_body_data ambito2' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>45.2</td><td class='td_body_data ambito2' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>43.8</td><td class='td_body_data ambito2' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>44.4</td><td class='td_body_data ambito2' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>42.1</td><td class='td_body_data ambito2' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>40.8</td><td class='td_body_data ambito2' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>45.7</td></tr>
+					
+						<tr><td class='td_ambito ambito3' colspan='18' style='background-color: rgb(250, 255, 232); text-align: left; font-weight: bold; padding: 5px 20px; display: table-cell;'>REGIÓN NATURAL</td></tr><tr><td id='sub_ambito_4' class='td_sub_ambito ambito3' style='text-align: left; padding: 5px 20px; display: table-cell;'>Costa</td><td class='td_body_data ambito3' style='padding: 5px 20px; text-align: center; display: table-cell;' cell103=''>-</td><td class='td_body_data ambito3' style='padding: 5px 20px; text-align: center; display: table-cell;' cell103=''>-</td><td class='td_body_data ambito3' style='padding: 5px 20px; text-align: center; display: table-cell;' cell103=''>-</td><td class='td_body_data ambito3' style='padding: 5px 20px; text-align: center; display: table-cell;' cell102=''>29.3</td><td class='td_body_data ambito3' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>25.3</td><td class='td_body_data ambito3' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>20.7</td><td class='td_body_data ambito3' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>19.8</td><td class='td_body_data ambito3' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>17.8</td><td class='td_body_data ambito3' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>16.5</td><td class='td_body_data ambito3' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>15.7</td><td class='td_body_data ambito3' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>14.3</td><td class='td_body_data ambito3' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>13.8</td><td class='td_body_data ambito3' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>12.8</td><td class='td_body_data ambito3' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>14.4</td><td class='td_body_data ambito3' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>13.5</td><td class='td_body_data ambito3' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>13.8</td><td class='td_body_data ambito3' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>25.9</td></tr>
+					
+						<tr><td id='sub_ambito_5' class='td_sub_ambito ambito3' style='text-align: left; padding: 5px 20px; display: table-cell;'>Sierra</td><td class='td_body_data ambito3' style='padding: 5px 20px; text-align: center; display: table-cell;' cell103=''>-</td><td class='td_body_data ambito3' style='padding: 5px 20px; text-align: center; display: table-cell;' cell103=''>-</td><td class='td_body_data ambito3' style='padding: 5px 20px; text-align: center; display: table-cell;' cell103=''>-</td><td class='td_body_data ambito3' style='padding: 5px 20px; text-align: center; display: table-cell;' cell102=''>58.1</td><td class='td_body_data ambito3' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>53.0</td><td class='td_body_data ambito3' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>48.9</td><td class='td_body_data ambito3' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>45.2</td><td class='td_body_data ambito3' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>41.5</td><td class='td_body_data ambito3' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>38.5</td><td class='td_body_data ambito3' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>34.7</td><td class='td_body_data ambito3' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>33.8</td><td class='td_body_data ambito3' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>32.5</td><td class='td_body_data ambito3' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>31.7</td><td class='td_body_data ambito3' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>31.6</td><td class='td_body_data ambito3' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>30.4</td><td class='td_body_data ambito3' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>29.3</td><td class='td_body_data ambito3' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>37.4</td></tr>
+					
+						<tr><td id='sub_ambito_6' class='td_sub_ambito ambito3' style='text-align: left; padding: 5px 20px; display: table-cell;'>Selva</td><td class='td_body_data ambito3' style='padding: 5px 20px; text-align: center; display: table-cell;' cell103=''>-</td><td class='td_body_data ambito3' style='padding: 5px 20px; text-align: center; display: table-cell;' cell103=''>-</td><td class='td_body_data ambito3' style='padding: 5px 20px; text-align: center; display: table-cell;' cell103=''>-</td><td class='td_body_data ambito3' style='padding: 5px 20px; text-align: center; display: table-cell;' cell102=''>55.8</td><td class='td_body_data ambito3' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>46.4</td><td class='td_body_data ambito3' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>47.1</td><td class='td_body_data ambito3' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>39.8</td><td class='td_body_data ambito3' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>35.2</td><td class='td_body_data ambito3' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>32.5</td><td class='td_body_data ambito3' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>31.2</td><td class='td_body_data ambito3' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>30.4</td><td class='td_body_data ambito3' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>28.9</td><td class='td_body_data ambito3' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>27.4</td><td class='td_body_data ambito3' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>28.6</td><td class='td_body_data ambito3' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>26.5</td><td class='td_body_data ambito3' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>25.8</td><td class='td_body_data ambito3' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>31.0</td></tr>
+					
+						<tr><td class='td_ambito ambito6' colspan='18' style='background-color: rgb(250, 255, 232); text-align: left; font-weight: bold; padding: 5px 20px; display: table-cell;'>DOMINIO GEOGRÁFICO</td></tr><tr><td id='sub_ambito_35' class='td_sub_ambito ambito6' style='text-align: left; padding: 5px 20px; display: table-cell;'>Costa urbana</td><td class='td_body_data ambito6' style='padding: 5px 20px; text-align: center; display: table-cell;' cell103=''>-</td><td class='td_body_data ambito6' style='padding: 5px 20px; text-align: center; display: table-cell;' cell103=''>-</td><td class='td_body_data ambito6' style='padding: 5px 20px; text-align: center; display: table-cell;' cell103=''>-</td><td class='td_body_data ambito6' style='padding: 5px 20px; text-align: center; display: table-cell;' cell102=''>31.7</td><td class='td_body_data ambito6' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>27.4</td><td class='td_body_data ambito6' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>23.7</td><td class='td_body_data ambito6' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>23.0</td><td class='td_body_data ambito6' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>18.2</td><td class='td_body_data ambito6' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>17.5</td><td class='td_body_data ambito6' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>18.4</td><td class='td_body_data ambito6' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>16.3</td><td class='td_body_data ambito6' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>16.1</td><td class='td_body_data ambito6' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>13.7</td><td class='td_body_data ambito6' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>15.0</td><td class='td_body_data ambito6' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>12.7</td><td class='td_body_data ambito6' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>12.3</td><td class='td_body_data ambito6' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>22.9</td></tr>
+					
+						<tr><td id='sub_ambito_36' class='td_sub_ambito ambito6' style='text-align: left; padding: 5px 20px; display: table-cell;'>Costa rural</td><td class='td_body_data ambito6' style='padding: 5px 20px; text-align: center; display: table-cell;' cell103=''>-</td><td class='td_body_data ambito6' style='padding: 5px 20px; text-align: center; display: table-cell;' cell103=''>-</td><td class='td_body_data ambito6' style='padding: 5px 20px; text-align: center; display: table-cell;' cell103=''>-</td><td class='td_body_data ambito6' style='padding: 5px 20px; text-align: center; display: table-cell;' cell102=''>53.8</td><td class='td_body_data ambito6' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>46.6</td><td class='td_body_data ambito6' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>46.5</td><td class='td_body_data ambito6' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>38.3</td><td class='td_body_data ambito6' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>37.1</td><td class='td_body_data ambito6' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>31.6</td><td class='td_body_data ambito6' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>29.0</td><td class='td_body_data ambito6' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>29.2</td><td class='td_body_data ambito6' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>30.6</td><td class='td_body_data ambito6' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>28.9</td><td class='td_body_data ambito6' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>24.6</td><td class='td_body_data ambito6' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>25.1</td><td class='td_body_data ambito6' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>21.1</td><td class='td_body_data ambito6' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>30.4</td></tr>
+					
+						<tr><td id='sub_ambito_37' class='td_sub_ambito ambito6' style='text-align: left; padding: 5px 20px; display: table-cell;'>Sierra urbana</td><td class='td_body_data ambito6' style='padding: 5px 20px; text-align: center; display: table-cell;' cell103=''>-</td><td class='td_body_data ambito6' style='padding: 5px 20px; text-align: center; display: table-cell;' cell103=''>-</td><td class='td_body_data ambito6' style='padding: 5px 20px; text-align: center; display: table-cell;' cell103=''>-</td><td class='td_body_data ambito6' style='padding: 5px 20px; text-align: center; display: table-cell;' cell102=''>31.8</td><td class='td_body_data ambito6' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>26.7</td><td class='td_body_data ambito6' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>23.2</td><td class='td_body_data ambito6' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>21.0</td><td class='td_body_data ambito6' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>18.7</td><td class='td_body_data ambito6' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>17.0</td><td class='td_body_data ambito6' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>16.2</td><td class='td_body_data ambito6' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>17.5</td><td class='td_body_data ambito6' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>16.6</td><td class='td_body_data ambito6' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>16.9</td><td class='td_body_data ambito6' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>16.3</td><td class='td_body_data ambito6' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>16.7</td><td class='td_body_data ambito6' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>16.1</td><td class='td_body_data ambito6' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>27.0</td></tr>
+					
+						<tr><td id='sub_ambito_38' class='td_sub_ambito ambito6' style='text-align: left; padding: 5px 20px; display: table-cell;'>Sierra rural</td><td class='td_body_data ambito6' style='padding: 5px 20px; text-align: center; display: table-cell;' cell103=''>-</td><td class='td_body_data ambito6' style='padding: 5px 20px; text-align: center; display: table-cell;' cell103=''>-</td><td class='td_body_data ambito6' style='padding: 5px 20px; text-align: center; display: table-cell;' cell103=''>-</td><td class='td_body_data ambito6' style='padding: 5px 20px; text-align: center; display: table-cell;' cell102=''>79.2</td><td class='td_body_data ambito6' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>74.9</td><td class='td_body_data ambito6' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>71.0</td><td class='td_body_data ambito6' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>66.7</td><td class='td_body_data ambito6' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>62.3</td><td class='td_body_data ambito6' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>58.8</td><td class='td_body_data ambito6' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>52.9</td><td class='td_body_data ambito6' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>50.4</td><td class='td_body_data ambito6' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>49.0</td><td class='td_body_data ambito6' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>47.8</td><td class='td_body_data ambito6' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>48.7</td><td class='td_body_data ambito6' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>46.1</td><td class='td_body_data ambito6' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>45.2</td><td class='td_body_data ambito6' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>50.4</td></tr>
+					
+						<tr><td id='sub_ambito_39' class='td_sub_ambito ambito6' style='text-align: left; padding: 5px 20px; display: table-cell;'>Selva urbana</td><td class='td_body_data ambito6' style='padding: 5px 20px; text-align: center; display: table-cell;' cell103=''>-</td><td class='td_body_data ambito6' style='padding: 5px 20px; text-align: center; display: table-cell;' cell103=''>-</td><td class='td_body_data ambito6' style='padding: 5px 20px; text-align: center; display: table-cell;' cell103=''>-</td><td class='td_body_data ambito6' style='padding: 5px 20px; text-align: center; display: table-cell;' cell102=''>44.0</td><td class='td_body_data ambito6' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>32.7</td><td class='td_body_data ambito6' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>32.7</td><td class='td_body_data ambito6' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>27.2</td><td class='td_body_data ambito6' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>26.0</td><td class='td_body_data ambito6' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>22.4</td><td class='td_body_data ambito6' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>22.9</td><td class='td_body_data ambito6' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>22.6</td><td class='td_body_data ambito6' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>20.7</td><td class='td_body_data ambito6' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>19.6</td><td class='td_body_data ambito6' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>20.5</td><td class='td_body_data ambito6' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>19.3</td><td class='td_body_data ambito6' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>19.0</td><td class='td_body_data ambito6' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>26.3</td></tr>
+					
+						<tr><td id='sub_ambito_40' class='td_sub_ambito ambito6' style='text-align: left; padding: 5px 20px; display: table-cell;'>Selva rural</td><td class='td_body_data ambito6' style='padding: 5px 20px; text-align: center; display: table-cell;' cell103=''>-</td><td class='td_body_data ambito6' style='padding: 5px 20px; text-align: center; display: table-cell;' cell103=''>-</td><td class='td_body_data ambito6' style='padding: 5px 20px; text-align: center; display: table-cell;' cell103=''>-</td><td class='td_body_data ambito6' style='padding: 5px 20px; text-align: center; display: table-cell;' cell102=''>69.2</td><td class='td_body_data ambito6' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>62.5</td><td class='td_body_data ambito6' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>64.4</td><td class='td_body_data ambito6' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>55.5</td><td class='td_body_data ambito6' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>47.0</td><td class='td_body_data ambito6' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>46.1</td><td class='td_body_data ambito6' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>42.6</td><td class='td_body_data ambito6' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>41.5</td><td class='td_body_data ambito6' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>41.1</td><td class='td_body_data ambito6' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>39.3</td><td class='td_body_data ambito6' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>41.4</td><td class='td_body_data ambito6' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>38.3</td><td class='td_body_data ambito6' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>37.3</td><td class='td_body_data ambito6' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>39.2</td></tr>
+					
+						<tr><td id='sub_ambito_500' class='td_sub_ambito ambito6' style='text-align: left; padding: 5px 20px; display: table-cell;'>Lima Metropolitana y Prov. Callao</td><td class='td_body_data ambito6' style='padding: 5px 20px; text-align: center; display: table-cell;' cell103=''>-</td><td class='td_body_data ambito6' style='padding: 5px 20px; text-align: center; display: table-cell;' cell103=''>-</td><td class='td_body_data ambito6' style='padding: 5px 20px; text-align: center; display: table-cell;' cell103=''>-</td><td class='td_body_data ambito6' style='padding: 5px 20px; text-align: center; display: table-cell;' cell102=''>25.1</td><td class='td_body_data ambito6' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>21.7</td><td class='td_body_data ambito6' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>16.1</td><td class='td_body_data ambito6' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>15.8</td><td class='td_body_data ambito6' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>15.6</td><td class='td_body_data ambito6' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>14.5</td><td class='td_body_data ambito6' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>12.8</td><td class='td_body_data ambito6' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>11.8</td><td class='td_body_data ambito6' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>11.0</td><td class='td_body_data ambito6' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>11.0</td><td class='td_body_data ambito6' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>13.3</td><td class='td_body_data ambito6' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>13.1</td><td class='td_body_data ambito6' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>14.2</td><td class='td_body_data ambito6' style='padding: 5px 20px; text-align: center; display: table-cell;' cell104=''>27.5</td></tr>
+					
+								<tr>
+									<td colspan='18'></td>
+								</tr>
+								<tr>
+									<td colspan='4' rowspan='2'></td>
+									<td colspan='14' style='text-align: center; background-color: rgb(229, 35, 61); color: rgb(255, 255, 255);'>Intervalos de confianza al 95%</td>
+								</tr>
+								<tr>
+									<td style='text-align: center;background-color: rgb(229, 35, 61); color: rgb(255, 255, 255);'>2007</td>
+									<td style='text-align: center;background-color: rgb(229, 35, 61); color: rgb(255, 255, 255);'>2008</td>
+									<td style='text-align: center;background-color: rgb(229, 35, 61); color: rgb(255, 255, 255);'>2009</td>
+									<td style='text-align: center;background-color: rgb(229, 35, 61); color: rgb(255, 255, 255);'>2010</td>
+									<td style='text-align: center;background-color: rgb(229, 35, 61); color: rgb(255, 255, 255);'>2011</td>
+									<td style='text-align: center;background-color: rgb(229, 35, 61); color: rgb(255, 255, 255);'>2012</td>
+									<td style='text-align: center;background-color: rgb(229, 35, 61); color: rgb(255, 255, 255);'>2013</td>
+									<td style='text-align: center;background-color: rgb(229, 35, 61); color: rgb(255, 255, 255);'>2014</td>
+									<td style='text-align: center;background-color: rgb(229, 35, 61); color: rgb(255, 255, 255);'>2015</td>
+									<td style='text-align: center;background-color: rgb(229, 35, 61); color: rgb(255, 255, 255);'>2016</td>
+									<td style='text-align: center;background-color: rgb(229, 35, 61); color: rgb(255, 255, 255);'>2017</td>
+									<td style='text-align: center;background-color: rgb(229, 35, 61); color: rgb(255, 255, 255);'>2018</td>
+									<td style='text-align: center;background-color: rgb(229, 35, 61); color: rgb(255, 255, 255);'>2019</td>
+									<td style='text-align: center;background-color: rgb(229, 35, 61); color: rgb(255, 255, 255);'>2020</td>
+								</tr>
+								<tr>
+									<td colspan='4' style='font-weight:bold; background-color: rgb(250, 255, 232); '>DEPARTAMENTO</td>
+									<td class='td_center ' style='background-color: rgb(229, 35, 61); color: rgb(255, 255, 255);'>
+										<table style='width: 80px;'>
+											<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>Inf.</td><td style='text-align: center;width: 50%;'>Sup.</td></tr>
+										</tbody></table>
+									</td>
+									<td class='td_center ' style='background-color: rgb(229, 35, 61); color: rgb(255, 255, 255);'>
+										<table style='width: 80px;'>
+											<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>Inf.</td><td style='text-align: center;width: 50%;'>Sup.</td></tr>
+										</tbody></table>
+									</td>
+									<td class='td_center ' style='background-color: rgb(229, 35, 61); color: rgb(255, 255, 255);'>
+										<table style='width: 80px;'>
+											<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>Inf.</td><td style='text-align: center;width: 50%;'>Sup.</td></tr>
+										</tbody></table>
+									</td>
+									<td class='td_center ' style='background-color: rgb(229, 35, 61); color: rgb(255, 255, 255);'>
+										<table style='width: 80px;'>
+											<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>Inf.</td><td style='text-align: center;width: 50%;'>Sup.</td></tr>
+										</tbody></table>
+									</td>
+									<td class='td_center ' style='background-color: rgb(229, 35, 61); color: rgb(255, 255, 255);'>
+										<table style='width: 80px;'>
+											<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>Inf.</td><td style='text-align: center;width: 50%;'>Sup.</td></tr>
+										</tbody></table>
+									</td>
+									<td class='td_center ' style='background-color: rgb(229, 35, 61); color: rgb(255, 255, 255);'>
+										<table style='width: 80px;'>
+											<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>Inf.</td><td style='text-align: center;width: 50%;'>Sup.</td></tr>
+										</tbody></table>
+									</td>
+									<td class='td_center ' style='background-color: rgb(229, 35, 61); color: rgb(255, 255, 255);'>
+										<table style='width: 80px;'>
+											<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>Inf.</td><td style='text-align: center;width: 50%;'>Sup.</td></tr>
+										</tbody></table>
+									</td>
+									<td class='td_center ' style='background-color: rgb(229, 35, 61); color: rgb(255, 255, 255);'>
+										<table style='width: 80px;'>
+											<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>Inf.</td><td style='text-align: center;width: 50%;'>Sup.</td></tr>
+										</tbody></table>
+									</td>
+									<td class='td_center ' style='background-color: rgb(229, 35, 61); color: rgb(255, 255, 255);'>
+										<table style='width: 80px;'>
+											<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>Inf.</td><td style='text-align: center;width: 50%;'>Sup.</td></tr>
+										</tbody></table>
+									</td>
+									<td class='td_center ' style='background-color: rgb(229, 35, 61); color: rgb(255, 255, 255);'>
+										<table style='width: 80px;'>
+											<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>Inf.</td><td style='text-align: center;width: 50%;'>Sup.</td></tr>
+										</tbody></table>
+									</td>
+									<td class='td_center ' style='background-color: rgb(229, 35, 61); color: rgb(255, 255, 255);'>
+										<table style='width: 80px;'>
+											<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>Inf.</td><td style='text-align: center;width: 50%;'>Sup.</td></tr>
+										</tbody></table>
+									</td>
+									<td class='td_center ' style='background-color: rgb(229, 35, 61); color: rgb(255, 255, 255);'>
+										<table style='width: 80px;'>
+											<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>Inf.</td><td style='text-align: center;width: 50%;'>Sup.</td></tr>
+										</tbody></table>
+									</td>
+									<td class='td_center ' style='background-color: rgb(229, 35, 61); color: rgb(255, 255, 255);'>
+										<table style='width: 80px;'>
+											<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>Inf.</td><td style='text-align: center;width: 50%;'>Sup.</td></tr>
+										</tbody></table>
+									</td>
+									<td class='td_center ' style='background-color: rgb(229, 35, 61); color: rgb(255, 255, 255);'>
+										<table style='width: 80px;'>
+											<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>Inf.</td><td style='text-align: center;width: 50%;'>Sup.</td></tr>
+										</tbody></table>
+									</td>
+								</tr>
+								<!--tr>
+									<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+									<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+								</tr-->
+									
+													<tr>
+														<td class='td_left '>Amazonas</td>												
+														<td>-</td><td>-</td><td>-</td>
+														<td class='td_center '>
+															<table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>54.1</td><td style='text-align: center;width: 50%;'>59.0</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '>
+															<table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>54.5</td><td style='text-align: center;width: 50%;'>59.2</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '>
+															<table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>53.0</td><td style='text-align: center;width: 50%;'>57.4</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>46.7</td><td style='text-align: center;width: 50%;'>50.9</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>37.4</td><td style='text-align: center;width: 50%;'>42.8</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>36.5</td><td style='text-align: center;width: 50%;'>41.2</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>47.8</td><td style='text-align: center;width: 50%;'>53.3</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>47.5</td><td style='text-align: center;width: 50%;'>53.1</td></tr>
+															</tbody></table></td>
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>44.7</td><td style='text-align: center;width: 50%;'>51.7</td></tr>
+															</tbody></table></td>											
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>32.4</td><td style='text-align: center;width: 50%;'>36.1</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>33.3</td><td style='text-align: center;width: 50%;'>36.8</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>32.9</td><td style='text-align: center;width: 50%;'>36.2</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>28.3</td><td style='text-align: center;width: 50%;'>32.7</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>31.3</td><td style='text-align: center;width: 50%;'>34.6</td></tr>
+															</tbody></table></td>												
+													</tr>		
+													<tr>
+														<td class='td_left '>Áncash</td>												
+														<td>-</td><td>-</td><td>-</td>
+														<td class='td_center '>
+															<table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>40.7</td><td style='text-align: center;width: 50%;'>46.6</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '>
+															<table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>34.9</td><td style='text-align: center;width: 50%;'>40.1</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '>
+															<table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>30.7</td><td style='text-align: center;width: 50%;'>36.3</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>25.5</td><td style='text-align: center;width: 50%;'>31.6</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>26.4</td><td style='text-align: center;width: 50%;'>30.6</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>24.4</td><td style='text-align: center;width: 50%;'>28.5</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>19.5</td><td style='text-align: center;width: 50%;'>23.4</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>19.2</td><td style='text-align: center;width: 50%;'>23.2</td></tr>
+															</tbody></table></td>
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>24.8</td><td style='text-align: center;width: 50%;'>29.0</td></tr>
+															</tbody></table></td>											
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>20.6</td><td style='text-align: center;width: 50%;'>24.7</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>33.3</td><td style='text-align: center;width: 50%;'>36.8</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>21.6</td><td style='text-align: center;width: 50%;'>24.6</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>12.0</td><td style='text-align: center;width: 50%;'>14.6</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>31.3</td><td style='text-align: center;width: 50%;'>34.6</td></tr>
+															</tbody></table></td>												
+													</tr>		
+													<tr>
+														<td class='td_left '>Apurímac</td>												
+														<td>-</td><td>-</td><td>-</td>
+														<td class='td_center '>
+															<table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>65.2</td><td style='text-align: center;width: 50%;'>71.1</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '>
+															<table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>64.0</td><td style='text-align: center;width: 50%;'>76.9</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '>
+															<table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>70.0</td><td style='text-align: center;width: 50%;'>77.7</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>58.2</td><td style='text-align: center;width: 50%;'>66.8</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>52.2</td><td style='text-align: center;width: 50%;'>57.7</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>50.1</td><td style='text-align: center;width: 50%;'>56.5</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>35.1</td><td style='text-align: center;width: 50%;'>40.1</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>35.7</td><td style='text-align: center;width: 50%;'>41.2</td></tr>
+															</tbody></table></td>
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>34.3</td><td style='text-align: center;width: 50%;'>38.5</td></tr>
+															</tbody></table></td>											
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>32.4</td><td style='text-align: center;width: 50%;'>36.1</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>23.0</td><td style='text-align: center;width: 50%;'>26.2</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>32.9</td><td style='text-align: center;width: 50%;'>36.2</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>28.3</td><td style='text-align: center;width: 50%;'>32.7</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>31.3</td><td style='text-align: center;width: 50%;'>34.6</td></tr>
+															</tbody></table></td>												
+													</tr>		
+													<tr>
+														<td class='td_left '>Arequipa</td>												
+														<td>-</td><td>-</td><td>-</td>
+														<td class='td_center '>
+															<table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>23.5</td><td style='text-align: center;width: 50%;'>27.2</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '>
+															<table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>14.2</td><td style='text-align: center;width: 50%;'>19.5</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '>
+															<table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>15.2</td><td style='text-align: center;width: 50%;'>18.6</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>14.2</td><td style='text-align: center;width: 50%;'>17.2</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>10.1</td><td style='text-align: center;width: 50%;'>13.5</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>12.5</td><td style='text-align: center;width: 50%;'>15.6</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>7.0</td><td style='text-align: center;width: 50%;'>11.0</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>5.8</td><td style='text-align: center;width: 50%;'>9.7</td></tr>
+															</tbody></table></td>
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>6.7</td><td style='text-align: center;width: 50%;'>9.8</td></tr>
+															</tbody></table></td>											
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>9.6</td><td style='text-align: center;width: 50%;'>12.0</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>12.1</td><td style='text-align: center;width: 50%;'>14.6</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>11.3</td><td style='text-align: center;width: 50%;'>13.8</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>12.0</td><td style='text-align: center;width: 50%;'>14.6</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>15.1</td><td style='text-align: center;width: 50%;'>19.5</td></tr>
+															</tbody></table></td>												
+													</tr>		
+													<tr>
+														<td class='td_left '>Ayacucho</td>												
+														<td>-</td><td>-</td><td>-</td>
+														<td class='td_center '>
+															<table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>65.2</td><td style='text-align: center;width: 50%;'>71.1</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '>
+															<table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>54.5</td><td style='text-align: center;width: 50%;'>59.2</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '>
+															<table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>53.0</td><td style='text-align: center;width: 50%;'>57.4</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>46.7</td><td style='text-align: center;width: 50%;'>50.9</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>52.2</td><td style='text-align: center;width: 50%;'>57.7</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>50.1</td><td style='text-align: center;width: 50%;'>56.5</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>47.8</td><td style='text-align: center;width: 50%;'>53.3</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>47.5</td><td style='text-align: center;width: 50%;'>53.1</td></tr>
+															</tbody></table></td>
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>34.3</td><td style='text-align: center;width: 50%;'>38.5</td></tr>
+															</tbody></table></td>											
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>32.4</td><td style='text-align: center;width: 50%;'>36.1</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>33.3</td><td style='text-align: center;width: 50%;'>36.8</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>32.9</td><td style='text-align: center;width: 50%;'>36.2</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>34.4</td><td style='text-align: center;width: 50%;'>39.4</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>41.4</td><td style='text-align: center;width: 50%;'>45.9</td></tr>
+															</tbody></table></td>												
+													</tr>		
+													<tr>
+														<td class='td_left '>Cajamarca</td>												
+														<td>-</td><td>-</td><td>-</td>
+														<td class='td_center '>
+															<table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>65.2</td><td style='text-align: center;width: 50%;'>71.1</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '>
+															<table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>54.5</td><td style='text-align: center;width: 50%;'>59.2</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '>
+															<table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>53.0</td><td style='text-align: center;width: 50%;'>57.4</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>46.7</td><td style='text-align: center;width: 50%;'>50.9</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>52.2</td><td style='text-align: center;width: 50%;'>57.7</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>50.1</td><td style='text-align: center;width: 50%;'>56.5</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>47.8</td><td style='text-align: center;width: 50%;'>53.3</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>47.5</td><td style='text-align: center;width: 50%;'>53.1</td></tr>
+															</tbody></table></td>
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>44.7</td><td style='text-align: center;width: 50%;'>51.7</td></tr>
+															</tbody></table></td>											
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>43.8</td><td style='text-align: center;width: 50%;'>50.9</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>43.1</td><td style='text-align: center;width: 50%;'>52.0</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>37.4</td><td style='text-align: center;width: 50%;'>46.3</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>34.4</td><td style='text-align: center;width: 50%;'>39.4</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>41.4</td><td style='text-align: center;width: 50%;'>45.9</td></tr>
+															</tbody></table></td>												
+													</tr>		
+													<tr>
+														<td class='td_left '>Callao</td>												
+														<td>-</td><td>-</td><td>-</td>
+														<td class='td_center '>
+															<table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>-</td><td style='text-align: center;width: 50%;'>-</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '>
+															<table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>-</td><td style='text-align: center;width: 50%;'>-</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '>
+															<table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>-</td><td style='text-align: center;width: 50%;'>-</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>-</td><td style='text-align: center;width: 50%;'>-</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>-</td><td style='text-align: center;width: 50%;'>-</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>-</td><td style='text-align: center;width: 50%;'>-</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>11.7</td><td style='text-align: center;width: 50%;'>14.5</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>10.8</td><td style='text-align: center;width: 50%;'>13.4</td></tr>
+															</tbody></table></td>
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>9.8</td><td style='text-align: center;width: 50%;'>12.6</td></tr>
+															</tbody></table></td>											
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>9.6</td><td style='text-align: center;width: 50%;'>12.0</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>12.1</td><td style='text-align: center;width: 50%;'>14.6</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>11.3</td><td style='text-align: center;width: 50%;'>13.8</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>12.0</td><td style='text-align: center;width: 50%;'>14.6</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>31.3</td><td style='text-align: center;width: 50%;'>34.6</td></tr>
+															</tbody></table></td>												
+													</tr>		
+													<tr>
+														<td class='td_left '>Cusco</td>												
+														<td>-</td><td>-</td><td>-</td>
+														<td class='td_center '>
+															<table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>54.1</td><td style='text-align: center;width: 50%;'>59.0</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '>
+															<table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>54.5</td><td style='text-align: center;width: 50%;'>59.2</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '>
+															<table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>37.3</td><td style='text-align: center;width: 50%;'>45.9</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>46.7</td><td style='text-align: center;width: 50%;'>50.9</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>26.4</td><td style='text-align: center;width: 50%;'>30.6</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>24.4</td><td style='text-align: center;width: 50%;'>28.5</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>19.5</td><td style='text-align: center;width: 50%;'>23.4</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>19.2</td><td style='text-align: center;width: 50%;'>23.2</td></tr>
+															</tbody></table></td>
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>16.8</td><td style='text-align: center;width: 50%;'>20.8</td></tr>
+															</tbody></table></td>											
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>20.6</td><td style='text-align: center;width: 50%;'>24.7</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>23.0</td><td style='text-align: center;width: 50%;'>26.2</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>21.6</td><td style='text-align: center;width: 50%;'>24.6</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>21.9</td><td style='text-align: center;width: 50%;'>25.3</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>31.3</td><td style='text-align: center;width: 50%;'>34.6</td></tr>
+															</tbody></table></td>												
+													</tr>		
+													<tr>
+														<td class='td_left '>Huancavelica</td>												
+														<td>-</td><td>-</td><td>-</td>
+														<td class='td_center '>
+															<table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>80.9</td><td style='text-align: center;width: 50%;'>89.1</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '>
+															<table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>74.2</td><td style='text-align: center;width: 50%;'>84.8</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '>
+															<table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>70.0</td><td style='text-align: center;width: 50%;'>77.7</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>58.2</td><td style='text-align: center;width: 50%;'>66.8</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>52.2</td><td style='text-align: center;width: 50%;'>57.7</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>50.1</td><td style='text-align: center;width: 50%;'>56.5</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>47.8</td><td style='text-align: center;width: 50%;'>53.3</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>47.5</td><td style='text-align: center;width: 50%;'>53.1</td></tr>
+															</tbody></table></td>
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>44.7</td><td style='text-align: center;width: 50%;'>51.7</td></tr>
+															</tbody></table></td>											
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>43.8</td><td style='text-align: center;width: 50%;'>50.9</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>33.3</td><td style='text-align: center;width: 50%;'>36.8</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>32.9</td><td style='text-align: center;width: 50%;'>36.2</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>34.4</td><td style='text-align: center;width: 50%;'>39.4</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>41.4</td><td style='text-align: center;width: 50%;'>45.9</td></tr>
+															</tbody></table></td>												
+													</tr>		
+													<tr>
+														<td class='td_left '>Huánuco</td>												
+														<td>-</td><td>-</td><td>-</td>
+														<td class='td_center '>
+															<table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>65.2</td><td style='text-align: center;width: 50%;'>71.1</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '>
+															<table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>54.5</td><td style='text-align: center;width: 50%;'>59.2</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '>
+															<table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>53.0</td><td style='text-align: center;width: 50%;'>57.4</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>46.7</td><td style='text-align: center;width: 50%;'>50.9</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>52.2</td><td style='text-align: center;width: 50%;'>57.7</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>36.5</td><td style='text-align: center;width: 50%;'>41.2</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>35.1</td><td style='text-align: center;width: 50%;'>40.1</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>35.7</td><td style='text-align: center;width: 50%;'>41.2</td></tr>
+															</tbody></table></td>
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>34.3</td><td style='text-align: center;width: 50%;'>38.5</td></tr>
+															</tbody></table></td>											
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>32.4</td><td style='text-align: center;width: 50%;'>36.1</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>33.3</td><td style='text-align: center;width: 50%;'>36.8</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>32.9</td><td style='text-align: center;width: 50%;'>36.2</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>28.3</td><td style='text-align: center;width: 50%;'>32.7</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>41.4</td><td style='text-align: center;width: 50%;'>45.9</td></tr>
+															</tbody></table></td>												
+													</tr>		
+													<tr>
+														<td class='td_left '>Ica</td>												
+														<td>-</td><td>-</td><td>-</td>
+														<td class='td_center '>
+															<table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>23.5</td><td style='text-align: center;width: 50%;'>27.2</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '>
+															<table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>14.2</td><td style='text-align: center;width: 50%;'>19.5</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '>
+															<table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>15.2</td><td style='text-align: center;width: 50%;'>18.6</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>14.2</td><td style='text-align: center;width: 50%;'>17.2</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>10.1</td><td style='text-align: center;width: 50%;'>13.5</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>6.5</td><td style='text-align: center;width: 50%;'>10.2</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>3.1</td><td style='text-align: center;width: 50%;'>6.0</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>2.5</td><td style='text-align: center;width: 50%;'>5.7</td></tr>
+															</tbody></table></td>
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>3.2</td><td style='text-align: center;width: 50%;'>6.7</td></tr>
+															</tbody></table></td>											
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>1.8</td><td style='text-align: center;width: 50%;'>4.3</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>2.1</td><td style='text-align: center;width: 50%;'>4.8</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>1.8</td><td style='text-align: center;width: 50%;'>4.4</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>1.3</td><td style='text-align: center;width: 50%;'>3.9</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>6.6</td><td style='text-align: center;width: 50%;'>11.3</td></tr>
+															</tbody></table></td>												
+													</tr>		
+													<tr>
+														<td class='td_left '>Junín</td>												
+														<td>-</td><td>-</td><td>-</td>
+														<td class='td_center '>
+															<table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>40.7</td><td style='text-align: center;width: 50%;'>46.6</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '>
+															<table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>34.9</td><td style='text-align: center;width: 50%;'>40.1</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '>
+															<table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>30.7</td><td style='text-align: center;width: 50%;'>36.3</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>25.5</td><td style='text-align: center;width: 50%;'>31.6</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>26.4</td><td style='text-align: center;width: 50%;'>30.6</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>24.4</td><td style='text-align: center;width: 50%;'>28.5</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>19.5</td><td style='text-align: center;width: 50%;'>23.4</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>19.2</td><td style='text-align: center;width: 50%;'>23.2</td></tr>
+															</tbody></table></td>
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>16.8</td><td style='text-align: center;width: 50%;'>20.8</td></tr>
+															</tbody></table></td>											
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>14.0</td><td style='text-align: center;width: 50%;'>18.1</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>23.0</td><td style='text-align: center;width: 50%;'>26.2</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>21.6</td><td style='text-align: center;width: 50%;'>24.6</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>21.9</td><td style='text-align: center;width: 50%;'>25.3</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>31.3</td><td style='text-align: center;width: 50%;'>34.6</td></tr>
+															</tbody></table></td>												
+													</tr>		
+													<tr>
+														<td class='td_left '>La Libertad</td>												
+														<td>-</td><td>-</td><td>-</td>
+														<td class='td_center '>
+															<table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>40.7</td><td style='text-align: center;width: 50%;'>46.6</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '>
+															<table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>34.9</td><td style='text-align: center;width: 50%;'>40.1</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '>
+															<table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>30.7</td><td style='text-align: center;width: 50%;'>36.3</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>25.5</td><td style='text-align: center;width: 50%;'>31.6</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>26.4</td><td style='text-align: center;width: 50%;'>30.6</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>24.4</td><td style='text-align: center;width: 50%;'>28.5</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>28.0</td><td style='text-align: center;width: 50%;'>33.2</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>27.3</td><td style='text-align: center;width: 50%;'>31.8</td></tr>
+															</tbody></table></td>
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>24.8</td><td style='text-align: center;width: 50%;'>29.0</td></tr>
+															</tbody></table></td>											
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>20.6</td><td style='text-align: center;width: 50%;'>24.7</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>23.0</td><td style='text-align: center;width: 50%;'>26.2</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>21.6</td><td style='text-align: center;width: 50%;'>24.6</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>21.9</td><td style='text-align: center;width: 50%;'>25.3</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>31.3</td><td style='text-align: center;width: 50%;'>34.6</td></tr>
+															</tbody></table></td>												
+													</tr>		
+													<tr>
+														<td class='td_left '>Lambayeque</td>												
+														<td>-</td><td>-</td><td>-</td>
+														<td class='td_center '>
+															<table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>40.7</td><td style='text-align: center;width: 50%;'>46.6</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '>
+															<table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>34.9</td><td style='text-align: center;width: 50%;'>40.1</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '>
+															<table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>30.7</td><td style='text-align: center;width: 50%;'>36.3</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>33.6</td><td style='text-align: center;width: 50%;'>41.4</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>26.4</td><td style='text-align: center;width: 50%;'>30.6</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>24.4</td><td style='text-align: center;width: 50%;'>28.5</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>19.5</td><td style='text-align: center;width: 50%;'>23.4</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>19.2</td><td style='text-align: center;width: 50%;'>23.2</td></tr>
+															</tbody></table></td>
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>16.8</td><td style='text-align: center;width: 50%;'>20.8</td></tr>
+															</tbody></table></td>											
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>14.0</td><td style='text-align: center;width: 50%;'>18.1</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>12.1</td><td style='text-align: center;width: 50%;'>14.6</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>11.3</td><td style='text-align: center;width: 50%;'>13.8</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>12.0</td><td style='text-align: center;width: 50%;'>14.6</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>15.1</td><td style='text-align: center;width: 50%;'>19.5</td></tr>
+															</tbody></table></td>												
+													</tr>		
+													<tr>
+														<td class='td_left '>Lima Metropolitana</td>												
+														<td>-</td><td>-</td><td>-</td>
+														<td class='td_center '>
+															<table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>-</td><td style='text-align: center;width: 50%;'>-</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '>
+															<table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>-</td><td style='text-align: center;width: 50%;'>-</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '>
+															<table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>-</td><td style='text-align: center;width: 50%;'>-</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>-</td><td style='text-align: center;width: 50%;'>-</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>-</td><td style='text-align: center;width: 50%;'>-</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>-</td><td style='text-align: center;width: 50%;'>-</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>11.7</td><td style='text-align: center;width: 50%;'>14.5</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>10.8</td><td style='text-align: center;width: 50%;'>13.4</td></tr>
+															</tbody></table></td>
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>9.8</td><td style='text-align: center;width: 50%;'>12.6</td></tr>
+															</tbody></table></td>											
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>9.6</td><td style='text-align: center;width: 50%;'>12.0</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>12.1</td><td style='text-align: center;width: 50%;'>14.6</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>11.3</td><td style='text-align: center;width: 50%;'>13.8</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>12.0</td><td style='text-align: center;width: 50%;'>14.6</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>23.9</td><td style='text-align: center;width: 50%;'>28.6</td></tr>
+															</tbody></table></td>												
+													</tr>		
+													<tr>
+														<td class='td_left '>Lima</td>												
+														<td>-</td><td>-</td><td>-</td>
+														<td class='td_center '>
+															<table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>-</td><td style='text-align: center;width: 50%;'>-</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '>
+															<table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>-</td><td style='text-align: center;width: 50%;'>-</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '>
+															<table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>-</td><td style='text-align: center;width: 50%;'>-</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>-</td><td style='text-align: center;width: 50%;'>-</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>-</td><td style='text-align: center;width: 50%;'>-</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>-</td><td style='text-align: center;width: 50%;'>-</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>11.7</td><td style='text-align: center;width: 50%;'>14.5</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>10.8</td><td style='text-align: center;width: 50%;'>13.4</td></tr>
+															</tbody></table></td>
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>16.8</td><td style='text-align: center;width: 50%;'>20.8</td></tr>
+															</tbody></table></td>											
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>9.6</td><td style='text-align: center;width: 50%;'>12.0</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>12.1</td><td style='text-align: center;width: 50%;'>14.6</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>11.3</td><td style='text-align: center;width: 50%;'>13.8</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>12.0</td><td style='text-align: center;width: 50%;'>14.6</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>23.9</td><td style='text-align: center;width: 50%;'>28.6</td></tr>
+															</tbody></table></td>												
+													</tr>		
+													<tr>
+														<td class='td_left '>Loreto</td>												
+														<td>-</td><td>-</td><td>-</td>
+														<td class='td_center '>
+															<table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>54.1</td><td style='text-align: center;width: 50%;'>59.0</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '>
+															<table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>54.5</td><td style='text-align: center;width: 50%;'>59.2</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '>
+															<table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>53.0</td><td style='text-align: center;width: 50%;'>57.4</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>46.7</td><td style='text-align: center;width: 50%;'>50.9</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>37.4</td><td style='text-align: center;width: 50%;'>42.8</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>36.5</td><td style='text-align: center;width: 50%;'>41.2</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>35.1</td><td style='text-align: center;width: 50%;'>40.1</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>35.7</td><td style='text-align: center;width: 50%;'>41.2</td></tr>
+															</tbody></table></td>
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>34.3</td><td style='text-align: center;width: 50%;'>38.5</td></tr>
+															</tbody></table></td>											
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>32.4</td><td style='text-align: center;width: 50%;'>36.1</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>33.3</td><td style='text-align: center;width: 50%;'>36.8</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>32.9</td><td style='text-align: center;width: 50%;'>36.2</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>28.3</td><td style='text-align: center;width: 50%;'>32.7</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>31.3</td><td style='text-align: center;width: 50%;'>34.6</td></tr>
+															</tbody></table></td>												
+													</tr>		
+													<tr>
+														<td class='td_left '>Madre de Dios</td>												
+														<td>-</td><td>-</td><td>-</td>
+														<td class='td_center '>
+															<table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>10.1</td><td style='text-align: center;width: 50%;'>17.6</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '>
+															<table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>14.2</td><td style='text-align: center;width: 50%;'>19.5</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '>
+															<table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>3.5</td><td style='text-align: center;width: 50%;'>8.8</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>2.8</td><td style='text-align: center;width: 50%;'>7.2</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>2.0</td><td style='text-align: center;width: 50%;'>6.3</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>0.6</td><td style='text-align: center;width: 50%;'>4.2</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>3.1</td><td style='text-align: center;width: 50%;'>6.0</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>5.8</td><td style='text-align: center;width: 50%;'>9.7</td></tr>
+															</tbody></table></td>
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>6.7</td><td style='text-align: center;width: 50%;'>9.8</td></tr>
+															</tbody></table></td>											
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>9.6</td><td style='text-align: center;width: 50%;'>12.0</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>2.1</td><td style='text-align: center;width: 50%;'>4.8</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>1.8</td><td style='text-align: center;width: 50%;'>4.4</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>12.0</td><td style='text-align: center;width: 50%;'>14.6</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>6.6</td><td style='text-align: center;width: 50%;'>11.3</td></tr>
+															</tbody></table></td>												
+													</tr>		
+													<tr>
+														<td class='td_left '>Moquegua</td>												
+														<td>-</td><td>-</td><td>-</td>
+														<td class='td_center '>
+															<table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>23.5</td><td style='text-align: center;width: 50%;'>27.2</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '>
+															<table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>34.9</td><td style='text-align: center;width: 50%;'>40.1</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '>
+															<table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>15.2</td><td style='text-align: center;width: 50%;'>18.6</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>14.2</td><td style='text-align: center;width: 50%;'>17.2</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>10.1</td><td style='text-align: center;width: 50%;'>13.5</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>6.5</td><td style='text-align: center;width: 50%;'>10.2</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>11.7</td><td style='text-align: center;width: 50%;'>14.5</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>10.8</td><td style='text-align: center;width: 50%;'>13.4</td></tr>
+															</tbody></table></td>
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>6.7</td><td style='text-align: center;width: 50%;'>9.8</td></tr>
+															</tbody></table></td>											
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>9.6</td><td style='text-align: center;width: 50%;'>12.0</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>12.1</td><td style='text-align: center;width: 50%;'>14.6</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>11.3</td><td style='text-align: center;width: 50%;'>13.8</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>12.0</td><td style='text-align: center;width: 50%;'>14.6</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>15.1</td><td style='text-align: center;width: 50%;'>19.5</td></tr>
+															</tbody></table></td>												
+													</tr>		
+													<tr>
+														<td class='td_left '>Pasco</td>												
+														<td>-</td><td>-</td><td>-</td>
+														<td class='td_center '>
+															<table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>54.1</td><td style='text-align: center;width: 50%;'>59.0</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '>
+															<table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>54.5</td><td style='text-align: center;width: 50%;'>59.2</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '>
+															<table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>53.0</td><td style='text-align: center;width: 50%;'>57.4</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>33.6</td><td style='text-align: center;width: 50%;'>41.4</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>37.4</td><td style='text-align: center;width: 50%;'>42.8</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>36.5</td><td style='text-align: center;width: 50%;'>41.2</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>47.8</td><td style='text-align: center;width: 50%;'>53.3</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>35.7</td><td style='text-align: center;width: 50%;'>41.2</td></tr>
+															</tbody></table></td>
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>34.3</td><td style='text-align: center;width: 50%;'>38.5</td></tr>
+															</tbody></table></td>											
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>32.4</td><td style='text-align: center;width: 50%;'>36.1</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>33.3</td><td style='text-align: center;width: 50%;'>36.8</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>32.9</td><td style='text-align: center;width: 50%;'>36.2</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>28.3</td><td style='text-align: center;width: 50%;'>32.7</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>41.4</td><td style='text-align: center;width: 50%;'>45.9</td></tr>
+															</tbody></table></td>												
+													</tr>		
+													<tr>
+														<td class='td_left '>Piura</td>												
+														<td>-</td><td>-</td><td>-</td>
+														<td class='td_center '>
+															<table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>54.1</td><td style='text-align: center;width: 50%;'>59.0</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '>
+															<table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>43.6</td><td style='text-align: center;width: 50%;'>55.3</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '>
+															<table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>37.3</td><td style='text-align: center;width: 50%;'>45.9</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>46.7</td><td style='text-align: center;width: 50%;'>50.9</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>37.4</td><td style='text-align: center;width: 50%;'>42.8</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>36.5</td><td style='text-align: center;width: 50%;'>41.2</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>35.1</td><td style='text-align: center;width: 50%;'>40.1</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>27.3</td><td style='text-align: center;width: 50%;'>31.8</td></tr>
+															</tbody></table></td>
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>24.8</td><td style='text-align: center;width: 50%;'>29.0</td></tr>
+															</tbody></table></td>											
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>32.4</td><td style='text-align: center;width: 50%;'>36.1</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>23.0</td><td style='text-align: center;width: 50%;'>26.2</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>21.6</td><td style='text-align: center;width: 50%;'>24.6</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>21.9</td><td style='text-align: center;width: 50%;'>25.3</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>31.3</td><td style='text-align: center;width: 50%;'>34.6</td></tr>
+															</tbody></table></td>												
+													</tr>		
+													<tr>
+														<td class='td_left '>Puno</td>												
+														<td>-</td><td>-</td><td>-</td>
+														<td class='td_center '>
+															<table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>54.1</td><td style='text-align: center;width: 50%;'>59.0</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '>
+															<table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>54.5</td><td style='text-align: center;width: 50%;'>59.2</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '>
+															<table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>53.0</td><td style='text-align: center;width: 50%;'>57.4</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>46.7</td><td style='text-align: center;width: 50%;'>50.9</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>37.4</td><td style='text-align: center;width: 50%;'>42.8</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>36.5</td><td style='text-align: center;width: 50%;'>41.2</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>28.0</td><td style='text-align: center;width: 50%;'>33.2</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>27.3</td><td style='text-align: center;width: 50%;'>31.8</td></tr>
+															</tbody></table></td>
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>34.3</td><td style='text-align: center;width: 50%;'>38.5</td></tr>
+															</tbody></table></td>											
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>32.4</td><td style='text-align: center;width: 50%;'>36.1</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>33.3</td><td style='text-align: center;width: 50%;'>36.8</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>32.9</td><td style='text-align: center;width: 50%;'>36.2</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>34.4</td><td style='text-align: center;width: 50%;'>39.4</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>41.4</td><td style='text-align: center;width: 50%;'>45.9</td></tr>
+															</tbody></table></td>												
+													</tr>		
+													<tr>
+														<td class='td_left '>San Martín</td>												
+														<td>-</td><td>-</td><td>-</td>
+														<td class='td_center '>
+															<table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>54.1</td><td style='text-align: center;width: 50%;'>59.0</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '>
+															<table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>34.9</td><td style='text-align: center;width: 50%;'>40.1</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '>
+															<table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>53.0</td><td style='text-align: center;width: 50%;'>57.4</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>33.6</td><td style='text-align: center;width: 50%;'>41.4</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>26.4</td><td style='text-align: center;width: 50%;'>30.6</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>24.4</td><td style='text-align: center;width: 50%;'>28.5</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>28.0</td><td style='text-align: center;width: 50%;'>33.2</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>27.3</td><td style='text-align: center;width: 50%;'>31.8</td></tr>
+															</tbody></table></td>
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>24.8</td><td style='text-align: center;width: 50%;'>29.0</td></tr>
+															</tbody></table></td>											
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>20.6</td><td style='text-align: center;width: 50%;'>24.7</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>23.0</td><td style='text-align: center;width: 50%;'>26.2</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>21.6</td><td style='text-align: center;width: 50%;'>24.6</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>21.9</td><td style='text-align: center;width: 50%;'>25.3</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>23.9</td><td style='text-align: center;width: 50%;'>28.6</td></tr>
+															</tbody></table></td>												
+													</tr>		
+													<tr>
+														<td class='td_left '>Tacna</td>												
+														<td>-</td><td>-</td><td>-</td>
+														<td class='td_center '>
+															<table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>23.5</td><td style='text-align: center;width: 50%;'>27.2</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '>
+															<table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>34.9</td><td style='text-align: center;width: 50%;'>40.1</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '>
+															<table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>15.2</td><td style='text-align: center;width: 50%;'>18.6</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>14.2</td><td style='text-align: center;width: 50%;'>17.2</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>14.1</td><td style='text-align: center;width: 50%;'>17.6</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>12.5</td><td style='text-align: center;width: 50%;'>15.6</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>11.7</td><td style='text-align: center;width: 50%;'>14.5</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>10.8</td><td style='text-align: center;width: 50%;'>13.4</td></tr>
+															</tbody></table></td>
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>9.8</td><td style='text-align: center;width: 50%;'>12.6</td></tr>
+															</tbody></table></td>											
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>14.0</td><td style='text-align: center;width: 50%;'>18.1</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>12.1</td><td style='text-align: center;width: 50%;'>14.6</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>11.3</td><td style='text-align: center;width: 50%;'>13.8</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>12.0</td><td style='text-align: center;width: 50%;'>14.6</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>23.9</td><td style='text-align: center;width: 50%;'>28.6</td></tr>
+															</tbody></table></td>												
+													</tr>		
+													<tr>
+														<td class='td_left '>Tumbes</td>												
+														<td>-</td><td>-</td><td>-</td>
+														<td class='td_center '>
+															<table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>23.5</td><td style='text-align: center;width: 50%;'>27.2</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '>
+															<table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>34.9</td><td style='text-align: center;width: 50%;'>40.1</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '>
+															<table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>15.2</td><td style='text-align: center;width: 50%;'>18.6</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>14.2</td><td style='text-align: center;width: 50%;'>17.2</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>10.1</td><td style='text-align: center;width: 50%;'>13.5</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>12.5</td><td style='text-align: center;width: 50%;'>15.6</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>11.7</td><td style='text-align: center;width: 50%;'>14.5</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>10.8</td><td style='text-align: center;width: 50%;'>13.4</td></tr>
+															</tbody></table></td>
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>9.8</td><td style='text-align: center;width: 50%;'>12.6</td></tr>
+															</tbody></table></td>											
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>9.6</td><td style='text-align: center;width: 50%;'>12.0</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>12.1</td><td style='text-align: center;width: 50%;'>14.6</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>11.3</td><td style='text-align: center;width: 50%;'>13.8</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>12.0</td><td style='text-align: center;width: 50%;'>14.6</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>31.3</td><td style='text-align: center;width: 50%;'>34.6</td></tr>
+															</tbody></table></td>												
+													</tr>		
+													<tr>
+														<td class='td_left '>Ucayali</td>												
+														<td>-</td><td>-</td><td>-</td>
+														<td class='td_center '>
+															<table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>40.7</td><td style='text-align: center;width: 50%;'>46.6</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '>
+															<table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>34.9</td><td style='text-align: center;width: 50%;'>40.1</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '>
+															<table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>30.7</td><td style='text-align: center;width: 50%;'>36.3</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>25.5</td><td style='text-align: center;width: 50%;'>31.6</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>10.1</td><td style='text-align: center;width: 50%;'>13.5</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>12.5</td><td style='text-align: center;width: 50%;'>15.6</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>11.7</td><td style='text-align: center;width: 50%;'>14.5</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>10.8</td><td style='text-align: center;width: 50%;'>13.4</td></tr>
+															</tbody></table></td>
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>9.8</td><td style='text-align: center;width: 50%;'>12.6</td></tr>
+															</tbody></table></td>											
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>9.6</td><td style='text-align: center;width: 50%;'>12.0</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>12.1</td><td style='text-align: center;width: 50%;'>14.6</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>11.3</td><td style='text-align: center;width: 50%;'>13.8</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>12.0</td><td style='text-align: center;width: 50%;'>14.6</td></tr>
+															</tbody></table></td>												
+														<td class='td_center '><table style='width: 80px;'>
+																<tbody><tr><td style='border-right: 1px solid #ddd;width: 50%;text-align: center;'>23.9</td><td style='text-align: center;width: 50%;'>28.6</td></tr>
+															</tbody></table></td>												
+													</tr>	
+							</tbody>
+										</table>
+										<p></p>
+										<div align='left' id='footer_nota_adicional_tabla'></div>
+										<div align='left' id='footer_indicador_tabla'>
+							<p><b>Fuente: </b>Instituto Nacional de Estadística e Informática - Encuesta Nacional de Hogares (ENAHO)</p>
+							</div>
+										<div align='left' id='footer_indicador_tabla_asteriscos'></div>
+									</div></body></html>
