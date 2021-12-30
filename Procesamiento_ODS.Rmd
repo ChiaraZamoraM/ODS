@@ -1,0 +1,11 @@
+---
+title: "Procesamiento de indicadores de ODS"
+output: html_notebook
+---
+
+```{r}
+library(readxl)
+
+Indicador_1_1_1 <- 
+```
+
