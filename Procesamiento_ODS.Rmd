@@ -2,10 +2,220 @@
 title: "Procesamiento de indicadores de ODS"
 output: html_notebook
 ---
+# ODS 1
 
+## 1.1.1
 ```{r}
 library(readxl)
+url <- "https://github.com/ChiaraZamoraM/ODS/raw/main/1.1.1.xlsx"
+destfile <- "X1_1_1.xlsx"
+curl::curl_download(url, destfile)
+X1_1_1 <- read_excel(destfile, skip = 28)
 
-Indicador_1_1_1 <- 
+colnames(X1_1_1) = paste0("ODS1_1_1_",colnames(X1_1_1))
+
+X1_1_1 = X1_1_1[,c(1,10:26)]
+
+names(X1_1_1)
+```
+
+```{r}
+X1_1_1[,c(2:18)]=lapply(X1_1_1[,c(2:18)], as.numeric)
+```
+
+```{r}
+X1_1_1$ODS1_1_1_2013= (X1_1_1$ODS1_1_1_2013+ X1_1_1$ODS1_1_1_...12)/2
+X1_1_1$ODS1_1_1_2014= (X1_1_1$ODS1_1_1_2014+ X1_1_1$ODS1_1_1_...14)/2
+X1_1_1$ODS1_1_1_2015= (X1_1_1$ODS1_1_1_2015+ X1_1_1$ODS1_1_1_...16)/2
+X1_1_1$ODS1_1_1_2016= (X1_1_1$ODS1_1_1_2016+ X1_1_1$ODS1_1_1_...18)/2
+X1_1_1$ODS1_1_1_2017= (X1_1_1$ODS1_1_1_2017+ X1_1_1$ODS1_1_1_...20)/2
+X1_1_1$ODS1_1_1_2018= (X1_1_1$ODS1_1_1_2018+ X1_1_1$ODS1_1_1_...22)/2
+X1_1_1$ODS1_1_1_2019= (X1_1_1$ODS1_1_1_2019+ X1_1_1$ODS1_1_1_...24)/2
+X1_1_1$ODS1_1_1_2020= (X1_1_1$ODS1_1_1_2020+ X1_1_1$ODS1_1_1_...26)/2
+names(X1_1_1)[1]= "DEPARTAMENTO"
+```
+
+```{r}
+X1_1_1 <- data.frame(X1_1_1[,seq(1,18,2)])
+```
+
+## 1.2.1
+```{r}
+url <- "https://github.com/ChiaraZamoraM/ODS/raw/main/1.2.1.xlsx"
+destfile <- "X1_2_1.xlsx"
+curl::curl_download(url, destfile)
+X1_2_1 <- read_excel(destfile, skip = 28)
+
+colnames(X1_2_1) = paste0("ODS1_2_1_",colnames(X1_2_1))
+
+X1_2_1 = X1_2_1[,c(1,16:32)]
+
+names(X1_2_1)
+```
+```{r}
+X1_2_1[,c(2:18)]=lapply(X1_2_1[,c(2:18)], as.numeric)
+```
+
+```{r}
+X1_2_1$ODS1_2_1_2013= (X1_2_1$ODS1_2_1_2013+ X1_2_1$ODS1_2_1_...18)/2
+X1_2_1$ODS1_2_1_2014= (X1_2_1$ODS1_2_1_2014+ X1_2_1$ODS1_2_1_...20)/2
+X1_2_1$ODS1_2_1_2015= (X1_2_1$ODS1_2_1_2015+ X1_2_1$ODS1_2_1_...22)/2
+X1_2_1$ODS1_2_1_2016= (X1_2_1$ODS1_2_1_2016+ X1_2_1$ODS1_2_1_...24)/2
+X1_2_1$ODS1_2_1_2017= (X1_2_1$ODS1_2_1_2017+ X1_2_1$ODS1_2_1_...26)/2
+X1_2_1$ODS1_2_1_2018= (X1_2_1$ODS1_2_1_2018+ X1_2_1$ODS1_2_1_...28)/2
+X1_2_1$ODS1_2_1_2019= (X1_2_1$ODS1_2_1_2019+ X1_2_1$ODS1_2_1_...30)/2
+X1_2_1$ODS1_2_1_2020= (X1_2_1$ODS1_2_1_2020+ X1_2_1$ODS1_2_1_...32)/2
+names(X1_2_1)[1]= "DEPARTAMENTO"
+```
+
+```{r}
+X1_2_1 <- data.frame(X1_2_1[,seq(1,18,2)])
+```
+
+## 1.3.1
+```{r}
+url <- "https://github.com/ChiaraZamoraM/ODS/raw/main/1.3.1.xlsx"
+destfile <- "X1_3_1.xlsx"
+curl::curl_download(url, destfile)
+X1_3_1 <- read_excel(destfile, skip = 7)
+
+colnames(X1_3_1) = paste0("ODS1_3_1_",colnames(X1_3_1))
+```
+
+```{r}
+X1_3_1[,c(2:14)]=lapply(X1_3_1[,c(2:14)], as.numeric)
+
+names(X1_3_1)[1]= "DEPARTAMENTO"
+```
+
+## 1.4.1
+```{r}
+url <- "https://github.com/ChiaraZamoraM/ODS/raw/main/1.4.1.xlsx"
+destfile <- "X1_3_1.xlsx"
+curl::curl_download(url, destfile)
+X1_4_1 <- read_excel(destfile, skip = 7)
+
+colnames(X1_4_1) = paste0("ODS1_4_1_",colnames(X1_4_1))
+```
+
+```{r}
+X1_4_1[,c(2:8)]=lapply(X1_4_1[,c(2:8)], as.numeric)
+
+names(X1_4_1)[1]= "DEPARTAMENTO"
+```
+
+## Merge
+```{r}
+ODS_1 = Reduce(function(x, y) merge(x, y, by= "DEPARTAMENTO"), list(X1_1_1, X1_2_1, X1_3_1, X1_4_1))
+```
+
+# ODS 2
+
+```{r}
+url <- "https://www.inei.gob.pe/media/MenuRecursivo/publicaciones_digitales/Est/Lib1795/cuadros/Cap010.xls"
+destfile <- "Cap010.xls"
+curl::curl_download(url, destfile)
+Cap010 <- read_excel(destfile,sheet = "10.18",skip = 6)
+
+names(Cap010)[c(1,4)]= c("DEPARTAMENTO","2020")
+Cap010 =Cap010[,c(1,4)]
+
+Cap010$DEPARTAMENTO =gsub(' [0-9].', '', Cap010$DEPARTAMENTO)
+```
+
+```{r}
+url <- "https://www.inei.gob.pe/media/MenuRecursivo/publicaciones_digitales/Est/Lib1795/cuadros/Cap010.xls"
+destfile <- "Cap010.xls"
+curl::curl_download(url, destfile)
+Cap010_2 <- read_excel(destfile,sheet = "10.18",skip = 6)
+
+names(Cap010_2)[c(1,7)]= c("DEPARTAMENTO","2020")
+Cap010_2 =Cap010_2[,c(1,7)]
+
+Cap010_2$DEPARTAMENTO =gsub(' [0-9].', '', Cap010_2$DEPARTAMENTO)
+```
+
+## 2.1.1
+```{r}
+url <- "https://github.com/ChiaraZamoraM/ODS/raw/main/2.2.1.xlsx"
+destfile <- "X2_2_1.xlsx"
+curl::curl_download(url, destfile)
+X2_2_1 <- read_excel(destfile, skip = 7)
+names(X2_2_1)[1]= "DEPARTAMENTO"
+
+X2_2_1 = merge(X2_2_1, Cap010, by = "DEPARTAMENTO")
+
+names(X2_2_1)[c(2:12)] = paste0("ODS2_2_1_",names(X2_2_1)[c(2:12)])
+```
+
+## 2.2.1
+```{r}
+url <- "https://github.com/ChiaraZamoraM/ODS/raw/main/2.2.2.xlsx"
+destfile <- "X2_2_2.xlsx"
+curl::curl_download(url, destfile)
+X2_2_2 <- read_excel(destfile, skip = 7)
+names(X2_2_2)[1]= "DEPARTAMENTO"
+
+X2_2_2 = merge(X2_2_2, Cap010_2, by = "DEPARTAMENTO")
+
+colnames(X2_2_2)[c(2:12)] = paste0("ODS2_2_2_",colnames(X2_2_2)[c(2:12)])
+```
+
+## Merge
+```{r}
+ODS_2 = Reduce(function(x, y) merge(x, y, by= "DEPARTAMENTO"), list(X2_2_1,X2_2_2))
+```
+
+```{r}
+ODS_2[,c(2:26)]=lapply(ODS_2[,c(2:26)], as.numeric)
+```
+
+# Merge
+```{r}
+ODS = Reduce(function(x, y) merge(x, y, by= "DEPARTAMENTO"), list(ODS_1,ODS_2))
+
+library(stringi)
+ODS$DEPARTAMENTO= stri_trans_general(str = toupper(ODS$DEPARTAMENTO), id = "Latin-ASCII")
+```
+
+```{r setup, include=FALSE}
+library(sf)
+library(ggplot2)
+library(ggpubr)
+library(tidyverse)
+library(ggrepel)
+library(repr)
+library(dygraphs)
+library(quantmod)
+library(rjson)
+
+download.file("https://github.com/ChiaraZamoraM/ODS/raw/main/mapa_Peru/mapa_depas_Lima.zip", 
+              destfile = "mapa_depas_Lima.zip" , mode='wb')
+unzip("mapa_depas_Lima.zip", exdir = ".")
+file.remove("mapa_depas_Lima.zip")
+
+mapa <- st_read("mapa_depas_Lima.shp")
+
+mapaODS = merge(debamap, debatable,
+              by.x='DEPARTAMEN',by.y="Departamento")
+
+mapaODS <- mapaODS %>% mutate(centroid = map(geometry, st_centroid), 
+                              coords = map(centroid, st_coordinates), 
+                              coords_x = map_dbl(coords, 1), 
+                              coords_y = map_dbl(coords, 2))
+
+base= ggplot(data = mapaODS) + theme_void()  + scale_fill_brewer(palette = "YlOrBr",drop=FALSE)
+```
+
+# Ubigeos 
+```{r warning=FALSE}
+library(readr)
+
+ubigeos <- read_csv("https://cloud.minsa.gob.pe/s/GkfcJD8xKHJeCqn/download")
+```
+
+# Mapas
+```{r}
+
 ```
 

@@ -215,18 +215,373 @@ pre code {
 
 
 <!-- rnb-text-begin -->
+<div id="ods-1" class="section level1">
+<h1>ODS 1</h1>
+<div id="section" class="section level2">
+<h2>1.1.1</h2>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShyZWFkeGwpXG5cbkluZGljYWRvcl8xXzFfMSA8LSBcbmBgYCJ9 -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShyZWFkeGwpXG51cmwgPC0gXCJodHRwczovL2dpdGh1Yi5jb20vQ2hpYXJhWmFtb3JhTS9PRFMvcmF3L21haW4vMS4xLjEueGxzeFwiXG5kZXN0ZmlsZSA8LSBcIlgxXzFfMS54bHN4XCJcbmN1cmw6OmN1cmxfZG93bmxvYWQodXJsLCBkZXN0ZmlsZSlcblgxXzFfMSA8LSByZWFkX2V4Y2VsKGRlc3RmaWxlLCBza2lwID0gMjgpXG5cbmNvbG5hbWVzKFgxXzFfMSkgPSBwYXN0ZTAoXCJPRFMxXzFfMV9cIixjb2xuYW1lcyhYMV8xXzEpKVxuXG5YMV8xXzEgPSBYMV8xXzFbLGMoMSwxMDoyNildXG5cbm5hbWVzKFgxXzFfMSlcbmBgYCJ9 -->
 <pre class="r"><code>library(readxl)
+url &lt;- &quot;https://github.com/ChiaraZamoraM/ODS/raw/main/1.1.1.xlsx&quot;
+destfile &lt;- &quot;X1_1_1.xlsx&quot;
+curl::curl_download(url, destfile)
+X1_1_1 &lt;- read_excel(destfile, skip = 28)
 
-Indicador_1_1_1 &lt;- </code></pre>
+colnames(X1_1_1) = paste0(&quot;ODS1_1_1_&quot;,colnames(X1_1_1))
+
+X1_1_1 = X1_1_1[,c(1,10:26)]
+
+names(X1_1_1)</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuWDFfMV8xWyxjKDI6MTgpXT1sYXBwbHkoWDFfMV8xWyxjKDI6MTgpXSwgYXMubnVtZXJpYylcbmBgYCJ9 -->
+<pre class="r"><code>X1_1_1[,c(2:18)]=lapply(X1_1_1[,c(2:18)], as.numeric)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuWDFfMV8xJE9EUzFfMV8xXzIwMTM9IChYMV8xXzEkT0RTMV8xXzFfMjAxMysgWDFfMV8xJE9EUzFfMV8xXy4uLjEyKS8yXG5YMV8xXzEkT0RTMV8xXzFfMjAxND0gKFgxXzFfMSRPRFMxXzFfMV8yMDE0KyBYMV8xXzEkT0RTMV8xXzFfLi4uMTQpLzJcblgxXzFfMSRPRFMxXzFfMV8yMDE1PSAoWDFfMV8xJE9EUzFfMV8xXzIwMTUrIFgxXzFfMSRPRFMxXzFfMV8uLi4xNikvMlxuWDFfMV8xJE9EUzFfMV8xXzIwMTY9IChYMV8xXzEkT0RTMV8xXzFfMjAxNisgWDFfMV8xJE9EUzFfMV8xXy4uLjE4KS8yXG5YMV8xXzEkT0RTMV8xXzFfMjAxNz0gKFgxXzFfMSRPRFMxXzFfMV8yMDE3KyBYMV8xXzEkT0RTMV8xXzFfLi4uMjApLzJcblgxXzFfMSRPRFMxXzFfMV8yMDE4PSAoWDFfMV8xJE9EUzFfMV8xXzIwMTgrIFgxXzFfMSRPRFMxXzFfMV8uLi4yMikvMlxuWDFfMV8xJE9EUzFfMV8xXzIwMTk9IChYMV8xXzEkT0RTMV8xXzFfMjAxOSsgWDFfMV8xJE9EUzFfMV8xXy4uLjI0KS8yXG5YMV8xXzEkT0RTMV8xXzFfMjAyMD0gKFgxXzFfMSRPRFMxXzFfMV8yMDIwKyBYMV8xXzEkT0RTMV8xXzFfLi4uMjYpLzJcbm5hbWVzKFgxXzFfMSlbMV09IFwiREVQQVJUQU1FTlRPXCJcbmBgYCJ9 -->
+<pre class="r"><code>X1_1_1$ODS1_1_1_2013= (X1_1_1$ODS1_1_1_2013+ X1_1_1$ODS1_1_1_...12)/2
+X1_1_1$ODS1_1_1_2014= (X1_1_1$ODS1_1_1_2014+ X1_1_1$ODS1_1_1_...14)/2
+X1_1_1$ODS1_1_1_2015= (X1_1_1$ODS1_1_1_2015+ X1_1_1$ODS1_1_1_...16)/2
+X1_1_1$ODS1_1_1_2016= (X1_1_1$ODS1_1_1_2016+ X1_1_1$ODS1_1_1_...18)/2
+X1_1_1$ODS1_1_1_2017= (X1_1_1$ODS1_1_1_2017+ X1_1_1$ODS1_1_1_...20)/2
+X1_1_1$ODS1_1_1_2018= (X1_1_1$ODS1_1_1_2018+ X1_1_1$ODS1_1_1_...22)/2
+X1_1_1$ODS1_1_1_2019= (X1_1_1$ODS1_1_1_2019+ X1_1_1$ODS1_1_1_...24)/2
+X1_1_1$ODS1_1_1_2020= (X1_1_1$ODS1_1_1_2020+ X1_1_1$ODS1_1_1_...26)/2
+names(X1_1_1)[1]= &quot;DEPARTAMENTO&quot;</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuWDFfMV8xIDwtIGRhdGEuZnJhbWUoWDFfMV8xWyxzZXEoMSwxOCwyKV0pXG5gYGAifQ== -->
+<pre class="r"><code>X1_1_1 &lt;- data.frame(X1_1_1[,seq(1,18,2)])</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="section-1" class="section level2">
+<h2>1.2.1</h2>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudXJsIDwtIFwiaHR0cHM6Ly9naXRodWIuY29tL0NoaWFyYVphbW9yYU0vT0RTL3Jhdy9tYWluLzEuMi4xLnhsc3hcIlxuZGVzdGZpbGUgPC0gXCJYMV8yXzEueGxzeFwiXG5jdXJsOjpjdXJsX2Rvd25sb2FkKHVybCwgZGVzdGZpbGUpXG5YMV8yXzEgPC0gcmVhZF9leGNlbChkZXN0ZmlsZSwgc2tpcCA9IDI4KVxuYGBgIn0= -->
+<pre class="r"><code>url &lt;- &quot;https://github.com/ChiaraZamoraM/ODS/raw/main/1.2.1.xlsx&quot;
+destfile &lt;- &quot;X1_2_1.xlsx&quot;
+curl::curl_download(url, destfile)
+X1_2_1 &lt;- read_excel(destfile, skip = 28)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiTmV3IG5hbWVzOlxuKiBgYCAtPiAuLi4xXG4qIGBgIC0+IC4uLjJcbiogYGAgLT4gLi4uM1xuKiBgYCAtPiAuLi40XG4qIGBgIC0+IC4uLjZcbiogLi4uXG4ifQ== -->
+<pre><code>New names:
+* `` -&gt; ...1
+* `` -&gt; ...2
+* `` -&gt; ...3
+* `` -&gt; ...4
+* `` -&gt; ...6
+* ...</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY29sbmFtZXMoWDFfMl8xKSA9IHBhc3RlMChcIk9EUzFfMl8xX1wiLGNvbG5hbWVzKFgxXzJfMSkpXG5cblgxXzJfMSA9IFgxXzJfMVssYygxLDE2OjMyKV1cblxubmFtZXMoWDFfMl8xKVxuYGBgIn0= -->
+<pre class="r"><code>colnames(X1_2_1) = paste0(&quot;ODS1_2_1_&quot;,colnames(X1_2_1))
 
-<div id="rmd-source-code">LS0tDQp0aXRsZTogIlByb2Nlc2FtaWVudG8gZGUgaW5kaWNhZG9yZXMgZGUgT0RTIg0Kb3V0cHV0OiBodG1sX25vdGVib29rDQotLS0NCg0KYGBge3J9DQpsaWJyYXJ5KHJlYWR4bCkNCg0KSW5kaWNhZG9yXzFfMV8xIDwtIA0KYGBgDQoNCg==</div>
+X1_2_1 = X1_2_1[,c(1,16:32)]
+
+names(X1_2_1)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiIFsxXSBcIk9EUzFfMl8xXy4uLjFcIiAgXCJPRFMxXzJfMV8uLi4xNlwiIFwiT0RTMV8yXzFfMjAxM1wiICBcIk9EUzFfMl8xXy4uLjE4XCIgXCJPRFMxXzJfMV8yMDE0XCIgXG4gWzZdIFwiT0RTMV8yXzFfLi4uMjBcIiBcIk9EUzFfMl8xXzIwMTVcIiAgXCJPRFMxXzJfMV8uLi4yMlwiIFwiT0RTMV8yXzFfMjAxNlwiICBcIk9EUzFfMl8xXy4uLjI0XCJcblsxMV0gXCJPRFMxXzJfMV8yMDE3XCIgIFwiT0RTMV8yXzFfLi4uMjZcIiBcIk9EUzFfMl8xXzIwMThcIiAgXCJPRFMxXzJfMV8uLi4yOFwiIFwiT0RTMV8yXzFfMjAxOVwiIFxuWzE2XSBcIk9EUzFfMl8xXy4uLjMwXCIgXCJPRFMxXzJfMV8yMDIwXCIgIFwiT0RTMV8yXzFfLi4uMzJcIlxuIn0= -->
+<pre><code> [1] &quot;ODS1_2_1_...1&quot;  &quot;ODS1_2_1_...16&quot; &quot;ODS1_2_1_2013&quot;  &quot;ODS1_2_1_...18&quot; &quot;ODS1_2_1_2014&quot; 
+ [6] &quot;ODS1_2_1_...20&quot; &quot;ODS1_2_1_2015&quot;  &quot;ODS1_2_1_...22&quot; &quot;ODS1_2_1_2016&quot;  &quot;ODS1_2_1_...24&quot;
+[11] &quot;ODS1_2_1_2017&quot;  &quot;ODS1_2_1_...26&quot; &quot;ODS1_2_1_2018&quot;  &quot;ODS1_2_1_...28&quot; &quot;ODS1_2_1_2019&quot; 
+[16] &quot;ODS1_2_1_...30&quot; &quot;ODS1_2_1_2020&quot;  &quot;ODS1_2_1_...32&quot;</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuWDFfMl8xWyxjKDI6MTgpXT1sYXBwbHkoWDFfMl8xWyxjKDI6MTgpXSwgYXMubnVtZXJpYylcbmBgYCJ9 -->
+<pre class="r"><code>X1_2_1[,c(2:18)]=lapply(X1_2_1[,c(2:18)], as.numeric)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiV2FybmluZyBpbiBsYXBwbHkoWDFfMl8xWywgYygyOjE4KV0sIGFzLm51bWVyaWMpIDpcbiAgTkFzIGludHJvZHVjZWQgYnkgY29lcmNpb25cbldhcm5pbmcgaW4gbGFwcGx5KFgxXzJfMVssIGMoMjoxOCldLCBhcy5udW1lcmljKSA6XG4gIE5BcyBpbnRyb2R1Y2VkIGJ5IGNvZXJjaW9uXG5XYXJuaW5nIGluIGxhcHBseShYMV8yXzFbLCBjKDI6MTgpXSwgYXMubnVtZXJpYykgOlxuICBOQXMgaW50cm9kdWNlZCBieSBjb2VyY2lvblxuV2FybmluZyBpbiBsYXBwbHkoWDFfMl8xWywgYygyOjE4KV0sIGFzLm51bWVyaWMpIDpcbiAgTkFzIGludHJvZHVjZWQgYnkgY29lcmNpb25cbldhcm5pbmcgaW4gbGFwcGx5KFgxXzJfMVssIGMoMjoxOCldLCBhcy5udW1lcmljKSA6XG4gIE5BcyBpbnRyb2R1Y2VkIGJ5IGNvZXJjaW9uXG5XYXJuaW5nIGluIGxhcHBseShYMV8yXzFbLCBjKDI6MTgpXSwgYXMubnVtZXJpYykgOlxuICBOQXMgaW50cm9kdWNlZCBieSBjb2VyY2lvblxuV2FybmluZyBpbiBsYXBwbHkoWDFfMl8xWywgYygyOjE4KV0sIGFzLm51bWVyaWMpIDpcbiAgTkFzIGludHJvZHVjZWQgYnkgY29lcmNpb25cbldhcm5pbmcgaW4gbGFwcGx5KFgxXzJfMVssIGMoMjoxOCldLCBhcy5udW1lcmljKSA6XG4gIE5BcyBpbnRyb2R1Y2VkIGJ5IGNvZXJjaW9uXG5XYXJuaW5nIGluIGxhcHBseShYMV8yXzFbLCBjKDI6MTgpXSwgYXMubnVtZXJpYykgOlxuICBOQXMgaW50cm9kdWNlZCBieSBjb2VyY2lvblxuV2FybmluZyBpbiBsYXBwbHkoWDFfMl8xWywgYygyOjE4KV0sIGFzLm51bWVyaWMpIDpcbiAgTkFzIGludHJvZHVjZWQgYnkgY29lcmNpb25cbldhcm5pbmcgaW4gbGFwcGx5KFgxXzJfMVssIGMoMjoxOCldLCBhcy5udW1lcmljKSA6XG4gIE5BcyBpbnRyb2R1Y2VkIGJ5IGNvZXJjaW9uXG5XYXJuaW5nIGluIGxhcHBseShYMV8yXzFbLCBjKDI6MTgpXSwgYXMubnVtZXJpYykgOlxuICBOQXMgaW50cm9kdWNlZCBieSBjb2VyY2lvblxuV2FybmluZyBpbiBsYXBwbHkoWDFfMl8xWywgYygyOjE4KV0sIGFzLm51bWVyaWMpIDpcbiAgTkFzIGludHJvZHVjZWQgYnkgY29lcmNpb25cbldhcm5pbmcgaW4gbGFwcGx5KFgxXzJfMVssIGMoMjoxOCldLCBhcy5udW1lcmljKSA6XG4gIE5BcyBpbnRyb2R1Y2VkIGJ5IGNvZXJjaW9uXG5XYXJuaW5nIGluIGxhcHBseShYMV8yXzFbLCBjKDI6MTgpXSwgYXMubnVtZXJpYykgOlxuICBOQXMgaW50cm9kdWNlZCBieSBjb2VyY2lvblxuV2FybmluZyBpbiBsYXBwbHkoWDFfMl8xWywgYygyOjE4KV0sIGFzLm51bWVyaWMpIDpcbiAgTkFzIGludHJvZHVjZWQgYnkgY29lcmNpb25cbldhcm5pbmcgaW4gbGFwcGx5KFgxXzJfMVssIGMoMjoxOCldLCBhcy5udW1lcmljKSA6XG4gIE5BcyBpbnRyb2R1Y2VkIGJ5IGNvZXJjaW9uXG4ifQ== -->
+<pre><code>Warning in lapply(X1_2_1[, c(2:18)], as.numeric) :
+  NAs introduced by coercion
+Warning in lapply(X1_2_1[, c(2:18)], as.numeric) :
+  NAs introduced by coercion
+Warning in lapply(X1_2_1[, c(2:18)], as.numeric) :
+  NAs introduced by coercion
+Warning in lapply(X1_2_1[, c(2:18)], as.numeric) :
+  NAs introduced by coercion
+Warning in lapply(X1_2_1[, c(2:18)], as.numeric) :
+  NAs introduced by coercion
+Warning in lapply(X1_2_1[, c(2:18)], as.numeric) :
+  NAs introduced by coercion
+Warning in lapply(X1_2_1[, c(2:18)], as.numeric) :
+  NAs introduced by coercion
+Warning in lapply(X1_2_1[, c(2:18)], as.numeric) :
+  NAs introduced by coercion
+Warning in lapply(X1_2_1[, c(2:18)], as.numeric) :
+  NAs introduced by coercion
+Warning in lapply(X1_2_1[, c(2:18)], as.numeric) :
+  NAs introduced by coercion
+Warning in lapply(X1_2_1[, c(2:18)], as.numeric) :
+  NAs introduced by coercion
+Warning in lapply(X1_2_1[, c(2:18)], as.numeric) :
+  NAs introduced by coercion
+Warning in lapply(X1_2_1[, c(2:18)], as.numeric) :
+  NAs introduced by coercion
+Warning in lapply(X1_2_1[, c(2:18)], as.numeric) :
+  NAs introduced by coercion
+Warning in lapply(X1_2_1[, c(2:18)], as.numeric) :
+  NAs introduced by coercion
+Warning in lapply(X1_2_1[, c(2:18)], as.numeric) :
+  NAs introduced by coercion
+Warning in lapply(X1_2_1[, c(2:18)], as.numeric) :
+  NAs introduced by coercion</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuWDFfMl8xJE9EUzFfMl8xXzIwMTM9IChYMV8yXzEkT0RTMV8yXzFfMjAxMysgWDFfMl8xJE9EUzFfMl8xXy4uLjE4KS8yXG5YMV8yXzEkT0RTMV8yXzFfMjAxND0gKFgxXzJfMSRPRFMxXzJfMV8yMDE0KyBYMV8yXzEkT0RTMV8yXzFfLi4uMjApLzJcblgxXzJfMSRPRFMxXzJfMV8yMDE1PSAoWDFfMl8xJE9EUzFfMl8xXzIwMTUrIFgxXzJfMSRPRFMxXzJfMV8uLi4yMikvMlxuWDFfMl8xJE9EUzFfMl8xXzIwMTY9IChYMV8yXzEkT0RTMV8yXzFfMjAxNisgWDFfMl8xJE9EUzFfMl8xXy4uLjI0KS8yXG5YMV8yXzEkT0RTMV8yXzFfMjAxNz0gKFgxXzJfMSRPRFMxXzJfMV8yMDE3KyBYMV8yXzEkT0RTMV8yXzFfLi4uMjYpLzJcblgxXzJfMSRPRFMxXzJfMV8yMDE4PSAoWDFfMl8xJE9EUzFfMl8xXzIwMTgrIFgxXzJfMSRPRFMxXzJfMV8uLi4yOCkvMlxuWDFfMl8xJE9EUzFfMl8xXzIwMTk9IChYMV8yXzEkT0RTMV8yXzFfMjAxOSsgWDFfMl8xJE9EUzFfMl8xXy4uLjMwKS8yXG5YMV8yXzEkT0RTMV8yXzFfMjAyMD0gKFgxXzJfMSRPRFMxXzJfMV8yMDIwKyBYMV8yXzEkT0RTMV8yXzFfLi4uMzIpLzJcbm5hbWVzKFgxXzJfMSlbMV09IFwiREVQQVJUQU1FTlRPXCJcbmBgYCJ9 -->
+<pre class="r"><code>X1_2_1$ODS1_2_1_2013= (X1_2_1$ODS1_2_1_2013+ X1_2_1$ODS1_2_1_...18)/2
+X1_2_1$ODS1_2_1_2014= (X1_2_1$ODS1_2_1_2014+ X1_2_1$ODS1_2_1_...20)/2
+X1_2_1$ODS1_2_1_2015= (X1_2_1$ODS1_2_1_2015+ X1_2_1$ODS1_2_1_...22)/2
+X1_2_1$ODS1_2_1_2016= (X1_2_1$ODS1_2_1_2016+ X1_2_1$ODS1_2_1_...24)/2
+X1_2_1$ODS1_2_1_2017= (X1_2_1$ODS1_2_1_2017+ X1_2_1$ODS1_2_1_...26)/2
+X1_2_1$ODS1_2_1_2018= (X1_2_1$ODS1_2_1_2018+ X1_2_1$ODS1_2_1_...28)/2
+X1_2_1$ODS1_2_1_2019= (X1_2_1$ODS1_2_1_2019+ X1_2_1$ODS1_2_1_...30)/2
+X1_2_1$ODS1_2_1_2020= (X1_2_1$ODS1_2_1_2020+ X1_2_1$ODS1_2_1_...32)/2
+names(X1_2_1)[1]= &quot;DEPARTAMENTO&quot;</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuWDFfMl8xIDwtIGRhdGEuZnJhbWUoWDFfMl8xWyxzZXEoMSwxOCwyKV0pXG5gYGAifQ== -->
+<pre class="r"><code>X1_2_1 &lt;- data.frame(X1_2_1[,seq(1,18,2)])</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="section-2" class="section level2">
+<h2>1.3.1</h2>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudXJsIDwtIFwiaHR0cHM6Ly9naXRodWIuY29tL0NoaWFyYVphbW9yYU0vT0RTL3Jhdy9tYWluLzEuMy4xLnhsc3hcIlxuZGVzdGZpbGUgPC0gXCJYMV8zXzEueGxzeFwiXG5jdXJsOjpjdXJsX2Rvd25sb2FkKHVybCwgZGVzdGZpbGUpXG5YMV8zXzEgPC0gcmVhZF9leGNlbChkZXN0ZmlsZSwgc2tpcCA9IDcpXG5gYGAifQ== -->
+<pre class="r"><code>url &lt;- &quot;https://github.com/ChiaraZamoraM/ODS/raw/main/1.3.1.xlsx&quot;
+destfile &lt;- &quot;X1_3_1.xlsx&quot;
+curl::curl_download(url, destfile)
+X1_3_1 &lt;- read_excel(destfile, skip = 7)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiTmV3IG5hbWVzOlxuKiBgYCAtPiAuLi4xXG4ifQ== -->
+<pre><code>New names:
+* `` -&gt; ...1</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY29sbmFtZXMoWDFfM18xKSA9IHBhc3RlMChcIk9EUzFfM18xX1wiLGNvbG5hbWVzKFgxXzNfMSkpXG5gYGAifQ== -->
+<pre class="r"><code>colnames(X1_3_1) = paste0(&quot;ODS1_3_1_&quot;,colnames(X1_3_1))</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuWDFfM18xWyxjKDI6MTQpXT1sYXBwbHkoWDFfM18xWyxjKDI6MTQpXSwgYXMubnVtZXJpYylcblxubmFtZXMoWDFfM18xKVsxXT0gXCJERVBBUlRBTUVOVE9cIlxuYGBgIn0= -->
+<pre class="r"><code>X1_3_1[,c(2:14)]=lapply(X1_3_1[,c(2:14)], as.numeric)
+
+names(X1_3_1)[1]= &quot;DEPARTAMENTO&quot;</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="section-3" class="section level2">
+<h2>1.4.1</h2>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudXJsIDwtIFwiaHR0cHM6Ly9naXRodWIuY29tL0NoaWFyYVphbW9yYU0vT0RTL3Jhdy9tYWluLzEuNC4xLnhsc3hcIlxuZGVzdGZpbGUgPC0gXCJYMV8zXzEueGxzeFwiXG5jdXJsOjpjdXJsX2Rvd25sb2FkKHVybCwgZGVzdGZpbGUpXG5YMV80XzEgPC0gcmVhZF9leGNlbChkZXN0ZmlsZSwgc2tpcCA9IDcpXG5gYGAifQ== -->
+<pre class="r"><code>url &lt;- &quot;https://github.com/ChiaraZamoraM/ODS/raw/main/1.4.1.xlsx&quot;
+destfile &lt;- &quot;X1_3_1.xlsx&quot;
+curl::curl_download(url, destfile)
+X1_4_1 &lt;- read_excel(destfile, skip = 7)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiTmV3IG5hbWVzOlxuKiBgYCAtPiAuLi4xXG4ifQ== -->
+<pre><code>New names:
+* `` -&gt; ...1</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY29sbmFtZXMoWDFfNF8xKSA9IHBhc3RlMChcIk9EUzFfNF8xX1wiLGNvbG5hbWVzKFgxXzRfMSkpXG5gYGAifQ== -->
+<pre class="r"><code>colnames(X1_4_1) = paste0(&quot;ODS1_4_1_&quot;,colnames(X1_4_1))</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuWDFfNF8xWyxjKDI6OCldPWxhcHBseShYMV80XzFbLGMoMjo4KV0sIGFzLm51bWVyaWMpXG5cbm5hbWVzKFgxXzRfMSlbMV09IFwiREVQQVJUQU1FTlRPXCJcbmBgYCJ9 -->
+<pre class="r"><code>X1_4_1[,c(2:8)]=lapply(X1_4_1[,c(2:8)], as.numeric)
+
+names(X1_4_1)[1]= &quot;DEPARTAMENTO&quot;</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="merge" class="section level2">
+<h2>Merge</h2>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuT0RTXzEgPSBSZWR1Y2UoZnVuY3Rpb24oeCwgeSkgbWVyZ2UoeCwgeSwgYnk9IFwiREVQQVJUQU1FTlRPXCIpLCBsaXN0KFgxXzFfMSwgWDFfMl8xLCBYMV8zXzEsIFgxXzRfMSkpXG5gYGAifQ== -->
+<pre class="r"><code>ODS_1 = Reduce(function(x, y) merge(x, y, by= &quot;DEPARTAMENTO&quot;), list(X1_1_1, X1_2_1, X1_3_1, X1_4_1))</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+</div>
+<div id="ods-2" class="section level1">
+<h1>ODS 2</h1>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuQ2FwMDEwIDwtIHJlYWRfZXhjZWwoZGVzdGZpbGUsc2hlZXQgPSBcIjEwLjE4XCIsc2tpcCA9IDYpXG5cbmBgYCJ9 -->
+<pre class="r"><code>Cap010 &lt;- read_excel(destfile,sheet = &quot;10.18&quot;,skip = 6)
+</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiTmV3IG5hbWVzOlxuKiBgYCAtPiAuLi4yXG4qIGBgIC0+IC4uLjNcbiogYGAgLT4gLi4uNFxuKiBgYCAtPiAuLi41XG4qIGBgIC0+IC4uLjZcbiogLi4uXG4ifQ== -->
+<pre><code>New names:
+* `` -&gt; ...2
+* `` -&gt; ...3
+* `` -&gt; ...4
+* `` -&gt; ...5
+* `` -&gt; ...6
+* ...</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuQ2FwMDEwXzIgPC0gcmVhZF9leGNlbChkZXN0ZmlsZSxzaGVldCA9IFwiMTAuMThcIixza2lwID0gNilcblxuYGBgIn0= -->
+<pre class="r"><code>Cap010_2 &lt;- read_excel(destfile,sheet = &quot;10.18&quot;,skip = 6)
+</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiTmV3IG5hbWVzOlxuKiBgYCAtPiAuLi4yXG4qIGBgIC0+IC4uLjNcbiogYGAgLT4gLi4uNFxuKiBgYCAtPiAuLi41XG4qIGBgIC0+IC4uLjZcbiogLi4uXG4ifQ== -->
+<pre><code>New names:
+* `` -&gt; ...2
+* `` -&gt; ...3
+* `` -&gt; ...4
+* `` -&gt; ...5
+* `` -&gt; ...6
+* ...</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<div id="section-4" class="section level2">
+<h2>2.1.1</h2>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudXJsIDwtIFwiaHR0cHM6Ly9naXRodWIuY29tL0NoaWFyYVphbW9yYU0vT0RTL3Jhdy9tYWluLzIuMi4xLnhsc3hcIlxuZGVzdGZpbGUgPC0gXCJYMl8yXzEueGxzeFwiXG5jdXJsOjpjdXJsX2Rvd25sb2FkKHVybCwgZGVzdGZpbGUpXG5YMl8yXzEgPC0gcmVhZF9leGNlbChkZXN0ZmlsZSwgc2tpcCA9IDcpXG5gYGAifQ== -->
+<pre class="r"><code>url &lt;- &quot;https://github.com/ChiaraZamoraM/ODS/raw/main/2.2.1.xlsx&quot;
+destfile &lt;- &quot;X2_2_1.xlsx&quot;
+curl::curl_download(url, destfile)
+X2_2_1 &lt;- read_excel(destfile, skip = 7)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiTmV3IG5hbWVzOlxuKiBgYCAtPiAuLi4xXG4ifQ== -->
+<pre><code>New names:
+* `` -&gt; ...1</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubmFtZXMoWDJfMl8xKVsxXT0gXCJERVBBUlRBTUVOVE9cIlxuXG5YMl8yXzEgPSBtZXJnZShYMl8yXzEsIENhcDAxMCwgYnkgPSBcIkRFUEFSVEFNRU5UT1wiKVxuXG5uYW1lcyhYMl8yXzEpW2MoMjoxMildID0gcGFzdGUwKFwiT0RTMl8yXzFfXCIsbmFtZXMoWDJfMl8xKVtjKDI6MTIpXSlcbmBgYCJ9 -->
+<pre class="r"><code>names(X2_2_1)[1]= &quot;DEPARTAMENTO&quot;
+
+X2_2_1 = merge(X2_2_1, Cap010, by = &quot;DEPARTAMENTO&quot;)
+
+names(X2_2_1)[c(2:12)] = paste0(&quot;ODS2_2_1_&quot;,names(X2_2_1)[c(2:12)])</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="section-5" class="section level2">
+<h2>2.2.1</h2>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudXJsIDwtIFwiaHR0cHM6Ly9naXRodWIuY29tL0NoaWFyYVphbW9yYU0vT0RTL3Jhdy9tYWluLzIuMi4yLnhsc3hcIlxuZGVzdGZpbGUgPC0gXCJYMl8yXzIueGxzeFwiXG5jdXJsOjpjdXJsX2Rvd25sb2FkKHVybCwgZGVzdGZpbGUpXG5YMl8yXzIgPC0gcmVhZF9leGNlbChkZXN0ZmlsZSwgc2tpcCA9IDcpXG5gYGAifQ== -->
+<pre class="r"><code>url &lt;- &quot;https://github.com/ChiaraZamoraM/ODS/raw/main/2.2.2.xlsx&quot;
+destfile &lt;- &quot;X2_2_2.xlsx&quot;
+curl::curl_download(url, destfile)
+X2_2_2 &lt;- read_excel(destfile, skip = 7)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiTmV3IG5hbWVzOlxuKiBgYCAtPiAuLi4xXG4ifQ== -->
+<pre><code>New names:
+* `` -&gt; ...1</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubmFtZXMoWDJfMl8yKVsxXT0gXCJERVBBUlRBTUVOVE9cIlxuXG5YMl8yXzIgPSBtZXJnZShYMl8yXzIsIENhcDAxMF8yLCBieSA9IFwiREVQQVJUQU1FTlRPXCIpXG5cbmNvbG5hbWVzKFgyXzJfMilbYygyOjEyKV0gPSBwYXN0ZTAoXCJPRFMyXzJfMl9cIixjb2xuYW1lcyhYMl8yXzIpW2MoMjoxMildKVxuYGBgIn0= -->
+<pre class="r"><code>names(X2_2_2)[1]= &quot;DEPARTAMENTO&quot;
+
+X2_2_2 = merge(X2_2_2, Cap010_2, by = &quot;DEPARTAMENTO&quot;)
+
+colnames(X2_2_2)[c(2:12)] = paste0(&quot;ODS2_2_2_&quot;,colnames(X2_2_2)[c(2:12)])</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="merge-1" class="section level2">
+<h2>Merge</h2>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuT0RTXzIgPSBSZWR1Y2UoZnVuY3Rpb24oeCwgeSkgbWVyZ2UoeCwgeSwgYnk9IFwiREVQQVJUQU1FTlRPXCIpLCBsaXN0KFgyXzJfMSxYMl8yXzIpKVxuYGBgIn0= -->
+<pre class="r"><code>ODS_2 = Reduce(function(x, y) merge(x, y, by= &quot;DEPARTAMENTO&quot;), list(X2_2_1,X2_2_2))</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuT0RTXzJbLGMoMjoyNildPWxhcHBseShPRFNfMlssYygyOjI2KV0sIGFzLm51bWVyaWMpXG5gYGAifQ== -->
+<pre class="r"><code>ODS_2[,c(2:26)]=lapply(ODS_2[,c(2:26)], as.numeric)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+</div>
+<div id="merge-2" class="section level1">
+<h1>Merge</h1>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShzdHJpbmdpKVxuXG5gYGAifQ== -->
+<pre class="r"><code>library(stringi)
+</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiV2FybmluZzogcGFja2FnZSDigJhzdHJpbmdp4oCZIHdhcyBidWlsdCB1bmRlciBSIHZlcnNpb24gNC4wLjVcbiJ9 -->
+<pre><code>Warning: package ‘stringi’ was built under R version 4.0.5</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="ubigeos" class="section level1">
+<h1>Ubigeos</h1>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudWJpZ2VvcyA8LSByZWFkX2NzdihcImh0dHBzOi8vY2xvdWQubWluc2EuZ29iLnBlL3MvR2tmY0pEOHhLSEplQ3FuL2Rvd25sb2FkXCIpXG5cbmBgYCJ9 -->
+<pre class="r"><code>ubigeos &lt;- read_csv(&quot;https://cloud.minsa.gob.pe/s/GkfcJD8xKHJeCqn/download&quot;)
+</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiUm93czogMTg5MyBDb2x1bW5zOiAyMVxuLS0gQ29sdW1uIHNwZWNpZmljYXRpb24gLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLVxuRGVsaW1pdGVyOiBcIixcIlxuY2hyICgxMyk6IHViaWdlb19yZW5pZWMsIHViaWdlb19pbmVpLCBkZXBhcnRhbWVudG9faW5laSwgZGVwYXJ0YW1lbnRvLCBwcm92aW5jaWFfaW5laSwgcHJvLi4uXG5kYmwgICg4KTogaWRfdWJpZ2VvLCBzdXBlcmZpY2llLCBhbHRpdHVkLCBsYXRpdHVkLCBsb25naXR1ZCwgcG9iX2Rpc3RyaXRvLCBwb2JfcHJvdmluY2lhLCAuLi5cblxuaSBVc2UgYHNwZWMoKWAgdG8gcmV0cmlldmUgdGhlIGZ1bGwgY29sdW1uIHNwZWNpZmljYXRpb24gZm9yIHRoaXMgZGF0YS5cbmkgU3BlY2lmeSB0aGUgY29sdW1uIHR5cGVzIG9yIHNldCBgc2hvd19jb2xfdHlwZXMgPSBGQUxTRWAgdG8gcXVpZXQgdGhpcyBtZXNzYWdlLlxuIn0= -->
+<pre><code>Rows: 1893 Columns: 21
+-- Column specification ----------------------------------------------------------------------
+Delimiter: &quot;,&quot;
+chr (13): ubigeo_reniec, ubigeo_inei, departamento_inei, departamento, provincia_inei, pro...
+dbl  (8): id_ubigeo, superficie, altitud, latitud, longitud, pob_distrito, pob_provincia, ...
+
+i Use `spec()` to retrieve the full column specification for this data.
+i Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="mapas" class="section level1">
+<h1>Mapas</h1>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+</div>
+
+<div id="rmd-source-code">LS0tDQp0aXRsZTogIlByb2Nlc2FtaWVudG8gZGUgaW5kaWNhZG9yZXMgZGUgT0RTIg0Kb3V0cHV0OiBodG1sX25vdGVib29rDQotLS0NCiMgT0RTIDENCg0KIyMgMS4xLjENCmBgYHtyfQ0KbGlicmFyeShyZWFkeGwpDQp1cmwgPC0gImh0dHBzOi8vZ2l0aHViLmNvbS9DaGlhcmFaYW1vcmFNL09EUy9yYXcvbWFpbi8xLjEuMS54bHN4Ig0KZGVzdGZpbGUgPC0gIlgxXzFfMS54bHN4Ig0KY3VybDo6Y3VybF9kb3dubG9hZCh1cmwsIGRlc3RmaWxlKQ0KWDFfMV8xIDwtIHJlYWRfZXhjZWwoZGVzdGZpbGUsIHNraXAgPSAyOCkNCg0KY29sbmFtZXMoWDFfMV8xKSA9IHBhc3RlMCgiT0RTMV8xXzFfIixjb2xuYW1lcyhYMV8xXzEpKQ0KDQpYMV8xXzEgPSBYMV8xXzFbLGMoMSwxMDoyNildDQoNCm5hbWVzKFgxXzFfMSkNCmBgYA0KDQpgYGB7cn0NClgxXzFfMVssYygyOjE4KV09bGFwcGx5KFgxXzFfMVssYygyOjE4KV0sIGFzLm51bWVyaWMpDQpgYGANCg0KYGBge3J9DQpYMV8xXzEkT0RTMV8xXzFfMjAxMz0gKFgxXzFfMSRPRFMxXzFfMV8yMDEzKyBYMV8xXzEkT0RTMV8xXzFfLi4uMTIpLzINClgxXzFfMSRPRFMxXzFfMV8yMDE0PSAoWDFfMV8xJE9EUzFfMV8xXzIwMTQrIFgxXzFfMSRPRFMxXzFfMV8uLi4xNCkvMg0KWDFfMV8xJE9EUzFfMV8xXzIwMTU9IChYMV8xXzEkT0RTMV8xXzFfMjAxNSsgWDFfMV8xJE9EUzFfMV8xXy4uLjE2KS8yDQpYMV8xXzEkT0RTMV8xXzFfMjAxNj0gKFgxXzFfMSRPRFMxXzFfMV8yMDE2KyBYMV8xXzEkT0RTMV8xXzFfLi4uMTgpLzINClgxXzFfMSRPRFMxXzFfMV8yMDE3PSAoWDFfMV8xJE9EUzFfMV8xXzIwMTcrIFgxXzFfMSRPRFMxXzFfMV8uLi4yMCkvMg0KWDFfMV8xJE9EUzFfMV8xXzIwMTg9IChYMV8xXzEkT0RTMV8xXzFfMjAxOCsgWDFfMV8xJE9EUzFfMV8xXy4uLjIyKS8yDQpYMV8xXzEkT0RTMV8xXzFfMjAxOT0gKFgxXzFfMSRPRFMxXzFfMV8yMDE5KyBYMV8xXzEkT0RTMV8xXzFfLi4uMjQpLzINClgxXzFfMSRPRFMxXzFfMV8yMDIwPSAoWDFfMV8xJE9EUzFfMV8xXzIwMjArIFgxXzFfMSRPRFMxXzFfMV8uLi4yNikvMg0KbmFtZXMoWDFfMV8xKVsxXT0gIkRFUEFSVEFNRU5UTyINCmBgYA0KDQpgYGB7cn0NClgxXzFfMSA8LSBkYXRhLmZyYW1lKFgxXzFfMVssc2VxKDEsMTgsMildKQ0KYGBgDQoNCiMjIDEuMi4xDQpgYGB7cn0NCnVybCA8LSAiaHR0cHM6Ly9naXRodWIuY29tL0NoaWFyYVphbW9yYU0vT0RTL3Jhdy9tYWluLzEuMi4xLnhsc3giDQpkZXN0ZmlsZSA8LSAiWDFfMl8xLnhsc3giDQpjdXJsOjpjdXJsX2Rvd25sb2FkKHVybCwgZGVzdGZpbGUpDQpYMV8yXzEgPC0gcmVhZF9leGNlbChkZXN0ZmlsZSwgc2tpcCA9IDI4KQ0KDQpjb2xuYW1lcyhYMV8yXzEpID0gcGFzdGUwKCJPRFMxXzJfMV8iLGNvbG5hbWVzKFgxXzJfMSkpDQoNClgxXzJfMSA9IFgxXzJfMVssYygxLDE2OjMyKV0NCg0KbmFtZXMoWDFfMl8xKQ0KYGBgDQpgYGB7cn0NClgxXzJfMVssYygyOjE4KV09bGFwcGx5KFgxXzJfMVssYygyOjE4KV0sIGFzLm51bWVyaWMpDQpgYGANCg0KYGBge3J9DQpYMV8yXzEkT0RTMV8yXzFfMjAxMz0gKFgxXzJfMSRPRFMxXzJfMV8yMDEzKyBYMV8yXzEkT0RTMV8yXzFfLi4uMTgpLzINClgxXzJfMSRPRFMxXzJfMV8yMDE0PSAoWDFfMl8xJE9EUzFfMl8xXzIwMTQrIFgxXzJfMSRPRFMxXzJfMV8uLi4yMCkvMg0KWDFfMl8xJE9EUzFfMl8xXzIwMTU9IChYMV8yXzEkT0RTMV8yXzFfMjAxNSsgWDFfMl8xJE9EUzFfMl8xXy4uLjIyKS8yDQpYMV8yXzEkT0RTMV8yXzFfMjAxNj0gKFgxXzJfMSRPRFMxXzJfMV8yMDE2KyBYMV8yXzEkT0RTMV8yXzFfLi4uMjQpLzINClgxXzJfMSRPRFMxXzJfMV8yMDE3PSAoWDFfMl8xJE9EUzFfMl8xXzIwMTcrIFgxXzJfMSRPRFMxXzJfMV8uLi4yNikvMg0KWDFfMl8xJE9EUzFfMl8xXzIwMTg9IChYMV8yXzEkT0RTMV8yXzFfMjAxOCsgWDFfMl8xJE9EUzFfMl8xXy4uLjI4KS8yDQpYMV8yXzEkT0RTMV8yXzFfMjAxOT0gKFgxXzJfMSRPRFMxXzJfMV8yMDE5KyBYMV8yXzEkT0RTMV8yXzFfLi4uMzApLzINClgxXzJfMSRPRFMxXzJfMV8yMDIwPSAoWDFfMl8xJE9EUzFfMl8xXzIwMjArIFgxXzJfMSRPRFMxXzJfMV8uLi4zMikvMg0KbmFtZXMoWDFfMl8xKVsxXT0gIkRFUEFSVEFNRU5UTyINCmBgYA0KDQpgYGB7cn0NClgxXzJfMSA8LSBkYXRhLmZyYW1lKFgxXzJfMVssc2VxKDEsMTgsMildKQ0KYGBgDQoNCiMjIDEuMy4xDQpgYGB7cn0NCnVybCA8LSAiaHR0cHM6Ly9naXRodWIuY29tL0NoaWFyYVphbW9yYU0vT0RTL3Jhdy9tYWluLzEuMy4xLnhsc3giDQpkZXN0ZmlsZSA8LSAiWDFfM18xLnhsc3giDQpjdXJsOjpjdXJsX2Rvd25sb2FkKHVybCwgZGVzdGZpbGUpDQpYMV8zXzEgPC0gcmVhZF9leGNlbChkZXN0ZmlsZSwgc2tpcCA9IDcpDQoNCmNvbG5hbWVzKFgxXzNfMSkgPSBwYXN0ZTAoIk9EUzFfM18xXyIsY29sbmFtZXMoWDFfM18xKSkNCmBgYA0KDQpgYGB7cn0NClgxXzNfMVssYygyOjE0KV09bGFwcGx5KFgxXzNfMVssYygyOjE0KV0sIGFzLm51bWVyaWMpDQoNCm5hbWVzKFgxXzNfMSlbMV09ICJERVBBUlRBTUVOVE8iDQpgYGANCg0KIyMgMS40LjENCmBgYHtyfQ0KdXJsIDwtICJodHRwczovL2dpdGh1Yi5jb20vQ2hpYXJhWmFtb3JhTS9PRFMvcmF3L21haW4vMS40LjEueGxzeCINCmRlc3RmaWxlIDwtICJYMV8zXzEueGxzeCINCmN1cmw6OmN1cmxfZG93bmxvYWQodXJsLCBkZXN0ZmlsZSkNClgxXzRfMSA8LSByZWFkX2V4Y2VsKGRlc3RmaWxlLCBza2lwID0gNykNCg0KY29sbmFtZXMoWDFfNF8xKSA9IHBhc3RlMCgiT0RTMV80XzFfIixjb2xuYW1lcyhYMV80XzEpKQ0KYGBgDQoNCmBgYHtyfQ0KWDFfNF8xWyxjKDI6OCldPWxhcHBseShYMV80XzFbLGMoMjo4KV0sIGFzLm51bWVyaWMpDQoNCm5hbWVzKFgxXzRfMSlbMV09ICJERVBBUlRBTUVOVE8iDQpgYGANCg0KIyMgTWVyZ2UNCmBgYHtyfQ0KT0RTXzEgPSBSZWR1Y2UoZnVuY3Rpb24oeCwgeSkgbWVyZ2UoeCwgeSwgYnk9ICJERVBBUlRBTUVOVE8iKSwgbGlzdChYMV8xXzEsIFgxXzJfMSwgWDFfM18xLCBYMV80XzEpKQ0KYGBgDQoNCiMgT0RTIDINCg0KYGBge3J9DQp1cmwgPC0gImh0dHBzOi8vd3d3LmluZWkuZ29iLnBlL21lZGlhL01lbnVSZWN1cnNpdm8vcHVibGljYWNpb25lc19kaWdpdGFsZXMvRXN0L0xpYjE3OTUvY3VhZHJvcy9DYXAwMTAueGxzIg0KZGVzdGZpbGUgPC0gIkNhcDAxMC54bHMiDQpjdXJsOjpjdXJsX2Rvd25sb2FkKHVybCwgZGVzdGZpbGUpDQpDYXAwMTAgPC0gcmVhZF9leGNlbChkZXN0ZmlsZSxzaGVldCA9ICIxMC4xOCIsc2tpcCA9IDYpDQoNCm5hbWVzKENhcDAxMClbYygxLDQpXT0gYygiREVQQVJUQU1FTlRPIiwiMjAyMCIpDQpDYXAwMTAgPUNhcDAxMFssYygxLDQpXQ0KDQpDYXAwMTAkREVQQVJUQU1FTlRPID1nc3ViKCcgWzAtOV0uJywgJycsIENhcDAxMCRERVBBUlRBTUVOVE8pDQpgYGANCg0KYGBge3J9DQp1cmwgPC0gImh0dHBzOi8vd3d3LmluZWkuZ29iLnBlL21lZGlhL01lbnVSZWN1cnNpdm8vcHVibGljYWNpb25lc19kaWdpdGFsZXMvRXN0L0xpYjE3OTUvY3VhZHJvcy9DYXAwMTAueGxzIg0KZGVzdGZpbGUgPC0gIkNhcDAxMC54bHMiDQpjdXJsOjpjdXJsX2Rvd25sb2FkKHVybCwgZGVzdGZpbGUpDQpDYXAwMTBfMiA8LSByZWFkX2V4Y2VsKGRlc3RmaWxlLHNoZWV0ID0gIjEwLjE4Iixza2lwID0gNikNCg0KbmFtZXMoQ2FwMDEwXzIpW2MoMSw3KV09IGMoIkRFUEFSVEFNRU5UTyIsIjIwMjAiKQ0KQ2FwMDEwXzIgPUNhcDAxMF8yWyxjKDEsNyldDQoNCkNhcDAxMF8yJERFUEFSVEFNRU5UTyA9Z3N1YignIFswLTldLicsICcnLCBDYXAwMTBfMiRERVBBUlRBTUVOVE8pDQpgYGANCg0KIyMgMi4xLjENCmBgYHtyfQ0KdXJsIDwtICJodHRwczovL2dpdGh1Yi5jb20vQ2hpYXJhWmFtb3JhTS9PRFMvcmF3L21haW4vMi4yLjEueGxzeCINCmRlc3RmaWxlIDwtICJYMl8yXzEueGxzeCINCmN1cmw6OmN1cmxfZG93bmxvYWQodXJsLCBkZXN0ZmlsZSkNClgyXzJfMSA8LSByZWFkX2V4Y2VsKGRlc3RmaWxlLCBza2lwID0gNykNCm5hbWVzKFgyXzJfMSlbMV09ICJERVBBUlRBTUVOVE8iDQoNClgyXzJfMSA9IG1lcmdlKFgyXzJfMSwgQ2FwMDEwLCBieSA9ICJERVBBUlRBTUVOVE8iKQ0KDQpuYW1lcyhYMl8yXzEpW2MoMjoxMildID0gcGFzdGUwKCJPRFMyXzJfMV8iLG5hbWVzKFgyXzJfMSlbYygyOjEyKV0pDQpgYGANCg0KIyMgMi4yLjENCmBgYHtyfQ0KdXJsIDwtICJodHRwczovL2dpdGh1Yi5jb20vQ2hpYXJhWmFtb3JhTS9PRFMvcmF3L21haW4vMi4yLjIueGxzeCINCmRlc3RmaWxlIDwtICJYMl8yXzIueGxzeCINCmN1cmw6OmN1cmxfZG93bmxvYWQodXJsLCBkZXN0ZmlsZSkNClgyXzJfMiA8LSByZWFkX2V4Y2VsKGRlc3RmaWxlLCBza2lwID0gNykNCm5hbWVzKFgyXzJfMilbMV09ICJERVBBUlRBTUVOVE8iDQoNClgyXzJfMiA9IG1lcmdlKFgyXzJfMiwgQ2FwMDEwXzIsIGJ5ID0gIkRFUEFSVEFNRU5UTyIpDQoNCmNvbG5hbWVzKFgyXzJfMilbYygyOjEyKV0gPSBwYXN0ZTAoIk9EUzJfMl8yXyIsY29sbmFtZXMoWDJfMl8yKVtjKDI6MTIpXSkNCmBgYA0KDQojIyBNZXJnZQ0KYGBge3J9DQpPRFNfMiA9IFJlZHVjZShmdW5jdGlvbih4LCB5KSBtZXJnZSh4LCB5LCBieT0gIkRFUEFSVEFNRU5UTyIpLCBsaXN0KFgyXzJfMSxYMl8yXzIpKQ0KYGBgDQoNCmBgYHtyfQ0KT0RTXzJbLGMoMjoyNildPWxhcHBseShPRFNfMlssYygyOjI2KV0sIGFzLm51bWVyaWMpDQpgYGANCg0KIyBNZXJnZQ0KYGBge3J9DQpPRFMgPSBSZWR1Y2UoZnVuY3Rpb24oeCwgeSkgbWVyZ2UoeCwgeSwgYnk9ICJERVBBUlRBTUVOVE8iKSwgbGlzdChPRFNfMSxPRFNfMikpDQoNCmxpYnJhcnkoc3RyaW5naSkNCk9EUyRERVBBUlRBTUVOVE89IHN0cmlfdHJhbnNfZ2VuZXJhbChzdHIgPSB0b3VwcGVyKE9EUyRERVBBUlRBTUVOVE8pLCBpZCA9ICJMYXRpbi1BU0NJSSIpDQpgYGANCg0KYGBge3Igc2V0dXAsIGluY2x1ZGU9RkFMU0V9DQpsaWJyYXJ5KHNmKQ0KbGlicmFyeShnZ3Bsb3QyKQ0KbGlicmFyeShnZ3B1YnIpDQpsaWJyYXJ5KHRpZHl2ZXJzZSkNCmxpYnJhcnkoZ2dyZXBlbCkNCmxpYnJhcnkocmVwcikNCmxpYnJhcnkoZHlncmFwaHMpDQpsaWJyYXJ5KHF1YW50bW9kKQ0KbGlicmFyeShyanNvbikNCg0KZG93bmxvYWQuZmlsZSgiaHR0cHM6Ly9naXRodWIuY29tL0NoaWFyYVphbW9yYU0vT0RTL3Jhdy9tYWluL21hcGFfUGVydS9tYXBhX2RlcGFzX0xpbWEuemlwIiwgDQogICAgICAgICAgICAgIGRlc3RmaWxlID0gIm1hcGFfZGVwYXNfTGltYS56aXAiICwgbW9kZT0nd2InKQ0KdW56aXAoIm1hcGFfZGVwYXNfTGltYS56aXAiLCBleGRpciA9ICIuIikNCmZpbGUucmVtb3ZlKCJtYXBhX2RlcGFzX0xpbWEuemlwIikNCg0KbWFwYSA8LSBzdF9yZWFkKCJtYXBhX2RlcGFzX0xpbWEuc2hwIikNCg0KbWFwYU9EUyA9IG1lcmdlKGRlYmFtYXAsIGRlYmF0YWJsZSwNCiAgICAgICAgICAgICAgYnkueD0nREVQQVJUQU1FTicsYnkueT0iRGVwYXJ0YW1lbnRvIikNCg0KbWFwYU9EUyA8LSBtYXBhT0RTICU+JSBtdXRhdGUoY2VudHJvaWQgPSBtYXAoZ2VvbWV0cnksIHN0X2NlbnRyb2lkKSwgDQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICBjb29yZHMgPSBtYXAoY2VudHJvaWQsIHN0X2Nvb3JkaW5hdGVzKSwgDQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICBjb29yZHNfeCA9IG1hcF9kYmwoY29vcmRzLCAxKSwgDQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICBjb29yZHNfeSA9IG1hcF9kYmwoY29vcmRzLCAyKSkNCg0KYmFzZT0gZ2dwbG90KGRhdGEgPSBtYXBhT0RTKSArIHRoZW1lX3ZvaWQoKSAgKyBzY2FsZV9maWxsX2JyZXdlcihwYWxldHRlID0gIllsT3JCciIsZHJvcD1GQUxTRSkNCmBgYA0KDQojIFViaWdlb3MgDQpgYGB7ciB3YXJuaW5nPUZBTFNFfQ0KbGlicmFyeShyZWFkcikNCg0KdWJpZ2VvcyA8LSByZWFkX2NzdigiaHR0cHM6Ly9jbG91ZC5taW5zYS5nb2IucGUvcy9Ha2ZjSkQ4eEtISmVDcW4vZG93bmxvYWQiKQ0KYGBgDQoNCiMgTWFwYXMNCmBgYHtyfQ0KDQpgYGANCg0K</div>
 
 
 
