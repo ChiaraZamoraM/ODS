@@ -100,7 +100,7 @@ server <- function(input, output) {
                                                              opacity = 1,
                                                              bringToFront = TRUE))%>%
              
-             leaflet::addLegend("bottomright",
+             addLegend("bottomright",
                        pal = pal2,
                        values = ~ODS1_2_1,
                        title= "Porcentaje (%)",
@@ -125,7 +125,7 @@ server <- function(input, output) {
                                                              opacity = 1,
                                                              bringToFront = TRUE))%>%
              
-             leaflet::addLegend("bottomright",
+             addLegend("bottomright",
                        pal = pal3,
                        values = ~ODS1_3_1,
                        title= "Porcentaje (%)",
