@@ -407,13 +407,14 @@ saveRDS(subset1_1_1, "subset_1_1_1.RDS")
 ```{r}
 set = subset(mapaODS, Ano> 2014)
 
-names(ODSSpr)
+names(set)
+
+set = set[, -4]
 
 ODSSpr= set %>% spread(ODSNro,Valor)
 
 names(ODSSpr)[c(6:11)]= paste0("ODS", names(ODSSpr)[c(6:11)])
 ```
-
 
 ```{r}
 saveRDS(ODSSpr, "ODSSpr.RDS")
@@ -421,9 +422,5 @@ saveRDS(ODSSpr, "ODSSpr.RDS")
 
 ```{r}
 saveRDS(subset1_1_1, "subset_1_1_1.RDS")
-```
-
-```{r}
-str(ODSSpr$`1_1_1`)
 ```
 

@@ -13,6 +13,7 @@ library(leaflet)
 library(htmlwidgets)
 library(rio)
 library(sf)
+library(xts)
 
 setwd("~/GitHub/ODS")
 
@@ -72,7 +73,7 @@ server <- function(input, output) {
                                                              color = "black",
                                                              opacity = 1,
                                                              bringToFront = TRUE))%>%
-             addLegend("bottomright",
+             leaflet::addLegend("bottomright",
                        pal = pal1,
                        values = ~ODS1_1_1,
                        title= "Porcentaje (%)",
@@ -99,7 +100,7 @@ server <- function(input, output) {
                                                              opacity = 1,
                                                              bringToFront = TRUE))%>%
              
-             addLegend("bottomright",
+             leaflet::addLegend("bottomright",
                        pal = pal2,
                        values = ~ODS1_2_1,
                        title= "Porcentaje (%)",
@@ -124,7 +125,7 @@ server <- function(input, output) {
                                                              opacity = 1,
                                                              bringToFront = TRUE))%>%
              
-             addLegend("bottomright",
+             leaflet::addLegend("bottomright",
                        pal = pal3,
                        values = ~ODS1_3_1,
                        title= "Porcentaje (%)",
