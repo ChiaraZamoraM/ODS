@@ -406,3 +406,24 @@ saveWidget(map1_interactive, "ODS1_1_1.html")
 saveRDS(subset1_1_1, "subset_1_1_1.RDS")
 ```
 
+```{r}
+set = subset(mapaODS, Ano> 2014)
+
+names(ODSSpr)
+
+ODSSpr= set %>% spread(ODSNro,Valor)
+```
+
+
+```{r}
+saveRDS(ODSSpr, "ODSSpr.RDS")
+```
+
+```{r}
+saveRDS(subset1_1_1, "subset_1_1_1.RDS")
+```
+
+```{r}
+str(ODSSpr$`1_1_1`)
+```
+
