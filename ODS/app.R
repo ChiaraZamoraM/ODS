@@ -8,41 +8,74 @@
 #
 
 library(shiny)
+library(tidyverse)
+library(leaflet)
+library(htmlwidgets)
+library(rio)
 
-# Define UI for application that draws a histogram
+setwd("~/GitHub/ODS")
+
+subset1_1_1 = import("https://github.com/ChiaraZamoraM/ODS/raw/main/subset_1_1_1.RDS")
+
 ui <- fluidPage(
 
     # Application title
-    titlePanel("Old Faithful Geyser Data"),
+    titlePanel("Objetivos de Desarollo Sostenible"),
 
-    # Sidebar with a slider input for number of bins 
     sidebarLayout(
         sidebarPanel(
-            sliderInput("bins",
-                        "Number of bins:",
-                        min = 1,
-                        max = 50,
-                        value = 30)
-        ),
-
-        # Show a plot of the generated distribution
+            tags$a(href="http://ods.inei.gob.pe/ods/objetivos-de-desarrollo-sostenible", 
+                   "Referencia de los datos",
+                   target= "_blank"),
+                   h5("Todos los datos"),
+            selectInput("ano",
+                        "Seleccione una fecha",
+                        choices = unique(subset1_1_1$Ano)
+            )
+            ),
         mainPanel(
-           plotOutput("distPlot")
+            tabsetPanel(
+                tabPanel("1.1.1",leafletOutput("pobrezaex")),
+                tabPanel("1.2.1",leafletOutput("pobrezatot"))
+                )
+            )
         )
-    )
 )
-
+        
 # Define server logic required to draw a histogram
+
 server <- function(input, output) {
 
-    output$distPlot <- renderPlot({
-        # generate bins based on input$bins from ui.R
-        x    <- faithful[, 2]
-        bins <- seq(min(x), max(x), length.out = input$bins + 1)
-
-        # draw the histogram with the specified number of bins
-        hist(x, breaks = bins, col = 'darkgray', border = 'white')
-    })
+     ano_subset1_1_1 <- reactive({
+        y    <- subset1_1_1 %>% filter(Ano == input$ano)
+        return(y)
+     })
+     
+     output$pobrezaex = renderLeaflet({
+         pal1 = colorNumeric(palette = "Blues", domain = subset1_1_1$Valor)
+         
+         ano_subset1_1_1()  %>% 
+             st_transform(crs= "+init=epsg:4326") %>%
+             leaflet() %>%
+             addProviderTiles(provider= "CartoDB.Positron") %>%
+             addPolygons(label= ano_subset1_1_1()$DEPARTAMEN,
+                         stroke = FALSE, 
+                         smoothFactor =  .5,
+                         opacity = 1,
+                         fillOpacity = 0.7,
+                         fillColor = ~pal1(ano_subset1_1_1()$Valor),
+                         highlightOptions = highlightOptions(weight = 5,
+                                                             fillOpacity= 1,
+                                                             color = "black",
+                                                             opacity = 1,
+                                                             bringToFront = TRUE))%>%
+             
+             addLegend("bottomright",
+                       pal = pal1,
+                       values = ~Valor,
+                       title= "Porcentaje (%)",
+                       opacity= 0.7) 
+     })
 }
 
 # Run the application 
