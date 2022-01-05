@@ -37,6 +37,9 @@ names(X1_1_1)[1]= "DEPARTAMENTO"
 
 ```{r}
 X1_1_1 <- data.frame(X1_1_1[,seq(1,18,2)])
+
+X1_1_1$DEPARTAMENTO= gsub("Lima Metropolitana","LIMA",X1_1_1$DEPARTAMENTO)
+X1_1_1$DEPARTAMENTO= gsub("Lima","LIMA PROVINCIAS",X1_1_1$DEPARTAMENTO)
 ```
 
 ## 1.2.1
@@ -70,6 +73,9 @@ names(X1_2_1)[1]= "DEPARTAMENTO"
 
 ```{r}
 X1_2_1 <- data.frame(X1_2_1[,seq(1,18,2)])
+
+X1_2_1$DEPARTAMENTO= gsub("Lima Metropolitana","LIMA",X1_2_1$DEPARTAMENTO)
+X1_2_1$DEPARTAMENTO= gsub("Lima","LIMA PROVINCIAS",X1_2_1$DEPARTAMENTO)
 ```
 
 ## 1.3.1
@@ -88,6 +94,12 @@ X1_3_1[,c(2:14)]=lapply(X1_3_1[,c(2:14)], as.numeric)
 names(X1_3_1)[1]= "DEPARTAMENTO"
 ```
 
+```{r}
+X1_3_1$DEPARTAMENTO= gsub("Prov. Const. del Callao","Callao",X1_3_1$DEPARTAMENTO)
+X1_3_1$DEPARTAMENTO= gsub("Provincia de Lima","LIMA",X1_3_1$DEPARTAMENTO)
+X1_3_1$DEPARTAMENTO= gsub("Región Lima","LIMA PROVINCIAS",X1_3_1$DEPARTAMENTO)
+```
+
 ## 1.4.1
 ```{r}
 url <- "https://github.com/ChiaraZamoraM/ODS/raw/main/1.4.1.xlsx"
@@ -102,6 +114,12 @@ colnames(X1_4_1) = paste0("ODS1_4_1_",colnames(X1_4_1))
 X1_4_1[,c(2:8)]=lapply(X1_4_1[,c(2:8)], as.numeric)
 
 names(X1_4_1)[1]= "DEPARTAMENTO"
+```
+
+```{r}
+X1_4_1$DEPARTAMENTO= gsub("Prov. Const. del Callao","Callao",X1_4_1$DEPARTAMENTO)
+X1_4_1$DEPARTAMENTO= gsub("Provincia de Lima","LIMA",X1_4_1$DEPARTAMENTO)
+X1_4_1$DEPARTAMENTO= gsub("Región Lima","LIMA PROVINCIAS",X1_4_1$DEPARTAMENTO)
 ```
 
 ## Merge
@@ -143,9 +161,17 @@ curl::curl_download(url, destfile)
 X2_2_1 <- read_excel(destfile, skip = 7)
 names(X2_2_1)[1]= "DEPARTAMENTO"
 
+Cap010$DEPARTAMENTO= gsub("Prov. Const. del Callao","Callao",Cap010$DEPARTAMENTO)
+Cap010$DEPARTAMENTO= gsub("Lima Metropolitana","LIMA",Cap010$DEPARTAMENTO)
+Cap010$DEPARTAMENTO= gsub("Departamento de Lima","LIMA PROVINCIAS",Cap010$DEPARTAMENTO)
+
+X2_2_1$DEPARTAMENTO= gsub("Prov. Const. del Callao","Callao",X2_2_1$DEPARTAMENTO)
+X2_2_1$DEPARTAMENTO= gsub("Provincia de Lima","LIMA",X2_2_1$DEPARTAMENTO)
+X2_2_1$DEPARTAMENTO= gsub("Región Lima","LIMA PROVINCIAS",X2_2_1$DEPARTAMENTO)
+
 X2_2_1 = merge(X2_2_1, Cap010, by = "DEPARTAMENTO")
 
-names(X2_2_1)[c(2:12)] = paste0("ODS2_2_1_",names(X2_2_1)[c(2:12)])
+names(X2_2_1)[c(2:15)] = paste0("ODS2_2_1_",names(X2_2_1)[c(2:15)])
 ```
 
 ## 2.2.1
@@ -155,10 +181,24 @@ destfile <- "X2_2_2.xlsx"
 curl::curl_download(url, destfile)
 X2_2_2 <- read_excel(destfile, skip = 7)
 names(X2_2_2)[1]= "DEPARTAMENTO"
+```
 
+```{r}
+Cap010_2$DEPARTAMENTO= gsub("Prov. Const. del Callao","Callao",Cap010_2$DEPARTAMENTO)
+Cap010_2$DEPARTAMENTO= gsub("Lima Metropolitana","LIMA",Cap010_2$DEPARTAMENTO)
+Cap010_2$DEPARTAMENTO= gsub("Departamento de Lima","LIMA PROVINCIAS",Cap010_2$DEPARTAMENTO)
+
+X2_2_2$DEPARTAMENTO= gsub("Prov. Const. del Callao","Callao",X2_2_2$DEPARTAMENTO)
+X2_2_2$DEPARTAMENTO= gsub("Provincia de Lima","LIMA",X2_2_2$DEPARTAMENTO)
+X2_2_2$DEPARTAMENTO= gsub("Región Lima","LIMA PROVINCIAS",X2_2_2$DEPARTAMENTO)
+```
+
+```{r}
 X2_2_2 = merge(X2_2_2, Cap010_2, by = "DEPARTAMENTO")
 
 colnames(X2_2_2)[c(2:12)] = paste0("ODS2_2_2_",colnames(X2_2_2)[c(2:12)])
+
+str(X2_2_2)
 ```
 
 ## Merge
@@ -176,9 +216,24 @@ ODS = Reduce(function(x, y) merge(x, y, by= "DEPARTAMENTO"), list(ODS_1,ODS_2))
 
 library(stringi)
 ODS$DEPARTAMENTO= stri_trans_general(str = toupper(ODS$DEPARTAMENTO), id = "Latin-ASCII")
+
 ```
 
-```{r setup, include=FALSE}
+```{r}
+library(reshape2)
+library(stringi)
+library(tidyverse)
+library(lubridate)
+
+ODSTrans= ODS %>% gather( ODS_Ano, Valor, 2:62, na.rm = TRUE, convert = FALSE)
+
+ODSTrans$Ano= sub('.*(\\d{4}).*', '\\1', ODSTrans$ODS_Ano)
+ODSTrans$Ano = as.Date(as.character(ODSTrans$Ano), format = "%Y")
+ODSTrans$Ano<- year(ODSTrans$Ano)
+ODSTrans$ODSNro= str_extract(ODSTrans$ODS_Ano,'[0-9]\\_[0-9]\\_[0-9]')
+```
+
+```{r}
 library(sf)
 library(ggplot2)
 library(ggpubr)
@@ -196,26 +251,158 @@ file.remove("mapa_depas_Lima.zip")
 
 mapa <- st_read("mapa_depas_Lima.shp")
 
-mapaODS = merge(debamap, debatable,
-              by.x='DEPARTAMEN',by.y="Departamento")
+download.file("https://github.com/ChiaraZamoraM/ODS/raw/main/mapa2_Peru/Provincias_Peru.zip", 
+              destfile = "Provincias_Peru.zip" , mode='wb')
+unzip("Provincias_Peru.zip", exdir = ".")
+file.remove("Provincias_Peru.zip")
+mapa_prov <- st_read("PROVINCIAS.shp")
 
-mapaODS <- mapaODS %>% mutate(centroid = map(geometry, st_centroid), 
-                              coords = map(centroid, st_coordinates), 
-                              coords_x = map_dbl(coords, 1), 
-                              coords_y = map_dbl(coords, 2))
+mapa_prov$DEPARTAMEN <- ifelse(mapa_prov$PROVINCIA == "LIMA", "LIMA METROPOLITANA", mapa_prov$DEPARTAMEN)
 
-base= ggplot(data = mapaODS) + theme_void()  + scale_fill_brewer(palette = "YlOrBr",drop=FALSE)
+mapa_prov= fortify(mapa_prov)
 ```
 
-# Ubigeos 
-```{r warning=FALSE}
-library(readr)
-
-ubigeos <- read_csv("https://cloud.minsa.gob.pe/s/GkfcJD8xKHJeCqn/download")
-```
-
-# Mapas
 ```{r}
+mapaODS = merge(mapa, ODSTrans,
+              by.x='DEPARTAMEN',by.y="DEPARTAMENTO")
 
+#mapaODS <- mapaODS %>% mutate(centroid = map(geometry, st_centroid), 
+ #                             coords = map(centroid, st_coordinates), 
+  #                            coords_x = map_dbl(coords, 1), 
+   #                           coords_y = map_dbl(coords, 2))
+
+subset1_1_1= subset(mapaODS, ODSNro=="1_1_1" & Ano> 2014)
+
+base1_1_1= ggplot(data = subset1_1_1) + theme_light()
+```
+
+```{r}
+library(plotly)
+
+mapaley1 = base1_1_1 +
+  geom_sf(aes(fill= Valor)) + labs(fill = "Porcentaje (%)") +
+  geom_sf(data = mapa_prov,
+          fill = NA) +
+  facet_wrap(~Ano)
+      
+mapa1 = mapaley1 + 
+  scale_fill_gradient(low = "lightpink",  high = "firebrick2")+ 
+  labs(title = "Incidencia de la pobreza extrema", subtitle = "Indicador 1.1.1") 
+
+mapa1
+```
+
+```{r}
+subset1_2_1= subset(mapaODS, ODSNro=="1_2_1" & Ano> 2014)
+
+base1_2_1= ggplot(data = subset1_2_1) + theme_light()
+```
+
+```{r}
+library(plotly)
+
+mapaley2 = base1_2_1 +
+  geom_sf(aes(fill= Valor)) + labs(fill = "Porcentaje (%)") +
+  geom_sf(data = mapa_prov,
+          fill = NA) +
+  facet_wrap(~Ano)
+      
+mapa2 = mapaley2 + 
+  scale_fill_gradient(low = "lightpink",  high = "firebrick2")+ 
+  labs(title = "Incidencia de la pobreza monetaria total", subtitle = "Indicador 1.2.1") 
+
+mapa2
+```
+
+```{r}
+subset1_3_1= subset(mapaODS, ODSNro=="1_3_1" & Ano> 2014)
+
+base1_3_1= ggplot(data = subset1_3_1) + theme_light()
+```
+
+```{r}
+library(plotly)
+
+mapaley3 = base1_3_1 +
+  geom_sf(aes(fill= Valor)) + labs(fill = "Porcentaje (%)") +
+  geom_sf(data = mapa_prov,
+          fill = NA) +
+  facet_wrap(~Ano)
+      
+mapa3 = mapaley3 + 
+  scale_fill_gradient(low = "lightpink",  high = "firebrick2")+ 
+  labs(title = "Proporción de población de 14 a más años de edad \ncon seguro de pensión", subtitle = "Indicador 1.3.1") 
+
+mapa3
+```
+
+```{r}
+subset1_4_1= subset(mapaODS, ODSNro=="1_4_1" & Ano> 2014)
+
+base1_4_1= ggplot(data = subset1_4_1) + theme_light()
+```
+
+```{r}
+library(plotly)
+
+mapaley4 = base1_4_1 +
+  geom_sf(aes(fill= Valor)) + labs(fill = "Porcentaje (%)") +
+  geom_sf(data = mapa_prov,
+          fill = NA) +
+  facet_wrap(~Ano)
+      
+mapa4 = mapaley4 + 
+  scale_fill_gradient(low = "lightpink",  high = "firebrick2")+ 
+  labs(title = "Proporción de la población que vive en hogares con \nacceso a servicios básicos de infraestructura", subtitle = "Indicador 1.4.1") 
+
+mapa4
+```
+
+```{r}
+library(leaflet)
+```
+
+```{r}
+pal1 = colorNumeric(palette = "Blues", domain = subset1_1_1$Valor)
+```
+
+```{r}
+names(subset1_1_1)
+```
+
+
+```{r}
+map1_interactive = subset1_1_1  %>% 
+  st_transform(crs= "+init=epsg:4326") %>%
+  leaflet() %>%
+  addProviderTiles(provider= "CartoDB.Positron") %>%
+  addPolygons(label= subset1_1_1$DEPARTAMEN,
+              stroke = FALSE, 
+              smoothFactor =  .5,
+              opacity = 1,
+              fillOpacity = 0.7,
+              fillColor = ~pal1(Valor),
+              highlightOptions = highlightOptions(weight = 5,
+                                                  fillOpacity= 1,
+                                                  color = "black",
+                                                  opacity = 1,
+                                                  bringToFront = TRUE))%>%
+
+  addLegend("bottomright",
+            pal = pal1,
+            values = ~Valor,
+            title= "Porcentaje (%)",
+            opacity= 0.7) 
+
+map1_interactive
+```
+
+```{r}
+library(htmlwidgets)
+saveWidget(map1_interactive, "ODS1_1_1.html")
+```
+  
+```{r}
+saveRDS(subset1_1_1, "subset_1_1_1.RDS")
 ```
 
