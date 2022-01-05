@@ -12,6 +12,7 @@ library(tidyverse)
 library(leaflet)
 library(htmlwidgets)
 library(rio)
+library(sf)
 
 setwd("~/GitHub/ODS")
 
@@ -20,7 +21,7 @@ ODSSpr = import("https://github.com/ChiaraZamoraM/ODS/raw/main/ODSSpr.RDS")
 ui <- fluidPage(
 
     # Application title
-    titlePanel("Objetivos de Desarollo Sostenible"),
+    titlePanel("Avance de los Objetivos de Desarollo Sostenible"),
 
     sidebarLayout(
         sidebarPanel(
@@ -35,10 +36,10 @@ ui <- fluidPage(
             ),
         mainPanel(
             tabsetPanel(
-                tabPanel("1.1.1",leafletOutput("pobrezaex")),
-                tabPanel("1.2.1",leafletOutput("pobrezatot")),
-                tabPanel("1.3.1",leafletOutput("pension")),
-                tabPanel("1.4.1",leafletOutput("servbasicos"))
+                tabPanel("1.1.1",leafletOutput("pobrezaex", height = 650,width=605)),
+                tabPanel("1.2.1",leafletOutput("pobrezatot", height = 650,width=605)),
+                tabPanel("1.3.1",leafletOutput("pension", height = 650,width=605)),
+                tabPanel("1.4.1",leafletOutput("servbasicos", height = 650,width=605))
                 )
             )
         )
@@ -54,18 +55,18 @@ server <- function(input, output) {
      })
      
      output$pobrezaex = renderLeaflet({
-         pal1 = colorNumeric(palette = "heat", domain = ano_ODSSpr$`1_1_1`)
+         pal1 = colorNumeric(palette = "Blues", domain = ODSSpr$ODS1_1_1)
          
          ano_ODSSpr()  %>% 
              st_transform(crs= "+init=epsg:4326") %>%
              leaflet() %>%
              addProviderTiles(provider= "CartoDB.Positron") %>%
-             addPolygons(label= ano_ODSSpr()$DEPARTAMEN,
+             addPolygons(label= paste(ano_ODSSpr()$DEPARTAMEN,':', ano_ODSSpr()$ODS1_1_1),
                          stroke = FALSE, 
                          smoothFactor =  .5,
                          opacity = 1,
                          fillOpacity = 0.7,
-                         fillColor = ~pal1(ano_ODSSpr()$`1_1_1`),
+                         fillColor = ~pal1(ano_ODSSpr()$ODS1_1_1),
                          highlightOptions = highlightOptions(weight = 5,
                                                              fillOpacity= 1,
                                                              color = "black",
@@ -73,14 +74,14 @@ server <- function(input, output) {
                                                              bringToFront = TRUE))%>%
              addLegend("bottomright",
                        pal = pal1,
-                       values = ~`1_1_1`,
+                       values = ~ODS1_1_1,
                        title= "Porcentaje (%)",
                        opacity= 0.7) %>%
              addControl("Incidencia de la pobreza extrema", 
-                        position = "topleft", className="map-title")
+                        position = "bottomleft", className="map-title")
      })
      output$pobrezatot = renderLeaflet({
-         pal1 = colorNumeric(palette = "heat", domain = ODSSpr$`1_2_1`)
+         pal2 = colorNumeric(palette = "Blues", domain = ODSSpr$ODS1_2_1)
          
          ano_ODSSpr()  %>% 
              st_transform(crs= "+init=epsg:4326") %>%
@@ -91,7 +92,7 @@ server <- function(input, output) {
                          smoothFactor =  .5,
                          opacity = 1,
                          fillOpacity = 0.7,
-                         fillColor = ~pal1(ano_ODSSpr()$Valor),
+                         fillColor = ~pal2(ano_ODSSpr()$ODS1_2_1),
                          highlightOptions = highlightOptions(weight = 5,
                                                              fillOpacity= 1,
                                                              color = "black",
@@ -99,13 +100,13 @@ server <- function(input, output) {
                                                              bringToFront = TRUE))%>%
              
              addLegend("bottomright",
-                       pal = pal1,
-                       values = ~Valor,
+                       pal = pal2,
+                       values = ~ODS1_2_1,
                        title= "Porcentaje (%)",
                        opacity= 0.7) 
      })
      output$pension = renderLeaflet({
-         pal1 = colorNumeric(palette = "heat", domain = ODSSpr$`1_3_1`)
+         pal3 = colorNumeric(palette = "Blues", domain = ODSSpr$ODS1_3_1)
          
          ano_ODSSpr()  %>% 
              st_transform(crs= "+init=epsg:4326") %>%
@@ -116,7 +117,7 @@ server <- function(input, output) {
                          smoothFactor =  .5,
                          opacity = 1,
                          fillOpacity = 0.7,
-                         fillColor = ~pal1(ano_ODSSpr()$Valor),
+                         fillColor = ~pal3(ano_ODSSpr()$ODS1_3_1),
                          highlightOptions = highlightOptions(weight = 5,
                                                              fillOpacity= 1,
                                                              color = "black",
@@ -124,13 +125,13 @@ server <- function(input, output) {
                                                              bringToFront = TRUE))%>%
              
              addLegend("bottomright",
-                       pal = pal1,
-                       values = ~Valor,
+                       pal = pal3,
+                       values = ~ODS1_3_1,
                        title= "Porcentaje (%)",
                        opacity= 0.7) 
      })
      output$servbasicos = renderLeaflet({
-         pal1 = colorNumeric(palette = "heat", domain = ODSSpr$`1_4_1`)
+         pal4 = colorNumeric(palette = "Blues", domain = ODSSpr$ODS1_4_1)
          
          ano_ODSSpr()  %>% 
              st_transform(crs= "+init=epsg:4326") %>%
@@ -141,7 +142,7 @@ server <- function(input, output) {
                          smoothFactor =  .5,
                          opacity = 1,
                          fillOpacity = 0.7,
-                         fillColor = ~pal1(ano_ODSSpr()$Valor),
+                         fillColor = ~pal4(ano_ODSSpr()$ODS1_4_1),
                          highlightOptions = highlightOptions(weight = 5,
                                                              fillOpacity= 1,
                                                              color = "black",
@@ -149,8 +150,8 @@ server <- function(input, output) {
                                                              bringToFront = TRUE))%>%
              
              addLegend("bottomright",
-                       pal = pal1,
-                       values = ~Valor,
+                       pal = pal4,
+                       values = ~ODS1_4_1,
                        title= "Porcentaje (%)",
                        opacity= 0.7) 
      })

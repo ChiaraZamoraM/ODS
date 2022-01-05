@@ -343,8 +343,6 @@ base1_4_1= ggplot(data = subset1_4_1) + theme_light()
 ```
 
 ```{r}
-library(plotly)
-
 mapaley4 = base1_4_1 +
   geom_sf(aes(fill= Valor)) + labs(fill = "Porcentaje (%)") +
   geom_sf(data = mapa_prov,
@@ -412,6 +410,8 @@ set = subset(mapaODS, Ano> 2014)
 names(ODSSpr)
 
 ODSSpr= set %>% spread(ODSNro,Valor)
+
+names(ODSSpr)[c(6:11)]= paste0("ODS", names(ODSSpr)[c(6:11)])
 ```
 
 
