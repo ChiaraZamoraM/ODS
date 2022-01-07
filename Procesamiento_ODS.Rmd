@@ -413,7 +413,7 @@ set = set[, -4]
 
 ODSSpr= set %>% spread(ODSNro,Valor)
 
-names(ODSSpr)[c(6:11)]= paste0("ODS", names(ODSSpr)[c(6:11)])
+names(ODSSpr)[c(5:10)]= paste0("ODS", names(ODSSpr)[c(5:10)])
 ```
 
 ```{r}
