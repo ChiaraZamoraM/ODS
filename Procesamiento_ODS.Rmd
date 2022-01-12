@@ -535,6 +535,11 @@ mapa1
 ```{r}
 ggsave("mapa1_1_1.png")
 ```
+```{r}
+ss <- subset(economics, date > as.Date("2006-1-1"))
+ggplot(data = ss, aes(x = date, y = pop)) +
+geom_line(color = "#FC4E07", size = 2)
+```
 
 ```{r}
 subset1_2_1= subset(mapaODS, ODSNro=="1_2_1" & Ano> 2014)
