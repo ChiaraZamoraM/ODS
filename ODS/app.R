@@ -47,7 +47,8 @@ ui <- fluidPage(
     tags$style('.container-fluid {
                              background-color: ghostwhite;
               }'),
-    titlePanel(h1("Avance de los Objetivos de Desarollo Sostenible (ODS)",
+    titlePanel(windowTitle = "EGP",
+        h1("Observatorio de la Escuela de Gestión Pública",
                   style={'background-color: #34282C;
                   color: white;
             font-weight: bold;

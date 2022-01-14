@@ -450,7 +450,7 @@ ODS_3 = Reduce(function(x, y) merge(x, y, by= "DEPARTAMENTO"), list(X3_1_2,X3_3_
 ODS = Reduce(function(x, y) merge(x, y, by= "DEPARTAMENTO"), list(ODS_1,ODS_2, ODS_3))
 
 library(stringi)
-ODS$DEPARTAMENTO= stri_trans_general(str = toupper(ODS$DEPARTAMENTO), id = "Latin-ASCII")
+ODS$DEPARTAMENTO= stri_trans_general(str = toupper(ODS$DEPARTAMENTO), x)
 
 ODS= ODS[!is.na(ODS$DEPARTAMENTO),]
 ```
