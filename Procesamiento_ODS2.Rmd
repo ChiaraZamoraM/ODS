@@ -1,0 +1,1230 @@
+---
+title: "Procesamiento de indicadores de ODS"
+output: html_notebook
+---
+
+```{r}
+#Lima es Lima Metropolitana + Provincias de Lima/Departamento de Lima
+```
+
+```{r}
+library(readxl)
+library(rio)
+library(reshape2)
+library(stringi)
+library(tidyverse)
+library(lubridate)
+```
+
+# ODS 1
+
+## 1.1.1 Incidencia de la pobreza extrema
+```{r}
+url <- "https://github.com/ChiaraZamoraM/ODS/raw/main/1.1.1.xlsx"
+destfile <- "X1_1_1.xlsx"
+curl::curl_download(url, destfile)
+X1_1_1 <- read_excel(destfile, skip = 28)
+
+colnames(X1_1_1) = paste0("ODS1_1_1_",colnames(X1_1_1))
+
+X1_1_1 = X1_1_1[,c(1,10:26)]
+```
+
+```{r}
+X1_1_1[,c(2:18)]=lapply(X1_1_1[,c(2:18)], as.numeric)
+
+X1_1_1$ODS1_1_1_2013= (X1_1_1$ODS1_1_1_2013+ X1_1_1$ODS1_1_1_...12)/2
+X1_1_1$ODS1_1_1_2014= (X1_1_1$ODS1_1_1_2014+ X1_1_1$ODS1_1_1_...14)/2
+X1_1_1$ODS1_1_1_2015= (X1_1_1$ODS1_1_1_2015+ X1_1_1$ODS1_1_1_...16)/2
+X1_1_1$ODS1_1_1_2016= (X1_1_1$ODS1_1_1_2016+ X1_1_1$ODS1_1_1_...18)/2
+X1_1_1$ODS1_1_1_2017= (X1_1_1$ODS1_1_1_2017+ X1_1_1$ODS1_1_1_...20)/2
+X1_1_1$ODS1_1_1_2018= (X1_1_1$ODS1_1_1_2018+ X1_1_1$ODS1_1_1_...22)/2
+X1_1_1$ODS1_1_1_2019= (X1_1_1$ODS1_1_1_2019+ X1_1_1$ODS1_1_1_...24)/2
+X1_1_1$ODS1_1_1_2020= (X1_1_1$ODS1_1_1_2020+ X1_1_1$ODS1_1_1_...26)/2
+
+names(X1_1_1)[1]= "DEPARTAMENTO"
+
+X1_1_1$DEPARTAMENTO= gsub("^Lima$","Provincias de Lima",X1_1_1$DEPARTAMENTO)
+
+X1_1_1 <- data.frame(X1_1_1[,seq(1,18,2)])
+```
+
+```{r}
+X1_1_1_R <- import("https://www.inei.gob.pe/media/MenuRecursivo/publicaciones_digitales/Est/Lib1829/cap09/cap09002.xlsx")
+names(X1_1_1_R) <- as.character(X1_1_1_R[3,])
+X1_1_1_R = X1_1_1_R[-c(1:6),c(1:13)]
+colnames(X1_1_1_R) = paste0("ODS1_1_1_",colnames(X1_1_1_R))
+names(X1_1_1_R)[1]= "DEPARTAMENTO"
+
+X1_1_1_R$DEPARTAMENTO =gsub(' [0-9].', '', X1_1_1_R$DEPARTAMENTO)
+```
+
+```{r}
+X1_1_1= merge(X1_1_1_R, X1_1_1, all = TRUE)
+X1_1_1=X1_1_1[-23,]
+X1_1_1=X1_1_1[rowSums(is.na(X1_1_1)) != ncol(X1_1_1)-1,]
+```
+
+## 1.2.1 Incidencia de la pobreza monetaria total
+```{r}
+url <- "https://github.com/ChiaraZamoraM/ODS/raw/main/1.2.1.xlsx"
+destfile <- "X1_2_1.xlsx"
+curl::curl_download(url, destfile)
+X1_2_1 <- read_excel(destfile, skip = 28)
+
+colnames(X1_2_1) = paste0("ODS1_2_1_",colnames(X1_2_1))
+
+X1_2_1 = X1_2_1[,c(1,16:32)]
+```
+
+```{r}
+X1_2_1[,c(2:18)]=lapply(X1_2_1[,c(2:18)], as.numeric)
+```
+
+```{r}
+X1_2_1$ODS1_2_1_2013= (X1_2_1$ODS1_2_1_2013+ X1_2_1$ODS1_2_1_...18)/2
+X1_2_1$ODS1_2_1_2014= (X1_2_1$ODS1_2_1_2014+ X1_2_1$ODS1_2_1_...20)/2
+X1_2_1$ODS1_2_1_2015= (X1_2_1$ODS1_2_1_2015+ X1_2_1$ODS1_2_1_...22)/2
+X1_2_1$ODS1_2_1_2016= (X1_2_1$ODS1_2_1_2016+ X1_2_1$ODS1_2_1_...24)/2
+X1_2_1$ODS1_2_1_2017= (X1_2_1$ODS1_2_1_2017+ X1_2_1$ODS1_2_1_...26)/2
+X1_2_1$ODS1_2_1_2018= (X1_2_1$ODS1_2_1_2018+ X1_2_1$ODS1_2_1_...28)/2
+X1_2_1$ODS1_2_1_2019= (X1_2_1$ODS1_2_1_2019+ X1_2_1$ODS1_2_1_...30)/2
+X1_2_1$ODS1_2_1_2020= (X1_2_1$ODS1_2_1_2020+ X1_2_1$ODS1_2_1_...32)/2
+names(X1_2_1)[1]= "DEPARTAMENTO"
+
+X1_2_1$DEPARTAMENTO= gsub("^Lima$","Provincias de Lima",X1_2_1$DEPARTAMENTO)
+
+X1_2_1 <- data.frame(X1_2_1[,seq(1,18,2)])
+```
+
+```{r}
+X1_2_1_R <- import("https://www.inei.gob.pe/media/MenuRecursivo/publicaciones_digitales/Est/Lib1829/cap09/cap09001.xlsx")
+names(X1_2_1_R) <- X1_2_1_R[5,]
+X1_2_1_R = X1_2_1_R[-c(1:9),c(1:13)]
+colnames(X1_2_1_R) = paste0("ODS1_2_1_",colnames(X1_2_1_R))
+names(X1_2_1_R)[1]= "DEPARTAMENTO"
+
+X1_2_1_R$DEPARTAMENTO =gsub(' [0-9].', '', X1_2_1_R$DEPARTAMENTO)
+```
+
+```{r}
+X1_2_1= merge(X1_2_1_R, X1_2_1, all = TRUE)
+X1_2_1=X1_2_1[-24,]
+X1_2_1=X1_2_1[rowSums(is.na(X1_2_1)) != ncol(X1_2_1)-1,]
+```
+
+## 1.3.1 Proporción de población de 14 a más años de edad con seguro de pensión
+```{r}
+url <- "https://github.com/ChiaraZamoraM/ODS/raw/main/1.3.1.xlsx"
+destfile <- "X1_3_1.xlsx"
+curl::curl_download(url, destfile)
+X1_3_1 <- read_excel(destfile, skip = 7)
+
+colnames(X1_3_1) = paste0("ODS1_3_1_",colnames(X1_3_1))
+```
+
+```{r}
+X1_3_1[,c(2:14)]=lapply(X1_3_1[,c(2:14)], as.numeric)
+
+names(X1_3_1)[1]= "DEPARTAMENTO"
+```
+
+```{r}
+X1_3_1$DEPARTAMENTO= gsub("Prov. Const. del Callao","Callao",X1_3_1$DEPARTAMENTO)
+#X1_3_1$DEPARTAMENTO= gsub("Provincia de Lima","Lima Metropolitana",X1_3_1$DEPARTAMENTO)
+X1_3_1$DEPARTAMENTO= gsub("Región Lima","Provincias de Lima",X1_3_1$DEPARTAMENTO)
+
+#Resto país y total/nacional
+```
+
+## 1.4.1: Proporción de la población que vive en hogares con acceso a servicios básicos de infraestructura
+```{r}
+url <- "https://github.com/ChiaraZamoraM/ODS/raw/main/1.4.1.xlsx"
+destfile <- "X1_4_1.xlsx"
+curl::curl_download(url, destfile)
+X1_4_1 <- read_excel(destfile, skip = 7)
+
+colnames(X1_4_1) = paste0("ODS1_4_1_",colnames(X1_4_1))
+```
+
+```{r}
+X1_4_1[,c(2:8)]=lapply(X1_4_1[,c(2:8)], as.numeric)
+
+names(X1_4_1)[1]= "DEPARTAMENTO"
+```
+
+```{r}
+X1_4_1$DEPARTAMENTO= gsub("Prov. Const. del Callao","Callao",X1_4_1$DEPARTAMENTO)
+X1_4_1$DEPARTAMENTO= gsub("Provincia de Lima","Lima Metropolitana",X1_4_1$DEPARTAMENTO)
+X1_4_1$DEPARTAMENTO= gsub("Región Lima","Provincias de Lima",X1_4_1$DEPARTAMENTO)
+```
+
+## Merge
+```{r}
+ODS_1 = Reduce(function(x, y) merge(x, y, by= "DEPARTAMENTO", all=TRUE), list(X1_1_1, X1_2_1, X1_3_1, X1_4_1))
+
+ODS_1=ODS_1[rowSums(is.na(ODS_1)) != ncol(ODS_1)-1,]
+```
+
+# ODS 2
+
+```{r}
+url <- "https://www.inei.gob.pe/media/MenuRecursivo/publicaciones_digitales/Est/Lib1795/cuadros/Cap010.xls"
+destfile <- "Cap010.xls"
+curl::curl_download(url, destfile)
+Cap010 <- read_excel(destfile,sheet = "10.18",skip = 6)
+
+names(Cap010)[c(1,4)]= c("DEPARTAMENTO","2020")
+Cap010 =Cap010[,c(1,4)]
+
+Cap010$DEPARTAMENTO =gsub(' [0-9].', '', Cap010$DEPARTAMENTO)
+```
+
+```{r}
+url <- "https://www.inei.gob.pe/media/MenuRecursivo/publicaciones_digitales/Est/Lib1795/cuadros/Cap010.xls"
+destfile <- "Cap010.xls"
+curl::curl_download(url, destfile)
+Cap010_2 <- read_excel(destfile,sheet = "10.18",skip = 6)
+
+names(Cap010_2)[c(1,7)]= c("DEPARTAMENTO","2020")
+Cap010_2 =Cap010_2[,c(1,7)]
+
+Cap010_2$DEPARTAMENTO =gsub(' [0-9].', '', Cap010_2$DEPARTAMENTO)
+```
+
+## 2.1.1
+```{r}
+url <- "https://github.com/ChiaraZamoraM/ODS/raw/main/2.2.1.xlsx"
+destfile <- "X2_2_1.xlsx"
+curl::curl_download(url, destfile)
+X2_2_1 <- read_excel(destfile, skip = 7)
+names(X2_2_1)[1]= "DEPARTAMENTO"
+
+Cap010$DEPARTAMENTO= gsub("Prov. Const. del Callao","Callao",Cap010$DEPARTAMENTO)
+#Cap010$DEPARTAMENTO= gsub("Lima Metropolitana","LIMA",Cap010$DEPARTAMENTO)
+Cap010$DEPARTAMENTO= gsub("Departamento de Lima","Provincias de Lima",Cap010$DEPARTAMENTO)
+
+X2_2_1$DEPARTAMENTO= gsub("Prov. Const. del Callao","Callao",X2_2_1$DEPARTAMENTO)
+#X2_2_1$DEPARTAMENTO= gsub("Provincia de Lima","LIMA",X2_2_1$DEPARTAMENTO)
+X2_2_1$DEPARTAMENTO= gsub("Región Lima","Provincias de Lima",X2_2_1$DEPARTAMENTO)
+
+X2_2_1 = merge(X2_2_1, Cap010, by = "DEPARTAMENTO", all = TRUE)
+
+names(X2_2_1)[c(2:15)] = paste0("ODS2_2_1_",names(X2_2_1)[c(2:15)])
+```
+
+## 2.2.1
+```{r}
+url <- "https://github.com/ChiaraZamoraM/ODS/raw/main/2.2.2.xlsx"
+destfile <- "X2_2_2.xlsx"
+curl::curl_download(url, destfile)
+X2_2_2 <- read_excel(destfile, skip = 7)
+names(X2_2_2)[1]= "DEPARTAMENTO"
+```
+
+```{r}
+Cap010_2$DEPARTAMENTO= gsub("Prov. Const. del Callao","Callao",Cap010_2$DEPARTAMENTO)
+#Cap010_2$DEPARTAMENTO= gsub("Lima Metropolitana","LIMA",Cap010_2$DEPARTAMENTO)
+Cap010_2$DEPARTAMENTO= gsub("Departamento de Lima","Provincias de Lima",Cap010_2$DEPARTAMENTO)
+
+X2_2_2$DEPARTAMENTO= gsub("Prov. Const. del Callao","Callao",X2_2_2$DEPARTAMENTO)
+#X2_2_2$DEPARTAMENTO= gsub("Provincia de Lima","LIMA",X2_2_2$DEPARTAMENTO)
+X2_2_2$DEPARTAMENTO= gsub("Región Lima","Provincias de Lima",X2_2_2$DEPARTAMENTO)
+```
+
+```{r}
+X2_2_2 = merge(X2_2_2, Cap010_2, by = "DEPARTAMENTO",all = TRUE)
+
+colnames(X2_2_2)[c(2:12)] = paste0("ODS2_2_2_",colnames(X2_2_2)[c(2:12)])
+
+X2_2_2=X2_2_2[rowSums(is.na(X2_2_2)) != ncol(X2_2_2)-1,]
+```
+
+## Merge
+```{r}
+ODS_2 = Reduce(function(x, y) merge(x, y, by= "DEPARTAMENTO"), list(X2_2_1,X2_2_2))
+
+ODS_2 = ODS_2[rowSums(is.na(ODS_2)) != ncol(ODS_2),]
+```
+
+```{r}
+ODS_2[,c(2:26)]=lapply(ODS_2[,c(2:26)], as.numeric)
+```
+
+# ODS 3
+
+## 3.1.2 Proporción de partos atendidos por personal sanitario especializado
+```{r}
+url <- "https://github.com/ChiaraZamoraM/ODS/raw/main/3.1.2.xlsx"
+destfile <- "X3_1_2.xlsx"
+curl::curl_download(url, destfile)
+X3_1_2 <- read_excel(destfile, skip = 7)
+
+colnames(X3_1_2) = paste0("ODS3_1_2_",colnames(X3_1_2))
+```
+
+```{r}
+X3_1_2[,c(2:17)]=lapply(X3_1_2[,c(2:17)], as.numeric)
+
+names(X3_1_2)[1]= "DEPARTAMENTO"
+```
+
+```{r}
+X3_1_2$DEPARTAMENTO= gsub("Prov. Const. del Callao","Callao",X3_1_2$DEPARTAMENTO)
+#X3_1_2$DEPARTAMENTO= gsub("Provincia de Lima","LIMA",X3_1_2$DEPARTAMENTO)
+X3_1_2$DEPARTAMENTO= gsub("Región Lima","Provincias de Lima",X3_1_2$DEPARTAMENTO)
+```
+
+```{r}
+url <- "https://www.inei.gob.pe/media/MenuRecursivo/publicaciones_digitales/Est/Lib1795/cuadros/Cap008.xlsx"
+destfile <- "Cap008.xlsx"
+curl::curl_download(url, destfile)
+Cap008 <- read_excel(destfile,sheet = "8.11",skip = 6)
+
+names(Cap008)[c(1,9)]= c("DEPARTAMENTO","2020")
+Cap008 =Cap008[,c(1,9)]
+
+Cap008$DEPARTAMENTO =gsub(' [0-9].', '', Cap008$DEPARTAMENTO)
+
+Cap008$DEPARTAMENTO= gsub("Prov. Const. del Callao","Callao",Cap008$DEPARTAMENTO)
+#Cap008$DEPARTAMENTO= gsub("Lima Metropolitana","LIMA",Cap008$DEPARTAMENTO)
+Cap008$DEPARTAMENTO= gsub("Departamento de Lima","Provincias de Lima",Cap008$DEPARTAMENTO)
+
+X3_1_2 = merge(X3_1_2, Cap008, by = "DEPARTAMENTO",all = TRUE)
+
+colnames(X3_1_2)[c(2:ncol(X3_1_2))] = paste0("ODS3_1_2_",colnames(X3_1_2)[c(2:ncol(X3_1_2))])
+
+X3_1_2$DEPARTAMENTO= gsub("Nacional","Total",X3_1_2$DEPARTAMENTO)
+```
+
+```{r}
+X3_1_2 = X3_1_2[rowSums(is.na(X3_1_2)) != ncol(X3_1_2),]
+X3_1_2 = X3_1_2[rowSums(is.na(X3_1_2)) != ncol(X3_1_2)-1,]
+
+#Ojo con Provincia de Lima y Lima Metropolitana
+```
+
+## 3.2.1 Tasa de mortalidad de niños menores de 5 años de edad
+```{r}
+X3_2_1_D <- import("https://www.inei.gob.pe/media/MenuRecursivo/publicaciones_digitales/Est/Lib1829/cap06/cap06071.xlsx")
+names(X3_2_1_D) <- X3_2_1_D[7,]
+X3_2_1_D = X3_2_1_D[-c(1:10),-c(2:8)]
+names(X3_2_1_D)= sub('.*(\\d{4}).*', '\\1', names(X3_2_1_D))
+names(X3_2_1_D)[1]= "DEPARTAMENTO"
+X3_2_1_D$DEPARTAMENTO =gsub(' [0-9].', '', X3_2_1_D$DEPARTAMENTO)
+
+X3_2_1_A <- import("https://www.inei.gob.pe/media/MenuRecursivo/publicaciones_digitales/Est/Lib1829/cap06/cap06070.xlsx")
+names(X3_2_1_A) <- X3_2_1_A[6,]
+X3_2_1_A = X3_2_1_A[-c(1:27),]
+names(X3_2_1_A)= sub('.*(\\d{4}).*', '\\1', names(X3_2_1_A))
+names(X3_2_1_A)[1]= "DEPARTAMENTO"
+
+#Alternativa: \\D*(\\d{4}).*
+
+X3_2_1_R=merge(X3_2_1_D,X3_2_1_A,all = TRUE)
+
+X3_2_1_R$DEPARTAMENTO= gsub("Prov. Const. del Callao","Callao",X3_2_1_R$DEPARTAMENTO)
+#X3_2_1_R$DEPARTAMENTO= gsub("Lima Metropolitana","LIMA",Cap008$DEPARTAMENTO)
+X3_2_1_R$DEPARTAMENTO= gsub("^Lima$","Provincias de Lima",X3_2_1_R$DEPARTAMENTO)
+X3_2_1_R$DEPARTAMENTO= gsub("Departamento de Lima","Lima",X3_2_1_R$DEPARTAMENTO)
+
+colnames(X3_2_1_R)[c(2:ncol(X3_2_1_R))] = paste0("ODS3_2_1_",colnames(X3_2_1_R)[c(2:ncol(X3_2_1_R))])
+
+X3_2_1_R = X3_2_1_R[rowSums(is.na(X3_2_1_R)) != ncol(X3_2_1_R),]
+X3_2_1 = X3_2_1_R[rowSums(is.na(X3_2_1_R)) != ncol(X3_2_1_R)-1,]
+```
+
+## 3.2.2 Tasa de mortalidad neonatal
+
+## 3.3.1 Tasa de notificación de casos del Virus de la Inmunodeficiencia Humana (VIH) por cada 100 000 habitantes
+```{r}
+X3_3_1 <- import("https://www.inei.gob.pe/media/MenuRecursivo/publicaciones_digitales/Est/Lib1829/cap06/cap06027.xlsx")
+names(X3_3_1) <- X3_3_1[3,]
+X3_3_1 = X3_3_1[-c(1:5,22),]
+colnames(X3_3_1) = paste0("ODS3_3_1_",colnames(X3_3_1))
+names(X3_3_1)[1]= "DEPARTAMENTO"
+
+X3_3_1$DEPARTAMENTO =gsub(' [0-9].', '', X3_3_1$DEPARTAMENTO)
+```
+
+```{r}
+X3_3_1$DEPARTAMENTO= gsub("Prov. Const. del Callao","Callao",X3_3_1$DEPARTAMENTO)
+#X3_2_1_R$DEPARTAMENTO= gsub("Lima Metropolitana","LIMA",Cap008$DEPARTAMENTO)
+X3_3_1$DEPARTAMENTO= gsub("^Lima$","Provincias de Lima",X3_3_1$DEPARTAMENTO)
+```
+
+## 3.3.2 Incidencia de la tuberculosis por cada 100 000 habitantes
+```{r}
+url <- "https://github.com/ChiaraZamoraM/ODS/raw/main/3.3.2.xlsx"
+destfile <- "X3_3_2.xlsx"
+curl::curl_download(url, destfile)
+X3_3_2 <- read_excel(destfile, skip = 7)
+
+colnames(X3_3_2) = paste0("ODS3_3_2_",colnames(X3_3_2))
+```
+
+```{r}
+X3_3_2[,c(2:23)]=lapply(X3_3_2[,c(2:23)], as.numeric)
+
+names(X3_3_2)[1]= "DEPARTAMENTO"
+```
+
+```{r}
+X3_3_2$DEPARTAMENTO= gsub("Prov. Const. del Callao","Callao",X3_3_2$DEPARTAMENTO)
+X3_3_2$DEPARTAMENTO= gsub("Provincia de Lima","Lima Metropolitana",X3_3_2$DEPARTAMENTO)
+X3_3_2$DEPARTAMENTO= gsub("Región Lima","Provincias de Lima",X3_3_2$DEPARTAMENTO)
+X3_3_2$DEPARTAMENTO= gsub("Nacional","Total",X3_3_2$DEPARTAMENTO)
+```
+
+## 3.3.3 Incidencia de la malaria por cada 100 000 habitantes
+```{r}
+url <- "https://github.com/ChiaraZamoraM/ODS/raw/main/3.3.3.xlsx"
+destfile <- "X3_3_3.xlsx"
+curl::curl_download(url, destfile)
+X3_3_3 <- read_excel(destfile, skip = 7)
+
+colnames(X3_3_3) = paste0("ODS3_3_3_",colnames(X3_3_3))
+```
+
+```{r}
+X3_3_3[,c(2:39)]=lapply(X3_3_3[,c(2:39)], as.numeric)
+
+names(X3_3_3)[1]= "DEPARTAMENTO"
+```
+
+```{r}
+X3_3_3$DEPARTAMENTO= gsub("Prov. Const. del Callao","Callao",X3_3_3$DEPARTAMENTO)
+X3_3_3$DEPARTAMENTO= gsub("Nacional","Total",X3_3_3$DEPARTAMENTO)
+#X3_3_3$DEPARTAMENTO= gsub("Lima","Provincia de Lima",X3_3_3$DEPARTAMENTO)
+#X3_3_3= rbind(X3_3_3, X3_3_3[rep(18),])
+
+#X3_3_3[33,1]= "Provincias de Lima"
+```
+
+## 3.3.4 Incidencia de la hepatitis B por cada 100 000 habitantes
+```{r}
+url <- "https://github.com/ChiaraZamoraM/ODS/raw/main/3.3.4.xlsx"
+destfile <- "X3_3_4.xlsx"
+curl::curl_download(url, destfile)
+X3_3_4 <- read_excel(destfile, skip = 7)
+
+colnames(X3_3_4) = paste0("ODS3_3_4_",colnames(X3_3_4))
+```
+
+```{r}
+X3_3_4[,c(2:19)]=lapply(X3_3_4[,c(2:19)], as.numeric)
+
+names(X3_3_4)[1]= "DEPARTAMENTO"
+```
+
+```{r}
+X3_3_4$DEPARTAMENTO= gsub("Prov. Const. del Callao","Callao",X3_3_4$DEPARTAMENTO)
+X3_3_4$DEPARTAMENTO= gsub("Provincia de Lima","Lima Metropolitana",X3_3_4$DEPARTAMENTO)
+X3_3_4$DEPARTAMENTO= gsub("Región Lima","Provincias de Lima",X3_3_4$DEPARTAMENTO)
+X3_3_4$DEPARTAMENTO= gsub("Nacional","Total",X3_3_4$DEPARTAMENTO)
+```
+
+## 3.5.2 Proporción de personas de 15 y más años de edad que consumieron alguna bebida alcohólica en los últimos 12 meses
+```{r}
+url <- "https://github.com/ChiaraZamoraM/ODS/raw/main/3.5.2.xlsx"
+destfile <- "X3_5_2.xlsx"
+curl::curl_download(url, destfile)
+X3_5_2 <- read_excel(destfile, skip = 7)
+
+colnames(X3_5_2) = paste0("ODS3_5_2_",colnames(X3_5_2))
+
+```
+
+```{r}
+X3_5_2[,c(2:7)]=lapply(X3_5_2[,c(2:7)], as.numeric)
+
+names(X3_5_2)[1]= "DEPARTAMENTO"
+```
+
+```{r}
+X3_5_2$DEPARTAMENTO= gsub("Prov. Const. del Callao","Callao",X3_5_2$DEPARTAMENTO)
+#X3_5_2$DEPARTAMENTO= gsub("Provincia de Lima","Lima Metropolitana",X3_5_2$DEPARTAMENTO)
+X3_5_2$DEPARTAMENTO= gsub("Región Lima","Provincias de Lima",X3_5_2$DEPARTAMENTO)
+X3_5_2$DEPARTAMENTO= gsub("Nacional","Total",X3_5_2$DEPARTAMENTO)
+```
+
+## 3.6.1 Tasa de fallecidos por accidentes de tránsito
+```{r}
+url <- "https://github.com/ChiaraZamoraM/ODS/raw/main/3.6.1.xlsx"
+destfile <- "X3_6_1.xlsx"
+curl::curl_download(url, destfile)
+X3_6_1 <- read_excel(destfile, skip = 7)
+
+colnames(X3_6_1) = paste0("ODS3_6_1_",colnames(X3_6_1))
+```
+
+```{r}
+X3_6_1[,c(2:8)]=lapply(X3_6_1[,c(2:8)], as.numeric)
+
+names(X3_6_1)[1]= "DEPARTAMENTO"
+```
+
+```{r}
+X3_6_1$DEPARTAMENTO= gsub("Prov. Const. del Callao","Callao",X3_6_1$DEPARTAMENTO)
+X3_6_1$DEPARTAMENTO= gsub("Provincia de Lima","Lima Metropolitana",X3_6_1$DEPARTAMENTO)
+X3_6_1$DEPARTAMENTO= gsub("Región Lima","Provincias de Lima",X3_6_1$DEPARTAMENTO)
+X3_6_1$DEPARTAMENTO= gsub("Nacional","Total",X3_6_1$DEPARTAMENTO)
+```
+
+## 3.7.1 Proporción de mujeres en edad fértil (de 15 a 49 años) que practican la planificación familiar con métodos modernos
+```{r}
+X3_7_1 <- import("https://www.inei.gob.pe/media/MenuRecursivo/publicaciones_digitales/Est/Lib1829/cap06/cap06076.xlsx")
+names(X3_7_1) <- X3_7_1[4,]
+X3_7_1 = X3_7_1[-c(1:5),]
+colnames(X3_7_1) = paste0("ODS3_7_1_",colnames(X3_7_1))
+names(X3_7_1)[1]= "DEPARTAMENTO"
+
+X3_7_1$DEPARTAMENTO =gsub(' [0-9].', '', X3_7_1$DEPARTAMENTO)
+```
+
+```{r}
+X3_7_1$DEPARTAMENTO= gsub("Prov. Const. del Callao","Callao",X3_7_1$DEPARTAMENTO)
+#X3_2_1_R$DEPARTAMENTO= gsub("Lima Metropolitana","LIMA",Cap008$DEPARTAMENTO)
+X3_7_1$DEPARTAMENTO= gsub("^Lima$","Provincias de Lima",X3_7_1$DEPARTAMENTO)
+X3_7_1$DEPARTAMENTO= gsub("Departamento de Lima","Lima",X3_7_1$DEPARTAMENTO)
+X3_7_1$DEPARTAMENTO= gsub("La  Libertad","La Libertad",X3_7_1$DEPARTAMENTO)
+X3_7_1$DEPARTAMENTO= gsub("Resto de Costa","Resto Costa",X3_7_1$DEPARTAMENTO)
+X3_7_1= X3_7_1[-8,]
+
+#Lima es Lima Metropolitana + Departamento de Lima
+```
+
+## 3.7.2 Tasa de fecundidad adolescente de 15 a 19 años de edad
+
+## 3.8.1 Proporción de la población con seguro de salud
+
+```{r}
+X3_8_1 <- import("https://www.inei.gob.pe/media/MenuRecursivo/publicaciones_digitales/Est/Lib1829/cap06/cap06090.xlsx")
+names(X3_8_1) <- X3_8_1[5,]
+X3_8_1 = X3_8_1[-c(1:6,40:44),]
+colnames(X3_8_1) = paste0("ODS3_8_1_",colnames(X3_8_1))
+names(X3_8_1)[1]= "DEPARTAMENTO"
+
+X3_8_1$DEPARTAMENTO= gsub("Prov. Const. del Callao","Callao",X3_8_1$DEPARTAMENTO)
+X3_8_1$DEPARTAMENTO= gsub("Lima 2/","Provincias de Lima",X3_8_1$DEPARTAMENTO)
+
+X3_8_1$DEPARTAMENTO =gsub(' [0-9].', '', X3_8_1$DEPARTAMENTO)
+```
+## 3.a.1 Proporción de personas de 15 y más años de edad que actualmente fuman cigarros
+
+```{r}
+X3_c_1_a <- import("https://www.inei.gob.pe/media/MenuRecursivo/publicaciones_digitales/Est/Lib1829/cap06/cap06005.xlsx")
+names(X3_c_1_a) <- X3_c_1_a[4,]
+X3_c_1_a = X3_c_1_a[-c(1:5,33:35),]
+colnames(X3_c_1_a) = paste0("ODS3_8_1_",colnames(X3_c_1_a))
+names(X3_c_1_a)[1]= "DEPARTAMENTO"
+
+X3_c_1_a$DEPARTAMENTO= gsub("Prov. Const. del Callao","Callao",X3_c_1_a$DEPARTAMENTO)
+```
+
+## 3.c.1.a Número de médicos colegiados por cada 10 000 habitantes
+
+```{r}
+X3_c_1_a <- import("https://www.inei.gob.pe/media/MenuRecursivo/publicaciones_digitales/Est/Lib1829/cap06/cap06005.xlsx")
+names(X3_c_1_a) <- X3_c_1_a[4,]
+X3_c_1_a = X3_c_1_a[-c(1:5,33:35),]
+colnames(X3_c_1_a) = paste0("ODS3_8_1_",colnames(X3_c_1_a))
+names(X3_c_1_a)[1]= "DEPARTAMENTO"
+
+X3_c_1_a$DEPARTAMENTO= gsub("Prov. Const. del Callao","Callao",X3_c_1_a$DEPARTAMENTO)
+```
+
+
+```{r}
+ODS_3 = Reduce(function(x, y) merge(x, y, by= "DEPARTAMENTO",all=TRUE), list(X3_1_2, X3_2_1,
+                                                                    X3_3_1,
+                                                                    X3_3_2,X3_3_3,
+                                                                    X3_3_4,X3_5_2,
+                                                                    X3_6_1,X3_7_1,
+                                                                    X3_8_1,X3_c_1_a))
+ODS_3=ODS_3[rowSums(is.na(ODS_3)) != ncol(ODS_3),]
+ODS_3=ODS_3[rowSums(is.na(ODS_3)) != ncol(ODS_3)-1,]
+```
+
+
+# ODS 4
+
+## 4.1.1.4 --> 4.1.1 Proporción de estudiantes de segundo grado de secundaria con nivel satisfactorio en Comprensión de Lectura
+```{r}
+X4_1_1 <- import("https://www.inei.gob.pe/media/MenuRecursivo/publicaciones_digitales/Est/Lib1829/cap05/cap05052.xlsx")
+names(X4_1_1) <- as.character(X4_1_1[5,])
+X4_1_1 = X4_1_1[-c(1:6,44:48),c(1,7:10)]
+colnames(X4_1_1) = paste0("ODS4_1_1_",colnames(X4_1_1))
+names(X4_1_1)[1]= "DEPARTAMENTO"
+
+X4_1_1$DEPARTAMENTO =gsub(' [0-9].', '', X4_1_1$DEPARTAMENTO)
+```
+
+```{r}
+X4_1_1$DEPARTAMENTO= gsub("Prov. Const. del Callao","Callao",X4_1_1$DEPARTAMENTO)
+#X4_1_1$DEPARTAMENTO= gsub("Lima Metropolitana","LIMA",X4_1_1$DEPARTAMENTO)
+X4_1_1$DEPARTAMENTO= gsub("Departamento de Lima","Provincias de Lima",X4_1_1$DEPARTAMENTO)
+```
+
+## 4.1.1.6--> 4.1.2 Proporción de estudiantes de segundo grado de secundaria con nivel satisfactorio en Razonamiento Matemático
+```{r}
+X4_1_2 <- import("https://www.inei.gob.pe/media/MenuRecursivo/publicaciones_digitales/Est/Lib1829/cap05/cap05052.xlsx")
+names(X4_1_2) <- as.character(X4_1_2[5,])
+X4_1_2 = X4_1_2[-c(1:6,44:48),c(1:5)]
+colnames(X4_1_2) = paste0("ODS4_1_2_",colnames(X4_1_2))
+names(X4_1_2)[1]= "DEPARTAMENTO"
+
+X4_1_2$DEPARTAMENTO =gsub(' [0-9].', '', X4_1_2$DEPARTAMENTO)
+```
+
+```{r}
+X4_1_2$DEPARTAMENTO= gsub("Prov. Const. del Callao","Callao",X4_1_2$DEPARTAMENTO)
+#X4_1_2$DEPARTAMENTO= gsub("Lima Metropolitana","LIMA",X4_1_2$DEPARTAMENTO)
+X4_1_2$DEPARTAMENTO= gsub("Departamento de Lima","Provincias de Lima",X4_1_2$DEPARTAMENTO)
+```
+
+## 4.1.1.8 --> 4.1.3 Proporción de estudiantes de cuarto grado de primaria con nivel satisfactorio en Comprensión de Lectura
+
+```{r}
+X4_1_3 <- import("https://www.inei.gob.pe/media/MenuRecursivo/publicaciones_digitales/Est/Lib1829/cap05/cap05051.xlsx")
+names(X4_1_3) <- as.character(X4_1_3[7,])
+X4_1_3 = X4_1_3[-c(1:8,46:51),c(1,7:10)]
+colnames(X4_1_3) = paste0("ODS4_1_3_",colnames(X4_1_3))
+names(X4_1_3)[1]= "DEPARTAMENTO"
+
+X4_1_3$DEPARTAMENTO =gsub(' [0-9].', '', X4_1_3$DEPARTAMENTO)
+```
+
+```{r}
+X4_1_3$DEPARTAMENTO= gsub("Prov. Const. del Callao","Callao",X4_1_3$DEPARTAMENTO)
+#X4_1_3$DEPARTAMENTO= gsub("Lima Metropolitana","LIMA",X4_1_3$DEPARTAMENTO)
+X4_1_3$DEPARTAMENTO= gsub("Departamento de Lima","Provincias de Lima",X4_1_3$DEPARTAMENTO)
+```
+
+## 4.1.1.10 --> 4.1.4 Proporción de estudiantes de cuarto grado de primaria con nivel satisfactorio en Razonamiento Matemático
+```{r}
+X4_1_4 <- import("https://www.inei.gob.pe/media/MenuRecursivo/publicaciones_digitales/Est/Lib1829/cap05/cap05051.xlsx")
+names(X4_1_4) <- as.character(X4_1_4[7,])
+X4_1_4 = X4_1_4[-c(1:8,46:51),c(1:5)]
+colnames(X4_1_4) = paste0("ODS4_1_4",colnames(X4_1_4))
+names(X4_1_4)[1]= "DEPARTAMENTO"
+
+X4_1_4$DEPARTAMENTO =gsub(' [0-9].', '', X4_1_4$DEPARTAMENTO)
+```
+
+```{r}
+X4_1_4$DEPARTAMENTO= gsub("Prov. Const. del Callao","Callao",X4_1_4$DEPARTAMENTO)
+#X4_1_4$DEPARTAMENTO= gsub("Lima Metropolitana","LIMA",X4_1_4$DEPARTAMENTO)
+X4_1_4$DEPARTAMENTO= gsub("Departamento de Lima","Provincias de Lima",X4_1_4$DEPARTAMENTO)
+```
+
+## 4.2.2 Tasa de participación en el aprendizaje organizado (un año antes de la edad oficial del ingreso primario)
+```{r}
+X4_2_2 <- import("https://www.inei.gob.pe/media/MenuRecursivo/publicaciones_digitales/Est/Lib1829/cap05/cap05057.xlsx")
+names(X4_2_2) <- as.character(X4_2_2[6,])
+X4_2_2 = X4_2_2[-c(1:7,45:48),]
+colnames(X4_2_2) = paste0("ODS4_2_2_",colnames(X4_6_1))
+names(X4_2_2)[1]= "DEPARTAMENTO"
+
+X4_2_2$DEPARTAMENTO =gsub(' [0-9].', '', X4_2_2$DEPARTAMENTO)
+```
+
+```{r}
+X4_2_2$DEPARTAMENTO= gsub("Prov. Const. del Callao","Callao",X4_2_2$DEPARTAMENTO)
+#X4_2_2$DEPARTAMENTO= gsub("Lima Metropolitana","LIMA",X4_6_1$DEPARTAMENTO)
+X4_2_2$DEPARTAMENTO= gsub("Departamento de Lima","Provincias de Lima",X4_2_2$DEPARTAMENTO)
+```
+
+## 4.3.1 Tasa de asistencia a educación superior de la población de 17 a 24 años de edad
+```{r}
+
+```
+
+## 4.5.1.a Índice de paridad en la matrícula a educación inicial de la población 3 a 5 años de edad
+
+## 4.6.1 Tasa de alfabetización de la población de 15 y más años de edad (Con cartilla de lectura)
+```{r}
+X4_6_1 <- import("https://www.inei.gob.pe/media/MenuRecursivo/publicaciones_digitales/Est/Lib1829/cap05/cap05057.xlsx")
+names(X4_6_1) <- as.character(X4_6_1[6,])
+X4_6_1 = X4_6_1[-c(1:7,45:48),]
+colnames(X4_6_1) = paste0("ODS4_6_1_",colnames(X4_6_1))
+names(X4_6_1)[1]= "DEPARTAMENTO"
+
+X4_6_1$DEPARTAMENTO =gsub(' [0-9].', '', X4_6_1$DEPARTAMENTO)
+```
+
+```{r}
+X4_6_1$DEPARTAMENTO= gsub("Prov. Const. del Callao","Callao",X4_6_1$DEPARTAMENTO)
+#X4_6_1$DEPARTAMENTO= gsub("Lima Metropolitana","LIMA",X4_6_1$DEPARTAMENTO)
+X4_6_1$DEPARTAMENTO= gsub("Departamento de Lima","Provincias de Lima",X4_6_1$DEPARTAMENTO)
+```
+
+## 4.a.1 Proporción de escuelas con acceso a electricidad
+
+## 4.a.2 Proporción de escuelas con acceso a abastecimiento de agua mediante red pública dentro del local escolar
+
+## 4.a.3 Proporción de escuelas con acceso a inodoro conectado a red pública
+
+## 4.c.1 Proporción de docentes de educación inicial que recibieron la mínima formación pedagógica durante el empleo
+```{r}
+
+```
+
+
+## Merge
+
+```{r}
+ODS_4 = Reduce(function(x, y) merge(x, y, by= "DEPARTAMENTO",all=TRUE), list(X4_1_1_4, X4_1_1_6,
+                                                                             X4_1_1_8, X4_1_1_10,
+                                                                             X4_2_2, X4_6_1
+                                                                             ))
+ODS_4=ODS_4[rowSums(is.na(ODS_4)) != ncol(ODS_4),]
+ODS_4=ODS_4[rowSums(is.na(ODS_4)) != ncol(ODS_4)-1,]
+```
+
+# ODS 5
+## 5.2.1 Proporción de mujeres de 15 a 49 años de edad que han sufrido violencia física y/o sexual ejercida por el esposo o compañero en los últimos 12 meses
+```{r}
+X5_2_1 <- import("https://www.inei.gob.pe/media/MenuRecursivo/publicaciones_digitales/Est/Lib1829/cap08/cap08029.xlsx")
+names(X5_2_1) <- as.character(X5_2_1[5,])
+X5_2_1 = X5_2_1[-c(1:6,17:31),]
+colnames(X5_2_1) = paste0("ODS5_2_1_",colnames(X5_2_1))
+names(X5_2_1)[1]= "DEPARTAMENTO"
+
+X5_2_1$DEPARTAMENTO =gsub(' [0-9].', '', X5_2_1$DEPARTAMENTO)
+```
+
+```{r}
+X4_6_1$DEPARTAMENTO= gsub("Prov. Const. del Callao","Callao",X4_6_1$DEPARTAMENTO)
+#X4_6_1$DEPARTAMENTO= gsub("Lima Metropolitana","LIMA",X4_6_1$DEPARTAMENTO)
+X4_6_1$DEPARTAMENTO= gsub("Departamento de Lima","Provincias de Lima",X4_6_1$DEPARTAMENTO)
+```
+
+## 5.2.2 Proporción de mujeres de 18 y más años de edad que fueron alguna vez víctimas de violencia sexual, por parte de otra persona que no es su actual esposo o compañero
+```{r}
+#https://www.inei.gob.pe/media/MenuRecursivo/publicaciones_digitales/Est/Lib1795/cuadros/Cap012.xlsx
+```
+
+## 5.3.1 Proporción de mujeres de entre 20 y 24 años que estaban casadas o mantenían una unión estable antes de cumplir los 15 años y antes de cumplir los 18 años
+```{r}
+
+```
+
+5.5.1 Proporción de escaños ocupados por mujeres en los parlamentos nacionales por período congresal
+```{r}
+
+```
+
+5.5.1.b Proporción de alcaldías dirigidas por mujeres por período de alcaldía
+```{r}
+
+```
+
+5.5.1.c Proporción de regidoras mujeres elegidas por período del regidor/a
+5.5.2 Proporción de mujeres en cargos directivos
+5.a.1 Proporción del total de la población agrícola con derechos de propiedad o derechos seguros sobre las tierras agrícolas, desglosada por sexo
+5.b.1 Proporción de personas de 15 a más años de edad que poseen un teléfono móvil, desglosada por sexo
+
+# Merge
+```{r}
+ODS = Reduce(function(x, y) merge(x, y, by= "DEPARTAMENTO",all=TRUE), list(ODS_1,ODS_2, ODS_3, ODS_4))
+
+ODS=ODS[rowSums(is.na(ODS)) != ncol(ODS),]
+ODS=ODS[rowSums(is.na(ODS)) != ncol(ODS)-1,]
+
+ODS$DEPARTAMENTO= stri_trans_general(str = toupper(ODS$DEPARTAMENTO), id = "Latin-ASCII")
+
+ODS= ODS[!is.na(ODS$DEPARTAMENTO),]
+```
+
+```{r}
+ODSTrans= ODS %>% gather( ODS_Ano, Valor, 2:ncol(ODS), na.rm = TRUE, convert = FALSE)
+
+ODSTrans$Ano= sub('.*(\\d{4}).*', '\\1', ODSTrans$ODS_Ano)
+ODSTrans$Ano = as.Date(as.character(ODSTrans$Ano), format = "%Y")
+ODSTrans$Ano<- year(ODSTrans$Ano)
+ODSTrans$ODSNro= str_extract(ODSTrans$ODS_Ano,'[0-9]\\_[0-9]+\\_[0-9]+')
+```
+
+```{r}
+library(sf)
+library(ggplot2)
+library(ggpubr)
+library(tidyverse)
+library(ggrepel)
+library(repr)
+library(dygraphs)
+library(quantmod)
+library(rjson)
+
+download.file("https://github.com/ChiaraZamoraM/ODS/raw/main/mapa_Peru/mapa_depas_Lima.zip", 
+              destfile = "mapa_depas_Lima.zip" , mode='wb')
+unzip("mapa_depas_Lima.zip", exdir = ".")
+file.remove("mapa_depas_Lima.zip")
+
+mapa <- st_read("mapa_depas_Lima.shp")
+
+download.file("https://github.com/ChiaraZamoraM/ODS/raw/main/mapa2_Peru/Provincias_Peru.zip", 
+              destfile = "Provincias_Peru.zip" , mode='wb')
+unzip("Provincias_Peru.zip", exdir = ".")
+file.remove("Provincias_Peru.zip")
+mapa_prov <- st_read("PROVINCIAS.shp")
+
+mapa_prov$DEPARTAMEN <- ifelse(mapa_prov$PROVINCIA == "LIMA", "LIMA METROPOLITANA", mapa_prov$DEPARTAMEN)
+mapa_prov$DEPARTAMEN <- ifelse(mapa_prov$DEPARTAMEN == "LIMA", "LIMA PROVINCIAS", mapa_prov$DEPARTAMEN)
+mapa_prov$DEPARTAMEN <- ifelse(mapa_prov$DEPARTAMEN == "LIMA METROPOLITANA", "LIMA", mapa_prov$DEPARTAMEN)
+
+mapa_prov= fortify(mapa_prov)
+```
+
+```{r}
+mapaODS = merge(mapa, ODSTrans,
+              by.x='DEPARTAMEN',by.y="DEPARTAMENTO")
+
+#mapaODS <- mapaODS %>% mutate(centroid = map(geometry, st_centroid), 
+ #                             coords = map(centroid, st_coordinates), 
+  #                            coords_x = map_dbl(coords, 1), 
+   #                           coords_y = map_dbl(coords, 2))
+
+subset1_1_1= subset(mapaODS, ODSNro=="1_1_1" & Ano> 2014)
+
+base1_1_1= ggplot(data = subset1_1_1) + theme_light()
+```
+
+```{r}
+mapaley1 = base1_1_1 +
+  geom_sf(aes(fill= Valor)) + labs(fill = "Porcentaje (%)") +
+  geom_sf(data = mapa_prov,
+          fill = NA) +
+  facet_wrap(~Ano)
+      
+mapa1 = mapaley1 + 
+  scale_fill_gradient(low = "lightpink",  high = "firebrick2")+ 
+  labs(title = "Incidencia de la pobreza extrema", subtitle = "Indicador 1.1.1") 
+
+mapa1
+```
+
+```{r}
+ggsave("mapa1_1_1.png")
+```
+
+```{r}
+ss <- subset(economics, date > as.Date("2006-1-1"))
+ggplot(data = ss, aes(x = date, y = pop)) +
+geom_line(color = "#FC4E07", size = 2)
+```
+
+```{r}
+subset1_2_1= subset(mapaODS, ODSNro=="1_2_1" & Ano> 2014)
+
+base1_2_1= ggplot(data = subset1_2_1) + theme_light()
+```
+
+
+```{r}
+mapaley2 = base1_2_1 +
+  geom_sf(aes(fill= Valor)) + labs(fill = "Porcentaje (%)") +
+  geom_sf(data = mapa_prov,
+          fill = NA) +
+  facet_wrap(~Ano)
+      
+mapa2 = mapaley2 + 
+  scale_fill_gradient(low = "lightpink",  high = "firebrick2")+ 
+  labs(title = "Incidencia de la pobreza monetaria total", subtitle = "Indicador 1.2.1") 
+
+mapa2
+```
+
+```{r}
+ggsave("mapa1_2_1.png")
+```
+
+```{r}
+subset1_3_1= subset(mapaODS, ODSNro=="1_3_1" & Ano> 2014)
+
+base1_3_1= ggplot(data = subset1_3_1) + theme_light()
+```
+
+```{r}
+mapaley3 = base1_3_1 +
+  geom_sf(aes(fill= Valor)) + labs(fill = "Porcentaje (%)") +
+  geom_sf(data = mapa_prov,
+          fill = NA) +
+  facet_wrap(~Ano)
+      
+mapa3 = mapaley3 + 
+  scale_fill_gradient(low = "lightpink",  high = "firebrick2")+ 
+  labs(title = "Proporción de población de 14 a más años de edad \ncon seguro de pensión", subtitle = "Indicador 1.3.1") 
+
+mapa3
+```
+```{r}
+ggsave("mapa1_3_1.png")
+```
+
+```{r}
+subset1_4_1= subset(mapaODS, ODSNro=="1_4_1" & Ano> 2014)
+
+base1_4_1= ggplot(data = subset1_4_1) + theme_light()
+```
+
+```{r}
+mapaley4 = base1_4_1 +
+  geom_sf(aes(fill= Valor)) + labs(fill = "Porcentaje (%)") +
+  geom_sf(data = mapa_prov,
+          fill = NA) +
+  facet_wrap(~Ano)
+      
+mapa4 = mapaley4 + 
+  scale_fill_gradient(low = "lightpink",  high = "firebrick2")+ 
+  labs(title = "Proporción de la población que vive en hogares con \nacceso a servicios básicos de infraestructura", subtitle = "Indicador 1.4.1") 
+
+mapa4
+```
+
+```{r}
+ggsave("mapa1_4_1.png")
+```
+
+```{r}
+subset2_2_1= subset(mapaODS, ODSNro=="2_2_1" & Ano> 2014)
+
+base2_2_1= ggplot(data = subset2_2_1) + theme_light()
+```
+
+
+```{r}
+mapaley5 = base2_2_1 +
+  geom_sf(aes(fill= Valor)) + labs(fill = "Porcentaje (%)") +
+  geom_sf(data = mapa_prov,
+          fill = NA) +
+  facet_wrap(~Ano)
+      
+mapa5 = mapaley5 + 
+  scale_fill_gradient(low = "gold",  high = "darkgoldenrod4")+ 
+  labs(title = "Tasa de desnutrición crónica entre las niñas y niños menores de 5 años", subtitle = "Indicador 2.2.1") 
+
+mapa5
+```
+
+```{r}
+ggsave("mapa2_2_1.png")
+```
+
+```{r}
+subset2_2_2= subset(mapaODS, ODSNro=="2_2_2" & Ano> 2014)
+
+base2_2_2= ggplot(data = subset2_2_2) + theme_light()
+```
+
+```{r}
+mapaley6 = base2_2_2 +
+  geom_sf(aes(fill= Valor)) + labs(fill = "Porcentaje (%)") +
+  geom_sf(data = mapa_prov,
+          fill = NA) +
+  facet_wrap(~Ano)
+      
+mapa6 = mapaley6 + 
+  scale_fill_gradient(low = "gold",  high = "darkgoldenrod4")+ 
+  labs(title = "Tasa de desnutrición aguda entre las niñas y niños menores de 5 años", subtitle = "Indicador 2.2.2") 
+
+mapa6
+```
+
+```{r}
+ggsave("mapa2_2_2.png")
+```
+
+```{r}
+subset3_1_2= subset(mapaODS, ODSNro=="3_1_2" & Ano> 2014)
+
+base3_1_2= ggplot(data = subset3_1_2) + theme_light()
+```
+
+```{r}
+mapaley7 = base3_1_2 +
+  geom_sf(aes(fill= Valor)) + labs(fill = "Porcentaje (%)") +
+  geom_sf(data = mapa_prov,
+          fill = NA) +
+  facet_wrap(~Ano)
+      
+mapa7 = mapaley7 + 
+  scale_fill_gradient(low = "darkseagreen1",  high = "forestgreen")+ 
+  labs(title = "Proporción de partos atendidos por personal sanitario especializado", subtitle = "Indicador 3.1.2") 
+
+mapa7
+```
+
+```{r}
+ggsave("mapa3_1_2.png")
+```
+
+```{r}
+subset3_3_1= subset(mapaODS, ODSNro=="3_3_1" & Ano> 2014)
+
+base3_3_1= ggplot(data = subset3_3_1) + theme_light()
+```
+
+```{r}
+mapaley8 = base3_3_1 +
+  geom_sf(aes(fill= Valor)) + labs(fill = "Tasa") +
+  geom_sf(data = mapa_prov,
+          fill = NA) +
+  facet_wrap(~Ano)
+      
+mapa8 = mapaley8 + 
+  scale_fill_gradient(low = "darkseagreen1",  high = "forestgreen")+ 
+  labs(title = "Tasa de notificación de casos del virus de la inmunodeficiencia \nhumana (VIH) por cada 100 000 habitantes", subtitle = "Indicador 3.3.1") 
+
+mapa8
+```
+
+```{r}
+ggsave("mapa3_3_1.png")
+```
+
+```{r}
+subset3_3_2= subset(mapaODS, ODSNro=="3_3_2" & Ano> 2014)
+
+base3_3_2= ggplot(data = subset3_3_2) + theme_light()
+```
+
+```{r}
+mapaley9 = base3_3_2 +
+  geom_sf(aes(fill= Valor)) + labs(fill = "Tasa") +
+  geom_sf(data = mapa_prov,
+          fill = NA) +
+  facet_wrap(~Ano)
+      
+mapa9 = mapaley9 + 
+  scale_fill_gradient(low = "darkseagreen1",  high = "forestgreen")+ 
+  labs(title = "Incidencia de la tuberculosis por cada 100 000 habitantes", subtitle = "Indicador 3.3.2") 
+
+mapa9
+```
+
+```{r}
+ggsave("mapa3_3_2.png")
+```
+```{r}
+subset3_3_3= subset(mapaODS, ODSNro=="3_3_3" & Ano> 2014)
+
+base3_3_3= ggplot(data = subset3_3_3) + theme_light()
+```
+
+```{r}
+mapaley10 = base3_3_3 +
+  geom_sf(aes(fill= Valor)) + labs(fill = "Tasa") +
+  geom_sf(data = mapa_prov,
+          fill = NA) +
+  facet_wrap(~Ano)
+      
+mapa10 = mapaley10 + 
+  scale_fill_gradient(low = "darkseagreen1",  high = "forestgreen")+ 
+  labs(title = "Incidencia de la malaria por cada 100 000 habitantes", subtitle = "Indicador 3.3.3") 
+
+mapa10
+```
+
+```{r}
+ggsave("mapa3_3_3.png")
+```
+
+```{r}
+subset3_3_4= subset(mapaODS, ODSNro=="3_3_4" & Ano> 2014)
+
+base3_3_4= ggplot(data = subset3_3_4) + theme_light()
+```
+
+```{r}
+mapaley11 = base3_3_4 +
+  geom_sf(aes(fill= Valor)) + labs(fill = "Tasa") +
+  geom_sf(data = mapa_prov,
+          fill = NA) +
+  facet_wrap(~Ano)
+      
+mapa11 = mapaley11 + 
+  scale_fill_gradient(low = "darkseagreen1",  high = "forestgreen")+ 
+  labs(title = "Incidencia de la hepatitis B por cada 100 000 habitantes", subtitle = "Indicador 3.3.4") 
+
+mapa11
+```
+
+```{r}
+ggsave("mapa3_3_4.png")
+```
+
+```{r}
+subset3_5_2= subset(mapaODS, ODSNro=="3_5_2" & Ano> 2014)
+
+base3_5_2= ggplot(data = subset3_5_2) + theme_light()
+```
+
+```{r}
+mapaley12 = base3_5_2 +
+  geom_sf(aes(fill= Valor)) + labs(fill = "Tasa") +
+  geom_sf(data = mapa_prov,
+          fill = NA) +
+  facet_wrap(~Ano)
+      
+mapa12 = mapaley12 + 
+  scale_fill_gradient(low = "darkseagreen1",  high = "forestgreen")+ 
+  labs(title = "Proporción de personas de 15 y más años de edad que \nconsumieron alguna bebida alcohólica en los últimos 12 meses", subtitle = "Indicador 3.5.2") 
+
+mapa12
+```
+
+```{r}
+ggsave("mapa3_5_2.png")
+```
+
+
+```{r}
+subset3_6_1= subset(mapaODS, ODSNro=="3_6_1" & Ano> 2014)
+
+base3_6_1= ggplot(data = subset3_6_1) + theme_light()
+```
+
+```{r}
+mapaley13= base3_6_1 +
+  geom_sf(aes(fill= Valor)) + labs(fill = "Tasa") +
+  geom_sf(data = mapa_prov,
+          fill = NA) +
+  facet_wrap(~Ano)
+      
+mapa13 = mapaley13 + 
+  scale_fill_gradient(low = "darkseagreen1",  high = "forestgreen")+ 
+  labs(title = "Tasa de fallecidos por accidentes de tránsito", subtitle = "Indicador 3.6.1") 
+
+mapa13
+```
+
+```{r}
+ggsave("mapa3_6_1.png")
+```
+
+```{r}
+subset3_7_1= subset(mapaODS, ODSNro=="3_7_1" & Ano> 2014)
+
+base3_7_1= ggplot(data = subset3_7_1) + theme_light()
+```
+
+```{r}
+mapaley14= base3_6_1 +
+  geom_sf(aes(fill= Valor)) + labs(fill = "Porcentaje (%)") +
+  geom_sf(data = mapa_prov,
+          fill = NA) +
+  facet_wrap(~Ano)
+      
+mapa14 = mapaley14 + 
+  scale_fill_gradient(low = "darkseagreen1",  high = "forestgreen")+ 
+  labs(title = "Proporción de mujeres en edad fértil (de 15 a 49 años) que \npractican la planificación familiar con métodos modernos", subtitle = "Indicador 3.7.1") 
+
+mapa14
+```
+
+```{r}
+ggsave("mapa3_7_1.png")
+```
+
+```{r}
+subset3_8_1= subset(mapaODS, ODSNro=="3_8_1" & Ano> 2014)
+
+base3_8_1= ggplot(data = subset3_8_1) + theme_light()
+```
+
+```{r}
+mapaley15= base3_8_1 +
+  geom_sf(aes(fill= Valor)) + labs(fill = "Porcentaje (%)") +
+  geom_sf(data = mapa_prov,
+          fill = NA) +
+  facet_wrap(~Ano)
+      
+mapa15 = mapaley15 + 
+  scale_fill_gradient(low = "darkseagreen1",  high = "forestgreen")+ 
+  labs(title = "Proporción de la población con seguro de salud", subtitle = "Indicador 3.8.1") 
+
+mapa15
+```
+
+```{r}
+ggsave("mapa3_8_1.png")
+```
+
+```{r}
+write.csv(ODS,"BASE_ODS.csv")
+```
+
+
+# Mapa interactivo
+```{r}
+library(leaflet)
+```
+
+```{r}
+pal1 = colorNumeric(palette = "Blues", domain = subset1_1_1$Valor)
+```
+
+```{r}
+names(subset1_1_1)
+```
+
+```{r}
+map1_interactive = subset1_1_1  %>% 
+  st_transform(crs= "+init=epsg:4326") %>%
+  leaflet() %>%
+  addProviderTiles(provider= "CartoDB.Positron") %>%
+  addPolygons(label= subset1_1_1$DEPARTAMEN,
+              stroke = FALSE, 
+              smoothFactor =  .5,
+              opacity = 1,
+              fillOpacity = 0.7,
+              fillColor = ~pal1(Valor),
+              highlightOptions = highlightOptions(weight = 5,
+                                                  fillOpacity= 1,
+                                                  color = "black",
+                                                  opacity = 1,
+                                                  bringToFront = TRUE))%>%
+
+  addLegend("bottomright",
+            pal = pal1,
+            values = ~Valor,
+            title= "Porcentaje (%)",
+            opacity= 0.7) 
+
+map1_interactive
+```
+
+```{r}
+library(htmlwidgets)
+saveWidget(map1_interactive, "ODS1_1_1.html")
+```
+  
+```{r}
+saveRDS(subset1_1_1, "subset_1_1_1.RDS")
+```
+
+```{r}
+set = subset(mapaODS, Ano> 2014)
+
+names(set)
+
+set = set[, -4]
+
+ODSSpr= set %>% spread(ODSNro,Valor)
+
+names(ODSSpr)[c(5:10)]= paste0("ODS", names(ODSSpr)[c(5:10)])
+```
+```{r}
+ODSSpr[,c(5:ncol(ODSSpr))] = lapply(ODSSpr[,c(5:ncol(ODSSpr))], function(x) if(is.numeric(x)) round(x, 1) else x)
+```
+
+```{r}
+saveRDS(ODSSpr, "ODSSpr.RDS")
+```
+
+```{r}
+saveRDS(subset1_1_1, "subset_1_1_1.RDS")
+```
+

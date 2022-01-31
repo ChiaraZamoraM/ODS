@@ -31,12 +31,6 @@ mapa_prov$DEPARTAMEN <- ifelse(mapa_prov$PROVINCIA == "LIMA", "LIMA METROPOLITAN
 mapa_prov$DEPARTAMEN <- ifelse(mapa_prov$PROVINCIA == "LIMA", "LIMA PROVINCIAS", mapa_prov$DEPARTAMEN)
 mapa_prov$DEPARTAMEN <- ifelse(mapa_prov$PROVINCIA == "LIMA METROPOLITANA", "LIMA", mapa_prov$DEPARTAMEN)
 
-table(mapa_prov$DEPARTAMEN)
-table(ODSSpr$DEPARTAMEN)
-
-
-ODSSpr[,c(5:10)] = lapply(ODSSpr[,c(5:10)], function(x) if(is.numeric(x)) round(x, 1) else x)
-
 subtitulo = {'background-color: #34282C; 
             color: white;
             font-size: 20px;
@@ -48,7 +42,8 @@ subtitulo = {'background-color: #34282C;
 ui <-  dashboardPage(
     dashboardHeader(title = "Observatorio EGP"),
     
-    dashboardSidebar(
+    
+     dashboardSidebar(
         h5("Este es un Shiny App de prueba."),
         selectInput("ano",
                     "Seleccione una fecha",
