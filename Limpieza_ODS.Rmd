@@ -191,11 +191,12 @@ X2_1_1$DEPARTAMENTO= gsub("Nacional","Total",X2_1_1$DEPARTAMENTO)
 url <- "https://www.inei.gob.pe/media/MenuRecursivo/publicaciones_digitales/Est/Lib1795/cuadros/Cap010.xls"
 destfile <- "Cap010.xls"
 curl::curl_download(url, destfile)
-Cap010 <- read_excel(destfile,sheet = "10.18",skip = 6)
+Cap010 <- read_excel(destfile,sheet = "10.18",skip = 1)
 
 names(Cap010)[c(1,4)]= c("DEPARTAMENTO","2020")
 Cap010 =Cap010[,c(1,4)]
 
+Cap010$DEPARTAMENTO =gsub('Total 2020', 'Total', Cap010$DEPARTAMENTO)
 Cap010$DEPARTAMENTO =gsub(' [0-9].', '', Cap010$DEPARTAMENTO)
 
 ```
@@ -216,6 +217,7 @@ Cap010$DEPARTAMENTO= gsub("Departamento de Lima","Provincias de Lima",Cap010$DEP
 X2_2_1$DEPARTAMENTO= gsub("Prov. Const. del Callao","Callao",X2_2_1$DEPARTAMENTO)
 #X2_2_1$DEPARTAMENTO= gsub("Provincia de Lima","LIMA",X2_2_1$DEPARTAMENTO)
 X2_2_1$DEPARTAMENTO= gsub("Región Lima","Provincias de Lima",X2_2_1$DEPARTAMENTO)
+X2_2_1$DEPARTAMENTO= gsub("Nacional","Total",X2_2_1$DEPARTAMENTO)
 
 X2_2_1 = merge(X2_2_1, Cap010, by = "DEPARTAMENTO", all = TRUE)
 
@@ -232,6 +234,7 @@ Cap010_2 <- read_excel(destfile,sheet = "10.18",skip = 6)
 names(Cap010_2)[c(1,7)]= c("DEPARTAMENTO","2020")
 Cap010_2 =Cap010_2[,c(1,7)]
 
+Cap010_2$DEPARTAMENTO =gsub('Total 2020', 'Total', Cap010_2$DEPARTAMENTO)
 Cap010_2$DEPARTAMENTO =gsub(' [0-9].', '', Cap010_2$DEPARTAMENTO)
 ```
 
@@ -251,6 +254,7 @@ Cap010_2$DEPARTAMENTO= gsub("Departamento de Lima","Provincias de Lima",Cap010_2
 X2_2_2$DEPARTAMENTO= gsub("Prov. Const. del Callao","Callao",X2_2_2$DEPARTAMENTO)
 #X2_2_2$DEPARTAMENTO= gsub("Provincia de Lima","LIMA",X2_2_2$DEPARTAMENTO)
 X2_2_2$DEPARTAMENTO= gsub("Región Lima","Provincias de Lima",X2_2_2$DEPARTAMENTO)
+X2_2_2$DEPARTAMENTO= gsub("Nacional","Total",X2_2_2$DEPARTAMENTO)
 ```
 
 ```{r}
@@ -263,7 +267,7 @@ X2_2_2=X2_2_2[rowSums(is.na(X2_2_2)) != ncol(X2_2_2)-1,]
 
 ## Merge
 ```{r}
-ODS_2 = Reduce(function(x, y) merge(x, y, by= "DEPARTAMENTO"), list(X2_1_1,X2_2_1,X2_2_2))
+ODS_2 = Reduce(function(x, y) merge(x, y, by= "DEPARTAMENTO", all=TRUE), list(X2_1_1,X2_2_1,X2_2_2))
 
 ODS_2 = ODS_2[rowSums(is.na(ODS_2)) != ncol(ODS_2),]
 ```
@@ -291,6 +295,8 @@ names(X3_1_2)[1]= "DEPARTAMENTO"
 X3_1_2$DEPARTAMENTO= gsub("Prov. Const. del Callao","Callao",X3_1_2$DEPARTAMENTO)
 #X3_1_2$DEPARTAMENTO= gsub("Provincia de Lima","LIMA",X3_1_2$DEPARTAMENTO)
 X3_1_2$DEPARTAMENTO= gsub("Región Lima","Provincias de Lima",X3_1_2$DEPARTAMENTO)
+X3_1_2$DEPARTAMENTO= gsub("Resto Costa","Costa",X3_1_2$DEPARTAMENTO)
+X3_1_2$DEPARTAMENTO= gsub("Nacional","Total",X3_1_2$DEPARTAMENTO)
 ```
 
 ```{r}
@@ -307,12 +313,11 @@ Cap008$DEPARTAMENTO =gsub(' [0-9].', '', Cap008$DEPARTAMENTO)
 Cap008$DEPARTAMENTO= gsub("Prov. Const. del Callao","Callao",Cap008$DEPARTAMENTO)
 #Cap008$DEPARTAMENTO= gsub("Lima Metropolitana","LIMA",Cap008$DEPARTAMENTO)
 Cap008$DEPARTAMENTO= gsub("Departamento de Lima","Provincias de Lima",Cap008$DEPARTAMENTO)
+Cap008$DEPARTAMENTO =gsub('Total20', 'Total', Cap008$DEPARTAMENTO)
 
 X3_1_2 = merge(X3_1_2, Cap008, by = "DEPARTAMENTO",all = TRUE)
 
 colnames(X3_1_2)[c(2:ncol(X3_1_2))] = paste0("ODS3_1_2_",colnames(X3_1_2)[c(2:ncol(X3_1_2))])
-
-X3_1_2$DEPARTAMENTO= gsub("Nacional","Total",X3_1_2$DEPARTAMENTO)
 ```
 
 ```{r}
@@ -372,6 +377,7 @@ X3_2_2$DEPARTAMENTO= gsub("Nacional","Total",X3_2_2$DEPARTAMENTO)
 ```{r}
 X3_3_1 <- import("https://www.inei.gob.pe/media/MenuRecursivo/publicaciones_digitales/Est/Lib1829/cap06/cap06027.xlsx")
 names(X3_3_1) <- X3_3_1[3,]
+colnames(X3_3_1)[6]="2017"
 X3_3_1 = X3_3_1[-c(1:5,22),]
 colnames(X3_3_1) = paste0("ODS3_3_1_",colnames(X3_3_1))
 names(X3_3_1)[1]= "DEPARTAMENTO"
@@ -1043,12 +1049,18 @@ ODSTrans= ODS %>% gather( ODS_Ano, Valor, 2:ncol(ODS), na.rm = TRUE, convert = F
 
 ```{r}
 ODSTrans$Ano= sub('.*(\\d{4}).*', '\\1', ODSTrans$ODS_Ano)
-ODSTrans$Ano = as.Date(as.character(ODSTrans$Ano), format = "%Y")
-ODSTrans$Ano<- year(ODSTrans$Ano)
+
+#ODSTrans$Ano = as.Date(as.character(ODSTrans$Ano), format = "%Y")
+#ODSTrans$Ano<- year(ODSTrans$Ano)
+
 ODSTrans$ODSNro= str_extract(ODSTrans$ODS_Ano,'\\d_\\w_\\d')
+
 ODSTrans$ODSNro= gsub('_','.',ODSTrans$ODSNro)
+
 ODSTrans$Valor= sapply(ODSTrans$Valor,as.numeric)
+
 ODSTrans$Valor= round(ODSTrans$Valor,1)
+
 ODSTrans= ODSTrans[,-2]
 ```
 
@@ -1064,12 +1076,8 @@ ODSSpr = ODSTrans %>%
 names(ODSSpr)[c(3:ncol(ODSSpr))]= paste0("ODS", names(ODSSpr)[c(3:ncol(ODSSpr))])
 
 ODSSpr$Ano = as.Date(as.character(ODSSpr$Ano), format = "%Y")
-ODSSpr$Ano <- year(ODSSpr$Ano)
-``` 
 
-```{r}
-names(ODSSpr)
-```
+``` 
 
 ```{r}
 #ODS1_1_1 = ODSSpr[-c(4:ncol(ODSSpr)),]
@@ -1081,62 +1089,42 @@ names(ODSSpr)
 ```
 
 ```{r}
-write.csv(ODSSpr,"BASE_ODS.csv")
-```
-
-```{r}
 saveRDS(ODSSpr, "ODSSpr.RDS")
 ```
 
-# Mapa interactivo
+
 ```{r}
-library(leaflet)
+library(xlsx)
+
+wb = createWorkbook()
+
+sheet = createSheet(wb, "ODS 1")
+
+addDataFrame(ODS_1, sheet=sheet, col.names = TRUE, row.names = FALSE)
+
+sheet = createSheet(wb, "ODS 2")
+
+addDataFrame(ODS_2, sheet=sheet, col.names = TRUE, row.names = FALSE)
+
+sheet = createSheet(wb, "ODS 3")
+
+addDataFrame(ODS_3, sheet=sheet, col.names = TRUE, row.names = FALSE)
+
+sheet = createSheet(wb, "ODS 4")
+
+addDataFrame(ODS_4, sheet=sheet, col.names = TRUE, row.names = FALSE)
+
+sheet = createSheet(wb, "ODS 5")
+
+addDataFrame(ODS_5, sheet=sheet, col.names = TRUE, row.names = FALSE)
+
+sheet = createSheet(wb, "ODS 6")
+
+addDataFrame(ODS_6, sheet=sheet, col.names = TRUE, row.names = FALSE)
+
+saveWorkbook(wb, "My_File.xlsx")
 ```
 
 ```{r}
-pal1 = colorNumeric(palette = "Blues", domain = subset1_1_1$Valor)
+write.csv(ODSSpr,"BASE_ODS.csv")
 ```
-
-```{r}
-names(subset1_1_1)
-```
-
-```{r}
-map1_interactive = subset1_1_1  %>% 
-  st_transform(crs= "+init=epsg:4326") %>%
-  leaflet() %>%
-  addProviderTiles(provider= "CartoDB.Positron") %>%
-  addPolygons(label= subset1_1_1$DEPARTAMEN,
-              stroke = FALSE, 
-              smoothFactor =  .5,
-              opacity = 1,
-              fillOpacity = 0.7,
-              fillColor = ~pal1(Valor),
-              highlightOptions = highlightOptions(weight = 5,
-                                                  fillOpacity= 1,
-                                                  color = "black",
-                                                  opacity = 1,
-                                                  bringToFront = TRUE))%>%
-
-  addLegend("bottomright",
-            pal = pal1,
-            values = ~Valor,
-            title= "Porcentaje (%)",
-            opacity= 0.7) 
-
-map1_interactive
-```
-
-```{r}
-library(htmlwidgets)
-saveWidget(map1_interactive, "ODS1_1_1.html")
-```
-  
-```{r}
-saveRDS(subset1_1_1, "subset_1_1_1.RDS")
-```
-
-```{r}
-saveRDS(subset1_1_1, "subset_1_1_1.RDS")
-```
-
