@@ -1,0 +1,287 @@
+---
+title: "Observatorio de la Escuela de Gestión Pública"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+---
+
+<style>                     
+.navbar {
+  background-color:#34282C;
+  border-color:#34282C;
+}
+.navbar-brand {
+color:white!important;
+}
+</style>   
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+library(ggplot2)
+library(ggpubr)
+library(ggrepel)
+library(tidyverse)
+library(repr)
+library(quantmod)
+library(rio)
+library(plotly)
+library(scales)
+library(tidyr)
+library(gridExtra)
+```
+
+```{r plotsCode_ACTUAL, warning=FALSE, message=FALSE}
+ODSSpr = import("https://github.com/ChiaraZamoraM/ODS/raw/main/ODSSpr.RDS")
+
+Regiones = subset(ODSSpr, DEPARTAMENTO == "Total" | DEPARTAMENTO == "Urbana" | 
+                    DEPARTAMENTO == "Rural" | 
+                    DEPARTAMENTO == "Costa"| 
+                    DEPARTAMENTO == "Sierra"| 
+                    DEPARTAMENTO == "Selva"|
+                  DEPARTAMENTO == "Lima Metropolitana")
+
+Regiones$DEPARTAMENTO = factor(Regiones$DEPARTAMENTO, levels = c("Total", 
+                                                                 "Urbana", "Rural",
+                                                                 "Costa", "Sierra",
+                                                                 "Selva", "Lima Metropolitana"))
+
+Departamentos = subset(ODSSpr, DEPARTAMENTO == "Amazonas" | DEPARTAMENTO == "Áncash" | 
+                    DEPARTAMENTO == "Apurímac" | 
+                    DEPARTAMENTO == "Arequipa"| 
+                    DEPARTAMENTO == "Ayacucho"| 
+                    DEPARTAMENTO == "Cajamarca"|
+                    DEPARTAMENTO == "Callao"|
+                    DEPARTAMENTO == "Huancavelica"|
+                    DEPARTAMENTO == "Huánuco"|
+                    DEPARTAMENTO == "Ica"|
+                    DEPARTAMENTO == "Loreto"|
+                    DEPARTAMENTO == "Madre de Dios"|
+                    DEPARTAMENTO == "Pasco"|
+                    DEPARTAMENTO == "Piura"|
+                    DEPARTAMENTO == "Provincias de Lima"|
+                    DEPARTAMENTO == "Puno"|
+                    DEPARTAMENTO == "San Martín"|
+                    DEPARTAMENTO == "Tacna"|
+                    DEPARTAMENTO == "Tumbes"|
+                    DEPARTAMENTO == "Ucayali")
+
+Regiones$DEPARTAMENTO = factor(Regiones$DEPARTAMENTO, levels = c("Total", 
+                                                                 "Urbana", "Rural",
+                                                                 "Costa", "Sierra",
+                                                                 "Selva", "Lima Metropolitana"))
+startTime <- as.Date("2010-01-31")
+endTime <- as.Date("2020-01-31")
+
+start.end <- c(startTime,endTime)
+
+#ODS 1.1.1
+
+ODS1_1_1= Regiones[c(1:3)]
+  
+colnames(ODS1_1_1)= c("Área","Año","Avance")
+
+ODS1_1_1_D= Departamentos[c(1:3)]
+  
+colnames(ODS1_1_1_D)= c("Área","Año","Avance")
+
+plot1 = ggplotly(ggplot(ODS1_1_1,
+                aes(x=Año,
+                    y=Avance,
+                    colour=Área))+
+  geom_line()+ 
+  scale_x_date(limits=start.end,
+               breaks=date_breaks("2 year"),
+               labels=date_format("%Y")) +
+  theme_light() +
+  labs(x= "Años", y = "Porcentaje", colour = "Área/Dpto."))
+
+plot1.1 = ggplotly(ggplot(ODS1_1_1_D,
+                aes(x=Año,
+                    y=Avance,
+                    colour=Área))+
+  geom_line()+ 
+  scale_x_date(limits=start.end,
+               breaks=date_breaks("2 year"),
+               labels=date_format("%Y")) +
+  theme_light() +
+  labs(x= "Años", y = "Porcentaje", colour = "Área/Dpto."))
+
+#ODS 1.2.1
+
+ODS1_2_1= Regiones[c(1,2,4)]
+  
+colnames(ODS1_2_1)= c("Área","Año","Avance")
+
+plot2 = ggplotly(ggplot(ODS1_2_1,aes(x=Año,y=Avance,
+                  colour=Área))+
+                  #group=Área)) + 
+  geom_line()+ 
+  scale_x_date(limits=start.end,
+               breaks=date_breaks("2 year"),
+               labels=date_format("%Y")) +
+  theme_light() + 
+  ggtitle("1.2.1 Incidencia de la pobreza monetaria total") +
+  labs(x= "Años", y = "Porcentaje", colour = "Área") + 
+  labs(fill='Área') )
+
+ODS1_3_1= Regiones[c(1,2,5)]
+  
+colnames(ODS1_3_1)= c("Área","Año","Avance")
+
+plot3 = ggplotly(ggplot(ODS1_3_1,aes(x=Año,y=Avance,
+                  colour=Área))+
+                  #group=Área)) + 
+  geom_line()+ 
+  scale_x_date(limits=start.end,
+               breaks=date_breaks("2 year"),
+               labels=date_format("%Y")) +
+  theme_light() + 
+  ggtitle("1.3.1 Proporción de población de 14 a más años de edad con seguro de pensión") +
+  labs(x= "Años", y = "Porcentaje", colour = "Área") + 
+  labs(fill='Área') )
+
+ODS1_4_1= Regiones[c(1,2,6)]
+  
+colnames(ODS1_4_1)= c("Área","Año","Avance")
+
+plot4 = ggplotly(ggplot(ODS1_4_1,aes(x=Año,y=Avance,
+                  colour=Área))+
+                  #group=Área)) + 
+  geom_line()+ 
+  scale_x_date(limits=start.end,
+               breaks=date_breaks("2 year"),
+               labels=date_format("%Y")) +
+  theme_light() + 
+  ggtitle("1.4.1 Proporción de la población que vive en hogares con acceso a servicios básicos de infraestructura") +
+  labs(x= "Años", y = "Porcentaje", colour = "Área") + 
+  labs(fill='Área') )
+
+ODS2_1_1= Regiones[c(1,2,7)]
+  
+colnames(ODS2_1_1)= c("Área","Año","Avance")
+
+plot5 = ggplotly(ggplot(ODS1_4_1,aes(x=Año,y=Avance,
+                  colour=Área))+
+  geom_line()+ 
+  scale_x_date(limits=start.end,
+               breaks=date_breaks("2 year"),
+               labels=date_format("%Y")) +
+  theme_light() + 
+  ggtitle("2.1.1 Incidencia del déficit calórico") +
+  labs(x= "Años", y = "Porcentaje", colour = "Área") + 
+  labs(fill='Área') )
+
+ODS2_2_1= Regiones[c(1,2,8)]
+  
+colnames(ODS2_2_1)= c("Área","Año","Porcentaje")
+
+plot6 = ggplotly(ggplot(ODS2_2_1,aes(x=Año,y=Porcentaje,
+                  colour=Área))+
+                  #group=Área)) + 
+  geom_line()+ 
+  scale_x_date(limits=start.end,
+               breaks=date_breaks("2 year"),
+               labels=date_format("%Y")) +
+  theme_light() + 
+  ggtitle("2.2.1 Tasa de desnutrición crónica entre las niñas y niños menores de 5 años (OMS)") +
+  labs(x= "Años", y = "Porcentaje", colour = "Área") + 
+  labs(fill='Área') )
+```
+
+**ODS 1** 
+=====================================
+
+Column {data-width=120}
+-------------------------------------
+    
+### **Fin de la pobreza** 
+
+Column {.tabset}
+-------------------------------------
+
+### **1.1.1**
+
+```{r, fig.height = 5, fig.width = 8, fig.align = "center"}
+titulo = "1.1.1 Incidencia de la pobreza extrema"
+
+fuente = "Elaborado por el Observatorio de Políticas Públicas"
+
+subplot(plot1, plot1.1, nrows = 2) %>% layout(top = text_grob(titulo,
+                                      color = "#1e325c", 
+                                      face = "bold",
+                                      size = 16))
+```
+
+
+### **1.2.1**
+
+```{r,fig.height = 5, fig.width = 8, fig.align = "center"}
+titulo = "1.2.1 Incidencia de la pobreza monetaria total"
+
+fuente = "Elaborado por el Observatorio de Políticas Públicas"
+
+plot2
+```
+
+
+### **1.3.1**
+
+```{r,fig.height = 5, fig.width = 8, fig.align = "center"}
+titulo = "1.3.1 Proporción de población de 14 a más años de edad con seguro de pensión"
+
+fuente = "Elaborado por el Observatorio de Políticas Públicas"
+
+plot3
+```
+
+
+### **1.4.1**
+
+```{r,fig.height = 5, fig.width = 8, fig.align = "center"}
+titulo = "1.4.1 Proporción de la población que vive en hogares con acceso a servicios básicos de infraestructura"
+
+fuente = "Elaborado por el Observatorio de Políticas Públicas"
+
+plot4
+```
+
+### Referencias
+  
+* 2007: Censos Nacionales 2007: XI de Población y VI de Vivienda. Recuperado de http://censos.inei.gob.pe/Censos2007/redatam/
+
+* 2017: Censos Nacionales 2017: XII de Población, VII de Vivienda y III de Comunidades Indígenas. Recuperado de https://censos2017.inei.gob.pe/redatam/ 
+
+
+**ODS 2** 
+=====================================
+
+Column {data-width=120}
+-------------------------------------
+    
+### **Hambre cero** 
+
+Column {.tabset}
+-------------------------------------
+
+### **2.1.1**
+
+```{r,fig.height = 5, fig.width = 8, fig.align = "center"}
+titulo = "2.1.1 Incidencia del déficit calórico"
+
+fuente = "Elaborado por el Observatorio de Políticas Públicas"
+
+plot5
+```
+
+### **2.2.1**
+
+```{r,fig.height = 5, fig.width = 8, fig.align = "center"}
+titulo = "2.1.1 Incidencia del déficit calórico"
+
+fuente = "Elaborado por el Observatorio de Políticas Públicas"
+
+plot6
+```
+
+
