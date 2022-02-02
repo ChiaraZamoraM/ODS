@@ -1,0 +1,582 @@
+---
+title: "Observatorio de la Escuela de Gestión Pública"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+---
+
+<style>                     
+.navbar {
+  background-color:#34282C;
+  border-color:#34282C;
+}
+.navbar-brand {
+color:white!important;
+}
+</style>   
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+library(ggplot2)
+library(ggpubr)
+library(ggrepel)
+library(tidyverse)
+library(repr)
+library(quantmod)
+library(rio)
+library(plotly)
+library(scales)
+library(tidyr)
+library(gridExtra)
+library(lubridate)
+library(viridis)
+```
+
+```{r, warning=FALSE, message=FALSE}
+ODSSpr = import("https://github.com/ChiaraZamoraM/ODS/raw/main/ODSSpr.RDS")
+ODSSpr$Ano = as.Date(as.character(ODSSpr$Ano), format = "%Y")
+ODSSpr$Ano = year(ODSSpr$Ano)
+```
+
+```{r, warning=FALSE, message=FALSE}
+Area = subset(ODSSpr, DEPARTAMENTO == "Total" | DEPARTAMENTO == "Urbana" | 
+                    DEPARTAMENTO == "Rural")
+
+Area$DEPARTAMENTO = factor(Area$DEPARTAMENTO, levels = c("Total",
+                                                         "Urbana",
+                                                         "Rural"))
+```
+
+```{r, warning=FALSE, message=FALSE}
+Regiones = subset(ODSSpr, DEPARTAMENTO == "Costa"|
+                    DEPARTAMENTO == "Sierra"| 
+                    DEPARTAMENTO == "Selva"|
+                    DEPARTAMENTO == "Lima Metropolitana")
+
+Regiones$DEPARTAMENTO = factor(Regiones$DEPARTAMENTO, levels = c("Costa", "Sierra",
+                                                                 "Selva", "Lima Metropolitana"))
+```
+
+```{r, warning=FALSE, message=FALSE}
+Departamentos = subset(ODSSpr, DEPARTAMENTO == "Amazonas" | DEPARTAMENTO == "Áncash" | 
+                    DEPARTAMENTO == "Apurímac" | 
+                    DEPARTAMENTO == "Arequipa"| 
+                    DEPARTAMENTO == "Ayacucho"| 
+                    DEPARTAMENTO == "Cajamarca"|
+                    DEPARTAMENTO == "Callao"|
+                    DEPARTAMENTO == "Huancavelica"|
+                    DEPARTAMENTO == "Huánuco"|
+                    DEPARTAMENTO == "Ica"|
+                    DEPARTAMENTO == "La Libertad"|
+                    DEPARTAMENTO == "Lima"|
+                    DEPARTAMENTO == "Loreto"|
+                    DEPARTAMENTO == "Loreto"|
+                    DEPARTAMENTO == "Madre de Dios"|
+                    DEPARTAMENTO == "Pasco"|
+                    DEPARTAMENTO == "Piura"|
+                    DEPARTAMENTO == "Provincias de Lima"|
+                    DEPARTAMENTO == "Puno"|
+                    DEPARTAMENTO == "San Martín"|
+                    DEPARTAMENTO == "Tacna"|
+                    DEPARTAMENTO == "Tumbes"|
+                    DEPARTAMENTO == "Ucayali")
+```
+
+```{r, warning=FALSE, message=FALSE}
+startTime = as.Date(as.character("2010"), format = "%Y")
+#startTime <- as.Date("2010")
+endTime = as.Date(as.character("2020"), format = "%Y")
+
+start.end <- c(startTime,endTime)
+```
+
+
+```{r, warning=FALSE, message=FALSE}
+#ODS 1.1.1
+
+## plot1
+ODS1_1_1= Area[c(1,2,3)]
+  
+colnames(ODS1_1_1)= c("Área","Año","Avance")
+ODS1_1_1 = ODS1_1_1[!is.na(ODS1_1_1$Avance),]
+
+plot1 = ggplotly(ggplot(ODS1_1_1, aes(x=Año, y=Avance, fill=Área))+
+                   geom_bar(stat="identity", position=position_dodge())+
+                   theme_light() +
+                   scale_fill_viridis(discrete = TRUE,option = "magma")+
+                   labs(x= "Años", y = "Porcentaje", colour = "Área/Dpto."))
+
+## plot1.1
+ODS1_1_1_R= Regiones[c(1,2,3)]
+  
+colnames(ODS1_1_1_R)= c("Área","Año","Avance")
+ODS1_1_1_R = ODS1_1_1_R[!is.na(ODS1_1_1_R$Avance),]
+
+plot1.1 = ggplotly(ggplot(ODS1_1_1_R, aes(x=Año, y=Avance, fill=Área))+
+                   geom_bar(stat="identity", position=position_dodge())+
+                   theme_light() +
+                   scale_fill_viridis(discrete = TRUE)+
+                   labs(x= "Años", y = "Porcentaje", colour = "Área/Dpto."))
+
+## plot1.2
+ODS1_1_1_D= Departamentos[c(1,2,3)]
+  
+colnames(ODS1_1_1_D)= c("Área","Año","Avance")
+ODS1_1_1_D= ODS1_1_1_D[!is.na(ODS1_1_1_D$Avance),]
+
+plot1.2 = ggplotly(ggplot(ODS1_1_1_D, aes(x=Año, y=Avance, colour=Área))+
+                     geom_line()+ 
+                     theme_light() +
+                     labs(x= "Años", y = "Porcentaje", colour = "Área/Dpto."))
+```
+
+```{r, warning=FALSE, message=FALSE}
+#ODS 1.2.1
+
+## plot2
+ODS1_2_1= Area[c(1,2,4)]
+  
+colnames(ODS1_2_1)= c("Área","Año","Avance")
+ODS1_2_1 = ODS1_2_1[!is.na(ODS1_2_1$Avance),]
+
+plot2 = ggplotly(ggplot(ODS1_2_1, aes(x=Año, y=Avance, fill=Área))+
+                   geom_bar(stat="identity", position=position_dodge())+
+                   theme_light() +
+                   scale_fill_viridis(discrete = TRUE,option = "magma")+
+                   labs(x= "Años", y = "Porcentaje", colour = "Área/Dpto."))
+
+## plot2.1
+ODS1_2_1_R= Regiones[c(1,2,4)]
+  
+colnames(ODS1_2_1_R)= c("Área","Año","Avance")
+ODS1_2_1_R = ODS1_2_1_R[!is.na(ODS1_2_1_R$Avance),]
+
+plot2.1 = ggplotly(ggplot(ODS1_2_1_R, aes(x=Año, y=Avance, fill=Área))+
+                   geom_bar(stat="identity", position=position_dodge())+
+                   theme_light() +
+                   scale_fill_viridis(discrete = TRUE)+
+                   labs(x= "Años", y = "Porcentaje", colour = "Área/Dpto."))
+
+## plot2.2
+ODS1_2_1_D= Departamentos[c(1,2,4)]
+  
+colnames(ODS1_2_1_D)= c("Área","Año","Avance")
+ODS1_2_1_D= ODS1_2_1_D[!is.na(ODS1_2_1_D$Avance),]
+
+plot2.2 = ggplotly(ggplot(ODS1_2_1_D, aes(x=Año, y=Avance, colour=Área))+
+                     geom_line()+ 
+                     theme_light() +
+                     labs(x= "Años", y = "Porcentaje", colour = "Área/Dpto."))
+
+```
+
+
+```{r, warning=FALSE, message=FALSE}
+#ODS 1.3.1
+
+## plot3
+ODS1_3_1= Area[c(1,2,5)]
+  
+colnames(ODS1_3_1)= c("Área","Año","Avance")
+ODS1_3_1 = ODS1_3_1[!is.na(ODS1_3_1$Avance),]
+
+plot3 = ggplotly(ggplot(ODS1_3_1, aes(x=Año, y=Avance, fill=Área))+
+                   geom_bar(stat="identity", position=position_dodge())+
+                   theme_light() +
+                   scale_fill_viridis(discrete = TRUE,option = "magma")+
+                   labs(x= "Años", y = "Porcentaje", colour = "Área/Dpto."))
+
+## plot3.1
+ODS1_3_1_R= Regiones[c(1,2,5)]
+  
+colnames(ODS1_3_1_R)= c("Área","Año","Avance")
+ODS1_3_1_R = ODS1_3_1_R[!is.na(ODS1_3_1_R$Avance),]
+
+plot3.1 = ggplotly(ggplot(ODS1_3_1_R, aes(x=Año, y=Avance, fill=Área))+
+                   geom_bar(stat="identity", position=position_dodge())+
+                   theme_light() +
+                   scale_fill_viridis(discrete = TRUE)+
+                   labs(x= "Años", y = "Porcentaje", colour = "Área/Dpto."))
+
+## plot3.2
+ODS1_3_1_D= Departamentos[c(1,2,5)]
+  
+colnames(ODS1_3_1_D)= c("Área","Año","Avance")
+ODS1_3_1_D= ODS1_3_1_D[!is.na(ODS1_3_1_D$Avance),]
+
+plot3.2 = ggplotly(ggplot(ODS1_3_1_D, aes(x=Año, y=Avance, colour=Área))+
+                     geom_line()+ 
+                     theme_light() +
+                     labs(x= "Años", y = "Porcentaje", colour = "Área/Dpto."))
+```
+
+
+```{r, warning=FALSE, message=FALSE}
+#ODS 1.4.1
+
+## plot4
+ODS1_4_1= Area[c(1,2,6)]
+  
+colnames(ODS1_4_1)= c("Área","Año","Avance")
+ODS1_4_1 = ODS1_4_1[!is.na(ODS1_4_1$Avance),]
+
+plot4 = ggplotly(ggplot(ODS1_4_1, aes(x=Año, y=Avance, fill=Área))+
+                   geom_bar(stat="identity", position=position_dodge())+
+                   theme_light() +
+                   scale_fill_viridis(discrete = TRUE,option = "magma")+
+                   labs(x= "Años", y = "Porcentaje", colour = "Área/Dpto."))
+
+## plot4.1
+ODS1_4_1_R= Regiones[c(1,2,6)]
+  
+colnames(ODS1_4_1_R)= c("Área","Año","Avance")
+ODS1_4_1_R = ODS1_4_1_R[!is.na(ODS1_4_1_R$Avance),]
+
+plot4.1 = ggplotly(ggplot(ODS1_4_1_R, aes(x=Año, y=Avance, fill=Área))+
+                   geom_bar(stat="identity", position=position_dodge())+
+                   theme_light() +
+                   scale_fill_viridis(discrete = TRUE)+
+                   labs(x= "Años", y = "Porcentaje", colour = "Área/Dpto."))
+
+## plot4.2
+ODS1_4_1_D= Departamentos[c(1,2,6)]
+  
+colnames(ODS1_4_1_D)= c("Área","Año","Avance")
+ODS1_4_1_D= ODS1_4_1_D[!is.na(ODS1_4_1_D$Avance),]
+
+plot4.2 = ggplotly(ggplot(ODS1_4_1_D, aes(x=Año, y=Avance, colour=Área))+
+                     geom_line()+ 
+                     theme_light() +
+                     labs(x= "Años", y = "Porcentaje", colour = "Área/Dpto."))
+```
+
+
+```{r, warning=FALSE, message=FALSE}
+#ODS 2.1.1
+
+## plot5
+ODS2_1_1= Area[c(1,2,7)]
+  
+colnames(ODS2_1_1)= c("Área","Año","Avance")
+ODS2_1_1 = ODS2_1_1[!is.na(ODS2_1_1$Avance),]
+
+plot5 = ggplotly(ggplot(ODS2_1_1, aes(x=Año, y=Avance, fill=Área))+
+                   geom_bar(stat="identity", position=position_dodge())+
+                   theme_light() +
+                   scale_fill_viridis(discrete = TRUE,option = "magma")+
+                   labs(x= "Años", y = "Porcentaje", colour = "Área/Dpto."))
+
+## plot5.1
+ODS2_1_1_R= Regiones[c(1,2,7)]
+  
+colnames(ODS2_1_1_R)= c("Área","Año","Avance")
+ODS2_1_1_R = ODS2_1_1_R[!is.na(ODS2_1_1_R$Avance),]
+
+plot5.1 = ggplotly(ggplot(ODS2_1_1_R, aes(x=Año, y=Avance, fill=Área))+
+                   geom_bar(stat="identity", position=position_dodge())+
+                   theme_light() +
+                   scale_fill_viridis(discrete = TRUE)+
+                   labs(x= "Años", y = "Porcentaje", colour = "Área/Dpto."))
+```
+
+
+```{r, warning=FALSE, message=FALSE}
+#ODS 2.2.1
+
+## plot6
+ODS2_2_1= Area[c(1,2,8)]
+  
+colnames(ODS2_2_1)= c("Área","Año","Avance")
+ODS2_2_1 = ODS2_2_1[!is.na(ODS2_2_1$Avance),]
+
+plot6 = ggplotly(ggplot(ODS2_2_1, aes(x=Año, y=Avance, fill=Área))+
+                   geom_bar(stat="identity", position=position_dodge())+
+                   theme_light() +
+                   scale_fill_viridis(discrete = TRUE,option = "magma")+
+                   labs(x= "Años", y = "Porcentaje", colour = "Área/Dpto."))
+
+## plot6.1
+ODS2_2_1_R= Regiones[c(1,2,8)]
+  
+colnames(ODS2_2_1_R)= c("Área","Año","Avance")
+ODS2_2_1_R = ODS2_2_1_R[!is.na(ODS2_2_1_R$Avance),]
+
+plot6.1 = ggplotly(ggplot(ODS2_2_1_R, aes(x=Año, y=Avance, fill=Área))+
+                   geom_bar(stat="identity", position=position_dodge())+
+                   theme_light() +
+                   scale_fill_viridis(discrete = TRUE)+
+                   labs(x= "Años", y = "Porcentaje", colour = "Área/Dpto."))
+
+## plot6.2
+ODS2_2_1_D= Departamentos[c(1,2,8)]
+  
+colnames(ODS2_2_1_D)= c("Área","Año","Avance")
+ODS2_2_1_D= ODS2_2_1_D[!is.na(ODS2_2_1_D$Avance),]
+
+plot6.2 = ggplotly(ggplot(ODS2_2_1_D, aes(x=Año, y=Avance, colour=Área))+
+                     geom_line()+ 
+                     theme_light() +
+                     labs(x= "Años", y = "Porcentaje", colour = "Área/Dpto."))
+
+```
+
+```{r, warning=FALSE, message=FALSE}
+#ODS 2.2.2
+
+## plot7
+ODS2_2_2= Area[c(1,2,9)]
+  
+colnames(ODS2_2_2)= c("Área","Año","Avance")
+ODS2_2_2 = ODS2_2_2[!is.na(ODS2_2_2$Avance),]
+
+plot7 = ggplotly(ggplot(ODS2_2_2, aes(x=Año, y=Avance, fill=Área))+
+                   geom_bar(stat="identity", position=position_dodge())+
+                   theme_light() +
+                   scale_fill_viridis(discrete = TRUE,option = "magma")+
+                   labs(x= "Años", y = "Porcentaje", colour = "Área/Dpto."))
+
+## plot7.1
+ODS2_2_2_R= Regiones[c(1,2,9)]
+  
+colnames(ODS2_2_2_R)= c("Área","Año","Avance")
+ODS2_2_2_R = ODS2_2_2_R[!is.na(ODS2_2_2_R$Avance),]
+
+plot7.1 = ggplotly(ggplot(ODS2_2_2_R, aes(x=Año, y=Avance, fill=Área))+
+                   geom_bar(stat="identity", position=position_dodge())+
+                   theme_light() +
+                   scale_fill_viridis(discrete = TRUE)+
+                   labs(x= "Años", y = "Porcentaje", colour = "Área/Dpto."))
+
+## plot7.2
+ODS2_2_2_D= Departamentos[c(1,2,9)]
+  
+colnames(ODS2_2_2_D)= c("Área","Año","Avance")
+ODS2_2_2_D= ODS2_2_2_D[!is.na(ODS2_2_2_D$Avance),]
+
+plot7.2 = ggplotly(ggplot(ODS2_2_2_D, aes(x=Año, y=Avance, colour=Área))+
+                     geom_line()+ 
+                     theme_light() +
+                     labs(x= "Años", y = "Porcentaje", colour = "Área/Dpto."))
+```
+
+```{r, warning=FALSE, message=FALSE}
+#ODS 3.1.2
+
+## plot8
+ODS3_1_2= Area[c(1,2,10)]
+ODS3_1_2= subset(ODS3_1_2, Ano>2006)
+  
+colnames(ODS3_1_2)= c("Área","Año","Avance")
+ODS3_1_2 = ODS3_1_2[!is.na(ODS3_1_2$Avance),]
+
+plot8 = ggplotly(ggplot(ODS3_1_2, aes(x=Año, y=Avance, fill=Área))+
+                   geom_bar(stat="identity", position=position_dodge())+
+                   theme_light() +
+                   scale_fill_viridis(discrete = TRUE,option = "magma")+
+                   labs(x= "Años", y = "Porcentaje", colour = "Área/Dpto."))
+
+## plot8.1
+ODS3_1_2_R= Regiones[c(1,2,10)]
+ODS3_1_2_R= subset(ODS3_1_2_R, Ano>2011)
+  
+colnames(ODS3_1_2_R)= c("Área","Año","Avance")
+ODS3_1_2_R = ODS3_1_2_R[!is.na(ODS3_1_2_R$Avance),]
+
+plot8.1 = ggplotly(ggplot(ODS3_1_2_R, aes(x=Año, y=Avance, fill=Área))+
+                   geom_bar(stat="identity", position=position_dodge())+
+                   theme_light() +
+                   scale_fill_viridis(discrete = TRUE)+
+                   labs(x= "Años", y = "Porcentaje", colour = "Área/Dpto."))
+
+## plot8.2
+ODS3_1_2_D= Departamentos[c(1,2,10)]
+ODS3_1_2_D= subset(ODS3_1_2_D, Ano>2005)
+  
+colnames(ODS3_1_2_D)= c("Área","Año","Avance")
+ODS3_1_2_D= ODS3_1_2_D[!is.na(ODS3_1_2_D$Avance),]
+
+plot8.2 = ggplotly(ggplot(ODS3_1_2_D, aes(x=Año, y=Avance, colour=Área))+
+                     geom_line()+ 
+                     theme_light() +
+                     labs(x= "Años", y = "Porcentaje", colour = "Área/Dpto."))
+```
+
+```{r, warning=FALSE, message=FALSE}
+#ODS 3.2.1
+
+## plot9
+ODS3_2_1= Area[c(1,2,11)]
+#ODS3_2_1= subset(ODS3_2_1, Ano>2006)
+  
+colnames(ODS3_2_1)= c("Área","Año","Avance")
+ODS3_2_1 = ODS3_2_1[!is.na(ODS3_2_1$Avance),]
+
+plot9 = ggplotly(ggplot(ODS3_2_1, aes(x=Año, y=Avance, fill=Área))+
+                   geom_bar(stat="identity", position=position_dodge())+
+                   theme_light() +
+                   scale_fill_viridis(discrete = TRUE,option = "magma")+
+                   labs(x= "Años", y = "Porcentaje", colour = "Área/Dpto."))
+
+## plot9.2
+ODS3_2_1_D= Departamentos[c(1,2,11)]
+ODS3_2_1_D= subset(ODS3_2_1_D, Ano>2006)
+  
+colnames(ODS3_2_1_D)= c("Área","Año","Avance")
+ODS3_2_1_D= ODS3_2_1_D[!is.na(ODS3_2_1_D$Avance),]
+
+plot9.2 = ggplotly(ggplot(ODS3_2_1_D, aes(x=Año, y=Avance, colour=Área))+
+                     geom_line()+ 
+                     theme_light() +
+                     labs(x= "Años", y = "Porcentaje", colour = "Área/Dpto.")+
+                     xlim(2006, 2020))
+```
+
+```{r, warning=FALSE, message=FALSE}
+#ODS 3.2.2
+
+## plot10
+ODS3_2_2= Area[c(1,2,12)]
+ODS3_2_2= subset(ODS3_2_2, Ano>2005)
+  
+colnames(ODS3_2_2)= c("Área","Año","Avance")
+ODS3_2_2 = ODS3_2_2[!is.na(ODS3_2_2$Avance),]
+
+plot10 = ggplotly(ggplot(ODS3_2_2, aes(x=Año, y=Avance, fill=Área))+
+                   geom_bar(stat="identity", position=position_dodge())+
+                   theme_light() +
+                   scale_fill_viridis(discrete = TRUE,option = "magma")+
+                   labs(x= "Años", y = "Porcentaje", colour = "Área/Dpto."))
+```
+
+**ODS 1** 
+=====================================
+
+Column {data-width=120}
+-------------------------------------
+    
+### **Fin de la pobreza** 
+
+Poner fin a la pobreza en todas sus formas en todo el mundo.
+
+*Elaborado por el Observatorio de Políticas Públicas.*
+
+Column {.tabset}
+-------------------------------------
+
+### **1.1.1**
+
+```{r, fig.height = 5, fig.width = 8, fig.align = "center"}
+titulo = "1.1.1 Incidencia de la pobreza extrema"
+
+subplot(subplot(plot1, plot1.1), plot1.2, nrows = 2) %>% layout(title = titulo,margin=list(t = 50))
+```
+
+### **1.2.1**
+
+```{r,fig.height = 5, fig.width = 8, fig.align = "center"}
+titulo = "1.2.1 Incidencia de la pobreza monetaria total"
+
+subplot(subplot(plot2, plot2.1), plot2.2, nrows = 2) %>% layout(title = titulo,margin=list(t = 50))
+```
+
+
+### **1.3.1**
+
+```{r,fig.height = 5, fig.width = 8, fig.align = "center"}
+titulo = "1.3.1 Proporción de población de 14 a más años de edad con seguro de pensión"
+
+subplot(subplot(plot3, plot3.1), plot3.2, nrows = 2) %>% layout(title = titulo,margin=list(t = 50))
+```
+
+
+### **1.4.1**
+
+```{r,fig.height = 5, fig.width = 8, fig.align = "center"}
+titulo = "1.4.1 Proporción de la población que vive en hogares con acceso a servicios básicos de infraestructura"
+
+subplot(subplot(plot4, plot4.1), plot4.2, nrows = 2) %>% layout(title = titulo,margin=list(t = 50))
+```
+
+### Referencias
+
+**ODS 2** 
+=====================================
+
+Column {data-width=120}
+-------------------------------------
+    
+### **Hambre cero** 
+
+Poner fin al hambre.
+
+*Elaborado por el Observatorio de Políticas Públicas.*
+
+Column {.tabset}
+-------------------------------------
+
+### **2.1.1**
+
+```{r,fig.height = 5, fig.width = 8, fig.align = "center"}
+titulo = "2.1.1 Incidencia del déficit calórico"
+
+subplot(plot5, plot5.1, nrows = 2)  %>% layout(title = titulo,margin=list(t = 50))
+```
+
+### **2.2.1**
+
+```{r,fig.height = 5, fig.width = 8, fig.align = "center"}
+titulo = "2.2.1 Tasa de desnutrición crónica entre las niñas y niños menores de 5 años (OMS)"
+
+subplot(subplot(plot6, plot6.1), plot6.2, nrows = 2) %>% layout(title = titulo,margin=list(t = 50))
+```
+
+### **2.2.2**
+```{r}
+titulo = "2.2.2 Tasa de desnutrición aguda entre las niñas y niños menores de 5 años (OMS)"
+
+subplot(subplot(plot7, plot7.1), plot7.2, nrows = 2) %>% layout(title = titulo,margin=list(t = 50))
+```
+
+
+**ODS 3** 
+=====================================
+
+Column {data-width=120}
+-------------------------------------
+    
+### **Salud y Bienestar** 
+
+Garantizar una vida sana y promover el bienestar para todos en todas las edades.
+
+
+*Elaborado por el Observatorio de Políticas Públicas.*
+
+Column {.tabset}
+-------------------------------------
+
+### **3.1.2**
+
+```{r,fig.height = 5, fig.width = 8, fig.align = "center"}
+titulo = "3.1.2 Proporción de partos atendidos por personal sanitario especializado"
+
+subplot(subplot(plot8, plot8.1), plot8.2, nrows = 2) %>% layout(title = titulo,margin=list(t = 50))
+```
+
+### **3.2.1**
+
+```{r,fig.height = 5, fig.width = 8, fig.align = "center"}
+titulo = "3.2.1 Tasa de mortalidad de niños menores de 5 años de edad"
+
+subplot(plot9, plot9.2, nrows = 2) %>% layout(title = titulo,margin=list(t = 50))
+```
+
+### **3.2.2**
+
+```{r,fig.height = 5, fig.width = 8, fig.align = "center"}
+titulo = "3.2.1 Tasa de mortalidad de niños menores de 5 años de edad"
+
+plot10 %>% layout(title = titulo,margin=list(t = 50))
+```
+
+### Referencias 
