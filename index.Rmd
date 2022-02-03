@@ -449,6 +449,131 @@ plot10 = ggplotly(ggplot(ODS3_2_2, aes(x=Año, y=Avance, fill=Área))+
                    labs(x= "Años", y = "Porcentaje", colour = "Área/Dpto."))
 ```
 
+
+```{r, warning=FALSE, message=FALSE}
+#ODS 3.3.1
+
+## plot11
+ODS3_3_1= Area[c(1,2,13)]
+ODS3_3_1_R= Regiones[c(1,2,13)]
+ODS3_3_1 = merge(ODS3_3_1, ODS3_3_1_R, by=c("DEPARTAMENTO","Ano","ODS3.3.1"), all=TRUE)
+ODS3_3_1= subset(ODS3_3_1, Ano>2006)
+  
+colnames(ODS3_3_1)= c("Área","Año","Avance")
+ODS3_3_1 = ODS3_3_1[!is.na(ODS3_3_1$Avance),]
+
+plot11 = ggplotly(ggplot(ODS3_3_1, aes(x=Año, y=Avance, fill=Área))+
+                   geom_bar(stat="identity", position=position_dodge())+
+                   theme_light() +
+                   scale_fill_viridis(discrete = TRUE,option = "magma")+
+                   labs(x= "Años", y = "Porcentaje", colour = "Área/Dpto."))
+
+## plot11.2
+ODS3_3_1_D= Departamentos[c(1,2,13)]
+#ODS3_3_1_D= subset(ODS3_3_1_D, Ano>2005)
+  
+colnames(ODS3_3_1_D)= c("Área","Año","Avance")
+ODS3_3_1_D= ODS3_3_1_D[!is.na(ODS3_3_1_D$Avance),]
+
+plot11.2 = ggplotly(ggplot(ODS3_3_1_D, aes(x=Año, y=Avance, colour=Área))+
+                     geom_line()+ 
+                     theme_light() +
+                     labs(x= "Años", y = "Porcentaje", colour = "Área/Dpto."))
+```
+
+```{r, warning=FALSE, message=FALSE}
+#ODS 3.3.2
+
+## plot12
+ODS3_3_2= Area[c(1,2,14)]
+ODS3_3_2_R= Regiones[c(1,2,14)]
+ODS3_3_2 = merge(ODS3_3_2, ODS3_3_2_R, by=c("DEPARTAMENTO","Ano","ODS3.3.2"), all=TRUE)
+ODS3_3_2= subset(ODS3_3_2, Ano>2006)
+  
+colnames(ODS3_3_2)= c("Área","Año","Avance")
+ODS3_3_2 = ODS3_3_2[!is.na(ODS3_3_2$Avance),]
+
+plot12 = ggplotly(ggplot(ODS3_3_2, aes(x=Año, y=Avance, fill=Área))+
+                   geom_bar(stat="identity", position=position_dodge())+
+                   theme_light() +
+                   scale_fill_viridis(discrete = TRUE,option = "magma")+
+                   labs(x= "Años", y = "Porcentaje", colour = "Área/Dpto."))
+
+## plot12.2
+ODS3_3_2_D= Departamentos[c(1,2,14)]
+#ODS3_3_2_D= subset(ODS3_3_2_D, Ano>2005)
+  
+colnames(ODS3_3_2_D)= c("Área","Año","Avance")
+ODS3_3_2_D= ODS3_3_2_D[!is.na(ODS3_3_2_D$Avance),]
+
+plot12.2 = ggplotly(ggplot(ODS3_3_2_D, aes(x=Año, y=Avance, colour=Área))+
+                     geom_line()+ 
+                     theme_light() +
+                     labs(x= "Años", y = "Porcentaje", colour = "Área/Dpto."))
+```
+
+```{r, warning=FALSE, message=FALSE}
+#ODS 3.3.3
+
+## plot13
+ODS3_3_3= Area[c(1,2,15)]
+ODS3_3_3_R= Regiones[c(1,2,15)]
+ODS3_3_3 = merge(ODS3_3_3, ODS3_3_3_R, by=c("DEPARTAMENTO","Ano","ODS3.3.3"), all=TRUE)
+ODS3_3_3= subset(ODS3_3_3, Ano>2006)
+  
+colnames(ODS3_3_3)= c("Área","Año","Avance")
+ODS3_3_3 = ODS3_3_3[!is.na(ODS3_3_3$Avance),]
+
+plot13 = ggplotly(ggplot(ODS3_3_3, aes(x=Año, y=Avance, fill=Área))+
+                   geom_bar(stat="identity", position=position_dodge())+
+                   theme_light() +
+                   scale_fill_viridis(discrete = TRUE,option = "magma")+
+                   labs(x= "Años", y = "Porcentaje", colour = "Área/Dpto."))
+
+## plot13.2
+ODS3_3_3_D= Departamentos[c(1,2,15)]
+#ODS3_3_3_D= subset(ODS3_3_3_D, Ano>2005)
+  
+colnames(ODS3_3_3_D)= c("Área","Año","Avance")
+ODS3_3_3_D= ODS3_3_3_D[!is.na(ODS3_3_3_D$Avance),]
+
+plot13.2 = ggplotly(ggplot(ODS3_3_3_D, aes(x=Año, y=Avance, colour=Área))+
+                     geom_line()+ 
+                     theme_light() +
+                     labs(x= "Años", y = "Porcentaje", colour = "Área/Dpto."))
+```
+
+```{r, warning=FALSE, message=FALSE}
+#ODS 3.3.4
+
+## plot14
+ODS3_3_4= Area[c(1,2,16)]
+ODS3_3_4_R= Regiones[c(1,2,16)]
+ODS3_3_4 = merge(ODS3_3_4, ODS3_3_4_R, by=c("DEPARTAMENTO","Ano","ODS3.3.4"), all=TRUE)
+ODS3_3_4= subset(ODS3_3_4, Ano>2006)
+  
+colnames(ODS3_3_4)= c("Área","Año","Avance")
+ODS3_3_4 = ODS3_3_4[!is.na(ODS3_3_4$Avance),]
+
+plot14 = ggplotly(ggplot(ODS3_3_4, aes(x=Año, y=Avance, fill=Área))+
+                   geom_bar(stat="identity", position=position_dodge())+
+                   theme_light() +
+                   scale_fill_viridis(discrete = TRUE,option = "magma")+
+                   labs(x= "Años", y = "Porcentaje", colour = "Área/Dpto."))
+
+## plot14.2
+ODS3_3_4_D= Departamentos[c(1,2,16)]
+#ODS3_3_4_D= subset(ODS3_3_4_D, Ano>2005)
+  
+colnames(ODS3_3_4_D)= c("Área","Año","Avance")
+ODS3_3_4_D= ODS3_3_4_D[!is.na(ODS3_3_4_D$Avance),]
+
+plot14.2 = ggplotly(ggplot(ODS3_3_4_D, aes(x=Año, y=Avance, colour=Área))+
+                     geom_line()+ 
+                     theme_light() +
+                     labs(x= "Años", y = "Porcentaje", colour = "Área/Dpto."))
+```
+
 **ODS 1** 
 =====================================
 
@@ -499,6 +624,8 @@ subplot(subplot(plot4, plot4.1), plot4.2, nrows = 2) %>% layout(title = titulo,m
 ```
 
 ### Referencias
+
+* Instituto Nacional de Estadística e Informática. (2020). Encuesta Nacional de Hogares [Conjunto de datos]. http://iinei.inei.gob.pe/microdatos/
 
 **ODS 2** 
 =====================================
@@ -577,6 +704,39 @@ subplot(plot9, plot9.2, nrows = 2) %>% layout(title = titulo,margin=list(t = 50)
 titulo = "3.2.1 Tasa de mortalidad de niños menores de 5 años de edad"
 
 plot10 %>% layout(title = titulo,margin=list(t = 50))
+```
+
+### **3.3.1**
+
+```{r}
+titulo = "3.3.1 Tasa de notificación de casos del Virus de la Inmunodeficiencia Humana (VIH) por cada 100 000 habitantes"
+
+subplot(plot11, plot11.2, nrows = 2) %>% layout(title = titulo,margin=list(t = 50))
+```
+
+
+### **3.3.2**
+
+```{r}
+titulo = "3.3.2 Incidencia de la tuberculosis por cada 100 000 habitantes"
+
+subplot(plot12, plot12.2, nrows = 2) %>% layout(title = titulo,margin=list(t = 50))
+```
+
+### **3.3.3**
+
+```{r}
+titulo = "3.3.3 Incidencia de la malaria por cada 100 000 habitantes"
+
+subplot(plot13, plot13.2, nrows = 2) %>% layout(title = titulo,margin=list(t = 50))
+```
+
+### **3.3.4**
+
+```{r}
+titulo = "3.3.4 Incidencia de la hepatitis B por cada 100 000 habitantes"
+
+subplot(plot14, plot14.2, nrows = 2) %>% layout(title = titulo,margin=list(t = 50))
 ```
 
 ### Referencias 
