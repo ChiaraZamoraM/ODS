@@ -218,6 +218,7 @@ X2_2_1$DEPARTAMENTO= gsub("Prov. Const. del Callao","Callao",X2_2_1$DEPARTAMENTO
 #X2_2_1$DEPARTAMENTO= gsub("Provincia de Lima","LIMA",X2_2_1$DEPARTAMENTO)
 X2_2_1$DEPARTAMENTO= gsub("Región Lima","Provincias de Lima",X2_2_1$DEPARTAMENTO)
 X2_2_1$DEPARTAMENTO= gsub("Nacional","Total",X2_2_1$DEPARTAMENTO)
+X2_2_1$DEPARTAMENTO= gsub("Resto Costa","Costa",X2_2_1$DEPARTAMENTO)
 
 X2_2_1 = merge(X2_2_1, Cap010, by = "DEPARTAMENTO", all = TRUE)
 
@@ -255,6 +256,7 @@ X2_2_2$DEPARTAMENTO= gsub("Prov. Const. del Callao","Callao",X2_2_2$DEPARTAMENTO
 #X2_2_2$DEPARTAMENTO= gsub("Provincia de Lima","LIMA",X2_2_2$DEPARTAMENTO)
 X2_2_2$DEPARTAMENTO= gsub("Región Lima","Provincias de Lima",X2_2_2$DEPARTAMENTO)
 X2_2_2$DEPARTAMENTO= gsub("Nacional","Total",X2_2_2$DEPARTAMENTO)
+X2_2_2$DEPARTAMENTO= gsub("Resto Costa","Costa",X2_2_2$DEPARTAMENTO)
 ```
 
 ```{r}
@@ -542,6 +544,8 @@ curl::curl_download(url, destfile)
 X3_7_2 <- read_excel(destfile,sheet = "13.4",skip = 4)
 
 colnames(X3_7_2) = str_sub(colnames(X3_7_2), start= -4)
+colnames(X3_7_2) = paste0("ODS3_7_2_",colnames(X3_7_2))
+colnames(X3_7_2)[1]="DEPARTAMENTO"
 ```
 
 ## 3.8.1 Proporción de la población con seguro de salud
@@ -578,6 +582,7 @@ X3_a_1$DEPARTAMENTO= gsub("Prov. Const. del Callao","Callao",X3_a_1$DEPARTAMENTO
 X3_a_1$DEPARTAMENTO= gsub("Región Lima","Provincias de Lima",X3_a_1$DEPARTAMENTO)
 X3_a_1$DEPARTAMENTO= gsub("Nacional","Total",X3_a_1$DEPARTAMENTO)
 X3_a_1$DEPARTAMENTO= gsub("Resto país","Resto País",X3_a_1$DEPARTAMENTO)
+X3_a_1$DEPARTAMENTO= gsub("Resto Urbano","Urbana",X3_a_1$DEPARTAMENTO)
 ```
 
 ```{r}
@@ -610,6 +615,7 @@ ODS_3 = Reduce(function(x, y) merge(x, y, by= "DEPARTAMENTO",all=TRUE), list(X3_
                                                                     X3_3_2,X3_3_3,
                                                                     X3_3_4,X3_5_2,
                                                                     X3_6_1,X3_7_1,
+                                                                    X3_7_2,
                                                                     X3_8_1,X3_a_1,
                                                                     X3_c_1))
 ODS_3=ODS_3[rowSums(is.na(ODS_3)) != ncol(ODS_3),]
@@ -893,22 +899,22 @@ X5_2_1=X5_2_1[rowSums(is.na(X5_2_1)) != ncol(X5_2_1)-1,]
 
 ## 5.5.1 Proporción de escaños ocupados por mujeres en los parlamentos nacionales por período congresal
 ```{r}
-url <- "https://github.com/ChiaraZamoraM/ODS/raw/main/5.5.1.xlsx"
-destfile <- "X5_5_1.xlsx"
-curl::curl_download(url, destfile)
-X5_5_1 <- read_excel(destfile, skip = 7)
+#url <- "https://github.com/ChiaraZamoraM/ODS/raw/main/5.5.1.xlsx"
+#destfile <- "X5_5_1.xlsx"
+#curl::curl_download(url, destfile)
+#X5_5_1 <- read_excel(destfile, skip = 7)
 
-colnames(X5_5_1) = str_sub(colnames(X5_5_1), start= 1, end=4)
+#colnames(X5_5_1) = str_sub(colnames(X5_5_1), start= 1, end=4)
 
-colnames(X5_5_1) = paste0("ODS5_5_1_",colnames(X5_5_1))
-names(X5_5_1)[1]= "DEPARTAMENTO"
+#colnames(X5_5_1) = paste0("ODS5_5_1_",colnames(X5_5_1))
+#names(X5_5_1)[1]= "DEPARTAMENTO"
 ```
 
 ```{r}
-X5_5_1$DEPARTAMENTO= gsub("Prov. Const. del Callao","Callao",X5_5_1$DEPARTAMENTO)
-X5_5_1$DEPARTAMENTO= gsub("Provincia de Lima","Lima Metropolitana",X5_5_1$DEPARTAMENTO)
-X5_5_1$DEPARTAMENTO= gsub("Región Lima","Provincias de Lima",X5_5_1$DEPARTAMENTO)
-X5_5_1$DEPARTAMENTO= gsub("Nacional","Total",X5_5_1$DEPARTAMENTO)
+#X5_5_1$DEPARTAMENTO= gsub("Prov. Const. del Callao","Callao",X5_5_1$DEPARTAMENTO)
+#X5_5_1$DEPARTAMENTO= gsub("Provincia de Lima","Lima Metropolitana",X5_5_1$DEPARTAMENTO)
+#X5_5_1$DEPARTAMENTO= gsub("Región Lima","Provincias de Lima",X5_5_1$DEPARTAMENTO)
+#X5_5_1$DEPARTAMENTO= gsub("Nacional","Total",X5_5_1$DEPARTAMENTO)
 ```
 
 ## 5.5.1.b --> 5.5.2 Proporción de alcaldías dirigidas por mujeres por período de alcaldía
@@ -974,8 +980,7 @@ X5_5_4$DEPARTAMENTO= gsub("Nacional","Total",X5_5_4$DEPARTAMENTO)
 
 ## Merge ODS 5
 ```{r}
-ODS_5 = Reduce(function(x, y) merge(x, y, by= "DEPARTAMENTO",all=TRUE), list(X5_2_1,X5_5_1,
-                                                                             X5_5_2,X5_5_3,
+ODS_5 = Reduce(function(x, y) merge(x, y, by= "DEPARTAMENTO",all=TRUE), list(X5_2_1,                                                                           X5_5_2,X5_5_3,
                                                                              X5_5_4))
 
 ODS_5=ODS_5[rowSums(is.na(ODS_5)) != ncol(ODS_5)-1,]
@@ -1092,7 +1097,6 @@ ODSSpr$Ano = as.Date(as.character(ODSSpr$Ano), format = "%Y")
 saveRDS(ODSSpr, "ODSSpr.RDS")
 ```
 
-
 ```{r}
 library(xlsx)
 
@@ -1122,7 +1126,7 @@ sheet = createSheet(wb, "ODS 6")
 
 addDataFrame(ODS_6, sheet=sheet, col.names = TRUE, row.names = FALSE)
 
-saveWorkbook(wb, "My_File.xlsx")
+saveWorkbook(wb, "Base_ODS.xlsx")
 ```
 
 ```{r}

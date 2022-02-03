@@ -1219,7 +1219,8 @@ plot34 = ggplotly(ggplot(ODS5_2_1, aes(x=Año, y=Avance, fill=Área))+
                    geom_bar(stat="identity", position=position_dodge())+
                    theme_light() +
                    scale_fill_viridis(discrete = TRUE,option = "magma")+
-                   labs(x= "Años", y = "Porcentaje", colour = "Área/Dpto."))
+                   labs(x= "Años", y = "Porcentaje", colour = "Área/Dpto.")+
+                    xlim(2012,2020))
 
 ## plot34.2
 ODS5_2_1_D= Departamentos[c(1,2,36)]
@@ -1231,8 +1232,107 @@ ODS5_2_1_D= ODS5_2_1_D[!is.na(ODS5_2_1_D$Avance),]
 plot34.2 = ggplotly(ggplot(ODS5_2_1_D, aes(x=Año, y=Avance, colour=Área))+
                      geom_line()+ 
                      theme_light() +
-                     labs(x= "Años", y = "Porcentaje", colour = "Área/Dpto."))
+                     labs(x= "Años", y = "Porcentaje", colour = "Área/Dpto.")+
+                    xlim(2012,2020))
 ```
+
+
+
+```{r, warning=FALSE, message=FALSE}
+#ODS 5.5.2
+
+## plot35
+ODS5_5_2= Area[c(1,2,37)]
+#ODS5_5_2= subset(ODS5_5_2, Ano>2006)
+  
+colnames(ODS5_5_2)= c("Área","Año","Avance")
+ODS5_5_2 = ODS5_5_2[!is.na(ODS5_5_2$Avance),]
+
+plot35 = ggplotly(ggplot(ODS5_5_2, aes(x=Año, y=Avance, fill=Área))+
+                   geom_bar(stat="identity", position=position_dodge())+
+                   theme_light() +
+                   scale_fill_viridis(discrete = TRUE,option = "magma")+
+                   labs(x= "Años", y = "Porcentaje", colour = "Área/Dpto.")+
+                    xlim(1999,2020))
+
+## plot35.2
+ODS5_5_2_D= Departamentos[c(1,2,37)]
+#ODS5_5_2_D= subset(ODS5_5_2_D, Ano>2005)
+  
+colnames(ODS5_5_2_D)= c("Área","Año","Avance")
+ODS5_5_2_D= ODS5_5_2_D[!is.na(ODS5_5_2_D$Avance),]
+
+plot35.2 = ggplotly(ggplot(ODS5_5_2_D, aes(x=Año, y=Avance, colour=Área))+
+                     geom_line()+ 
+                     theme_light() +
+                     labs(x= "Años", y = "Porcentaje", colour = "Área/Dpto.")+
+                    xlim(1999,2020))
+```
+
+
+```{r, warning=FALSE, message=FALSE}
+#ODS 5.5.2
+
+## plot36
+ODS5_5_3= Area[c(1,2,38)]
+#ODS5_5_3= subset(ODS5_5_3, Ano>2006)
+  
+colnames(ODS5_5_3)= c("Área","Año","Avance")
+ODS5_5_3 = ODS5_5_3[!is.na(ODS5_5_3$Avance),]
+
+plot36 = ggplotly(ggplot(ODS5_5_3, aes(x=Año, y=Avance, fill=Área))+
+                   geom_bar(stat="identity", position=position_dodge())+
+                   theme_light() +
+                   scale_fill_viridis(discrete = TRUE,option = "magma")+
+                   labs(x= "Años", y = "Porcentaje", colour = "Área/Dpto.")+
+                    xlim(1999,2020))
+
+## plot36.2
+ODS5_5_3_D= Departamentos[c(1,2,38)]
+#ODS5_5_3_D= subset(ODS5_5_3_D, Ano>2005)
+  
+colnames(ODS5_5_3_D)= c("Área","Año","Avance")
+ODS5_5_3_D= ODS5_5_3_D[!is.na(ODS5_5_3_D$Avance),]
+
+plot36.2 = ggplotly(ggplot(ODS5_5_3_D, aes(x=Año, y=Avance, colour=Área))+
+                     geom_line()+ 
+                     theme_light() +
+                     labs(x= "Años", y = "Porcentaje", colour = "Área/Dpto.")+
+                    xlim(1999,2020))
+```
+
+
+```{r, warning=FALSE, message=FALSE}
+#ODS 5.5.4
+
+## plot37
+ODS5_5_4= Area[c(1,2,39)]
+#ODS5_5_4= subset(ODS5_5_4, Ano<2020)
+  
+colnames(ODS5_5_4)= c("Área","Año","Avance")
+ODS5_5_4 = ODS5_5_4[!is.na(ODS5_5_4$Avance),]
+
+plot37 = ggplotly(ggplot(ODS5_5_4, aes(x=Año, y=Avance, fill=Área))+
+                   geom_bar(stat="identity", position=position_dodge())+
+                   theme_light() +
+                   scale_fill_viridis(discrete = TRUE,option = "magma")+
+                   labs(x= "Años", y = "Porcentaje", colour = "Área/Dpto."))
+
+## plot37.1
+ODS5_5_4_R= Regiones[c(1,2,39)]
+#ODS5_5_4_R= subset(ODS5_5_4_R, Ano<2020)
+  
+colnames(ODS5_5_4_R)= c("Área","Año","Avance")
+ODS5_5_4_R = ODS5_5_4_R[!is.na(ODS5_5_4_R$Avance),]
+
+plot37.1 = ggplotly(ggplot(ODS5_5_4_R, aes(x=Año, y=Avance, fill=Área))+
+                   geom_bar(stat="identity", position=position_dodge())+
+                   theme_light() +
+                   scale_fill_viridis(discrete = TRUE)+
+                   labs(x= "Años", y = "Porcentaje", colour = "Área/Dpto."))
+```
+
+
 
 **ODS 1** 
 =====================================
@@ -1593,32 +1693,31 @@ Column {.tabset}
 
 ### **5.2.1**
 ```{r}
-titulo= "5.2.1 Proporción de mujeres de 15 a 49 años de edad que han sufrido violencia física y/o sexual ejercida por el esposo o compañero en los últimos 12 meses"
+titulo= "5.2.1 Proporción de mujeres de 15 a 49 años de edad que han sufrido violencia física <br> y/o sexual ejercida por el esposo o compañero en los últimos 12 meses"
 
-subplot(plot34, plot34.2, nrows = 2) %>% layout(title = titulo,margin=list(t = 50))
+subplot(plot34, plot34.2, nrows = 2) %>% layout(title = titulo,margin=list(t = 75))
 ```
-
-
-### **5.5.1**
-```{r}
-titulo= "5.5.1 Proporción de escaños ocupados por mujeres en los parlamentos nacionales por período congresal"
-```
-
 
 ### **5.5.1.b**
 ```{r}
 titulo= "5.5.1.b Proporción de alcaldías dirigidas por mujeres por período de alcaldía"
+
+subplot(plot35, plot35.2, nrows = 2) %>% layout(title = titulo,margin=list(t = 75))
 ```
 
 
 ### **5.5.1.c**
 ```{r}
 titulo= "5.5.1.c Proporción de regidoras mujeres elegidas por período del regidor/a"
+
+subplot(plot36, plot36.2, nrows = 2) %>% layout(title = titulo,margin=list(t = 75))
 ```
 
 ### **5.5.2**
 ```{r}
 titulo= "5.5.2 Proporción de mujeres en cargos directivos"
+
+subplot(plot37, plot37.1, nrows = 2) %>% layout(title = titulo,margin=list(t = 75))
 ```
 
 
