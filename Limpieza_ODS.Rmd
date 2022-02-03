@@ -3,11 +3,11 @@ title: "Procesamiento de indicadores de ODS"
 output: html_notebook
 ---
 
-```{r}
+```{r, warning=FALSE, message=FALSE}
 #Lima es Lima Metropolitana + Provincias de Lima/Departamento de Lima
 ```
 
-```{r}
+```{r, warning=FALSE, message=FALSE}
 library(readxl)
 library(rio)
 library(reshape2)
@@ -19,7 +19,7 @@ library(lubridate)
 # ODS 1
 
 ## 1.1.1 Incidencia de la pobreza extrema
-```{r}
+```{r, warning=FALSE, message=FALSE}
 url <- "https://github.com/ChiaraZamoraM/ODS/raw/main/1.1.1.xlsx"
 destfile <- "X1_1_1.xlsx"
 curl::curl_download(url, destfile)
@@ -30,7 +30,7 @@ colnames(X1_1_1) = paste0("ODS1_1_1_",colnames(X1_1_1))
 X1_1_1 = X1_1_1[,c(1,10:26)]
 ```
 
-```{r}
+```{r, warning=FALSE, message=FALSE}
 X1_1_1[,c(2:18)]=lapply(X1_1_1[,c(2:18)], as.numeric)
 
 X1_1_1$ODS1_1_1_2013= (X1_1_1$ODS1_1_1_2013+ X1_1_1$ODS1_1_1_...12)/2
@@ -49,7 +49,7 @@ X1_1_1$DEPARTAMENTO= gsub("^Lima$","Provincias de Lima",X1_1_1$DEPARTAMENTO)
 X1_1_1 <- data.frame(X1_1_1[,seq(1,18,2)])
 ```
 
-```{r}
+```{r, warning=FALSE, message=FALSE}
 X1_1_1_R <- import("https://www.inei.gob.pe/media/MenuRecursivo/publicaciones_digitales/Est/Lib1829/cap09/cap09002.xlsx")
 names(X1_1_1_R) <- as.character(X1_1_1_R[3,])
 X1_1_1_R = X1_1_1_R[-c(1:6),c(1:13)]
@@ -59,14 +59,14 @@ names(X1_1_1_R)[1]= "DEPARTAMENTO"
 X1_1_1_R$DEPARTAMENTO =gsub(' [0-9].', '', X1_1_1_R$DEPARTAMENTO)
 ```
 
-```{r}
+```{r, warning=FALSE, message=FALSE}
 X1_1_1= merge(X1_1_1_R, X1_1_1, all = TRUE)
 X1_1_1=X1_1_1[-23,]
 X1_1_1=X1_1_1[rowSums(is.na(X1_1_1)) != ncol(X1_1_1)-1,]
 ```
 
 ## 1.2.1 Incidencia de la pobreza monetaria total
-```{r}
+```{r, warning=FALSE, message=FALSE}
 url <- "https://github.com/ChiaraZamoraM/ODS/raw/main/1.2.1.xlsx"
 destfile <- "X1_2_1.xlsx"
 curl::curl_download(url, destfile)
@@ -77,11 +77,11 @@ colnames(X1_2_1) = paste0("ODS1_2_1_",colnames(X1_2_1))
 X1_2_1 = X1_2_1[,c(1,16:32)]
 ```
 
-```{r}
+```{r, warning=FALSE, message=FALSE}
 X1_2_1[,c(2:18)]=lapply(X1_2_1[,c(2:18)], as.numeric)
 ```
 
-```{r}
+```{r, warning=FALSE, message=FALSE}
 X1_2_1$ODS1_2_1_2013= (X1_2_1$ODS1_2_1_2013+ X1_2_1$ODS1_2_1_...18)/2
 X1_2_1$ODS1_2_1_2014= (X1_2_1$ODS1_2_1_2014+ X1_2_1$ODS1_2_1_...20)/2
 X1_2_1$ODS1_2_1_2015= (X1_2_1$ODS1_2_1_2015+ X1_2_1$ODS1_2_1_...22)/2
@@ -97,7 +97,7 @@ X1_2_1$DEPARTAMENTO= gsub("^Lima$","Provincias de Lima",X1_2_1$DEPARTAMENTO)
 X1_2_1 <- data.frame(X1_2_1[,seq(1,18,2)])
 ```
 
-```{r}
+```{r, warning=FALSE, message=FALSE}
 X1_2_1_R <- import("https://www.inei.gob.pe/media/MenuRecursivo/publicaciones_digitales/Est/Lib1829/cap09/cap09001.xlsx")
 names(X1_2_1_R) <- X1_2_1_R[5,]
 X1_2_1_R = X1_2_1_R[-c(1:9),c(1:13)]
@@ -107,14 +107,14 @@ names(X1_2_1_R)[1]= "DEPARTAMENTO"
 X1_2_1_R$DEPARTAMENTO =gsub(' [0-9].', '', X1_2_1_R$DEPARTAMENTO)
 ```
 
-```{r}
+```{r, warning=FALSE, message=FALSE}
 X1_2_1= merge(X1_2_1_R, X1_2_1, all = TRUE)
 X1_2_1=X1_2_1[-24,]
 X1_2_1=X1_2_1[rowSums(is.na(X1_2_1)) != ncol(X1_2_1)-1,]
 ```
 
 ## 1.3.1 Proporción de población de 14 a más años de edad con seguro de pensión
-```{r}
+```{r, warning=FALSE, message=FALSE}
 url <- "https://github.com/ChiaraZamoraM/ODS/raw/main/1.3.1.xlsx"
 destfile <- "X1_3_1.xlsx"
 curl::curl_download(url, destfile)
@@ -123,13 +123,13 @@ X1_3_1 <- read_excel(destfile, skip = 7)
 colnames(X1_3_1) = paste0("ODS1_3_1_",colnames(X1_3_1))
 ```
 
-```{r}
+```{r, warning=FALSE, message=FALSE}
 X1_3_1[,c(2:14)]=lapply(X1_3_1[,c(2:14)], as.numeric)
 
 names(X1_3_1)[1]= "DEPARTAMENTO"
 ```
 
-```{r}
+```{r, warning=FALSE, message=FALSE}
 X1_3_1$DEPARTAMENTO= gsub("Prov. Const. del Callao","Callao",X1_3_1$DEPARTAMENTO)
 #X1_3_1$DEPARTAMENTO= gsub("Provincia de Lima","Lima Metropolitana",X1_3_1$DEPARTAMENTO)
 X1_3_1$DEPARTAMENTO= gsub("Región Lima","Provincias de Lima",X1_3_1$DEPARTAMENTO)
@@ -138,8 +138,8 @@ X1_3_1$DEPARTAMENTO= gsub("Resto país","Resto País",X1_3_1$DEPARTAMENTO)
 #Resto país y total/nacional
 ```
 
-## 1.4.1: Proporción de la población que vive en hogares con acceso a servicios básicos de infraestructura
-```{r}
+## 1.4.1 Proporción de la población que vive en hogares con acceso a servicios básicos de infraestructura
+```{r, warning=FALSE, message=FALSE}
 url <- "https://github.com/ChiaraZamoraM/ODS/raw/main/1.4.1.xlsx"
 destfile <- "X1_4_1.xlsx"
 curl::curl_download(url, destfile)
@@ -148,13 +148,13 @@ X1_4_1 <- read_excel(destfile, skip = 7)
 colnames(X1_4_1) = paste0("ODS1_4_1_",colnames(X1_4_1))
 ```
 
-```{r}
+```{r, warning=FALSE, message=FALSE}
 X1_4_1[,c(2:8)]=lapply(X1_4_1[,c(2:8)], as.numeric)
 
 names(X1_4_1)[1]= "DEPARTAMENTO"
 ```
 
-```{r}
+```{r, warning=FALSE, message=FALSE}
 X1_4_1$DEPARTAMENTO= gsub("Prov. Const. del Callao","Callao",X1_4_1$DEPARTAMENTO)
 X1_4_1$DEPARTAMENTO= gsub("Provincia de Lima","Lima Metropolitana",X1_4_1$DEPARTAMENTO)
 X1_4_1$DEPARTAMENTO= gsub("Región Lima","Provincias de Lima",X1_4_1$DEPARTAMENTO)
@@ -162,7 +162,7 @@ X1_4_1$DEPARTAMENTO= gsub("Nacional","Total",X1_4_1$DEPARTAMENTO)
 ```
 
 ## Merge
-```{r}
+```{r, warning=FALSE, message=FALSE}
 ODS_1 = Reduce(function(x, y) merge(x, y, by= "DEPARTAMENTO", all=TRUE), list(X1_1_1, X1_2_1, X1_3_1, X1_4_1))
 
 ODS_1=ODS_1[rowSums(is.na(ODS_1)) != ncol(ODS_1)-1,]
@@ -171,7 +171,7 @@ ODS_1=ODS_1[rowSums(is.na(ODS_1)) != ncol(ODS_1)-1,]
 # ODS 2
 
 ## 2.1.1 Incidencia del déficit calórico
-```{r}
+```{r, warning=FALSE, message=FALSE}
 url <- "https://github.com/ChiaraZamoraM/ODS/raw/main/2.1.1.xlsx"
 destfile <- "X2_1_1.xlsx"
 curl::curl_download(url, destfile)
@@ -187,7 +187,7 @@ X2_1_1$DEPARTAMENTO= gsub("Nacional","Total",X2_1_1$DEPARTAMENTO)
 
 
 ## 2.2.1 Tasa de desnutrición crónica entre las niñas y niños menores de 5 años (OMS)
-```{r}
+```{r, warning=FALSE, message=FALSE}
 url <- "https://www.inei.gob.pe/media/MenuRecursivo/publicaciones_digitales/Est/Lib1795/cuadros/Cap010.xls"
 destfile <- "Cap010.xls"
 curl::curl_download(url, destfile)
@@ -201,7 +201,7 @@ Cap010$DEPARTAMENTO =gsub(' [0-9].', '', Cap010$DEPARTAMENTO)
 
 ```
 
-```{r}
+```{r, warning=FALSE, message=FALSE}
 url <- "https://github.com/ChiaraZamoraM/ODS/raw/main/2.2.1.xlsx"
 destfile <- "X2_2_1.xlsx"
 curl::curl_download(url, destfile)
@@ -226,7 +226,7 @@ names(X2_2_1)[c(2:15)] = paste0("ODS2_2_1_",names(X2_2_1)[c(2:15)])
 ```
 
 ## 2.2.2 Tasa de desnutrición aguda entre las niñas y niños menores de 5 años (OMS)
-```{r}
+```{r, warning=FALSE, message=FALSE}
 url <- "https://www.inei.gob.pe/media/MenuRecursivo/publicaciones_digitales/Est/Lib1795/cuadros/Cap010.xls"
 destfile <- "Cap010.xls"
 curl::curl_download(url, destfile)
@@ -239,7 +239,7 @@ Cap010_2$DEPARTAMENTO =gsub('Total 2020', 'Total', Cap010_2$DEPARTAMENTO)
 Cap010_2$DEPARTAMENTO =gsub(' [0-9].', '', Cap010_2$DEPARTAMENTO)
 ```
 
-```{r}
+```{r, warning=FALSE, message=FALSE}
 url <- "https://github.com/ChiaraZamoraM/ODS/raw/main/2.2.2.xlsx"
 destfile <- "X2_2_2.xlsx"
 curl::curl_download(url, destfile)
@@ -247,7 +247,7 @@ X2_2_2 <- read_excel(destfile, skip = 7)
 names(X2_2_2)[1]= "DEPARTAMENTO"
 ```
 
-```{r}
+```{r, warning=FALSE, message=FALSE}
 Cap010_2$DEPARTAMENTO= gsub("Prov. Const. del Callao","Callao",Cap010_2$DEPARTAMENTO)
 #Cap010_2$DEPARTAMENTO= gsub("Lima Metropolitana","LIMA",Cap010_2$DEPARTAMENTO)
 Cap010_2$DEPARTAMENTO= gsub("Departamento de Lima","Provincias de Lima",Cap010_2$DEPARTAMENTO)
@@ -259,7 +259,7 @@ X2_2_2$DEPARTAMENTO= gsub("Nacional","Total",X2_2_2$DEPARTAMENTO)
 X2_2_2$DEPARTAMENTO= gsub("Resto Costa","Costa",X2_2_2$DEPARTAMENTO)
 ```
 
-```{r}
+```{r, warning=FALSE, message=FALSE}
 X2_2_2 = merge(X2_2_2, Cap010_2, by = "DEPARTAMENTO",all = TRUE)
 
 colnames(X2_2_2)[c(2:12)] = paste0("ODS2_2_2_",colnames(X2_2_2)[c(2:12)])
@@ -268,20 +268,20 @@ X2_2_2=X2_2_2[rowSums(is.na(X2_2_2)) != ncol(X2_2_2)-1,]
 ```
 
 ## Merge
-```{r}
+```{r, warning=FALSE, message=FALSE}
 ODS_2 = Reduce(function(x, y) merge(x, y, by= "DEPARTAMENTO", all=TRUE), list(X2_1_1,X2_2_1,X2_2_2))
 
 ODS_2 = ODS_2[rowSums(is.na(ODS_2)) != ncol(ODS_2),]
 ```
 
-```{r}
+```{r, warning=FALSE, message=FALSE}
 ODS_2[,c(2:26)]=lapply(ODS_2[,c(2:26)], as.numeric)
 ```
 
 # ODS 3
 
 ## 3.1.2 Proporción de partos atendidos por personal sanitario especializado
-```{r}
+```{r, warning=FALSE, message=FALSE}
 url <- "https://github.com/ChiaraZamoraM/ODS/raw/main/3.1.2.xlsx"
 destfile <- "X3_1_2.xlsx"
 curl::curl_download(url, destfile)
@@ -289,11 +289,11 @@ X3_1_2 <- read_excel(destfile, skip = 7)
 X3_1_2 = X3_1_2[,-2]
 ```
 
-```{r}
+```{r, warning=FALSE, message=FALSE}
 names(X3_1_2)[1]= "DEPARTAMENTO"
 ```
 
-```{r}
+```{r, warning=FALSE, message=FALSE}
 X3_1_2$DEPARTAMENTO= gsub("Prov. Const. del Callao","Callao",X3_1_2$DEPARTAMENTO)
 #X3_1_2$DEPARTAMENTO= gsub("Provincia de Lima","LIMA",X3_1_2$DEPARTAMENTO)
 X3_1_2$DEPARTAMENTO= gsub("Región Lima","Provincias de Lima",X3_1_2$DEPARTAMENTO)
@@ -301,7 +301,7 @@ X3_1_2$DEPARTAMENTO= gsub("Resto Costa","Costa",X3_1_2$DEPARTAMENTO)
 X3_1_2$DEPARTAMENTO= gsub("Nacional","Total",X3_1_2$DEPARTAMENTO)
 ```
 
-```{r}
+```{r, warning=FALSE, message=FALSE}
 url <- "https://www.inei.gob.pe/media/MenuRecursivo/publicaciones_digitales/Est/Lib1795/cuadros/Cap008.xlsx"
 destfile <- "Cap008.xlsx"
 curl::curl_download(url, destfile)
@@ -322,7 +322,7 @@ X3_1_2 = merge(X3_1_2, Cap008, by = "DEPARTAMENTO",all = TRUE)
 colnames(X3_1_2)[c(2:ncol(X3_1_2))] = paste0("ODS3_1_2_",colnames(X3_1_2)[c(2:ncol(X3_1_2))])
 ```
 
-```{r}
+```{r, warning=FALSE, message=FALSE}
 X3_1_2 = X3_1_2[rowSums(is.na(X3_1_2)) != ncol(X3_1_2),]
 X3_1_2 = X3_1_2[rowSums(is.na(X3_1_2)) != ncol(X3_1_2)-1,]
 
@@ -331,7 +331,7 @@ X3_1_2 = X3_1_2[rowSums(is.na(X3_1_2)) != ncol(X3_1_2)-1,]
 
 
 ## 3.2.1 Tasa de mortalidad de niños menores de 5 años de edad
-```{r}
+```{r, warning=FALSE, message=FALSE}
 X3_2_1_D <- import("https://www.inei.gob.pe/media/MenuRecursivo/publicaciones_digitales/Est/Lib1829/cap06/cap06071.xlsx")
 names(X3_2_1_D) <- X3_2_1_D[7,]
 X3_2_1_D = X3_2_1_D[-c(1:10),-c(2:8)]
@@ -361,7 +361,7 @@ X3_2_1 = X3_2_1_R[rowSums(is.na(X3_2_1_R)) != ncol(X3_2_1_R)-1,]
 ```
 
 ## 3.2.2 Tasa de mortalidad neonatal
-```{r}
+```{r, warning=FALSE, message=FALSE}
 url <- "https://github.com/ChiaraZamoraM/ODS/raw/main/3.2.2.xlsx"
 destfile <- "X3_2_2.xlsx"
 curl::curl_download(url, destfile)
@@ -376,7 +376,7 @@ X3_2_2$DEPARTAMENTO= gsub("Nacional","Total",X3_2_2$DEPARTAMENTO)
 ```
 
 ## 3.3.1 Tasa de notificación de casos del Virus de la Inmunodeficiencia Humana (VIH) por cada 100 000 habitantes
-```{r}
+```{r, warning=FALSE, message=FALSE}
 X3_3_1 <- import("https://www.inei.gob.pe/media/MenuRecursivo/publicaciones_digitales/Est/Lib1829/cap06/cap06027.xlsx")
 names(X3_3_1) <- X3_3_1[3,]
 colnames(X3_3_1)[6]="2017"
@@ -387,14 +387,14 @@ names(X3_3_1)[1]= "DEPARTAMENTO"
 X3_3_1$DEPARTAMENTO =gsub(' [0-9].', '', X3_3_1$DEPARTAMENTO)
 ```
 
-```{r}
+```{r, warning=FALSE, message=FALSE}
 X3_3_1$DEPARTAMENTO= gsub("Prov. Const. del Callao","Callao",X3_3_1$DEPARTAMENTO)
 #X3_2_1_R$DEPARTAMENTO= gsub("Lima Metropolitana","LIMA",Cap008$DEPARTAMENTO)
 X3_3_1$DEPARTAMENTO= gsub("^Lima$","Provincias de Lima",X3_3_1$DEPARTAMENTO)
 ```
 
 ## 3.3.2 Incidencia de la tuberculosis por cada 100 000 habitantes
-```{r}
+```{r, warning=FALSE, message=FALSE}
 url <- "https://github.com/ChiaraZamoraM/ODS/raw/main/3.3.2.xlsx"
 destfile <- "X3_3_2.xlsx"
 curl::curl_download(url, destfile)
@@ -403,13 +403,13 @@ X3_3_2 <- read_excel(destfile, skip = 7)
 colnames(X3_3_2) = paste0("ODS3_3_2_",colnames(X3_3_2))
 ```
 
-```{r}
+```{r, warning=FALSE, message=FALSE}
 X3_3_2[,c(2:23)]=lapply(X3_3_2[,c(2:23)], as.numeric)
 
 names(X3_3_2)[1]= "DEPARTAMENTO"
 ```
 
-```{r}
+```{r, warning=FALSE, message=FALSE}
 X3_3_2$DEPARTAMENTO= gsub("Prov. Const. del Callao","Callao",X3_3_2$DEPARTAMENTO)
 X3_3_2$DEPARTAMENTO= gsub("Provincia de Lima","Lima Metropolitana",X3_3_2$DEPARTAMENTO)
 X3_3_2$DEPARTAMENTO= gsub("Región Lima","Provincias de Lima",X3_3_2$DEPARTAMENTO)
@@ -417,7 +417,7 @@ X3_3_2$DEPARTAMENTO= gsub("Nacional","Total",X3_3_2$DEPARTAMENTO)
 ```
 
 ## 3.3.3 Incidencia de la malaria por cada 100 000 habitantes
-```{r}
+```{r, warning=FALSE, message=FALSE}
 url <- "https://github.com/ChiaraZamoraM/ODS/raw/main/3.3.3.xlsx"
 destfile <- "X3_3_3.xlsx"
 curl::curl_download(url, destfile)
@@ -426,13 +426,13 @@ X3_3_3 <- read_excel(destfile, skip = 7)
 colnames(X3_3_3) = paste0("ODS3_3_3_",colnames(X3_3_3))
 ```
 
-```{r}
+```{r, warning=FALSE, message=FALSE}
 X3_3_3[,c(2:39)]=lapply(X3_3_3[,c(2:39)], as.numeric)
 
 names(X3_3_3)[1]= "DEPARTAMENTO"
 ```
 
-```{r}
+```{r, warning=FALSE, message=FALSE}
 X3_3_3$DEPARTAMENTO= gsub("Prov. Const. del Callao","Callao",X3_3_3$DEPARTAMENTO)
 X3_3_3$DEPARTAMENTO= gsub("Nacional","Total",X3_3_3$DEPARTAMENTO)
 #X3_3_3$DEPARTAMENTO= gsub("Lima","Provincia de Lima",X3_3_3$DEPARTAMENTO)
@@ -442,7 +442,7 @@ X3_3_3$DEPARTAMENTO= gsub("Nacional","Total",X3_3_3$DEPARTAMENTO)
 ```
 
 ## 3.3.4 Incidencia de la hepatitis B por cada 100 000 habitantes
-```{r}
+```{r, warning=FALSE, message=FALSE}
 url <- "https://github.com/ChiaraZamoraM/ODS/raw/main/3.3.4.xlsx"
 destfile <- "X3_3_4.xlsx"
 curl::curl_download(url, destfile)
@@ -451,13 +451,13 @@ X3_3_4 <- read_excel(destfile, skip = 7)
 colnames(X3_3_4) = paste0("ODS3_3_4_",colnames(X3_3_4))
 ```
 
-```{r}
+```{r, warning=FALSE, message=FALSE}
 X3_3_4[,c(2:19)]=lapply(X3_3_4[,c(2:19)], as.numeric)
 
 names(X3_3_4)[1]= "DEPARTAMENTO"
 ```
 
-```{r}
+```{r, warning=FALSE, message=FALSE}
 X3_3_4$DEPARTAMENTO= gsub("Prov. Const. del Callao","Callao",X3_3_4$DEPARTAMENTO)
 X3_3_4$DEPARTAMENTO= gsub("Provincia de Lima","Lima Metropolitana",X3_3_4$DEPARTAMENTO)
 X3_3_4$DEPARTAMENTO= gsub("Región Lima","Provincias de Lima",X3_3_4$DEPARTAMENTO)
@@ -465,7 +465,7 @@ X3_3_4$DEPARTAMENTO= gsub("Nacional","Total",X3_3_4$DEPARTAMENTO)
 ```
 
 ## 3.5.2 Proporción de personas de 15 y más años de edad que consumieron alguna bebida alcohólica en los últimos 12 meses
-```{r}
+```{r, warning=FALSE, message=FALSE}
 url <- "https://github.com/ChiaraZamoraM/ODS/raw/main/3.5.2.xlsx"
 destfile <- "X3_5_2.xlsx"
 curl::curl_download(url, destfile)
@@ -475,13 +475,13 @@ colnames(X3_5_2) = paste0("ODS3_5_2_",colnames(X3_5_2))
 
 ```
 
-```{r}
+```{r, warning=FALSE, message=FALSE}
 X3_5_2[,c(2:7)]=lapply(X3_5_2[,c(2:7)], as.numeric)
 
 names(X3_5_2)[1]= "DEPARTAMENTO"
 ```
 
-```{r}
+```{r, warning=FALSE, message=FALSE}
 X3_5_2$DEPARTAMENTO= gsub("Prov. Const. del Callao","Callao",X3_5_2$DEPARTAMENTO)
 #X3_5_2$DEPARTAMENTO= gsub("Provincia de Lima","Lima Metropolitana",X3_5_2$DEPARTAMENTO)
 X3_5_2$DEPARTAMENTO= gsub("Región Lima","Provincias de Lima",X3_5_2$DEPARTAMENTO)
@@ -489,7 +489,7 @@ X3_5_2$DEPARTAMENTO= gsub("Nacional","Total",X3_5_2$DEPARTAMENTO)
 ```
 
 ## 3.6.1 Tasa de fallecidos por accidentes de tránsito
-```{r}
+```{r, warning=FALSE, message=FALSE}
 url <- "https://github.com/ChiaraZamoraM/ODS/raw/main/3.6.1.xlsx"
 destfile <- "X3_6_1.xlsx"
 curl::curl_download(url, destfile)
@@ -498,13 +498,13 @@ X3_6_1 <- read_excel(destfile, skip = 7)
 colnames(X3_6_1) = paste0("ODS3_6_1_",colnames(X3_6_1))
 ```
 
-```{r}
+```{r, warning=FALSE, message=FALSE}
 X3_6_1[,c(2:8)]=lapply(X3_6_1[,c(2:8)], as.numeric)
 
 names(X3_6_1)[1]= "DEPARTAMENTO"
 ```
 
-```{r}
+```{r, warning=FALSE, message=FALSE}
 X3_6_1$DEPARTAMENTO= gsub("Prov. Const. del Callao","Callao",X3_6_1$DEPARTAMENTO)
 X3_6_1$DEPARTAMENTO= gsub("Provincia de Lima","Lima Metropolitana",X3_6_1$DEPARTAMENTO)
 X3_6_1$DEPARTAMENTO= gsub("Región Lima","Provincias de Lima",X3_6_1$DEPARTAMENTO)
@@ -512,7 +512,7 @@ X3_6_1$DEPARTAMENTO= gsub("Nacional","Total",X3_6_1$DEPARTAMENTO)
 ```
 
 ## 3.7.1 Proporción de mujeres en edad fértil (de 15 a 49 años) que practican la planificación familiar con métodos modernos
-```{r}
+```{r, warning=FALSE, message=FALSE}
 X3_7_1 <- import("https://www.inei.gob.pe/media/MenuRecursivo/publicaciones_digitales/Est/Lib1829/cap06/cap06076.xlsx")
 names(X3_7_1) <- X3_7_1[4,]
 X3_7_1 = X3_7_1[-c(1:5),]
@@ -524,7 +524,7 @@ names(X3_7_1)[1]= "DEPARTAMENTO"
 X3_7_1$DEPARTAMENTO =gsub(' [0-9].', '', X3_7_1$DEPARTAMENTO)
 ```
 
-```{r}
+```{r, warning=FALSE, message=FALSE}
 X3_7_1$DEPARTAMENTO= gsub("Prov. Const. del Callao","Callao",X3_7_1$DEPARTAMENTO)
 #X3_2_1_R$DEPARTAMENTO= gsub("Lima Metropolitana","LIMA",Cap008$DEPARTAMENTO)
 X3_7_1$DEPARTAMENTO= gsub("^Lima$","Provincias de Lima",X3_7_1$DEPARTAMENTO)
@@ -537,7 +537,7 @@ X3_7_1= X3_7_1[-8,]
 ```
 
 ## 3.7.2 Tasa de fecundidad adolescente de 15 a 19 años de edad
-```{r}
+```{r, warning=FALSE, message=FALSE}
 url <- "https://www.inei.gob.pe/media/MenuRecursivo/publicaciones_digitales/Est/Lib1795/cuadros/Cap013.xlsx"
 destfile <- "X3_7_2.xlsx"
 curl::curl_download(url, destfile)
@@ -550,7 +550,7 @@ colnames(X3_7_2)[1]="DEPARTAMENTO"
 
 ## 3.8.1 Proporción de la población con seguro de salud
 
-```{r}
+```{r, warning=FALSE, message=FALSE}
 X3_8_1 <- import("https://www.inei.gob.pe/media/MenuRecursivo/publicaciones_digitales/Est/Lib1829/cap06/cap06090.xlsx")
 names(X3_8_1) <- X3_8_1[5,]
 X3_8_1 = X3_8_1[-c(1:6,40:44),]
@@ -564,7 +564,7 @@ X3_8_1$DEPARTAMENTO =gsub(' [0-9].', '', X3_8_1$DEPARTAMENTO)
 ```
 
 ## 3.a.1 Proporción de personas de 15 y más años de edad que actualmente fuman cigarros
-```{r}
+```{r, warning=FALSE, message=FALSE}
 url <- "https://github.com/ChiaraZamoraM/ODS/raw/main/3.a.1.xlsx"
 destfile <- "X3_a_1.xlsx"
 curl::curl_download(url, destfile)
@@ -576,7 +576,7 @@ names(X3_a_1) = paste0("ODS3_a_1_",names(X3_a_1))
 names(X3_a_1)[1]= "DEPARTAMENTO"
 ```
 
-```{r}
+```{r, warning=FALSE, message=FALSE}
 X3_a_1$DEPARTAMENTO= gsub("Prov. Const. del Callao","Callao",X3_a_1$DEPARTAMENTO)
 #X1_3_1$DEPARTAMENTO= gsub("Provincia de Lima","Lima Metropolitana",X1_3_1$DEPARTAMENTO)
 X3_a_1$DEPARTAMENTO= gsub("Región Lima","Provincias de Lima",X3_a_1$DEPARTAMENTO)
@@ -585,7 +585,7 @@ X3_a_1$DEPARTAMENTO= gsub("Resto país","Resto País",X3_a_1$DEPARTAMENTO)
 X3_a_1$DEPARTAMENTO= gsub("Resto Urbano","Urbana",X3_a_1$DEPARTAMENTO)
 ```
 
-```{r}
+```{r, warning=FALSE, message=FALSE}
 url <- "https://www.inei.gob.pe/media/MenuRecursivo/publicaciones_digitales/Est/Lib1795/cuadros/Cap013.xlsx"
 destfile <- "X3_a_1_R.xlsx"
 curl::curl_download(url, destfile)
@@ -598,7 +598,7 @@ X3_a_1 =  merge(X3_a_1, X3_a_1_R, by="DEPARTAMENTO", all = TRUE)
 ```
 
 ## 3.c.1.a Número de médicos colegiados por cada 10 000 habitantes
-```{r}
+```{r, warning=FALSE, message=FALSE}
 X3_c_1 <- import("https://www.inei.gob.pe/media/MenuRecursivo/publicaciones_digitales/Est/Lib1829/cap06/cap06005.xlsx")
 names(X3_c_1) <- as.character(X3_c_1[4,])
 X3_c_1 = X3_c_1[-c(1:5,33:35),]
@@ -609,7 +609,7 @@ X3_c_1$DEPARTAMENTO= gsub("Prov. Const. del Callao","Callao",X3_c_1$DEPARTAMENTO
 ```
 
 
-```{r}
+```{r, warning=FALSE, message=FALSE}
 ODS_3 = Reduce(function(x, y) merge(x, y, by= "DEPARTAMENTO",all=TRUE), list(X3_1_2, X3_2_1,
                                                                     X3_2_2,X3_3_1,
                                                                     X3_3_2,X3_3_3,
@@ -626,7 +626,7 @@ ODS_3=ODS_3[rowSums(is.na(ODS_3)) != ncol(ODS_3)-1,]
 # ODS 4
 
 ## 4.1.1.4 --> 4.1.1 Proporción de estudiantes de segundo grado de secundaria con nivel satisfactorio en Comprensión de Lectura
-```{r}
+```{r, warning=FALSE, message=FALSE}
 X4_1_1 <- import("https://www.inei.gob.pe/media/MenuRecursivo/publicaciones_digitales/Est/Lib1829/cap05/cap05052.xlsx")
 names(X4_1_1) <- as.character(X4_1_1[5,])
 X4_1_1 = X4_1_1[-c(1:6,44:48),c(1,8:11)]
@@ -636,14 +636,14 @@ names(X4_1_1)[1]= "DEPARTAMENTO"
 X4_1_1$DEPARTAMENTO =gsub(' [0-9].', '', X4_1_1$DEPARTAMENTO)
 ```
 
-```{r}
+```{r, warning=FALSE, message=FALSE}
 X4_1_1$DEPARTAMENTO= gsub("Prov. Const. del Callao","Callao",X4_1_1$DEPARTAMENTO)
 #X4_1_1$DEPARTAMENTO= gsub("Lima Metropolitana","LIMA",X4_1_1$DEPARTAMENTO)
 X4_1_1$DEPARTAMENTO= gsub("Departamento de Lima","Provincias de Lima",X4_1_1$DEPARTAMENTO)
 ```
 
 ## 4.1.1.6--> 4.1.2 Proporción de estudiantes de segundo grado de secundaria con nivel satisfactorio en Razonamiento Matemático
-```{r}
+```{r, warning=FALSE, message=FALSE}
 X4_1_2 <- import("https://www.inei.gob.pe/media/MenuRecursivo/publicaciones_digitales/Est/Lib1829/cap05/cap05052.xlsx")
 names(X4_1_2) <- as.character(X4_1_2[5,])
 X4_1_2 = X4_1_2[-c(1:6,44:48),c(1:5)]
@@ -653,7 +653,7 @@ names(X4_1_2)[1]= "DEPARTAMENTO"
 X4_1_2$DEPARTAMENTO =gsub(' [0-9].', '', X4_1_2$DEPARTAMENTO)
 ```
 
-```{r}
+```{r, warning=FALSE, message=FALSE}
 X4_1_2$DEPARTAMENTO= gsub("Prov. Const. del Callao","Callao",X4_1_2$DEPARTAMENTO)
 #X4_1_2$DEPARTAMENTO= gsub("Lima Metropolitana","LIMA",X4_1_2$DEPARTAMENTO)
 X4_1_2$DEPARTAMENTO= gsub("Departamento de Lima","Provincias de Lima",X4_1_2$DEPARTAMENTO)
@@ -661,7 +661,7 @@ X4_1_2$DEPARTAMENTO= gsub("Departamento de Lima","Provincias de Lima",X4_1_2$DEP
 
 ## 4.1.1.8 --> 4.1.3 Proporción de estudiantes de cuarto grado de primaria con nivel satisfactorio en Comprensión de Lectura
 
-```{r}
+```{r, warning=FALSE, message=FALSE}
 X4_1_3 <- import("https://www.inei.gob.pe/media/MenuRecursivo/publicaciones_digitales/Est/Lib1829/cap05/cap05051.xlsx")
 names(X4_1_3) <- as.character(X4_1_3[7,])
 X4_1_3 = X4_1_3[-c(1:8,46:51),c(1,7:10)]
@@ -671,14 +671,14 @@ names(X4_1_3)[1]= "DEPARTAMENTO"
 X4_1_3$DEPARTAMENTO =gsub(' [0-9].', '', X4_1_3$DEPARTAMENTO)
 ```
 
-```{r}
+```{r, warning=FALSE, message=FALSE}
 X4_1_3$DEPARTAMENTO= gsub("Prov. Const. del Callao","Callao",X4_1_3$DEPARTAMENTO)
 #X4_1_3$DEPARTAMENTO= gsub("Lima Metropolitana","LIMA",X4_1_3$DEPARTAMENTO)
 X4_1_3$DEPARTAMENTO= gsub("Departamento de Lima","Provincias de Lima",X4_1_3$DEPARTAMENTO)
 ```
 
 ## 4.1.1.10 --> 4.1.4 Proporción de estudiantes de cuarto grado de primaria con nivel satisfactorio en Razonamiento Matemático
-```{r}
+```{r, warning=FALSE, message=FALSE}
 X4_1_4 <- import("https://www.inei.gob.pe/media/MenuRecursivo/publicaciones_digitales/Est/Lib1829/cap05/cap05051.xlsx")
 names(X4_1_4) <- as.character(X4_1_4[7,])
 X4_1_4 = X4_1_4[-c(1:8,46:51),c(1:5)]
@@ -688,14 +688,14 @@ names(X4_1_4)[1]= "DEPARTAMENTO"
 X4_1_4$DEPARTAMENTO =gsub(' [0-9].', '', X4_1_4$DEPARTAMENTO)
 ```
 
-```{r}
+```{r, warning=FALSE, message=FALSE}
 X4_1_4$DEPARTAMENTO= gsub("Prov. Const. del Callao","Callao",X4_1_4$DEPARTAMENTO)
 #X4_1_4$DEPARTAMENTO= gsub("Lima Metropolitana","LIMA",X4_1_4$DEPARTAMENTO)
 X4_1_4$DEPARTAMENTO= gsub("Departamento de Lima","Provincias de Lima",X4_1_4$DEPARTAMENTO)
 ```
 
 ## 4.2.2 Tasa de participación en el aprendizaje organizado (un año antes de la edad oficial del ingreso primario)
-```{r}
+```{r, warning=FALSE, message=FALSE}
 X4_2_2 <- import("https://www.inei.gob.pe/media/MenuRecursivo/publicaciones_digitales/Est/Lib1829/cap05/cap05057.xlsx")
 names(X4_2_2) <- as.character(X4_2_2[6,])
 X4_2_2 = X4_2_2[-c(1:7,45:48),]
@@ -705,14 +705,14 @@ names(X4_2_2)[1]= "DEPARTAMENTO"
 X4_2_2$DEPARTAMENTO =gsub(' [0-9].', '', X4_2_2$DEPARTAMENTO)
 ```
 
-```{r}
+```{r, warning=FALSE, message=FALSE}
 X4_2_2$DEPARTAMENTO= gsub("Prov. Const. del Callao","Callao",X4_2_2$DEPARTAMENTO)
 #X4_2_2$DEPARTAMENTO= gsub("Lima Metropolitana","LIMA",X4_6_1$DEPARTAMENTO)
 X4_2_2$DEPARTAMENTO= gsub("Departamento de Lima","Provincias de Lima",X4_2_2$DEPARTAMENTO)
 ```
 
 ## 4.3.1 Tasa de asistencia a educación superior de la población de 17 a 24 años de edad
-```{r}
+```{r, warning=FALSE, message=FALSE}
 url <- "https://github.com/ChiaraZamoraM/ODS/raw/main/4.3.1.xlsx"
 destfile <- "X4_3_1.xlsx"
 curl::curl_download(url, destfile)
@@ -723,7 +723,7 @@ colnames(X4_3_1) = paste0("ODS4_3_1_",colnames(X4_3_1))
 names(X4_3_1)[1]= "DEPARTAMENTO"
 ```
 
-```{r}
+```{r, warning=FALSE, message=FALSE}
 X4_3_1$DEPARTAMENTO= gsub("Prov. Const. del Callao","Callao",X4_3_1$DEPARTAMENTO)
 #X4_3_1$DEPARTAMENTO= gsub("Provincia de Lima","Lima Metropolitana",X4_3_1$DEPARTAMENTO)
 X4_3_1$DEPARTAMENTO= gsub("Región Lima","Provincias de Lima",X4_3_1$DEPARTAMENTO)
@@ -732,7 +732,7 @@ X4_3_1$DEPARTAMENTO= gsub("Resto país","Resto País",X4_3_1$DEPARTAMENTO)
 ```
 
 ## 4.5.1 Índice de paridad en la matrícula a educación inicial de la población 3 a 5 años de edad
-```{r}
+```{r, warning=FALSE, message=FALSE}
 url <- "https://github.com/ChiaraZamoraM/ODS/raw/main/4.5.1.xlsx"
 destfile <- "X4_5_1.xlsx"
 curl::curl_download(url, destfile)
@@ -744,12 +744,12 @@ names(X4_5_1) = paste0("ODS4_5_1_",names(X4_5_1))
 names(X4_5_1)[1]= "DEPARTAMENTO"
 ```
 
-```{r}
+```{r, warning=FALSE, message=FALSE}
 X4_5_1$DEPARTAMENTO= gsub("Nacional","Total",X4_5_1$DEPARTAMENTO)
 ```
 
 ## 4.6.1 Tasa de alfabetización de la población de 15 y más años de edad (Con cartilla de lectura)
-```{r}
+```{r, warning=FALSE, message=FALSE}
 X4_6_1 <- import("https://www.inei.gob.pe/media/MenuRecursivo/publicaciones_digitales/Est/Lib1829/cap05/cap05057.xlsx")
 names(X4_6_1) <- as.character(X4_6_1[6,])
 X4_6_1 = X4_6_1[-c(1:7,45:48),]
@@ -759,14 +759,14 @@ names(X4_6_1)[1]= "DEPARTAMENTO"
 X4_6_1$DEPARTAMENTO =gsub(' [0-9].', '', X4_6_1$DEPARTAMENTO)
 ```
 
-```{r}
+```{r, warning=FALSE, message=FALSE}
 X4_6_1$DEPARTAMENTO= gsub("Prov. Const. del Callao","Callao",X4_6_1$DEPARTAMENTO)
 #X4_6_1$DEPARTAMENTO= gsub("Lima Metropolitana","LIMA",X4_6_1$DEPARTAMENTO)
 X4_6_1$DEPARTAMENTO= gsub("Departamento de Lima","Provincias de Lima",X4_6_1$DEPARTAMENTO)
 ```
 
 ## 4.a.1 Proporción de escuelas con acceso a electricidad
-```{r}
+```{r, warning=FALSE, message=FALSE}
 url <- "https://github.com/ChiaraZamoraM/ODS/raw/main/4.a.1.xlsx"
 destfile <- "X4_a_1.xlsx"
 curl::curl_download(url, destfile)
@@ -777,7 +777,7 @@ colnames(X4_a_1) = paste0("ODS4_a_1_",colnames(X4_a_1))
 names(X4_a_1)[1]= "DEPARTAMENTO"
 ```
 
-```{r}
+```{r, warning=FALSE, message=FALSE}
 X4_a_1$DEPARTAMENTO= gsub("Prov. Const. del Callao","Callao",X4_a_1$DEPARTAMENTO)
 X4_a_1$DEPARTAMENTO= gsub("Provincia de Lima","Lima Metropolitana",X4_a_1$DEPARTAMENTO)
 X4_a_1$DEPARTAMENTO= gsub("Región Lima","Provincias de Lima",X4_a_1$DEPARTAMENTO)
@@ -785,7 +785,7 @@ X4_a_1$DEPARTAMENTO= gsub("Nacional","Total",X4_a_1$DEPARTAMENTO)
 ```
 
 ## 4.a.1.e --> 4.a.2 Proporción de escuelas con acceso a abastecimiento de agua mediante red pública dentro del local escolar
-```{r}
+```{r, warning=FALSE, message=FALSE}
 url <- "https://github.com/ChiaraZamoraM/ODS/raw/main/4.a.1.e.xlsx"
 destfile <- "4.a.1.e.xlsx"
 curl::curl_download(url, destfile)
@@ -796,7 +796,7 @@ colnames(X4_a_2) = paste0("ODS4_a_2_",colnames(X4_a_2))
 names(X4_a_2)[1]= "DEPARTAMENTO"
 ```
 
-```{r}
+```{r, warning=FALSE, message=FALSE}
 X4_a_2$DEPARTAMENTO= gsub("Prov. Const. del Callao","Callao",X4_a_2$DEPARTAMENTO)
 X4_a_2$DEPARTAMENTO= gsub("Provincia de Lima","Lima Metropolitana",X4_a_2$DEPARTAMENTO)
 X4_a_2$DEPARTAMENTO= gsub("Región Lima","Provincias de Lima",X4_a_2$DEPARTAMENTO)
@@ -804,7 +804,7 @@ X4_a_2$DEPARTAMENTO= gsub("Nacional","Total",X4_a_2$DEPARTAMENTO)
 ```
 
 ## 4.a.1.f --> 4.a.3 Proporción de escuelas con acceso a inodoro conectado a red pública
-```{r}
+```{r, warning=FALSE, message=FALSE}
 url <- "https://github.com/ChiaraZamoraM/ODS/raw/main/4.a.1.f.xlsx"
 destfile <- "4.a.1.f.xlsx"
 curl::curl_download(url, destfile)
@@ -815,7 +815,7 @@ colnames(X4_a_3) = paste0("ODS4_a_3_",colnames(X4_a_3))
 names(X4_a_3)[1]= "DEPARTAMENTO"
 ```
 
-```{r}
+```{r, warning=FALSE, message=FALSE}
 X4_a_3$DEPARTAMENTO= gsub("Prov. Const. del Callao","Callao",X4_a_3$DEPARTAMENTO)
 X4_a_3$DEPARTAMENTO= gsub("Provincia de Lima","Lima Metropolitana",X4_a_3$DEPARTAMENTO)
 X4_a_3$DEPARTAMENTO= gsub("Región Lima","Provincias de Lima",X4_a_3$DEPARTAMENTO)
@@ -823,7 +823,7 @@ X4_a_3$DEPARTAMENTO= gsub("Nacional","Total",X4_a_3$DEPARTAMENTO)
 ```
 
 ## 4.c.1 Proporción de docentes de educación inicial que recibieron la mínima formación pedagógica durante el empleo
-```{r}
+```{r, warning=FALSE, message=FALSE}
 url <- "https://github.com/ChiaraZamoraM/ODS/raw/main/4.c.1.xlsx"
 destfile <- "X4_c_1.xlsx"
 curl::curl_download(url, destfile)
@@ -834,7 +834,7 @@ colnames(X4_c_1) = paste0("ODS4_c_1_",colnames(X4_c_1))
 names(X4_c_1)[1]= "DEPARTAMENTO"
 ```
 
-```{r}
+```{r, warning=FALSE, message=FALSE}
 X4_c_1$DEPARTAMENTO= gsub("Prov. Const. del Callao","Callao",X4_c_1$DEPARTAMENTO)
 X4_c_1$DEPARTAMENTO= gsub("Provincia de Lima","Lima Metropolitana",X4_c_1$DEPARTAMENTO)
 X4_c_1$DEPARTAMENTO= gsub("Región Lima","Provincias de Lima",X4_c_1$DEPARTAMENTO)
@@ -843,7 +843,7 @@ X4_c_1$DEPARTAMENTO= gsub("Nacional","Total",X4_c_1$DEPARTAMENTO)
 
 ## Merge
 
-```{r}
+```{r, warning=FALSE, message=FALSE}
 ODS_4 = Reduce(function(x, y) merge(x, y, by= "DEPARTAMENTO",all=TRUE), list(X4_1_1, X4_1_2,
                                                                              X4_1_3, X4_1_4,
                                                                              X4_2_2, X4_3_1,
@@ -859,7 +859,7 @@ ODS_4=ODS_4[rowSums(is.na(ODS_4)) != ncol(ODS_4)-1,]
 # ODS 5
 
 ## 5.2.1 Proporción de mujeres de 15 a 49 años de edad que han sufrido violencia física y/o sexual ejercida por el esposo o compañero en los últimos 12 meses
-```{r}
+```{r, warning=FALSE, message=FALSE}
 url <- "https://github.com/ChiaraZamoraM/ODS/raw/main/5.2.1.xlsx"
 destfile <- "X5_2_1.xlsx"
 curl::curl_download(url, destfile)
@@ -870,14 +870,14 @@ colnames(X5_2_1) = paste0("ODS5_2_1_",colnames(X5_2_1))
 names(X5_2_1)[1]= "DEPARTAMENTO"
 ```
 
-```{r}
+```{r, warning=FALSE, message=FALSE}
 X5_2_1$DEPARTAMENTO= gsub("Prov. Const. del Callao","Callao",X5_2_1$DEPARTAMENTO)
 X5_2_1$DEPARTAMENTO= gsub("Provincia de Lima","Lima Metropolitana",X5_2_1$DEPARTAMENTO)
 X5_2_1$DEPARTAMENTO= gsub("Región Lima","Provincias de Lima",X5_2_1$DEPARTAMENTO)
 X5_2_1$DEPARTAMENTO= gsub("Nacional","Total",X5_2_1$DEPARTAMENTO)
 ```
 
-```{r}
+```{r, warning=FALSE, message=FALSE}
 X5_2_1_R <- import("https://www.inei.gob.pe/media/MenuRecursivo/publicaciones_digitales/Est/Lib1829/cap08/cap08029.xlsx")
 names(X5_2_1_R) <- as.character(X5_2_1_R[5,])
 X5_2_1_R = X5_2_1_R[-c(1:6,17:31),c(1,11)]
@@ -887,7 +887,7 @@ names(X5_2_1_R)[1]= "DEPARTAMENTO"
 X5_2_1_R$DEPARTAMENTO =gsub(' [0-9].', '', X5_2_1_R$DEPARTAMENTO)
 ```
 
-```{r}
+```{r, warning=FALSE, message=FALSE}
 X5_2_1 = merge(X5_2_1_R, X5_2_1, by = "DEPARTAMENTO",all = TRUE)
 
 X5_2_1=X5_2_1[rowSums(is.na(X5_2_1)) != ncol(X5_2_1)-1,]
@@ -898,7 +898,7 @@ X5_2_1=X5_2_1[rowSums(is.na(X5_2_1)) != ncol(X5_2_1)-1,]
 ## 5.3.1 Proporción de mujeres de entre 20 y 24 años que estaban casadas o mantenían una unión estable antes de cumplir los 15 años y antes de cumplir los 18 años
 
 ## 5.5.1 Proporción de escaños ocupados por mujeres en los parlamentos nacionales por período congresal
-```{r}
+```{r, warning=FALSE, message=FALSE}
 #url <- "https://github.com/ChiaraZamoraM/ODS/raw/main/5.5.1.xlsx"
 #destfile <- "X5_5_1.xlsx"
 #curl::curl_download(url, destfile)
@@ -910,7 +910,7 @@ X5_2_1=X5_2_1[rowSums(is.na(X5_2_1)) != ncol(X5_2_1)-1,]
 #names(X5_5_1)[1]= "DEPARTAMENTO"
 ```
 
-```{r}
+```{r, warning=FALSE, message=FALSE}
 #X5_5_1$DEPARTAMENTO= gsub("Prov. Const. del Callao","Callao",X5_5_1$DEPARTAMENTO)
 #X5_5_1$DEPARTAMENTO= gsub("Provincia de Lima","Lima Metropolitana",X5_5_1$DEPARTAMENTO)
 #X5_5_1$DEPARTAMENTO= gsub("Región Lima","Provincias de Lima",X5_5_1$DEPARTAMENTO)
@@ -918,7 +918,7 @@ X5_2_1=X5_2_1[rowSums(is.na(X5_2_1)) != ncol(X5_2_1)-1,]
 ```
 
 ## 5.5.1.b --> 5.5.2 Proporción de alcaldías dirigidas por mujeres por período de alcaldía
-```{r}
+```{r, warning=FALSE, message=FALSE}
 url <- "https://github.com/ChiaraZamoraM/ODS/raw/main/5.5.1.b.xlsx"
 destfile <- "X5_5_1.b.xlsx"
 curl::curl_download(url, destfile)
@@ -930,7 +930,7 @@ colnames(X5_5_2) = paste0("ODS5_5_2_",colnames(X5_5_2))
 names(X5_5_2)[1]= "DEPARTAMENTO"
 ```
 
-```{r}
+```{r, warning=FALSE, message=FALSE}
 X5_5_2$DEPARTAMENTO= gsub("Prov. Const. del Callao","Callao",X5_5_2$DEPARTAMENTO)
 X5_5_2$DEPARTAMENTO= gsub("Provincia de Lima","Lima Metropolitana",X5_5_2$DEPARTAMENTO)
 X5_5_2$DEPARTAMENTO= gsub("Región Lima","Provincias de Lima",X5_5_2$DEPARTAMENTO)
@@ -938,7 +938,7 @@ X5_5_2$DEPARTAMENTO= gsub("Nacional","Total",X5_5_2$DEPARTAMENTO)
 ```
 
 ## 5.5.1.c --> 5.5.3 Proporción de regidoras mujeres elegidas por período del regidor/a
-```{r}
+```{r, warning=FALSE, message=FALSE}
 url <- "https://github.com/ChiaraZamoraM/ODS/raw/main/5.5.1.c.xlsx"
 destfile <- "X5_5_1.c.xlsx"
 curl::curl_download(url, destfile)
@@ -950,7 +950,7 @@ colnames(X5_5_3) = paste0("ODS5_5_3_",colnames(X5_5_3))
 names(X5_5_3)[1]= "DEPARTAMENTO"
 ```
 
-```{r}
+```{r, warning=FALSE, message=FALSE}
 X5_5_3$DEPARTAMENTO= gsub("Prov. Const. del Callao","Callao",X5_5_3$DEPARTAMENTO)
 X5_5_3$DEPARTAMENTO= gsub("Provincia de Lima","Lima Metropolitana",X5_5_3$DEPARTAMENTO)
 X5_5_3$DEPARTAMENTO= gsub("Región Lima","Provincias de Lima",X5_5_3$DEPARTAMENTO)
@@ -958,7 +958,7 @@ X5_5_3$DEPARTAMENTO= gsub("Nacional","Total",X5_5_3$DEPARTAMENTO)
 ```
 
 ## 5.5.2 --> 5.5.4 Proporción de mujeres en cargos directivos
-```{r}
+```{r, warning=FALSE, message=FALSE}
 url <- "https://github.com/ChiaraZamoraM/ODS/raw/main/5.5.2.xlsx"
 destfile <- "X5_5_2.xlsx"
 curl::curl_download(url, destfile)
@@ -970,7 +970,7 @@ colnames(X5_5_4) = paste0("ODS5_5_4_",colnames(X5_5_4))
 names(X5_5_4)[1]= "DEPARTAMENTO"
 ```
 
-```{r}
+```{r, warning=FALSE, message=FALSE}
 X5_5_4$DEPARTAMENTO= gsub("Nacional","Total",X5_5_4$DEPARTAMENTO)
 ```
 
@@ -979,7 +979,7 @@ X5_5_4$DEPARTAMENTO= gsub("Nacional","Total",X5_5_4$DEPARTAMENTO)
 ## 5.b.1 Proporción de personas de 15 a más años de edad que poseen un teléfono móvil, desglosada por sexo
 
 ## Merge ODS 5
-```{r}
+```{r, warning=FALSE, message=FALSE}
 ODS_5 = Reduce(function(x, y) merge(x, y, by= "DEPARTAMENTO",all=TRUE), list(X5_2_1,                                                                           X5_5_2,X5_5_3,
                                                                              X5_5_4))
 
@@ -991,7 +991,7 @@ ODS_5=ODS_5[rowSums(is.na(ODS_5)) != ncol(ODS_5),]
 # ODS 6
 
 ## 6.1.1 Proporción de la población que dispone de agua por red pública
-```{r}
+```{r, warning=FALSE, message=FALSE}
 X6_1_1 <- import("https://www.inei.gob.pe/media/MenuRecursivo/publicaciones_digitales/Est/Lib1829/cap04/cap04013.xlsx")
 names(X6_1_1) <- as.character(X6_1_1[3,])
 X6_1_1 = X6_1_1[-c(1:4,37:44),]
@@ -1003,13 +1003,13 @@ X6_1_1$DEPARTAMENTO= gsub("Lima 2/","Provincias de Lima",X6_1_1$DEPARTAMENTO)
 X6_1_1$DEPARTAMENTO =gsub(' [0-9].', '', X6_1_1$DEPARTAMENTO)
 ```
 
-```{r}
+```{r, warning=FALSE, message=FALSE}
 X6_1_1$DEPARTAMENTO= gsub("Prov. Const. del Callao","Callao",X6_1_1$DEPARTAMENTO)
 #X4_6_1$DEPARTAMENTO= gsub("Lima Metropolitana","LIMA",X4_6_1$DEPARTAMENTO)
 ```
 
 ## 6.2.1 Proporción de la población que utiliza servicios de saneamiento gestionados sin riesgos
-```{r}
+```{r, warning=FALSE, message=FALSE}
 url <- "https://github.com/ChiaraZamoraM/ODS/raw/main/6.2.1.xlsx"
 destfile <- "X6_2_1.xlsx"
 curl::curl_download(url, destfile)
@@ -1019,7 +1019,7 @@ colnames(X6_2_1) = paste0("ODS6_2_1_",colnames(X6_2_1))
 names(X6_2_1)[1]= "DEPARTAMENTO"
 ```
 
-```{r}
+```{r, warning=FALSE, message=FALSE}
 X6_2_1$DEPARTAMENTO= gsub("Prov. Const. del Callao","Callao",X6_2_1$DEPARTAMENTO)
 X6_2_1$DEPARTAMENTO= gsub("Resto país","Resto País",X6_2_1$DEPARTAMENTO)
 X6_2_1$DEPARTAMENTO= gsub("Región Lima","Provincias de Lima",X6_2_1$DEPARTAMENTO)
@@ -1029,16 +1029,105 @@ X6_2_1$DEPARTAMENTO= gsub("Nacional","Total",X6_2_1$DEPARTAMENTO)
 ## 6.3.1 Proporción de hogares con agua tratada
 
 ## Merge ODS 6
-```{r}
+```{r, warning=FALSE, message=FALSE}
 ODS_6 = Reduce(function(x, y) merge(x, y, by= "DEPARTAMENTO",all=TRUE), list(X6_1_1,X6_2_1))
 
 ODS_6=ODS_6[rowSums(is.na(ODS_6)) != ncol(ODS_6)-1,]
 ODS_6=ODS_6[rowSums(is.na(ODS_6)) != ncol(ODS_6),]
 ```
 
-# Merge
+# ODS 7
+
+## 7.1.1 Proporción de la población que tiene acceso a la electricidad
+```{r, warning=FALSE, message=FALSE}
+url <- "https://github.com/ChiaraZamoraM/ODS/raw/main/7.1.1.xlsx"
+destfile <- "X7_1_1.xlsx"
+curl::curl_download(url, destfile)
+X7_1_1 <- read_excel(destfile, skip = 7)
+
+colnames(X7_1_1) = paste0("ODS7_1_1_",colnames(X7_1_1))
+names(X7_1_1)[1]= "DEPARTAMENTO"
+```
+
+```{r, warning=FALSE, message=FALSE}
+X7_1_1$DEPARTAMENTO= gsub("Prov. Const. del Callao","Callao",X7_1_1$DEPARTAMENTO)
+X7_1_1$DEPARTAMENTO= gsub("Resto país","Resto País",X7_1_1$DEPARTAMENTO)
+X7_1_1$DEPARTAMENTO= gsub("Región Lima","Provincias de Lima",X7_1_1$DEPARTAMENTO)
+X7_1_1$DEPARTAMENTO= gsub("Nacional","Total",X7_1_1$DEPARTAMENTO)
+```
+
+```{r, warning=FALSE, message=FALSE}
+X7_1_1_R <- import("https://www.inei.gob.pe/media/MenuRecursivo/publicaciones_digitales/Est/Lib1829/cap17/cap17013.xls")
+names(X7_1_1_R) <- as.character(X7_1_1_R[3,])
+X7_1_1_R = X7_1_1_R[,-c(2:21,23,24)]
+colnames(X7_1_1_R) = paste0("ODS7_1_1_",colnames(X7_1_1_R))
+names(X7_1_1_R)[1]= "DEPARTAMENTO"
+
+
+X7_1_1_R$DEPARTAMENTO= gsub("Provincia de Lima 1/","Lima Metropolitana",X7_1_1_R$DEPARTAMENTO)
+X7_1_1_R$DEPARTAMENTO= gsub("Región Lima  2/","Provincias de Lima",X7_1_1_R$DEPARTAMENTO)
+X7_1_1_R$DEPARTAMENTO= gsub("Total Nacional","Total",X7_1_1_R$DEPARTAMENTO)
+```
+
 ```{r}
-ODS = Reduce(function(x, y) merge(x, y, by= "DEPARTAMENTO",all=TRUE), list(ODS_1,ODS_2, ODS_3, ODS_4, ODS_5, ODS_6))
+X7_1_1= merge(X7_1_1, X7_1_1_R, by= "DEPARTAMENTO", all = TRUE)
+X7_1_1=X7_1_1[rowSums(is.na(X7_1_1)) != ncol(X7_1_1)-1,]
+X7_1_1=X7_1_1[rowSums(is.na(X7_1_1)) != ncol(X7_1_1),]
+```
+
+## 7.1.2 Proporción de la población cuya fuente primaria de energía para cocinar consiste en combustibles y tecnología limpios
+
+```{r, warning=FALSE, message=FALSE}
+url <- "https://github.com/ChiaraZamoraM/ODS/raw/main/7.1.2.xlsx"
+destfile <- "X7_1_2.xlsx"
+curl::curl_download(url, destfile)
+X7_1_2 <- read_excel(destfile, skip = 7)
+
+colnames(X7_1_2) = paste0("ODS7_1_2_",colnames(X7_1_2))
+names(X7_1_2)[1]= "DEPARTAMENTO"
+```
+
+```{r, warning=FALSE, message=FALSE}
+X7_1_2$DEPARTAMENTO= gsub("Prov. Const. del Callao","Callao",X7_1_2$DEPARTAMENTO)
+X7_1_2$DEPARTAMENTO= gsub("Resto país","Resto País",X7_1_2$DEPARTAMENTO)
+X7_1_2$DEPARTAMENTO= gsub("Región Lima","Provincias de Lima",X7_1_2$DEPARTAMENTO)
+X7_1_2$DEPARTAMENTO= gsub("Nacional","Total",X7_1_2$DEPARTAMENTO)
+```
+
+## Merge ODS 7
+```{r, warning=FALSE, message=FALSE}
+ODS_7 = Reduce(function(x, y) merge(x, y, by= "DEPARTAMENTO",all=TRUE), list(X7_1_1,X7_1_2))
+
+ODS_7=ODS_7[rowSums(is.na(ODS_7)) != ncol(ODS_7)-1,]
+ODS_7=ODS_7[rowSums(is.na(ODS_7)) != ncol(ODS_7),]
+```
+
+# ODS 8
+
+## 8.1.1 Tasa de crecimiento anual del PBI real per cápita
+```{r}
+
+```
+
+
+## 8.2.1 Tasa de crecimiento anual del PBI real por persona empleada
+8.3.1 Proporción de la población con empleo informal -en el sector no agrícola-
+```{r}
+https://www.inei.gob.pe/media/MenuRecursivo/publicaciones_digitales/Est/Lib1829/cap07/cap07043.xlsx
+```
+
+8.5.1 Ingreso medio por hora de empleadas y empleados
+```{r}
+https://www.inei.gob.pe/media/MenuRecursivo/publicaciones_digitales/Est/Lib1829/cap07/cap07055.xlsx
+```
+
+8.5.2 Tasa de desempleo en el área urbana
+8.6.1 Proporción de jóvenes (entre 15 y 24 años) que no cursan estudios, no están empleados ni reciben capacitación
+8.7.1 Proporción de niños, niñas y adolescentes de 5 a 17 años en actividad económica
+
+# Merge
+```{r, warning=FALSE, message=FALSE}
+ODS = Reduce(function(x, y) merge(x, y, by= "DEPARTAMENTO",all=TRUE), list(ODS_1,ODS_2, ODS_3, ODS_4, ODS_5, ODS_6, ODS_7))
 
 ODS=ODS[rowSums(is.na(ODS)) != ncol(ODS)-1,]
 ODS=ODS[rowSums(is.na(ODS)) != ncol(ODS),]
@@ -1048,11 +1137,11 @@ ODS=ODS[rowSums(is.na(ODS)) != ncol(ODS),]
 ODS= ODS[!is.na(ODS$DEPARTAMENTO),]
 ```
 
-```{r}
+```{r, warning=FALSE, message=FALSE}
 ODSTrans= ODS %>% gather( ODS_Ano, Valor, 2:ncol(ODS), na.rm = TRUE, convert = FALSE)
 ```
 
-```{r}
+```{r, warning=FALSE, message=FALSE}
 ODSTrans$Ano= sub('.*(\\d{4}).*', '\\1', ODSTrans$ODS_Ano)
 
 #ODSTrans$Ano = as.Date(as.character(ODSTrans$Ano), format = "%Y")
@@ -1069,7 +1158,7 @@ ODSTrans$Valor= round(ODSTrans$Valor,1)
 ODSTrans= ODSTrans[,-2]
 ```
 
-```{r}
+```{r, warning=FALSE, message=FALSE}
 #set = subset(ODSTrans, Ano> 2014)
 #names(set)
 #ODSSpr= set %>% spread(ODSNro, Valor)
@@ -1084,7 +1173,7 @@ ODSSpr$Ano = as.Date(as.character(ODSSpr$Ano), format = "%Y")
 
 ``` 
 
-```{r}
+```{r, warning=FALSE, message=FALSE}
 #ODS1_1_1 = ODSSpr[-c(4:ncol(ODSSpr)),]
 
 #ODS1_1_1 = ODSSpr[,-c(4:ncol(ODSSpr))]
@@ -1093,11 +1182,11 @@ ODSSpr$Ano = as.Date(as.character(ODSSpr$Ano), format = "%Y")
   #          values_from = '1.1.1')
 ```
 
-```{r}
+```{r, warning=FALSE, message=FALSE}
 saveRDS(ODSSpr, "ODSSpr.RDS")
 ```
 
-```{r}
+```{r, warning=FALSE, message=FALSE}
 library(xlsx)
 
 wb = createWorkbook()
@@ -1129,6 +1218,6 @@ addDataFrame(ODS_6, sheet=sheet, col.names = TRUE, row.names = FALSE)
 saveWorkbook(wb, "Base_ODS.xlsx")
 ```
 
-```{r}
+```{r, warning=FALSE, message=FALSE}
 write.csv(ODSSpr,"BASE_ODS.csv")
 ```
