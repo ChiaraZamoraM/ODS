@@ -1333,6 +1333,94 @@ plot37.1 = ggplotly(ggplot(ODS5_5_4_R, aes(x=Año, y=Avance, fill=Área))+
 ```
 
 
+```{r}
+#ODS 6.1.1
+
+## plot38
+ODS6_1_1= Area[c(1,2,40)]
+#ODS6_1_1= subset(ODS6_1_1, Ano>2006)
+  
+colnames(ODS6_1_1)= c("Área","Año","Avance")
+ODS6_1_1 = ODS6_1_1[!is.na(ODS6_1_1$Avance),]
+
+plot38 = ggplotly(ggplot(ODS6_1_1, aes(x=Año, y=Avance, fill=Área))+
+                   geom_bar(stat="identity", position=position_dodge())+
+                   theme_light() +
+                   scale_fill_viridis(discrete = TRUE,option = "magma")+
+                   labs(x= "Años", y = "Porcentaje", colour = "Área/Dpto."))
+
+## plot38.1
+#ODS6_1_1_R= Regiones[c(1,2,40)]
+#ODS6_1_1_R= subset(ODS6_1_1_R, Ano>2011)
+  
+#colnames(ODS6_1_1_R)= c("Área","Año","Avance")
+#ODS6_1_1_R = ODS6_1_1_R[!is.na(ODS6_1_1_R$Avance),]
+
+#plot38.1 = ggplotly(ggplot(ODS6_1_1_R, aes(x=Año, y=Avance, fill=Área))+
+ #                  geom_bar(stat="identity", position=position_dodge())+
+  #                 theme_light() +
+   #                scale_fill_viridis(discrete = TRUE)+
+    #               labs(x= "Años", y = "Porcentaje", colour = "Área/Dpto."))
+
+## plot38.2
+ODS6_1_1_D= Departamentos[c(1,2,40)]
+#ODS6_1_1_D= subset(ODS6_1_1_D, Ano>2005)
+  
+colnames(ODS6_1_1_D)= c("Área","Año","Avance")
+ODS6_1_1_D= ODS6_1_1_D[!is.na(ODS6_1_1_D$Avance),]
+
+plot38.2 = ggplotly(ggplot(ODS6_1_1_D, aes(x=Año, y=Avance, colour=Área))+
+                     geom_line()+ 
+                     theme_light() +
+                     labs(x= "Años", y = "Porcentaje", colour = "Área/Dpto."))
+```
+
+
+```{r}
+#ODS 6.2.1
+
+## plot39
+ODS6_2_1= Area[c(1,2,41)]
+#ODS6_2_1= subset(ODS6_2_1, Ano>2006)
+  
+colnames(ODS6_2_1)= c("Área","Año","Avance")
+ODS6_2_1 = ODS6_2_1[!is.na(ODS6_2_1$Avance),]
+
+plot39 = ggplotly(ggplot(ODS6_2_1, aes(x=Año, y=Avance, fill=Área))+
+                   geom_bar(stat="identity", position=position_dodge())+
+                   theme_light() +
+                   scale_fill_viridis(discrete = TRUE,option = "magma")+
+                   labs(x= "Años", y = "Porcentaje", colour = "Área/Dpto.")+
+                     xlim(2009, 2020))
+
+## plot39.1
+ODS6_2_1_R= Regiones[c(1,2,41)]
+#ODS6_2_1_R= subset(ODS6_2_1_R, Ano>2011)
+  
+colnames(ODS6_2_1_R)= c("Área","Año","Avance")
+ODS6_2_1_R = ODS6_2_1_R[!is.na(ODS6_2_1_R$Avance),]
+
+plot39.1 = ggplotly(ggplot(ODS6_2_1_R, aes(x=Año, y=Avance, fill=Área))+
+                   geom_bar(stat="identity", position=position_dodge())+
+                   theme_light() +
+                   scale_fill_viridis(discrete = TRUE)+
+                   labs(x= "Años", y = "Porcentaje", colour = "Área/Dpto.")+
+                     xlim(2009, 2020))
+
+## plot39.2
+ODS6_2_1_D= Departamentos[c(1,2,41)]
+#ODS6_2_1_D= subset(ODS6_2_1_D, Ano>2005)
+  
+colnames(ODS6_2_1_D)= c("Área","Año","Avance")
+ODS6_2_1_D= ODS6_2_1_D[!is.na(ODS6_2_1_D$Avance),]
+
+plot39.2 = ggplotly(ggplot(ODS6_2_1_D, aes(x=Año, y=Avance, colour=Área))+
+                     geom_line()+ 
+                     theme_light() +
+                     labs(x= "Años", y = "Porcentaje", colour = "Área/Dpto.")+
+                     xlim(2009, 2020))
+
+```
 
 **ODS 1** 
 =====================================
@@ -1743,12 +1831,16 @@ Column {.tabset}
 ### **6.1.1**
 ```{r}
 titulo= "6.1.1 Proporción de la población que dispone de agua por red pública"
+
+subplot(plot38, plot38.2, nrows = 2) %>% layout(title = titulo,margin=list(t = 50))
 ```
 
 
 ### **6.2.1**
 ```{r}
 titulo= "6.2.1 Proporción de la población que utiliza servicios de saneamiento gestionados sin riesgos"
+
+subplot(subplot(plot39, plot39.1), plot39.2, nrows = 2) %>% layout(title = titulo,margin=list(t = 50))
 ```
 
 
