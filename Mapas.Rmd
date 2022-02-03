@@ -1,0 +1,461 @@
+
+
+```{r}
+library(sf)
+library(ggplot2)
+library(ggpubr)
+library(tidyverse)
+library(ggrepel)
+library(repr)
+library(dygraphs)
+library(quantmod)
+library(rjson)
+
+download.file("https://github.com/ChiaraZamoraM/ODS/raw/main/mapa_Peru/mapa_depas_Lima.zip", 
+              destfile = "mapa_depas_Lima.zip" , mode='wb')
+unzip("mapa_depas_Lima.zip", exdir = ".")
+file.remove("mapa_depas_Lima.zip")
+
+mapa <- st_read("mapa_depas_Lima.shp")
+
+download.file("https://github.com/ChiaraZamoraM/ODS/raw/main/mapa2_Peru/Provincias_Peru.zip", 
+              destfile = "Provincias_Peru.zip" , mode='wb')
+unzip("Provincias_Peru.zip", exdir = ".")
+file.remove("Provincias_Peru.zip")
+mapa_prov <- st_read("PROVINCIAS.shp")
+
+mapa_prov$DEPARTAMEN <- ifelse(mapa_prov$PROVINCIA == "LIMA", "LIMA METROPOLITANA", mapa_prov$DEPARTAMEN)
+mapa_prov$DEPARTAMEN <- ifelse(mapa_prov$DEPARTAMEN == "LIMA", "LIMA PROVINCIAS", mapa_prov$DEPARTAMEN)
+mapa_prov$DEPARTAMEN <- ifelse(mapa_prov$DEPARTAMEN == "LIMA METROPOLITANA", "LIMA", mapa_prov$DEPARTAMEN)
+
+mapa_prov= fortify(mapa_prov)
+```
+
+```{r}
+mapaODS = merge(mapa, ODSTrans,
+              by.x='DEPARTAMEN',by.y="DEPARTAMENTO")
+
+#mapaODS <- mapaODS %>% mutate(centroid = map(geometry, st_centroid), 
+ #                             coords = map(centroid, st_coordinates), 
+  #                            coords_x = map_dbl(coords, 1), 
+   #                           coords_y = map_dbl(coords, 2))
+
+subset1_1_1= subset(mapaODS, ODSNro=="1_1_1" & Ano> 2014)
+
+base1_1_1= ggplot(data = subset1_1_1) + theme_light()
+```
+
+```{r}
+mapaley1 = base1_1_1 +
+  geom_sf(aes(fill= Valor)) + labs(fill = "Porcentaje (%)") +
+  geom_sf(data = mapa_prov,
+          fill = NA) +
+  facet_wrap(~Ano)
+      
+mapa1 = mapaley1 + 
+  scale_fill_gradient(low = "lightpink",  high = "firebrick2")+ 
+  labs(title = "Incidencia de la pobreza extrema", subtitle = "Indicador 1.1.1") 
+
+mapa1
+```
+
+```{r}
+ggsave("mapa1_1_1.png")
+```
+
+```{r}
+ss <- subset(economics, date > as.Date("2006-1-1"))
+ggplot(data = ss, aes(x = date, y = pop)) +
+geom_line(color = "#FC4E07", size = 2)
+```
+
+```{r}
+subset1_2_1= subset(mapaODS, ODSNro=="1_2_1" & Ano> 2014)
+
+base1_2_1= ggplot(data = subset1_2_1) + theme_light()
+```
+
+
+```{r}
+mapaley2 = base1_2_1 +
+  geom_sf(aes(fill= Valor)) + labs(fill = "Porcentaje (%)") +
+  geom_sf(data = mapa_prov,
+          fill = NA) +
+  facet_wrap(~Ano)
+      
+mapa2 = mapaley2 + 
+  scale_fill_gradient(low = "lightpink",  high = "firebrick2")+ 
+  labs(title = "Incidencia de la pobreza monetaria total", subtitle = "Indicador 1.2.1") 
+
+mapa2
+```
+
+```{r}
+ggsave("mapa1_2_1.png")
+```
+
+```{r}
+subset1_3_1= subset(mapaODS, ODSNro=="1_3_1" & Ano> 2014)
+
+base1_3_1= ggplot(data = subset1_3_1) + theme_light()
+```
+
+```{r}
+mapaley3 = base1_3_1 +
+  geom_sf(aes(fill= Valor)) + labs(fill = "Porcentaje (%)") +
+  geom_sf(data = mapa_prov,
+          fill = NA) +
+  facet_wrap(~Ano)
+      
+mapa3 = mapaley3 + 
+  scale_fill_gradient(low = "lightpink",  high = "firebrick2")+ 
+  labs(title = "Proporción de población de 14 a más años de edad \ncon seguro de pensión", subtitle = "Indicador 1.3.1") 
+
+mapa3
+```
+```{r}
+ggsave("mapa1_3_1.png")
+```
+
+```{r}
+subset1_4_1= subset(mapaODS, ODSNro=="1_4_1" & Ano> 2014)
+
+base1_4_1= ggplot(data = subset1_4_1) + theme_light()
+```
+
+```{r}
+mapaley4 = base1_4_1 +
+  geom_sf(aes(fill= Valor)) + labs(fill = "Porcentaje (%)") +
+  geom_sf(data = mapa_prov,
+          fill = NA) +
+  facet_wrap(~Ano)
+      
+mapa4 = mapaley4 + 
+  scale_fill_gradient(low = "lightpink",  high = "firebrick2")+ 
+  labs(title = "Proporción de la población que vive en hogares con \nacceso a servicios básicos de infraestructura", subtitle = "Indicador 1.4.1") 
+
+mapa4
+```
+
+```{r}
+ggsave("mapa1_4_1.png")
+```
+
+```{r}
+subset2_2_1= subset(mapaODS, ODSNro=="2_2_1" & Ano> 2014)
+
+base2_2_1= ggplot(data = subset2_2_1) + theme_light()
+```
+
+
+```{r}
+mapaley5 = base2_2_1 +
+  geom_sf(aes(fill= Valor)) + labs(fill = "Porcentaje (%)") +
+  geom_sf(data = mapa_prov,
+          fill = NA) +
+  facet_wrap(~Ano)
+      
+mapa5 = mapaley5 + 
+  scale_fill_gradient(low = "gold",  high = "darkgoldenrod4")+ 
+  labs(title = "Tasa de desnutrición crónica entre las niñas y niños menores de 5 años", subtitle = "Indicador 2.2.1") 
+
+mapa5
+```
+
+```{r}
+ggsave("mapa2_2_1.png")
+```
+
+```{r}
+subset2_2_2= subset(mapaODS, ODSNro=="2_2_2" & Ano> 2014)
+
+base2_2_2= ggplot(data = subset2_2_2) + theme_light()
+```
+
+```{r}
+mapaley6 = base2_2_2 +
+  geom_sf(aes(fill= Valor)) + labs(fill = "Porcentaje (%)") +
+  geom_sf(data = mapa_prov,
+          fill = NA) +
+  facet_wrap(~Ano)
+      
+mapa6 = mapaley6 + 
+  scale_fill_gradient(low = "gold",  high = "darkgoldenrod4")+ 
+  labs(title = "Tasa de desnutrición aguda entre las niñas y niños menores de 5 años", subtitle = "Indicador 2.2.2") 
+
+mapa6
+```
+
+```{r}
+ggsave("mapa2_2_2.png")
+```
+
+```{r}
+subset3_1_2= subset(mapaODS, ODSNro=="3_1_2" & Ano> 2014)
+
+base3_1_2= ggplot(data = subset3_1_2) + theme_light()
+```
+
+```{r}
+mapaley7 = base3_1_2 +
+  geom_sf(aes(fill= Valor)) + labs(fill = "Porcentaje (%)") +
+  geom_sf(data = mapa_prov,
+          fill = NA) +
+  facet_wrap(~Ano)
+      
+mapa7 = mapaley7 + 
+  scale_fill_gradient(low = "darkseagreen1",  high = "forestgreen")+ 
+  labs(title = "Proporción de partos atendidos por personal sanitario especializado", subtitle = "Indicador 3.1.2") 
+
+mapa7
+```
+
+```{r}
+ggsave("mapa3_1_2.png")
+```
+
+```{r}
+subset3_3_1= subset(mapaODS, ODSNro=="3_3_1" & Ano> 2014)
+
+base3_3_1= ggplot(data = subset3_3_1) + theme_light()
+```
+
+```{r}
+mapaley8 = base3_3_1 +
+  geom_sf(aes(fill= Valor)) + labs(fill = "Tasa") +
+  geom_sf(data = mapa_prov,
+          fill = NA) +
+  facet_wrap(~Ano)
+      
+mapa8 = mapaley8 + 
+  scale_fill_gradient(low = "darkseagreen1",  high = "forestgreen")+ 
+  labs(title = "Tasa de notificación de casos del virus de la inmunodeficiencia \nhumana (VIH) por cada 100 000 habitantes", subtitle = "Indicador 3.3.1") 
+
+mapa8
+```
+
+```{r}
+ggsave("mapa3_3_1.png")
+```
+
+```{r}
+subset3_3_2= subset(mapaODS, ODSNro=="3_3_2" & Ano> 2014)
+
+base3_3_2= ggplot(data = subset3_3_2) + theme_light()
+```
+
+```{r}
+mapaley9 = base3_3_2 +
+  geom_sf(aes(fill= Valor)) + labs(fill = "Tasa") +
+  geom_sf(data = mapa_prov,
+          fill = NA) +
+  facet_wrap(~Ano)
+      
+mapa9 = mapaley9 + 
+  scale_fill_gradient(low = "darkseagreen1",  high = "forestgreen")+ 
+  labs(title = "Incidencia de la tuberculosis por cada 100 000 habitantes", subtitle = "Indicador 3.3.2") 
+
+mapa9
+```
+
+```{r}
+ggsave("mapa3_3_2.png")
+```
+```{r}
+subset3_3_3= subset(mapaODS, ODSNro=="3_3_3" & Ano> 2014)
+
+base3_3_3= ggplot(data = subset3_3_3) + theme_light()
+```
+
+```{r}
+mapaley10 = base3_3_3 +
+  geom_sf(aes(fill= Valor)) + labs(fill = "Tasa") +
+  geom_sf(data = mapa_prov,
+          fill = NA) +
+  facet_wrap(~Ano)
+      
+mapa10 = mapaley10 + 
+  scale_fill_gradient(low = "darkseagreen1",  high = "forestgreen")+ 
+  labs(title = "Incidencia de la malaria por cada 100 000 habitantes", subtitle = "Indicador 3.3.3") 
+
+mapa10
+```
+
+```{r}
+ggsave("mapa3_3_3.png")
+```
+
+```{r}
+subset3_3_4= subset(mapaODS, ODSNro=="3_3_4" & Ano> 2014)
+
+base3_3_4= ggplot(data = subset3_3_4) + theme_light()
+```
+
+```{r}
+mapaley11 = base3_3_4 +
+  geom_sf(aes(fill= Valor)) + labs(fill = "Tasa") +
+  geom_sf(data = mapa_prov,
+          fill = NA) +
+  facet_wrap(~Ano)
+      
+mapa11 = mapaley11 + 
+  scale_fill_gradient(low = "darkseagreen1",  high = "forestgreen")+ 
+  labs(title = "Incidencia de la hepatitis B por cada 100 000 habitantes", subtitle = "Indicador 3.3.4") 
+
+mapa11
+```
+
+```{r}
+ggsave("mapa3_3_4.png")
+```
+
+```{r}
+subset3_5_2= subset(mapaODS, ODSNro=="3_5_2" & Ano> 2014)
+
+base3_5_2= ggplot(data = subset3_5_2) + theme_light()
+```
+
+```{r}
+mapaley12 = base3_5_2 +
+  geom_sf(aes(fill= Valor)) + labs(fill = "Tasa") +
+  geom_sf(data = mapa_prov,
+          fill = NA) +
+  facet_wrap(~Ano)
+      
+mapa12 = mapaley12 + 
+  scale_fill_gradient(low = "darkseagreen1",  high = "forestgreen")+ 
+  labs(title = "Proporción de personas de 15 y más años de edad que \nconsumieron alguna bebida alcohólica en los últimos 12 meses", subtitle = "Indicador 3.5.2") 
+
+mapa12
+```
+
+```{r}
+ggsave("mapa3_5_2.png")
+```
+
+
+```{r}
+subset3_6_1= subset(mapaODS, ODSNro=="3_6_1" & Ano> 2014)
+
+base3_6_1= ggplot(data = subset3_6_1) + theme_light()
+```
+
+```{r}
+mapaley13= base3_6_1 +
+  geom_sf(aes(fill= Valor)) + labs(fill = "Tasa") +
+  geom_sf(data = mapa_prov,
+          fill = NA) +
+  facet_wrap(~Ano)
+      
+mapa13 = mapaley13 + 
+  scale_fill_gradient(low = "darkseagreen1",  high = "forestgreen")+ 
+  labs(title = "Tasa de fallecidos por accidentes de tránsito", subtitle = "Indicador 3.6.1") 
+
+mapa13
+```
+
+```{r}
+ggsave("mapa3_6_1.png")
+```
+
+```{r}
+subset3_7_1= subset(mapaODS, ODSNro=="3_7_1" & Ano> 2014)
+
+base3_7_1= ggplot(data = subset3_7_1) + theme_light()
+```
+
+```{r}
+mapaley14= base3_6_1 +
+  geom_sf(aes(fill= Valor)) + labs(fill = "Porcentaje (%)") +
+  geom_sf(data = mapa_prov,
+          fill = NA) +
+  facet_wrap(~Ano)
+      
+mapa14 = mapaley14 + 
+  scale_fill_gradient(low = "darkseagreen1",  high = "forestgreen")+ 
+  labs(title = "Proporción de mujeres en edad fértil (de 15 a 49 años) que \npractican la planificación familiar con métodos modernos", subtitle = "Indicador 3.7.1") 
+
+mapa14
+```
+
+```{r}
+ggsave("mapa3_7_1.png")
+```
+
+```{r}
+subset3_8_1= subset(mapaODS, ODSNro=="3_8_1" & Ano> 2014)
+
+base3_8_1= ggplot(data = subset3_8_1) + theme_light()
+```
+
+```{r}
+mapaley15= base3_8_1 +
+  geom_sf(aes(fill= Valor)) + labs(fill = "Porcentaje (%)") +
+  geom_sf(data = mapa_prov,
+          fill = NA) +
+  facet_wrap(~Ano)
+      
+mapa15 = mapaley15 + 
+  scale_fill_gradient(low = "darkseagreen1",  high = "forestgreen")+ 
+  labs(title = "Proporción de la población con seguro de salud", subtitle = "Indicador 3.8.1") 
+
+mapa15
+```
+
+```{r}
+ggsave("mapa3_8_1.png")
+```
+
+
+# Mapa interactivo
+```{r}
+library(leaflet)
+```
+
+```{r}
+pal1 = colorNumeric(palette = "Blues", domain = subset1_1_1$Valor)
+```
+
+```{r}
+names(subset1_1_1)
+```
+
+```{r}
+map1_interactive = subset1_1_1  %>% 
+  st_transform(crs= "+init=epsg:4326") %>%
+  leaflet() %>%
+  addProviderTiles(provider= "CartoDB.Positron") %>%
+  addPolygons(label= subset1_1_1$DEPARTAMEN,
+              stroke = FALSE, 
+              smoothFactor =  .5,
+              opacity = 1,
+              fillOpacity = 0.7,
+              fillColor = ~pal1(Valor),
+              highlightOptions = highlightOptions(weight = 5,
+                                                  fillOpacity= 1,
+                                                  color = "black",
+                                                  opacity = 1,
+                                                  bringToFront = TRUE))%>%
+
+  addLegend("bottomright",
+            pal = pal1,
+            values = ~Valor,
+            title= "Porcentaje (%)",
+            opacity= 0.7) 
+
+map1_interactive
+```
+
+```{r}
+library(htmlwidgets)
+saveWidget(map1_interactive, "ODS1_1_1.html")
+```
+  
+```{r}
+saveRDS(subset1_1_1, "subset_1_1_1.RDS")
+```
+
+```{r}
+saveRDS(subset1_1_1, "subset_1_1_1.RDS")
+```
+
