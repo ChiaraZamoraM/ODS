@@ -21,20 +21,20 @@ library(shinyWidgets)
 library(RColorBrewer)
 library(stringi)
 
-ODSSpr = import("https://github.com/ChiaraZamoraM/ODS/raw/main/ODSSpr.RDS")
-ODSSpr$DEPARTAMENTO= gsub("Provincias de Lima","LIMA PROVINCIAS",ODSSpr$DEPARTAMENTO)
+ODSSpr = import("https://github.com/ChiaraZamoraM/ODS/raw/main/ODSShiny.RDS")
+#ODSSpr$DEPARTAMENTO= gsub("Provincias de Lima","LIMA PROVINCIAS",ODSSpr$DEPARTAMENTO)
 
-download.file("https://github.com/ChiaraZamoraM/ODS/raw/main/Departamentos_Peru/mapa_depas_Lima.zip", 
-              destfile = "mapa_depas_Lima.zip" , mode='wb')
-unzip("mapa_depas_Lima.zip", exdir = ".")
-file.remove("mapa_depas_Lima.zip")
+#download.file("https://github.com/ChiaraZamoraM/ODS/raw/main/Departamentos_Peru/mapa_depas_Lima.zip", 
+ #             destfile = "mapa_depas_Lima.zip" , mode='wb')
+#unzip("mapa_depas_Lima.zip", exdir = ".")
+#file.remove("mapa_depas_Lima.zip")
 
-mapa <- st_read("mapa_depas_Lima.shp")
+#mapa <- st_read("mapa_depas_Lima.shp")
 
-ODSSpr$DEPARTAMENTO= stri_trans_general(str = toupper(ODSSpr$DEPARTAMENTO), id = "Latin-ASCII")
+#ODSSpr$DEPARTAMENTO= stri_trans_general(str = toupper(ODSSpr$DEPARTAMENTO), id = "Latin-ASCII")
 
-ODSSpr = merge(mapa, ODSSpr,
-                by.x='DEPARTAMEN',by.y="DEPARTAMENTO")
+#ODSSpr = merge(mapa, ODSSpr,
+#                by.x='DEPARTAMEN',by.y="DEPARTAMENTO")
 
 download.file("https://github.com/ChiaraZamoraM/ODS/raw/main/Provincias_Peru/Provincias_Peru.zip", 
               destfile = "Provincias_Peru.zip" , mode='wb')

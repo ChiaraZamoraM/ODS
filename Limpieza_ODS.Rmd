@@ -1113,12 +1113,12 @@ ODS_7=ODS_7[rowSums(is.na(ODS_7)) != ncol(ODS_7),]
 ## 8.2.1 Tasa de crecimiento anual del PBI real por persona empleada
 8.3.1 Proporción de la población con empleo informal -en el sector no agrícola-
 ```{r}
-https://www.inei.gob.pe/media/MenuRecursivo/publicaciones_digitales/Est/Lib1829/cap07/cap07043.xlsx
+#https://www.inei.gob.pe/media/MenuRecursivo/publicaciones_digitales/Est/Lib1829/cap07/cap07043.xlsx
 ```
 
 8.5.1 Ingreso medio por hora de empleadas y empleados
 ```{r}
-https://www.inei.gob.pe/media/MenuRecursivo/publicaciones_digitales/Est/Lib1829/cap07/cap07055.xlsx
+#https://www.inei.gob.pe/media/MenuRecursivo/publicaciones_digitales/Est/Lib1829/cap07/cap07055.xlsx
 ```
 
 8.5.2 Tasa de desempleo en el área urbana
@@ -1171,7 +1171,23 @@ names(ODSSpr)[c(3:ncol(ODSSpr))]= paste0("ODS", names(ODSSpr)[c(3:ncol(ODSSpr))]
 
 ODSSpr$Ano = as.Date(as.character(ODSSpr$Ano), format = "%Y")
 
+ODSShiny = ODSSpr
+
+ODSShiny$Ano = year(ODSShiny$Ano)
+
+ODSShiny$DEPARTAMENTO= gsub("Provincias de Lima","LIMA PROVINCIAS",ODSShiny$DEPARTAMENTO)
 ``` 
+
+```{r}
+download.file("https://github.com/ChiaraZamoraM/ODS/raw/main/Departamentos_Peru/mapa_depas_Lima.zip", 
+              destfile = "mapa_depas_Lima.zip" , mode='wb')
+unzip("mapa_depas_Lima.zip", exdir = ".")
+file.remove("mapa_depas_Lima.zip")
+
+mapa = st_read("mapa_depas_Lima.shp")
+
+ODSShiny$DEPARTAMENTO= stri_trans_general(str = toupper(ODSShiny$DEPARTAMENTO), id = "Latin-ASCII")
+```
 
 ```{r, warning=FALSE, message=FALSE}
 #ODS1_1_1 = ODSSpr[-c(4:ncol(ODSSpr)),]
@@ -1180,6 +1196,13 @@ ODSSpr$Ano = as.Date(as.character(ODSSpr$Ano), format = "%Y")
 #ODS1_1_1 = ODS1_1_1 %>%
  # pivot_wider(names_from = DEPARTAMENTO,
   #          values_from = '1.1.1')
+```
+
+```{r, warning=FALSE, message=FALSE}
+ODSShiny = merge(mapa, ODSShiny,
+                by.x='DEPARTAMEN',by.y="DEPARTAMENTO")
+
+saveRDS(ODSShiny, "ODSShiny.RDS")
 ```
 
 ```{r, warning=FALSE, message=FALSE}
