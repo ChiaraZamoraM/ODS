@@ -1187,14 +1187,14 @@ ODSShiny$DEPARTAMENTO= stri_trans_general(str = toupper(ODSShiny$DEPARTAMENTO), 
 ```
 
 ```{r}
-download.file("https://github.com/ChiaraZamoraM/ODS/raw/main/Departamentos_Peru/mapa_depas_Lima.zip", 
-              destfile = "mapa_depas_Lima.zip" , mode='wb')
-unzip("mapa_depas_Lima.zip", exdir = ".")
-file.remove("mapa_depas_Lima.zip")
+#download.file("https://github.com/ChiaraZamoraM/ODS/raw/main/Departamentos_Peru/mapa_depas_Lima.zip"#, 
+ #             destfile = "mapa_depas_Lima.zip" , mode='wb')
+#unzip("mapa_depas_Lima.zip", exdir = ".")
+#file.remove("mapa_depas_Lima.zip")
 
-mapa = st_read("mapa_depas_Lima.shp")
+# mapa = st_read("mapa_depas_Lima.shp")
 
-ODSShiny$DEPARTAMENTO= stri_trans_general(str = toupper(ODSShiny$DEPARTAMENTO), id = "Latin-ASCII")
+#ODSShiny$DEPARTAMENTO= stri_trans_general(str = toupper(ODSShiny$DEPARTAMENTO), id = "Latin-ASCII")
 ```
 
 ```{r, warning=FALSE, message=FALSE}
@@ -1207,8 +1207,8 @@ ODSShiny$DEPARTAMENTO= stri_trans_general(str = toupper(ODSShiny$DEPARTAMENTO), 
 ```
 
 ```{r, warning=FALSE, message=FALSE}
-ODSShiny = merge(mapa, ODSShiny,
-                by.x='DEPARTAMEN',by.y="DEPARTAMENTO")
+#ODSShiny = merge(mapa, ODSShiny,
+             #   by.x='DEPARTAMEN',by.y="DEPARTAMENTO")
 
 saveRDS(ODSShiny, "ODSShiny.RDS")
 ```

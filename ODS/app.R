@@ -27,17 +27,17 @@ ODSShiny2 = import("https://github.com/ChiaraZamoraM/ODS/raw/main/ODSShinySinGeo
 
 #ODSShiny$DEPARTAMENTO= gsub("Provincias de Lima","LIMA PROVINCIAS",ODSShiny$DEPARTAMENTO)
 
-#download.file("https://github.com/ChiaraZamoraM/ODS/raw/main/Departamentos_Peru/mapa_depas_Lima.zip", 
- #             destfile = "mapa_depas_Lima.zip" , mode='wb')
-#unzip("mapa_depas_Lima.zip", exdir = ".")
-#file.remove("mapa_depas_Lima.zip")
+download.file("https://github.com/ChiaraZamoraM/ODS/raw/main/Departamentos_Peru/mapa_depas_Lima.zip", 
+             destfile = "mapa_depas_Lima.zip" , mode='wb')
+unzip("mapa_depas_Lima.zip", exdir = ".")
+file.remove("mapa_depas_Lima.zip")
 
-#mapa <- st_read("mapa_depas_Lima.shp")
+mapa <- st_read("mapa_depas_Lima.shp")
 
 #ODSShiny$DEPARTAMENTO= stri_trans_general(str = toupper(ODSShiny$DEPARTAMENTO), id = "Latin-ASCII")
 
-#ODSShiny = merge(mapa, ODSShiny,
-#                by.x='DEPARTAMEN',by.y="DEPARTAMENTO")
+ODSShiny = merge(mapa, ODSShiny,
+                by.x='DEPARTAMEN',by.y="DEPARTAMENTO")
 
 download.file("https://github.com/ChiaraZamoraM/ODS/raw/main/Provincias_Peru/Provincias_Peru.zip", 
               destfile = "Provincias_Peru.zip" , mode='wb')
@@ -59,8 +59,7 @@ subtitulo = {'background-color: #34282C;
 ui <-  dashboardPage(
     dashboardHeader(title = "Observatorio EGP"),
     
-    
-     dashboardSidebar(
+    dashboardSidebar(
         h5("
            Este es un Shiny App de prueba.
            
@@ -155,11 +154,6 @@ server <- function(input, output) {
         y    <- ODSShiny %>% filter(Ano == input$ano)
         return(y)
      })
-     
-     #ano_ODSShiny2 <- reactive({
-      # y    <- ODSShiny2 %>% filter(Ano == input$ano)
-       #return(y)
-     #})
      
      output$pobrezaex = renderLeaflet({
          pal1 = colorNumeric(palette = "Reds", domain = ODSShiny$ODS1.1.1)
