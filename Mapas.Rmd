@@ -18,6 +18,9 @@ file.remove("mapa_depas_Lima.zip")
 
 mapa <- st_read("mapa_depas_Lima.shp")
 
+mapaODS = merge(mapa, ODSSpr,
+              by.x='DEPARTAMEN',by.y="DEPARTAMENTO")
+
 download.file("https://github.com/ChiaraZamoraM/ODS/raw/main/mapa2_Peru/Provincias_Peru.zip", 
               destfile = "Provincias_Peru.zip" , mode='wb')
 unzip("Provincias_Peru.zip", exdir = ".")
@@ -457,5 +460,30 @@ saveRDS(subset1_1_1, "subset_1_1_1.RDS")
 
 ```{r}
 saveRDS(subset1_1_1, "subset_1_1_1.RDS")
+```
+
+```{r}
+ODSSpr = import("https://github.com/ChiaraZamoraM/ODS/raw/main/ODSSpr.RDS")
+
+download.file("https://github.com/ChiaraZamoraM/ODS/raw/main/Departamentos_Peru/mapa_depas_Lima.zip", 
+              destfile = "mapa_depas_Lima.zip" , mode='wb')
+unzip("mapa_depas_Lima.zip", exdir = ".")
+file.remove("mapa_depas_Lima.zip")
+
+mapa <- st_read("mapa_depas_Lima.shp")
+
+ODSSpr$DEPARTAMENTO= stri_trans_general(str = toupper(ODSSpr$DEPARTAMENTO), id = "Latin-ASCII")
+
+ODSSpr = merge(mapa, ODSSpr,
+                by.x='DEPARTAMEN',by.y="DEPARTAMENTO")
+
+download.file("https://github.com/ChiaraZamoraM/ODS/raw/main/Provincias_Peru/Provincias_Peru.zip", 
+              destfile = "Provincias_Peru.zip" , mode='wb')
+unzip("Provincias_Peru.zip", exdir = ".")
+file.remove("Provincias_Peru.zip")
+mapa_prov <- st_read("PROVINCIAS.shp")
+mapa_prov$DEPARTAMEN <- ifelse(mapa_prov$PROVINCIA == "LIMA", "LIMA METROPOLITANA", mapa_prov$DEPARTAMEN)
+mapa_prov$DEPARTAMEN <- ifelse(mapa_prov$PROVINCIA == "LIMA", "LIMA PROVINCIAS", mapa_prov$DEPARTAMEN)
+mapa_prov$DEPARTAMEN <- ifelse(mapa_prov$PROVINCIA == "LIMA METROPOLITANA", "LIMA", mapa_prov$DEPARTAMEN)
 ```
 

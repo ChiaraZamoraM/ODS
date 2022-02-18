@@ -19,10 +19,24 @@ library(crosstalk)
 library(DT)
 library(shinyWidgets)
 library(RColorBrewer)
+library(stringi)
 
 ODSSpr = import("https://github.com/ChiaraZamoraM/ODS/raw/main/ODSSpr.RDS")
+ODSSpr$DEPARTAMENTO= gsub("Provincias de Lima","LIMA PROVINCIAS",ODSSpr$DEPARTAMENTO)
 
-download.file("https://github.com/ChiaraZamoraM/ODS/raw/main/mapa2_Peru/Provincias_Peru.zip", 
+download.file("https://github.com/ChiaraZamoraM/ODS/raw/main/Departamentos_Peru/mapa_depas_Lima.zip", 
+              destfile = "mapa_depas_Lima.zip" , mode='wb')
+unzip("mapa_depas_Lima.zip", exdir = ".")
+file.remove("mapa_depas_Lima.zip")
+
+mapa <- st_read("mapa_depas_Lima.shp")
+
+ODSSpr$DEPARTAMENTO= stri_trans_general(str = toupper(ODSSpr$DEPARTAMENTO), id = "Latin-ASCII")
+
+ODSSpr = merge(mapa, ODSSpr,
+                by.x='DEPARTAMEN',by.y="DEPARTAMENTO")
+
+download.file("https://github.com/ChiaraZamoraM/ODS/raw/main/Provincias_Peru/Provincias_Peru.zip", 
               destfile = "Provincias_Peru.zip" , mode='wb')
 unzip("Provincias_Peru.zip", exdir = ".")
 file.remove("Provincias_Peru.zip")
@@ -77,19 +91,19 @@ ui <-  dashboardPage(
                                        style= subtitulo)
                          ),
                          fluidRow(column(6,leafletOutput("pobrezatot", height = 650)),
-                                  column(6,dataTableOutput("table1_2_1", height = 650)))),
+                                  column(6,dataTableOutput("table1.2.1", height = 650)))),
                 tabPanel("1.3.1",
                          titlePanel(h2("Indicador 1.3.1. Población de 14 a más con seguro de pensión",
                                        style= subtitulo)
                          ),
                          fluidRow(column(6,leafletOutput("pension", height = 650)),
-                                  column(6,dataTableOutput("table1_3_1", height = 650)))),
+                                  column(6,dataTableOutput("table1.3.1", height = 650)))),
                 tabPanel("1.4.1",
                          titlePanel(h2("Indicador 1.4.1. Población en hogares con acceso a servicios básicos de infraestructura",
                                        style= subtitulo)
                          ),
                          fluidRow(column(6,leafletOutput("servbasicos", height = 650)),
-                                  column(6,dataTableOutput("table1_4_1", height = 650))))
+                                  column(6,dataTableOutput("table1.4.1", height = 650))))
                 )
             ),
             tabPanel(h4("ODS 2: Hambre Cero"),
@@ -99,13 +113,13 @@ ui <-  dashboardPage(
                                                 style= subtitulo)
                                   ),
                                   fluidRow(column(6,leafletOutput("desnutricronica", height = 650)),
-                                           column(6,dataTableOutput("table2_2_1", height = 650)))),
+                                           column(6,dataTableOutput("table2.2.1", height = 650)))),
                          tabPanel("2.2.2",
                                   titlePanel(h2("Indicador 2.2.2. Tasa de desnutrición aguda entre las niñas y niños menores de 5 años",
                                                 style= subtitulo)
                                   ),
                                   fluidRow(column(6,leafletOutput("desnutriaguda", height = 650)),
-                                           column(6,dataTableOutput("table2_2_2", height = 650))))
+                                           column(6,dataTableOutput("table2.2.2", height = 650))))
                      )
             )
         )
@@ -121,7 +135,7 @@ server <- function(input, output) {
      })
      
      output$pobrezaex = renderLeaflet({
-         pal1 = colorNumeric(palette = "Reds", domain = ODSSpr$ODS1_1_1)
+         pal1 = colorNumeric(palette = "Reds", domain = ODSSpr$ODS1.1.1)
          
          ano_ODSSpr()  %>% 
              st_transform(crs= "+init=epsg:4326") %>%
@@ -134,7 +148,7 @@ server <- function(input, output) {
                          fillOpacity = 0,
                          weight = 0.5,
                          color= "black") %>%
-             addPolygons(label= paste0(ano_ODSSpr()$DEPARTAMEN,': ', ano_ODSSpr()$ODS1_1_1,"%"),
+             addPolygons(label= paste0(ano_ODSSpr()$DEPARTAMEN,': ', ano_ODSSpr()$ODS1.1.1,"%"),
                          stroke = TRUE, 
                          smoothFactor =  .5,
                          opacity = 1,
@@ -149,21 +163,21 @@ server <- function(input, output) {
                                                              bringToFront = TRUE)) %>%
              leaflet::addLegend("bottomright",
                        pal = pal1,
-                       values = ~ODS1_1_1,
+                       values = ~ODS1.1.1,
                        title= "Porcentaje (%)",
                        opacity= 0.7)
      })
      
      output$table1_1_1 = renderDT({
          datatable(ano_ODSSpr()[c("DEPARTAMEN","ODS1_1_1")], 
-                   colnames = c('Departamento' = 'DEPARTAMEN','Porcentaje' = 'ODS1_1_1'),
+                   colnames = c('Departamento' = 'DEPARTAMEN','Porcentaje' = 'ODS1.1.1'),
                    filter = 'top',
                    options = list(pageLength = 13
                                   ))})
      
      
      output$pobrezatot = renderLeaflet({
-         pal2 = colorNumeric(palette = "Reds", domain = ODSSpr$ODS1_2_1)
+         pal2 = colorNumeric(palette = "Reds", domain = ODSSpr$ODS1.2.1)
          
          ano_ODSSpr()  %>% 
              st_transform(crs= "+init=epsg:4326") %>%
@@ -176,14 +190,14 @@ server <- function(input, output) {
                          fillOpacity = 0,
                          weight = 0.5,
                          color= "black") %>%
-             addPolygons(label= paste0(ano_ODSSpr()$DEPARTAMEN,': ', ano_ODSSpr()$ODS1_2_1,"%"),
+             addPolygons(label= paste0(ano_ODSSpr()$DEPARTAMEN,': ', ano_ODSSpr()$ODS1.2.1,"%"),
                          stroke = TRUE, 
                          smoothFactor =  .5,
                          opacity = 1,
                          fillOpacity = 0.7,
                          color= "grey",
                          weight = 0.5,
-                         fillColor = ~pal2(ano_ODSSpr()$ODS1_2_1),
+                         fillColor = ~pal2(ano_ODSSpr()$ODS1.2.1),
                          highlightOptions = highlightOptions(weight = 2,
                                                              fillOpacity= 1,
                                                              color = "grey",
@@ -192,19 +206,19 @@ server <- function(input, output) {
              
              leaflet::addLegend("bottomright",
                        pal = pal2,
-                       values = ~ODS1_2_1,
+                       values = ~ODS1.2.1,
                        title= "Porcentaje (%)",
                        opacity= 0.7) 
      })
-     output$table1_2_1 = renderDT({
-         datatable(ano_ODSSpr()[c("DEPARTAMEN","ODS1_2_1")], 
-                   colnames = c('Departamento' = 'DEPARTAMEN','Porcentaje' = 'ODS1_2_1'),
+     output$table1.2.1 = renderDT({
+         datatable(ano_ODSSpr()[c("DEPARTAMEN","ODS1.2.1")], 
+                   colnames = c('Departamento' = 'DEPARTAMEN','Porcentaje' = 'ODS1.2.1'),
                    filter = 'top',
                    options = list(pageLength = 13
                    ))})
      
      output$pension = renderLeaflet({
-         pal3 = colorNumeric(palette = "Reds", domain = ODSSpr$ODS1_3_1)
+         pal3 = colorNumeric(palette = "Reds", domain = ODSSpr$ODS1.3.1)
          
          ano_ODSSpr()  %>% 
              st_transform(crs= "+init=epsg:4326") %>%
@@ -217,12 +231,12 @@ server <- function(input, output) {
                          fillOpacity = 0,
                          weight = 0.5,
                          color= "black")%>%
-             addPolygons(label= paste0(ano_ODSSpr()$DEPARTAMEN,': ', ano_ODSSpr()$ODS1_3_1,"%"),
+             addPolygons(label= paste0(ano_ODSSpr()$DEPARTAMEN,': ', ano_ODSSpr()$ODS1.3.1,"%"),
                          stroke = TRUE, 
                          smoothFactor =  .5,
                          opacity = 1,
                          fillOpacity = 0.7,
-                         fillColor = ~pal3(ano_ODSSpr()$ODS1_3_1),
+                         fillColor = ~pal3(ano_ODSSpr()$ODS1.3.1),
                          color="grey",
                          weight = 0.5,
                          highlightOptions = highlightOptions(weight = 2,
@@ -233,19 +247,19 @@ server <- function(input, output) {
              
              leaflet::addLegend("bottomright",
                        pal = pal3,
-                       values = ~ODS1_3_1,
+                       values = ~ODS1.3.1,
                        title= "Porcentaje (%)",
                        opacity= 0.7) 
      })
-     output$table1_3_1 = renderDT({
-         datatable(ano_ODSSpr()[c("DEPARTAMEN","ODS1_4_1")], 
-                   colnames = c('Departamento' = 'DEPARTAMEN','Porcentaje' = 'ODS1_4_1'),
+     output$table1.3.1 = renderDT({
+         datatable(ano_ODSSpr()[c("DEPARTAMEN","ODS1.4.1")], 
+                   colnames = c('Departamento' = 'DEPARTAMEN','Porcentaje' = 'ODS1.4.1'),
                    filter = 'top',
                    options = list(pageLength = 13
                    ))})
      
      output$servbasicos = renderLeaflet({
-         pal4 = colorNumeric(palette = "Reds", domain = ODSSpr$ODS1_4_1)
+         pal4 = colorNumeric(palette = "Reds", domain = ODSSpr$ODS1.4.1)
          
          ano_ODSSpr()  %>% 
              st_transform(crs= "+init=epsg:4326") %>%
@@ -258,12 +272,12 @@ server <- function(input, output) {
                          fillOpacity = 0,
                          weight = 0.5,
                          color= "black")%>%
-             addPolygons(label= paste0(ano_ODSSpr()$DEPARTAMEN,': ', ano_ODSSpr()$ODS1_4_1,"%"),
+             addPolygons(label= paste0(ano_ODSSpr()$DEPARTAMEN,': ', ano_ODSSpr()$ODS1.4.1,"%"),
                          stroke = TRUE, 
                          smoothFactor =  .5,
                          opacity = 1,
                          fillOpacity = 0.7,
-                         fillColor = ~pal4(ano_ODSSpr()$ODS1_4_1),
+                         fillColor = ~pal4(ano_ODSSpr()$ODS1.4.1),
                          color= "grey",
                          weight = 0.5,
                          highlightOptions = highlightOptions(weight = 2,
@@ -274,19 +288,19 @@ server <- function(input, output) {
              
              leaflet::addLegend("bottomright",
                        pal = pal4,
-                       values = ~ODS1_4_1,
+                       values = ~ODS1.4.1,
                        title= "Porcentaje (%)",
                        opacity= 0.7) 
      })
-     output$table1_4_1 = renderDT({
-         datatable(ano_ODSSpr()[c("DEPARTAMEN","ODS1_4_1")], 
-                   colnames = c('Departamento' = 'DEPARTAMEN','Porcentaje' = 'ODS1_4_1'),
+     output$table1.4.1 = renderDT({
+         datatable(ano_ODSSpr()[c("DEPARTAMEN","ODS1.4.1")], 
+                   colnames = c('Departamento' = 'DEPARTAMEN','Porcentaje' = 'ODS1.4.1'),
                    filter = 'top',
                    options = list(pageLength = 13
                    ))})
      
      output$desnutricronica = renderLeaflet({
-         pal5 = colorNumeric(palette = "YlOrBr", domain = ODSSpr$ODS2_2_1)
+         pal5 = colorNumeric(palette = "YlOrBr", domain = ODSSpr$ODS2.2.1)
          
          ano_ODSSpr()  %>% 
              st_transform(crs= "+init=epsg:4326") %>%
@@ -299,14 +313,14 @@ server <- function(input, output) {
                          fillOpacity = 0,
                          weight = 0.5,
                          color= "black") %>%
-             addPolygons(label= paste0(ano_ODSSpr()$DEPARTAMEN,': ', ano_ODSSpr()$ODS2_2_1,"%"),
+             addPolygons(label= paste0(ano_ODSSpr()$DEPARTAMEN,': ', ano_ODSSpr()$ODS2.2.1,"%"),
                          stroke = TRUE, 
                          smoothFactor =  .5,
                          opacity = 1,
                          fillOpacity = 0.7,
                          color= "grey",
                          weight = 0.5,
-                         fillColor = ~pal5(ano_ODSSpr()$ODS2_2_1),
+                         fillColor = ~pal5(ano_ODSSpr()$ODS2.2.1),
                          highlightOptions = highlightOptions(weight = 2,
                                                              fillOpacity= 1,
                                                              color = "grey",
@@ -314,20 +328,20 @@ server <- function(input, output) {
                                                              bringToFront = TRUE)) %>%
              leaflet::addLegend("bottomright",
                                 pal = pal5,
-                                values = ~ODS2_2_1,
+                                values = ~ODS2.2.1,
                                 title= "Porcentaje (%)",
                                 opacity= 0.7)
      })
      
-     output$table2_2_1 = renderDT({
-         datatable(ano_ODSSpr()[c("DEPARTAMEN","ODS2_2_1")], 
-                   colnames = c('Departamento' = 'DEPARTAMEN','Porcentaje' = 'ODS2_2_1'),
+     output$table2.2.1 = renderDT({
+         datatable(ano_ODSSpr()[c("DEPARTAMEN","ODS2.2.1")], 
+                   colnames = c('Departamento' = 'DEPARTAMEN','Porcentaje' = 'ODS2.2.1'),
                    filter = 'top',
                    options = list(pageLength = 13
                    ))})
      
      output$desnutriaguda = renderLeaflet({
-         pal5 = colorNumeric(palette = "YlOrBr", domain = ODSSpr$ODS2_2_2)
+         pal5 = colorNumeric(palette = "YlOrBr", domain = ODSSpr$ODS2.2.2)
          
          ano_ODSSpr()  %>% 
              st_transform(crs= "+init=epsg:4326") %>%
@@ -340,14 +354,14 @@ server <- function(input, output) {
                          fillOpacity = 0,
                          weight = 0.5,
                          color= "black") %>%
-             addPolygons(label= paste0(ano_ODSSpr()$DEPARTAMEN,': ', ano_ODSSpr()$ODS2_2_2,"%"),
+             addPolygons(label= paste0(ano_ODSSpr()$DEPARTAMEN,': ', ano_ODSSpr()$ODS2.2.2,"%"),
                          stroke = TRUE, 
                          smoothFactor =  .5,
                          opacity = 1,
                          fillOpacity = 0.7,
                          color= "grey",
                          weight = 0.5,
-                         fillColor = ~pal5(ano_ODSSpr()$ODS2_2_2),
+                         fillColor = ~pal5(ano_ODSSpr()$ODS2.2.2),
                          highlightOptions = highlightOptions(weight = 2,
                                                              fillOpacity= 1,
                                                              color = "grey",
@@ -355,14 +369,14 @@ server <- function(input, output) {
                                                              bringToFront = TRUE)) %>%
              leaflet::addLegend("bottomright",
                                 pal = pal5,
-                                values = ~ODS2_2_2,
+                                values = ~ODS2.2.2,
                                 title= "Porcentaje (%)",
                                 opacity= 0.7)
      })
      
-     output$table2_2_2 = renderDT({
-         datatable(ano_ODSSpr()[c("DEPARTAMEN","ODS2_2_2")], 
-                   colnames = c('Departamento' = 'DEPARTAMEN','Porcentaje' = 'ODS2_2_2'),
+     output$table2.2.2 = renderDT({
+         datatable(ano_ODSSpr()[c("DEPARTAMEN","ODS2.2.2")], 
+                   colnames = c('Departamento' = 'DEPARTAMEN','Porcentaje' = 'ODS2.2.2'),
                    filter = 'top',
                    options = list(pageLength = 13
                    ))})
