@@ -21,8 +21,11 @@ library(shinyWidgets)
 library(RColorBrewer)
 library(stringi)
 
-ODSSpr = import("https://github.com/ChiaraZamoraM/ODS/raw/main/ODSShiny.RDS")
-#ODSSpr$DEPARTAMENTO= gsub("Provincias de Lima","LIMA PROVINCIAS",ODSSpr$DEPARTAMENTO)
+ODSShiny = import("https://github.com/ChiaraZamoraM/ODS/raw/main/ODSShiny.RDS")
+
+ODSShiny2 = import("https://github.com/ChiaraZamoraM/ODS/raw/main/ODSShinySinGeom.RDS")
+
+#ODSShiny$DEPARTAMENTO= gsub("Provincias de Lima","LIMA PROVINCIAS",ODSShiny$DEPARTAMENTO)
 
 #download.file("https://github.com/ChiaraZamoraM/ODS/raw/main/Departamentos_Peru/mapa_depas_Lima.zip", 
  #             destfile = "mapa_depas_Lima.zip" , mode='wb')
@@ -31,9 +34,9 @@ ODSSpr = import("https://github.com/ChiaraZamoraM/ODS/raw/main/ODSShiny.RDS")
 
 #mapa <- st_read("mapa_depas_Lima.shp")
 
-#ODSSpr$DEPARTAMENTO= stri_trans_general(str = toupper(ODSSpr$DEPARTAMENTO), id = "Latin-ASCII")
+#ODSShiny$DEPARTAMENTO= stri_trans_general(str = toupper(ODSShiny$DEPARTAMENTO), id = "Latin-ASCII")
 
-#ODSSpr = merge(mapa, ODSSpr,
+#ODSShiny = merge(mapa, ODSShiny,
 #                by.x='DEPARTAMEN',by.y="DEPARTAMENTO")
 
 download.file("https://github.com/ChiaraZamoraM/ODS/raw/main/Provincias_Peru/Provincias_Peru.zip", 
@@ -58,10 +61,13 @@ ui <-  dashboardPage(
     
     
      dashboardSidebar(
-        h5("Este es un Shiny App de prueba."),
+        h5("
+           Este es un Shiny App de prueba.
+           
+           "),
         selectInput("ano",
                     "Seleccione una fecha",
-                    choices = unique(ODSSpr$Ano)
+                    choices = unique(ODSShiny$Ano)
             ),
         tags$a(href="http://ods.inei.gob.pe/ods/objetivos-de-desarrollo-sostenible",
                "Referencia de los datos",
@@ -121,6 +127,22 @@ ui <-  dashboardPage(
                                   fluidRow(column(6,leafletOutput("desnutriaguda", height = 650)),
                                            column(6,dataTableOutput("table2.2.2", height = 650))))
                      )
+            ),
+            tabPanel(h4("ODS 3: Salud y Bienestar"),
+                     tabsetPanel(
+                       tabPanel("2.2.1",
+                                titlePanel(h2("Indicador 2.2.1. Tasa de desnutrición crónica entre las niñas y niños menores de 5 años",
+                                              style= subtitulo)
+                                ),
+                                fluidRow(column(6,leafletOutput("desnutricronica", height = 650)),
+                                         column(6,dataTableOutput("table2.2.1", height = 650)))),
+                       tabPanel("2.2.2",
+                                titlePanel(h2("Indicador 2.2.2. Tasa de desnutrición aguda entre las niñas y niños menores de 5 años",
+                                              style= subtitulo)
+                                ),
+                                fluidRow(column(6,leafletOutput("desnutriaguda", height = 650)),
+                                         column(6,dataTableOutput("table2.2.2", height = 650))))
+                     )
             )
         )
 ))
@@ -129,15 +151,20 @@ ui <-  dashboardPage(
 
 server <- function(input, output) {
 
-     ano_ODSSpr <- reactive({
-        y    <- ODSSpr %>% filter(Ano == input$ano)
+     ano_ODSShiny <- reactive({
+        y    <- ODSShiny %>% filter(Ano == input$ano)
         return(y)
      })
      
+     #ano_ODSShiny2 <- reactive({
+      # y    <- ODSShiny2 %>% filter(Ano == input$ano)
+       #return(y)
+     #})
+     
      output$pobrezaex = renderLeaflet({
-         pal1 = colorNumeric(palette = "Reds", domain = ODSSpr$ODS1.1.1)
+         pal1 = colorNumeric(palette = "Reds", domain = ODSShiny$ODS1.1.1)
          
-         ano_ODSSpr()  %>% 
+         ano_ODSShiny()  %>% 
              st_transform(crs= "+init=epsg:4326") %>%
              leaflet() %>%
              addProviderTiles(provider= "CartoDB.Positron") %>%
@@ -148,14 +175,14 @@ server <- function(input, output) {
                          fillOpacity = 0,
                          weight = 0.5,
                          color= "black") %>%
-             addPolygons(label= paste0(ano_ODSSpr()$DEPARTAMEN,': ', ano_ODSSpr()$ODS1.1.1,"%"),
+             addPolygons(label= paste0(ano_ODSShiny()$DEPARTAMEN,': ', ano_ODSShiny()$ODS1.1.1,"%"),
                          stroke = TRUE, 
                          smoothFactor =  .5,
                          opacity = 1,
                          fillOpacity = 0.7,
                          color= "grey",
                          weight = 0.5,
-                         fillColor = ~pal1(ano_ODSSpr()$ODS1_1_1),
+                         fillColor = ~pal1(ano_ODSShiny()$ODS1.1.1),
                          highlightOptions = highlightOptions(weight = 2,
                                                              fillOpacity= 1,
                                                              color = "grey",
@@ -169,7 +196,7 @@ server <- function(input, output) {
      })
      
      output$table1_1_1 = renderDT({
-         datatable(ano_ODSSpr()[c("DEPARTAMEN","ODS1_1_1")], 
+         datatable(ano_ODSShiny()[c("DEPARTAMEN","ODS1.1.1")], 
                    colnames = c('Departamento' = 'DEPARTAMEN','Porcentaje' = 'ODS1.1.1'),
                    filter = 'top',
                    options = list(pageLength = 13
@@ -177,9 +204,9 @@ server <- function(input, output) {
      
      
      output$pobrezatot = renderLeaflet({
-         pal2 = colorNumeric(palette = "Reds", domain = ODSSpr$ODS1.2.1)
+         pal2 = colorNumeric(palette = "Reds", domain = ODSShiny$ODS1.2.1)
          
-         ano_ODSSpr()  %>% 
+         ano_ODSShiny()  %>% 
              st_transform(crs= "+init=epsg:4326") %>%
              leaflet() %>%
              addProviderTiles(provider= "CartoDB.Positron")%>%
@@ -190,14 +217,14 @@ server <- function(input, output) {
                          fillOpacity = 0,
                          weight = 0.5,
                          color= "black") %>%
-             addPolygons(label= paste0(ano_ODSSpr()$DEPARTAMEN,': ', ano_ODSSpr()$ODS1.2.1,"%"),
+             addPolygons(label= paste0(ano_ODSShiny()$DEPARTAMEN,': ', ano_ODSShiny()$ODS1.2.1,"%"),
                          stroke = TRUE, 
                          smoothFactor =  .5,
                          opacity = 1,
                          fillOpacity = 0.7,
                          color= "grey",
                          weight = 0.5,
-                         fillColor = ~pal2(ano_ODSSpr()$ODS1.2.1),
+                         fillColor = ~pal2(ano_ODSShiny()$ODS1.2.1),
                          highlightOptions = highlightOptions(weight = 2,
                                                              fillOpacity= 1,
                                                              color = "grey",
@@ -211,16 +238,16 @@ server <- function(input, output) {
                        opacity= 0.7) 
      })
      output$table1.2.1 = renderDT({
-         datatable(ano_ODSSpr()[c("DEPARTAMEN","ODS1.2.1")], 
+         datatable(ano_ODSShiny()[c("DEPARTAMEN","ODS1.2.1")], 
                    colnames = c('Departamento' = 'DEPARTAMEN','Porcentaje' = 'ODS1.2.1'),
                    filter = 'top',
                    options = list(pageLength = 13
                    ))})
      
      output$pension = renderLeaflet({
-         pal3 = colorNumeric(palette = "Reds", domain = ODSSpr$ODS1.3.1)
+         pal3 = colorNumeric(palette = "Reds", domain = ODSShiny$ODS1.3.1)
          
-         ano_ODSSpr()  %>% 
+         ano_ODSShiny()  %>% 
              st_transform(crs= "+init=epsg:4326") %>%
              leaflet() %>%
              addProviderTiles(provider= "CartoDB.Positron") %>%
@@ -231,12 +258,12 @@ server <- function(input, output) {
                          fillOpacity = 0,
                          weight = 0.5,
                          color= "black")%>%
-             addPolygons(label= paste0(ano_ODSSpr()$DEPARTAMEN,': ', ano_ODSSpr()$ODS1.3.1,"%"),
+             addPolygons(label= paste0(ano_ODSShiny()$DEPARTAMEN,': ', ano_ODSShiny()$ODS1.3.1,"%"),
                          stroke = TRUE, 
                          smoothFactor =  .5,
                          opacity = 1,
                          fillOpacity = 0.7,
-                         fillColor = ~pal3(ano_ODSSpr()$ODS1.3.1),
+                         fillColor = ~pal3(ano_ODSShiny()$ODS1.3.1),
                          color="grey",
                          weight = 0.5,
                          highlightOptions = highlightOptions(weight = 2,
@@ -252,16 +279,16 @@ server <- function(input, output) {
                        opacity= 0.7) 
      })
      output$table1.3.1 = renderDT({
-         datatable(ano_ODSSpr()[c("DEPARTAMEN","ODS1.4.1")], 
+         datatable(ano_ODSShiny()[c("DEPARTAMEN","ODS1.4.1")], 
                    colnames = c('Departamento' = 'DEPARTAMEN','Porcentaje' = 'ODS1.4.1'),
                    filter = 'top',
                    options = list(pageLength = 13
                    ))})
      
      output$servbasicos = renderLeaflet({
-         pal4 = colorNumeric(palette = "Reds", domain = ODSSpr$ODS1.4.1)
+         pal4 = colorNumeric(palette = "Reds", domain = ODSShiny$ODS1.4.1)
          
-         ano_ODSSpr()  %>% 
+         ano_ODSShiny()  %>% 
              st_transform(crs= "+init=epsg:4326") %>%
              leaflet() %>%
              addProviderTiles(provider= "CartoDB.Positron") %>%
@@ -272,12 +299,12 @@ server <- function(input, output) {
                          fillOpacity = 0,
                          weight = 0.5,
                          color= "black")%>%
-             addPolygons(label= paste0(ano_ODSSpr()$DEPARTAMEN,': ', ano_ODSSpr()$ODS1.4.1,"%"),
+             addPolygons(label= paste0(ano_ODSShiny()$DEPARTAMEN,': ', ano_ODSShiny()$ODS1.4.1,"%"),
                          stroke = TRUE, 
                          smoothFactor =  .5,
                          opacity = 1,
                          fillOpacity = 0.7,
-                         fillColor = ~pal4(ano_ODSSpr()$ODS1.4.1),
+                         fillColor = ~pal4(ano_ODSShiny()$ODS1.4.1),
                          color= "grey",
                          weight = 0.5,
                          highlightOptions = highlightOptions(weight = 2,
@@ -293,16 +320,16 @@ server <- function(input, output) {
                        opacity= 0.7) 
      })
      output$table1.4.1 = renderDT({
-         datatable(ano_ODSSpr()[c("DEPARTAMEN","ODS1.4.1")], 
+         datatable(ano_ODSShiny()[c("DEPARTAMEN","ODS1.4.1")], 
                    colnames = c('Departamento' = 'DEPARTAMEN','Porcentaje' = 'ODS1.4.1'),
                    filter = 'top',
                    options = list(pageLength = 13
                    ))})
      
      output$desnutricronica = renderLeaflet({
-         pal5 = colorNumeric(palette = "YlOrBr", domain = ODSSpr$ODS2.2.1)
+         pal5 = colorNumeric(palette = "YlOrBr", domain = ODSShiny$ODS2.2.1)
          
-         ano_ODSSpr()  %>% 
+         ano_ODSShiny()  %>% 
              st_transform(crs= "+init=epsg:4326") %>%
              leaflet() %>%
              addProviderTiles(provider= "CartoDB.Positron") %>%
@@ -313,14 +340,14 @@ server <- function(input, output) {
                          fillOpacity = 0,
                          weight = 0.5,
                          color= "black") %>%
-             addPolygons(label= paste0(ano_ODSSpr()$DEPARTAMEN,': ', ano_ODSSpr()$ODS2.2.1,"%"),
+             addPolygons(label= paste0(ano_ODSShiny()$DEPARTAMEN,': ', ano_ODSShiny()$ODS2.2.1,"%"),
                          stroke = TRUE, 
                          smoothFactor =  .5,
                          opacity = 1,
                          fillOpacity = 0.7,
                          color= "grey",
                          weight = 0.5,
-                         fillColor = ~pal5(ano_ODSSpr()$ODS2.2.1),
+                         fillColor = ~pal5(ano_ODSShiny()$ODS2.2.1),
                          highlightOptions = highlightOptions(weight = 2,
                                                              fillOpacity= 1,
                                                              color = "grey",
@@ -334,16 +361,16 @@ server <- function(input, output) {
      })
      
      output$table2.2.1 = renderDT({
-         datatable(ano_ODSSpr()[c("DEPARTAMEN","ODS2.2.1")], 
+         datatable(ano_ODSShiny()[c("DEPARTAMEN","ODS2.2.1")], 
                    colnames = c('Departamento' = 'DEPARTAMEN','Porcentaje' = 'ODS2.2.1'),
                    filter = 'top',
                    options = list(pageLength = 13
                    ))})
      
      output$desnutriaguda = renderLeaflet({
-         pal5 = colorNumeric(palette = "YlOrBr", domain = ODSSpr$ODS2.2.2)
+         pal5 = colorNumeric(palette = "YlOrBr", domain = ODSShiny$ODS2.2.2)
          
-         ano_ODSSpr()  %>% 
+         ano_ODSShiny()  %>% 
              st_transform(crs= "+init=epsg:4326") %>%
              leaflet() %>%
              addProviderTiles(provider= "CartoDB.Positron") %>%
@@ -354,14 +381,14 @@ server <- function(input, output) {
                          fillOpacity = 0,
                          weight = 0.5,
                          color= "black") %>%
-             addPolygons(label= paste0(ano_ODSSpr()$DEPARTAMEN,': ', ano_ODSSpr()$ODS2.2.2,"%"),
+             addPolygons(label= paste0(ano_ODSShiny()$DEPARTAMEN,': ', ano_ODSShiny()$ODS2.2.2,"%"),
                          stroke = TRUE, 
                          smoothFactor =  .5,
                          opacity = 1,
                          fillOpacity = 0.7,
                          color= "grey",
                          weight = 0.5,
-                         fillColor = ~pal5(ano_ODSSpr()$ODS2.2.2),
+                         fillColor = ~pal5(ano_ODSShiny()$ODS2.2.2),
                          highlightOptions = highlightOptions(weight = 2,
                                                              fillOpacity= 1,
                                                              color = "grey",
@@ -375,7 +402,7 @@ server <- function(input, output) {
      })
      
      output$table2.2.2 = renderDT({
-         datatable(ano_ODSSpr()[c("DEPARTAMEN","ODS2.2.2")], 
+         datatable(ano_ODSShiny()[c("DEPARTAMEN","ODS2.2.2")], 
                    colnames = c('Departamento' = 'DEPARTAMEN','Porcentaje' = 'ODS2.2.2'),
                    filter = 'top',
                    options = list(pageLength = 13

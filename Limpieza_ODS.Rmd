@@ -1174,9 +1174,17 @@ ODSSpr$Ano = as.Date(as.character(ODSSpr$Ano), format = "%Y")
 ODSShiny = ODSSpr
 
 ODSShiny$Ano = year(ODSShiny$Ano)
+```
 
+```{r}
+saveRDS(ODSShiny, "ODSShinySinGeom.RDS")
+```
+
+```{r, warning=FALSE, message=FALSE}
 ODSShiny$DEPARTAMENTO= gsub("Provincias de Lima","LIMA PROVINCIAS",ODSShiny$DEPARTAMENTO)
-``` 
+
+ODSShiny$DEPARTAMENTO= stri_trans_general(str = toupper(ODSShiny$DEPARTAMENTO), id = "Latin-ASCII")
+```
 
 ```{r}
 download.file("https://github.com/ChiaraZamoraM/ODS/raw/main/Departamentos_Peru/mapa_depas_Lima.zip", 
