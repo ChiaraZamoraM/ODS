@@ -1182,6 +1182,8 @@ saveRDS(ODSShiny, "ODSShinySinGeom.RDS")
 
 ```{r, warning=FALSE, message=FALSE}
 ODSShiny$DEPARTAMENTO= gsub("Provincias de Lima","LIMA PROVINCIAS",ODSShiny$DEPARTAMENTO)
+ODSShiny$DEPARTAMENTO= gsub("Lima Metropolitana","LIMA",ODSShiny$DEPARTAMENTO)
+ODSShiny$DEPARTAMENTO= gsub("Lima","Departamento de Lima",ODSShiny$DEPARTAMENTO)
 
 ODSShiny$DEPARTAMENTO= stri_trans_general(str = toupper(ODSShiny$DEPARTAMENTO), id = "Latin-ASCII")
 ```

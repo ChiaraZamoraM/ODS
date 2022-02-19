@@ -23,7 +23,7 @@ library(stringi)
 
 ODSShiny = import("https://github.com/ChiaraZamoraM/ODS/raw/main/ODSShiny.RDS")
 
-ODSShiny2 = import("https://github.com/ChiaraZamoraM/ODS/raw/main/ODSShinySinGeom.RDS")
+#ODSShiny2 = import("https://github.com/ChiaraZamoraM/ODS/raw/main/ODSShinySinGeom.RDS")
 
 #ODSShiny$DEPARTAMENTO= gsub("Provincias de Lima","LIMA PROVINCIAS",ODSShiny$DEPARTAMENTO)
 
@@ -125,22 +125,6 @@ ui <-  dashboardPage(
                                   ),
                                   fluidRow(column(6,leafletOutput("desnutriaguda", height = 650)),
                                            column(6,dataTableOutput("table2.2.2", height = 650))))
-                     )
-            ),
-            tabPanel(h4("ODS 3: Salud y Bienestar"),
-                     tabsetPanel(
-                       tabPanel("2.2.1",
-                                titlePanel(h2("Indicador 2.2.1. Tasa de desnutrición crónica entre las niñas y niños menores de 5 años",
-                                              style= subtitulo)
-                                ),
-                                fluidRow(column(6,leafletOutput("desnutricronica", height = 650)),
-                                         column(6,dataTableOutput("table2.2.1", height = 650)))),
-                       tabPanel("2.2.2",
-                                titlePanel(h2("Indicador 2.2.2. Tasa de desnutrición aguda entre las niñas y niños menores de 5 años",
-                                              style= subtitulo)
-                                ),
-                                fluidRow(column(6,leafletOutput("desnutriaguda", height = 650)),
-                                         column(6,dataTableOutput("table2.2.2", height = 650))))
                      )
             )
         )
