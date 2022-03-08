@@ -1212,6 +1212,7 @@ ODSShiny$DEPARTAMENTO= stri_trans_general(str = toupper(ODSShiny$DEPARTAMENTO), 
 #ODSShiny = merge(mapa, ODSShiny,
              #   by.x='DEPARTAMEN',by.y="DEPARTAMENTO")
 
+ODSShiny = subset(ODSShiny, Ano> 2014)
 saveRDS(ODSShiny, "ODSShiny.RDS")
 ```
 

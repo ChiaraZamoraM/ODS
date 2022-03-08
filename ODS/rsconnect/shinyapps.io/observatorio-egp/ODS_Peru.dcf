@@ -5,9 +5,9 @@ account: observatorio-egp
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 5444764
-bundleId: 5469988
+bundleId: 5631468
 url: https://observatorio-egp.shinyapps.io/ODS_Peru/
-when: 1642195740.06279
-lastSyncTime: 1642195740.06279
+when: 1646192484.20698
+lastSyncTime: 1646192484.20698
 asMultiple: FALSE
 asStatic: FALSE
